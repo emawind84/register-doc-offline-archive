@@ -1,0 +1,31 @@
+﻿insert into register (
+	docno,
+	title,
+	organization,
+	REVISION,
+	MODIFIED,
+	MODIFIED_BY,
+	int_cd,
+	descr,
+	discipline,
+	review_status,
+	doc_status,
+	doc_type,
+	doc_version,
+	doc_current
+) values (
+	@docno,
+	@title,
+	@organization,
+	@revision,
+	@modified,
+	@modified_by,
+	@int_cd,
+	@descr,
+	@discipline,
+	@review_status,
+	@status,
+	@type,
+	@version,
+	@current
+);
