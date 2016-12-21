@@ -67,7 +67,14 @@ namespace db_test
                         doc = new RegisterDocument
                         {
                             DocumentNumber = reader["docno"].ToString(),
-                            Title = reader["title"].ToString()
+                            Title = reader["title"].ToString(),
+                            Discipline = reader["discipline"].ToString(),
+                            Modified = reader["modified"].ToString(),
+                            ModifiedBy = reader["modified_by"].ToString(),
+                            ReviewStatus = reader["review_status"].ToString(),
+                            Revision = reader["revision"].ToString(),
+                            Status = reader["doc_status"].ToString(),
+                            Version = reader["doc_version"].ToString()
                         };
                     }
                 }

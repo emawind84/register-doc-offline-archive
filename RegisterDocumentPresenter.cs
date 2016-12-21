@@ -9,10 +9,10 @@ namespace db_test
 {
     class RegisterDocumentPresenter
     {
-        private RegisterDocumentView _form;
+        private RegisterDocumentMainForm _form;
         private RegisterDocumentDataService _service;
 
-        public RegisterDocumentPresenter(RegisterDocumentView form, RegisterDocumentDataService service)
+        public RegisterDocumentPresenter(RegisterDocumentMainForm form, RegisterDocumentDataService service)
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowRegisterDocumentInfo;
@@ -21,15 +21,18 @@ namespace db_test
         }
 
         private void ShowRegisterDocumentInfo(object sender, EventArgs e) {
-            RegisterDocument doc = _service.GetByDocumentNumber(_form.DocumentNumber);
+            var docView = _form.RegisterDocumentDetailView;
+            RegisterDocument doc = _service.GetByDocumentNumber(docView.DocumentNumber);
 
-            _form.DocumentNumber = doc.DocumentNumber;
-            _form.DocumentTitle = doc.Title;
+            docView.DocumentNumber = doc.DocumentNumber;
+            docView.DocumentTitle = doc.Title;
+            docView.DocumentRevision = doc.Revision;
+            docView.DocumentStatus = doc.Status;
         }
 
         private void ShowRegisterDocumentList(object sender, EventArgs e)
         {
-            DataTable dt = _service.SearchDocument(_form.SearchText);
+            DataTable dt = _service.SearchDocument();
 
             _form.DocumentList = dt;
         }

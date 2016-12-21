@@ -12,20 +12,26 @@ using System.IO;
 
 namespace db_test
 {
-    public partial class RegisterDocumentView : Form
+    public partial class RegisterDocumentMainForm : Form
     {
         private SQLiteConnection m_dbConnection;
         private RegisterDocumentDataService registerDocumentDataService;
         private RegisterDocumentPresenter registerDocumentPresenter;
+        private RegisterDocumentDetailView registerDocumentDetailView;
         private BindingSource fileManagerBS;
 
         private string db_filename = "test.db";
         private string connectionString;
 
+        public RegisterDocumentDetailView RegisterDocumentDetailView
+        {
+            get { return this.registerDocumentDetailView; }
+        }
+
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
 
-        public RegisterDocumentView()
+        public RegisterDocumentMainForm()
         {
             InitializeComponent();
         }
@@ -36,15 +42,16 @@ namespace db_test
 
             registerDocumentDataService = new RegisterDocumentDataService(m_dbConnection);
             registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+            registerDocumentDetailView = new RegisterDocumentDetailView(this);
 
             fileManagerBS = new BindingSource();
             fileManagerBS.DataSource = new List<RegisterFile>();
             fileManagerBS.AllowNew = false;
-            dataGridView2.AutoGenerateColumns = false;
-            dataGridView2.DataSource = fileManagerBS;
+            fileManagerDataGridView.AutoGenerateColumns = false;
+            fileManagerDataGridView.DataSource = fileManagerBS;
 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AutoGenerateColumns = false;
+            registerDataGridView.AllowUserToAddRows = false;
+            registerDataGridView.AutoGenerateColumns = false;
 
             showRegisterList();
             //testDB();
@@ -52,37 +59,23 @@ namespace db_test
 
         public object DocumentList
         {
-            set { dataGridView1.DataSource = value; }
-        }
-
-        public string SearchText
-        {
-            get { return searchBox.Text; }
-        }
-
-        public string DocumentNumber
-        {
-            get { return label8.Text; }
-            set { label8.Text = value; }
-        }
-
-        public string DocumentTitle
-        {
-            get { return label9.Text; }
-            set { label9.Text = value; }
+            set { registerDataGridView.DataSource = value; }
         }
 
         private void GetRegisterDocumentInfoButton_Click(object sender, DataGridViewCellEventArgs e)
         {
-            string docno = (string)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            this.DocumentNumber = docno;
+            if (e.RowIndex == -1) { return; }
+
+            //string docno = (string)registerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            var dr = registerDataGridView.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            this.registerDocumentDetailView.DocumentNumber = Convert.ToString(dr["docno"]);
 
             if (OnShowRegisterDocumentInfo != null)
             {
                 OnShowRegisterDocumentInfo(this, EventArgs.Empty);
             }
             
-            showFileList(docno);
+            showFileList(this.registerDocumentDetailView.DocumentNumber);
         }
 
         private void InitDB() {
@@ -171,24 +164,6 @@ namespace db_test
                 OnShowRegisterDocumentList(this, EventArgs.Empty);
         }
 
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            RegisterFile file = dataGridView2.Rows[e.RowIndex].DataBoundItem as RegisterFile;
-            Console.WriteLine(file);
-            openRegisterFile(file);
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string cellname = dataGridView2.Rows[e.RowIndex].DataGridView.Columns[e.ColumnIndex].DataPropertyName;
-            if(cellname.Equals("open_location"))
-            {
-                RegisterFile file = dataGridView2.Rows[e.RowIndex].DataBoundItem as RegisterFile;
-                openRegisterFileLocation(file);
-            }
-            
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             showRegisterList();
@@ -204,9 +179,37 @@ namespace db_test
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void fileManagerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) { return; }
+
+            string cellname = fileManagerDataGridView.Rows[e.RowIndex].DataGridView.Columns[e.ColumnIndex].DataPropertyName;
+            if (cellname.Equals("open_location"))
+            {
+                RegisterFile file = fileManagerDataGridView.Rows[e.RowIndex].DataBoundItem as RegisterFile;
+                openRegisterFileLocation(file);
+            }
+        }
+
+        private void fileManagerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) { return; }
+
+            RegisterFile file = fileManagerDataGridView.Rows[e.RowIndex].DataBoundItem as RegisterFile;
+            Console.WriteLine(file);
+            openRegisterFile(file);
+        }
+
+        private void toolStripSeparator1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void registerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) { return; }
+
+            tabControl1.SelectedIndex = 1;
         }
     }
 }

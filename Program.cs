@@ -16,7 +16,7 @@ namespace db_test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterDocumentView());
+            Application.Run(new RegisterDocumentMainForm());
         }
     }
 }
