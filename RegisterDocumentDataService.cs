@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.IO;
 using System.Data;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace db_test
 {
@@ -85,13 +87,40 @@ namespace db_test
             return doc;
         }
 
-        public void ImportCSVFile(string csvfile)
+        public void ImportData(List<RegisterDocument> docs)
         {
-            FileStream fs = new FileStream(csvfile, FileMode.Open, FileAccess.Read);
-
             string filepath = Path.Combine(projectFolder, @"db.register.import.sql");
             string sql = File.ReadAllText(filepath);
 
+            foreach(RegisterDocument d in docs)
+            {
+                SQLiteCommand cmd = new SQLiteCommand(sql, _dbConnection);
+                cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
+                cmd.Parameters.AddWithValue("@title", d.Title);
+                cmd.Parameters.AddWithValue("@discipline", d.Discipline);
+                cmd.Parameters.AddWithValue("@revision", d.Revision);
+                cmd.Parameters.AddWithValue("@version", d.Version);
+                cmd.Parameters.AddWithValue("@status", d.Status);
+                cmd.Parameters.AddWithValue("@int_cd", d.InternalNumber);
+                cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
+                cmd.Parameters.AddWithValue("@modified_by", d.ModifiedBy);
+                cmd.Parameters.AddWithValue("@modified", d.Modified);
+                cmd.Parameters.AddWithValue("@organization", "N/A");
+                cmd.Parameters.AddWithValue("@descr", "N/A");
+                cmd.Parameters.AddWithValue("@type", "N/A");
+                cmd.Parameters.AddWithValue("@current", "0");
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+
+                Console.WriteLine("Adding register data: {0}", d);
+            }
+        }
+
+        public void ImportCSVFile(string csvfile)
+        {
+            FileStream fs = new FileStream(csvfile, FileMode.Open, FileAccess.Read);
+            List<RegisterDocument> docs = new List<RegisterDocument>();
             using (StreamReader reader = new StreamReader(fs, Encoding.Default))
             {
                 reader.ReadLine();  // skip header
@@ -100,28 +129,56 @@ namespace db_test
                     var line = reader.ReadLine();
                     var values = line.Split(',');
 
-                    SQLiteCommand cmd = new SQLiteCommand(sql, _dbConnection);
-                    cmd.Parameters.AddWithValue("@docno", values[4]);
-                    cmd.Parameters.AddWithValue("@title", values[5]);
-                    cmd.Parameters.AddWithValue("@discipline", values[6]);
-                    cmd.Parameters.AddWithValue("@revision", values[7]);
-                    cmd.Parameters.AddWithValue("@version", values[8]);
-                    cmd.Parameters.AddWithValue("@status", values[10]);
-                    cmd.Parameters.AddWithValue("@int_cd", values[11]);
-                    cmd.Parameters.AddWithValue("@review_status", values[13]);
-                    cmd.Parameters.AddWithValue("@modified_by", values[14]);
-                    cmd.Parameters.AddWithValue("@modified", values[15]);
-                    cmd.Parameters.AddWithValue("@organization", "N/A");
-                    cmd.Parameters.AddWithValue("@descr", "N/A");
-                    cmd.Parameters.AddWithValue("@type", "N/A");
-                    cmd.Parameters.AddWithValue("@current", "0");
-
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-
-                    Console.WriteLine("Adding register data: {0}", line);
+                    RegisterDocument d = new RegisterDocument();
+                    d.DocumentNumber = values[4];
+                    d.Title = values[5];
+                    d.Discipline = values[6];
+                    d.Revision = values[7];
+                    d.Version = values[8];
+                    d.Status = values[9];
+                    
+                    docs.Add(d);
                 }
             }
+
+            ImportData(docs);
+        }
+
+        public String ImportFromWebService() {
+            string url = "http://dev.sangah.com/Doc/Register/loadDocList.action?forward=json&pjt_cd=GLB_PMIS&access_token=ZGlzY28xMjM0OltCQDZkMDhhNzg1";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            try
+            {
+                WebResponse response = request.GetResponse();
+                using (Stream responseStream = response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
+                    var result = reader.ReadToEnd();
+                    //Console.WriteLine(result);
+                    PmisJsonResponse<RegisterDocument> dt = JsonConvert.DeserializeObject<PmisJsonResponse<RegisterDocument>>(result);
+                    ImportData(dt.List);
+
+                    return result;
+                }
+            }
+            catch (WebException ex)
+            {
+                WebResponse errorResponse = ex.Response;
+                using (Stream responseStream = errorResponse.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
+                    String errorText = reader.ReadToEnd();
+                    // log errorText
+                }
+                throw;
+            }
+        }
+
+        public void DeleteRegisterData() {
+            string sql = "delete from register";
+            SQLiteCommand command = new SQLiteCommand(sql, _dbConnection);
+            command.ExecuteNonQuery();
+            command.Dispose();
         }
     }
 }
