@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace db_test
+namespace pmis
 {
-    class RegisterDocument
+    public class RegisterDocument
     {
 
         [JsonProperty("matrl_draw_no")]
@@ -16,6 +16,7 @@ namespace db_test
         [JsonProperty("matrl_name")]
         public string Title { get; set; }
 
+        [JsonProperty("revision")]
         public string Revision { get; set; }
 
         [JsonProperty("hist_date")]
@@ -35,11 +36,11 @@ namespace db_test
         [JsonProperty("review_status_nm")]
         public string ReviewStatus { get; set; }
 
-        [JsonProperty("mod_name")]
-        public string ModifiedBy { get; set; }
+        [JsonProperty("reg_name")]
+        public string RegisteredBy { get; set; }
 
-        [JsonProperty("modit")]
-        public string Modified { get; set; }
+        [JsonProperty("long_reg_date")]
+        public string Registered { get; set; }
 
         [JsonProperty("int_cd")]
         public string InternalNumber { get; set; }
@@ -47,5 +48,18 @@ namespace db_test
         [JsonProperty("reg_entprs_nm")]
         public string Organization { get; set; }
 
+        [JsonProperty("top_revision")]
+        public string Current { get; set; }
+
+        [JsonProperty("descr")]
+        public string Note { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("Doocument [{0}, ver={1}]",
+                DocumentNumber,
+                Version );
+
+        }
     }
 }

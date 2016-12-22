@@ -9,27 +9,38 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
+using pmis.reviewinfo;
 
-namespace db_test
+namespace pmis
 {
     public partial class RegisterDocumentMainForm : Form
     {
-        private SQLiteConnection m_dbConnection;
+        private SQLiteDAOService sqliteDaoService;
         private RegisterDocumentDataService registerDocumentDataService;
         private RegisterDocumentPresenter registerDocumentPresenter;
         private RegisterDocumentDetailView registerDocumentDetailView;
+        private ReviewInfoPresenter reviewInfoPresenter;
+        private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
 
+        public event EventHandler OnShowRegisterDocumentInfo;
+        public event EventHandler OnShowRegisterDocumentList;
+
         private string db_filename = "test.db";
-        private string connectionString;
 
         public RegisterDocumentDetailView RegisterDocumentDetailView
         {
             get { return this.registerDocumentDetailView; }
         }
 
-        public event EventHandler OnShowRegisterDocumentInfo;
-        public event EventHandler OnShowRegisterDocumentList;
+        public string SearchCriteriaDocNumber {
+            get { return srchNumber.Text; }
+        }
+
+        public string SearchCriteriaFromDate
+        {
+            get { return srchFromDate.Text; }
+        }
 
         public RegisterDocumentMainForm()
         {
@@ -38,28 +49,68 @@ namespace db_test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            InitDB();
+            sqliteDaoService = new SQLiteDAOService(db_filename);
+            var conn = sqliteDaoService.InitDB();
 
-            registerDocumentDataService = new RegisterDocumentDataService(m_dbConnection);
+            registerDocumentDataService = new RegisterDocumentDataService(sqliteDaoService);
             registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
             registerDocumentDetailView = new RegisterDocumentDetailView(this);
+            registerDataGridView.AllowUserToAddRows = false;
+            registerDataGridView.AutoGenerateColumns = false;
+            registerDocumentDataService.ImportErrorHandler += ImportErrorHandler;
+
+            reviewInfoDataService = new ReviewInfoDataService(conn);
+            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService);
+            reviewDataGridView.AutoGenerateColumns = false;
+            reviewDataGridView.AllowUserToAddRows = false;
+            reviewInfoDataService.ImportErrorHandler += ImportErrorHandler;
 
             fileManagerBS = new BindingSource();
             fileManagerBS.DataSource = new List<RegisterFile>();
             fileManagerBS.AllowNew = false;
             fileManagerDataGridView.AutoGenerateColumns = false;
             fileManagerDataGridView.DataSource = fileManagerBS;
+            
+            srchStatus.DataSource = Properties.Settings.Default.register_status;
+            srchDiscipline.DataSource = Properties.Settings.Default.register_discipline;
+            srchType.DataSource = Properties.Settings.Default.register_type;
 
-            registerDataGridView.AllowUserToAddRows = false;
-            registerDataGridView.AutoGenerateColumns = false;
+            pmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
+            pmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
+            pmisWsAuthKey.Text = Properties.Settings.Default.pmis_auth_key;
 
             showRegisterList();
-            //testDB();
+        }
+
+        private void ImportErrorHandler(object sender, ErrorEventArgs args)
+        {
+            pmisWsErrorMessage.Text = args.GetException().Message;
+        }
+
+        public void SaveSettings(object sender, EventArgs e)
+        {
+            Console.WriteLine("Saving settings...");
+            Properties.Settings.Default.pmis_project_code = pmisWsProjectCode.Text;
+            Properties.Settings.Default.pmis_api_url = pmisWsUrl.Text;
+            Properties.Settings.Default.pmis_auth_key = pmisWsAuthKey.Text;
+
+            Properties.Settings.Default.Save();
         }
 
         public object DocumentList
         {
             set { registerDataGridView.DataSource = value; }
+        }
+
+        public object ReviewInfoList
+        {
+            set { reviewDataGridView.DataSource = value; }
+        }
+
+        public object DocumentFilesDataSource
+        {
+            get { return fileManagerBS.DataSource; }
+            set { fileManagerBS.DataSource = value; }
         }
 
         private void GetRegisterDocumentInfoButton_Click(object sender, DataGridViewCellEventArgs e)
@@ -69,84 +120,13 @@ namespace db_test
             //string docno = (string)registerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
             var dr = registerDataGridView.Rows[e.RowIndex].DataBoundItem as DataRowView;
             this.registerDocumentDetailView.DocumentNumber = Convert.ToString(dr["docno"]);
+            this.registerDocumentDetailView.Version = Convert.ToString(dr["doc_version"]);
 
             if (OnShowRegisterDocumentInfo != null)
             {
                 OnShowRegisterDocumentInfo(this, EventArgs.Empty);
             }
             
-            showFileList(this.registerDocumentDetailView.DocumentNumber);
-        }
-
-        private void InitDB() {
-            connectionString = string.Format("Data Source={0};Version=3;", db_filename);
-
-            if (!File.Exists(db_filename))
-            {
-                SQLiteConnection.CreateFile(db_filename);
-                m_dbConnection = new SQLiteConnection(connectionString);
-                m_dbConnection.Open();
-
-                Console.WriteLine("Creating Database file...");
-
-                string setupfile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db.setup.sql");
-                string sql = File.ReadAllText(setupfile);
-                Console.WriteLine("Executing query: {0}", sql);
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                command.ExecuteNonQuery();
-                command.Dispose();
-            }
-            
-            m_dbConnection = new SQLiteConnection(connectionString);
-            m_dbConnection.Open();
-        }
-
-        private void testDB() {
-
-            string sql = "delete from register";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            command.ExecuteNonQuery();
-            command.Dispose();
-
-            sql = "insert into register (docno) values ('doc1')";
-            command = new SQLiteCommand(sql, m_dbConnection);
-            command.ExecuteNonQuery();
-            command.Dispose();
-
-            sql = "insert into register (docno) values ('doc2')";
-            command = new SQLiteCommand(sql, m_dbConnection);
-            command.ExecuteNonQuery();
-            command.Dispose();
-
-            sql = "insert into register (docno) values ('doc3')";
-            command = new SQLiteCommand(sql, m_dbConnection);
-            command.ExecuteNonQuery();
-            command.Dispose();
-
-        }
-
-        private void showFileList(string docno) {
-            string targetDirectory = "register/" + docno;
-            string[] files = new string[0];
-            try
-            {
-                files = Directory.GetFiles(targetDirectory);
-            } catch( DirectoryNotFoundException e )
-            {
-                Console.WriteLine("Directory not found: {0}", targetDirectory);
-            }
-            
-
-            fileManagerBS.Clear();  // clear the filemanager list before load it again
-            var registerFiles = new List<RegisterFile>();
-            foreach (string fileName in files)
-            {
-                var regfile = new RegisterFile(fileName);
-                registerFiles.Add(regfile);
-                //fileManagerBS.Add(regfile);
-                Console.WriteLine("Processed file: {0}", regfile);
-            }
-            fileManagerBS.DataSource = registerFiles;
         }
 
         private void openRegisterFile(RegisterFile file) {
@@ -200,11 +180,6 @@ namespace db_test
             openRegisterFile(file);
         }
 
-        private void toolStripSeparator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void registerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) { return; }
@@ -220,6 +195,11 @@ namespace db_test
         private void button2_Click(object sender, EventArgs e)
         {
             registerDocumentDataService.DeleteRegisterData();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            reviewInfoDataService.ImportFromWebService();
         }
     }
 }
