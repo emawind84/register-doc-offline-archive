@@ -67,5 +67,11 @@ namespace pmis
             set { _form.docViewVersion.Text = value; }
         }
 
+        public string ReviewStatus
+        {
+            get { return _form.docViewReviewStatus.Text; }
+            set { _form.docViewReviewStatus.Text = value; }
+        }
+
     }
 }

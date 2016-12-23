@@ -15,6 +15,7 @@ namespace pmis
 {
     public partial class RegisterDocumentMainForm : Form
     {
+        private SettingForm settingForm;
         private SQLiteDAOService sqliteDaoService;
         private RegisterDocumentDataService registerDocumentDataService;
         private RegisterDocumentPresenter registerDocumentPresenter;
@@ -26,11 +27,13 @@ namespace pmis
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
 
-        private string db_filename = "test.db";
-
         public RegisterDocumentDetailView RegisterDocumentDetailView
         {
             get { return this.registerDocumentDetailView; }
+        }
+
+        public SQLiteDAOService SQLiteDaoService {
+            get { return sqliteDaoService; }
         }
 
         public string SearchCriteriaDocNumber {
@@ -49,7 +52,7 @@ namespace pmis
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            sqliteDaoService = new SQLiteDAOService(db_filename);
+            sqliteDaoService = new SQLiteDAOService();
             var conn = sqliteDaoService.InitDB();
 
             registerDocumentDataService = new RegisterDocumentDataService(sqliteDaoService);
@@ -57,44 +60,23 @@ namespace pmis
             registerDocumentDetailView = new RegisterDocumentDetailView(this);
             registerDataGridView.AllowUserToAddRows = false;
             registerDataGridView.AutoGenerateColumns = false;
-            registerDocumentDataService.ImportErrorHandler += ImportErrorHandler;
-
-            reviewInfoDataService = new ReviewInfoDataService(conn);
+            
+            reviewInfoDataService = new ReviewInfoDataService(sqliteDaoService);
             reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService);
             reviewDataGridView.AutoGenerateColumns = false;
             reviewDataGridView.AllowUserToAddRows = false;
-            reviewInfoDataService.ImportErrorHandler += ImportErrorHandler;
 
             fileManagerBS = new BindingSource();
             fileManagerBS.DataSource = new List<RegisterFile>();
             fileManagerBS.AllowNew = false;
             fileManagerDataGridView.AutoGenerateColumns = false;
             fileManagerDataGridView.DataSource = fileManagerBS;
-            
-            srchStatus.DataSource = Properties.Settings.Default.register_status;
-            srchDiscipline.DataSource = Properties.Settings.Default.register_discipline;
-            srchType.DataSource = Properties.Settings.Default.register_type;
 
-            pmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
-            pmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
-            pmisWsAuthKey.Text = Properties.Settings.Default.pmis_auth_key;
+            settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
+            settingForm.SettingChanged += UpdateSearchOptions;
 
+            UpdateSearchOptions();
             showRegisterList();
-        }
-
-        private void ImportErrorHandler(object sender, ErrorEventArgs args)
-        {
-            pmisWsErrorMessage.Text = args.GetException().Message;
-        }
-
-        public void SaveSettings(object sender, EventArgs e)
-        {
-            Console.WriteLine("Saving settings...");
-            Properties.Settings.Default.pmis_project_code = pmisWsProjectCode.Text;
-            Properties.Settings.Default.pmis_api_url = pmisWsUrl.Text;
-            Properties.Settings.Default.pmis_auth_key = pmisWsAuthKey.Text;
-
-            Properties.Settings.Default.Save();
         }
 
         public object DocumentList
@@ -111,6 +93,13 @@ namespace pmis
         {
             get { return fileManagerBS.DataSource; }
             set { fileManagerBS.DataSource = value; }
+        }
+
+        private void UpdateSearchOptions(object sender = null, EventArgs args = null)
+        {
+            srchStatus.DataSource = Properties.Settings.Default.register_status;
+            srchDiscipline.DataSource = Properties.Settings.Default.register_discipline;
+            srchType.DataSource = Properties.Settings.Default.register_type;
         }
 
         private void GetRegisterDocumentInfoButton_Click(object sender, DataGridViewCellEventArgs e)
@@ -149,16 +138,6 @@ namespace pmis
             showRegisterList();
         }
 
-        private void importToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                registerDocumentDataService.ImportCSVFile(openFileDialog1.FileName);
-                showRegisterList();
-            }
-        }
-
         private void fileManagerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) { return; }
@@ -187,19 +166,14 @@ namespace pmis
             tabControl1.SelectedIndex = 1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void archiveSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            registerDocumentDataService.ImportFromWebService();
+            settingForm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            registerDocumentDataService.DeleteRegisterData();
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            reviewInfoDataService.ImportFromWebService();
+            this.Close();
         }
     }
 }

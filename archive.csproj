@@ -72,8 +72,15 @@
     <Compile Include="register\RegisterDocumentPresenter.cs" />
     <Compile Include="RegisterFile.cs" />
     <Compile Include="reviewinfo\ReviewInfo.cs" />
+    <Compile Include="reviewinfo\ReviewInfoDaoInterface.cs" />
     <Compile Include="reviewinfo\ReviewInfoDataService.cs" />
     <Compile Include="reviewinfo\ReviewInfoPresenter.cs" />
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLiteDAOService.cs" />
     <EmbeddedResource Include="RegisterDocumentMainForm.resx">
       <DependentUpon>RegisterDocumentMainForm.cs</DependentUpon>
@@ -88,7 +95,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Resource Include="resources\sangah-logo.png" />
+    <Content Include="etc\edms_export.py" />
     <Content Include="review.import.sqlite.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

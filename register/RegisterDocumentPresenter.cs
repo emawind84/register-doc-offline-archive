@@ -35,6 +35,7 @@ namespace pmis
             viewForm.Registered = doc.Registered;
             viewForm.RegisteredBy = doc.RegisteredBy;
             viewForm.Note = doc.Note;
+            viewForm.ReviewStatus = doc.ReviewStatus;
 
             showFileList(doc);
         }
@@ -52,7 +53,10 @@ namespace pmis
 
         private void showFileList(RegisterDocument doc)
         {
-            string targetDirectory = "register/" + doc.DocumentNumber + "/" + doc.Version;
+            string registerURI = Properties.Settings.Default.register_folder_uri;
+            registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
+            
+            string targetDirectory = registerURI + "/" + doc.DocumentNumber + "/" + doc.Version;
             string[] files = new string[0];
             try
             {

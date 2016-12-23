@@ -9,10 +9,11 @@ using System.Data;
 using System.Net;
 using Newtonsoft.Json;
 using pmis.register;
+using System.Threading;
 
 namespace pmis
 {
-    class RegisterDocumentDataService
+    public class RegisterDocumentDataService
     {
 
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;

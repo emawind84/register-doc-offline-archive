@@ -49,7 +49,7 @@ namespace pmis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
         public string pmis_auth_key {
             get {
                 return ((string)(this["pmis_auth_key"]));
@@ -567,6 +567,42 @@ namespace pmis.Properties {
             }
             set {
                 this["register_type"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("register")]
+        public string register_folder_uri {
+            get {
+                return ((string)(this["register_folder_uri"]));
+            }
+            set {
+                this["register_folder_uri"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test.db")]
+        public string sqlite_db_location {
+            get {
+                return ((string)(this["sqlite_db_location"]));
+            }
+            set {
+                this["sqlite_db_location"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SQLite")]
+        public string db_type {
+            get {
+                return ((string)(this["db_type"]));
+            }
+            set {
+                this["db_type"] = value;
             }
         }
     }

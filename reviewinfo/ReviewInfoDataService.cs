@@ -16,61 +16,30 @@ namespace pmis
     public class ReviewInfoDataService
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
-        private SQLiteConnection _dbConnection;
 
         public event EventHandler<List<ReviewInfo>> ImportCompleteHandler;
         public event ErrorEventHandler ImportErrorHandler;
 
-        public ReviewInfoDataService(SQLiteConnection connection)
+        private ReviewInfoDaoInterface _dao;
+
+        public ReviewInfoDataService(ReviewInfoDaoInterface dao)
         {
-            _dbConnection = connection;
+            _dao = dao;
         }
 
         public DataTable LoadReviewInfo(string docno, string version)
         {
-            Console.WriteLine("Loading review info...");
-            string filepath = Path.Combine(projectFolder, @"review.load.sqlite.sql");
-            string sql = File.ReadAllText(filepath);
+            return _dao.LoadReviewInfo(docno, version);
+        }
 
-            sql += " AND docno = @docno ";
-            //sql += " AND doc_version = @version ";
-
-            DataTable dt = new DataTable();
-            using (var cmd = new SQLiteCommand(sql, _dbConnection))
-            {
-                cmd.Parameters.AddWithValue("@docno", docno);
-                //cmd.Parameters.AddWithValue("@version", docno);
-
-                SQLiteDataAdapter da = new SQLiteDataAdapter();
-
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-            }
-
-            Console.WriteLine("Found {0} review info", dt.Rows.Count);
-            return dt;
+        public void DeleteReviewInfo()
+        {
+            _dao.DeleteReviewInfo();
         }
 
         public void ImportData(List<ReviewInfo> docs)
         {
-            string filepath = Path.Combine(projectFolder, @"review.import.sqlite.sql");
-            string sql = File.ReadAllText(filepath);
-
-            foreach (ReviewInfo d in docs)
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, _dbConnection);
-                cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
-                cmd.Parameters.AddWithValue("@version", d.DocumentVersion);
-                cmd.Parameters.AddWithValue("@review_date", d.ReviewDate);
-                cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
-                cmd.Parameters.AddWithValue("@review_note", d.ReviewNote);
-                cmd.Parameters.AddWithValue("@reviewed_by", d.ReviewedBy);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-                Console.WriteLine("Adding review data: {0}", d);
-            }
+            _dao.ImportReviewInfoData(docs);
         }
 
         public async void ImportFromWebService()
@@ -86,7 +55,7 @@ namespace pmis
                 {
                     var values = new Dictionary<string, string> {
                         { "user-forward", "json" },
-                        { "user-query", "doc.register.documentReviews" },
+                        { "user-query", "doc.register.etc.selectDocumentReviewInfo" },
                         { "pjt_cd", project },
                         { "access_token", authkey }
                     };

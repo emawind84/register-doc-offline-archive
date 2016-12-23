@@ -1,4 +1,6 @@
-﻿using System;
+﻿using pmis.register;
+using pmis.reviewinfo;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
@@ -9,29 +11,40 @@ using System.Threading.Tasks;
 
 namespace pmis
 {
-    class SQLiteDAOService : register.RegisterDocumentDaoService
+    public class SQLiteDAOService : RegisterDocumentDaoService, ReviewInfoDaoInterface
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-        private string db_filename;
+        private string databaseFilePath;
         private SQLiteConnection m_dbConnection;
 
-        public SQLiteDAOService(string db_filename)
+        public string DatabaseFilePath {
+            get {
+                return databaseFilePath;
+            }
+            set {
+                this.databaseFilePath = value;
+            }
+        }
+
+        public SQLiteDAOService()
         {
-            this.db_filename = db_filename;
+            this.databaseFilePath = Properties.Settings.Default.sqlite_db_location;
         }
 
         public SQLiteConnection InitDB()
         {
-            string connectionString = string.Format("Data Source={0};Version=3;", db_filename);
+            Console.WriteLine("Connecting database...");
+            this.databaseFilePath = Properties.Settings.Default.sqlite_db_location;
 
-            if (!File.Exists(db_filename))
+            string connectionString = string.Format("Data Source={0};Version=3;", databaseFilePath);
+
+            if (!File.Exists(databaseFilePath))
             {
-                SQLiteConnection.CreateFile(db_filename);
+                Console.WriteLine("Creating new database...");
+                SQLiteConnection.CreateFile(databaseFilePath);
                 m_dbConnection = new SQLiteConnection(connectionString);
                 m_dbConnection.Open();
-
-                Console.WriteLine("Creating Database file...");
 
                 //string setupfile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"setup.sqlite.sql");
                 string sql = File.ReadAllText(@"setup.sqlite.sql");
@@ -47,9 +60,22 @@ namespace pmis
             return m_dbConnection;
         }
 
+        public void ConnectDatabase()
+        {
+            DisconnectDatabase();
+            InitDB();
+        }
+
+        public void DisconnectDatabase()
+        {
+            m_dbConnection.Close();
+        }
+
         public void DeleteRegisterData()
         {
-            throw new NotImplementedException();
+            SQLiteCommand command = new SQLiteCommand("delete from register", m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            command.Dispose();
         }
 
         public void ImportDocumentData(List<RegisterDocument> docs)
@@ -149,6 +175,8 @@ namespace pmis
             if (criteria.ContainsKey("to_date"))
                 sql += " AND registered >= @to_date ";
 
+            sql += "order by upper(docno)";
+
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
             {
@@ -175,6 +203,60 @@ namespace pmis
             //    Console.WriteLine("docno: " + reader["docno"]);
 
             return dt;
+        }
+
+        public DataTable LoadReviewInfo(string docno, string version)
+        {
+            Console.WriteLine("Loading review info...");
+            string filepath = Path.Combine(projectFolder, @"review.load.sqlite.sql");
+            string sql = File.ReadAllText(filepath);
+
+            sql += " AND docno = @docno ";
+            sql += " AND doc_version = @version ";
+
+            DataTable dt = new DataTable();
+            using (var cmd = new SQLiteCommand(sql, m_dbConnection))
+            {
+                cmd.Parameters.AddWithValue("@docno", docno);
+                cmd.Parameters.AddWithValue("@version", version);
+
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+            }
+
+            Console.WriteLine("Found {0} review info", dt.Rows.Count);
+            return dt;
+        }
+
+        public void DeleteReviewInfo()
+        {
+            SQLiteCommand command = new SQLiteCommand("delete from review_info", m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            command.Dispose();
+        }
+
+        public void ImportReviewInfoData(List<ReviewInfo> docs)
+        {
+            string filepath = Path.Combine(projectFolder, @"review.import.sqlite.sql");
+            string sql = File.ReadAllText(filepath);
+
+            foreach (ReviewInfo d in docs)
+            {
+                SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
+                cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
+                cmd.Parameters.AddWithValue("@version", d.DocumentVersion);
+                cmd.Parameters.AddWithValue("@review_date", d.ReviewDate);
+                cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
+                cmd.Parameters.AddWithValue("@review_note", d.ReviewNote);
+                cmd.Parameters.AddWithValue("@reviewed_by", d.ReviewedBy);
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+
+                Console.WriteLine("Adding review data: {0}", d);
+            }
         }
     }
 }

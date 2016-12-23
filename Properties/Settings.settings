@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="db_test.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="pmis.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="pmis_api_url" Type="System.String" Scope="User">
@@ -9,7 +9,7 @@
       <Value Profile="(Default)">GLB_PMIS</Value>
     </Setting>
     <Setting Name="pmis_auth_key" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">123456</Value>
     </Setting>
     <Setting Name="register_discipline" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -1122,6 +1122,15 @@
   &lt;string&gt;흡음판설치공사&lt;/string&gt;
   &lt;string&gt;？은유리공사&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="register_folder_uri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">register</Value>
+    </Setting>
+    <Setting Name="sqlite_db_location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test.db</Value>
+    </Setting>
+    <Setting Name="db_type" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SQLite</Value>
     </Setting>
   </Settings>
 </SettingsFile>
