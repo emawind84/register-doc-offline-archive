@@ -33,11 +33,11 @@
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.documentTypeOptions = new System.Windows.Forms.RichTextBox();
+            this.docTypesTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.documentDisciplineOptions = new System.Windows.Forms.RichTextBox();
+            this.docDisciplinesTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.documentStatusOptions = new System.Windows.Forms.RichTextBox();
+            this.docStatusesTextBox = new System.Windows.Forms.RichTextBox();
             this.settingRegisterFolderURI = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -130,7 +130,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.documentTypeOptions);
+            this.tabPage5.Controls.Add(this.docTypesTextBox);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -139,21 +139,21 @@
             this.tabPage5.Text = "Document Type";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // documentTypeOptions
+            // docTypesTextBox
             // 
-            this.documentTypeOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.docTypesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentTypeOptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.documentTypeOptions.Location = new System.Drawing.Point(-1, 0);
-            this.documentTypeOptions.Name = "documentTypeOptions";
-            this.documentTypeOptions.Size = new System.Drawing.Size(337, 246);
-            this.documentTypeOptions.TabIndex = 42;
-            this.documentTypeOptions.Text = "";
+            this.docTypesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docTypesTextBox.Location = new System.Drawing.Point(-1, 0);
+            this.docTypesTextBox.Name = "docTypesTextBox";
+            this.docTypesTextBox.Size = new System.Drawing.Size(337, 246);
+            this.docTypesTextBox.TabIndex = 42;
+            this.docTypesTextBox.Text = "";
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.documentDisciplineOptions);
+            this.tabPage6.Controls.Add(this.docDisciplinesTextBox);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -162,21 +162,21 @@
             this.tabPage6.Text = "Document Discipline";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // documentDisciplineOptions
+            // docDisciplinesTextBox
             // 
-            this.documentDisciplineOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.docDisciplinesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentDisciplineOptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.documentDisciplineOptions.Location = new System.Drawing.Point(0, 0);
-            this.documentDisciplineOptions.Name = "documentDisciplineOptions";
-            this.documentDisciplineOptions.Size = new System.Drawing.Size(336, 246);
-            this.documentDisciplineOptions.TabIndex = 43;
-            this.documentDisciplineOptions.Text = "";
+            this.docDisciplinesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docDisciplinesTextBox.Location = new System.Drawing.Point(0, 0);
+            this.docDisciplinesTextBox.Name = "docDisciplinesTextBox";
+            this.docDisciplinesTextBox.Size = new System.Drawing.Size(336, 246);
+            this.docDisciplinesTextBox.TabIndex = 43;
+            this.docDisciplinesTextBox.Text = "";
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.documentStatusOptions);
+            this.tabPage7.Controls.Add(this.docStatusesTextBox);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -185,21 +185,21 @@
             this.tabPage7.Text = "Document Status";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // documentStatusOptions
+            // docStatusesTextBox
             // 
-            this.documentStatusOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.docStatusesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.documentStatusOptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.documentStatusOptions.Location = new System.Drawing.Point(0, 0);
-            this.documentStatusOptions.Name = "documentStatusOptions";
-            this.documentStatusOptions.Size = new System.Drawing.Size(336, 246);
-            this.documentStatusOptions.TabIndex = 45;
-            this.documentStatusOptions.Text = "";
+            this.docStatusesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docStatusesTextBox.Location = new System.Drawing.Point(0, 0);
+            this.docStatusesTextBox.Name = "docStatusesTextBox";
+            this.docStatusesTextBox.Size = new System.Drawing.Size(336, 246);
+            this.docStatusesTextBox.TabIndex = 45;
+            this.docStatusesTextBox.Text = "";
             // 
             // settingRegisterFolderURI
             // 
-            this.settingRegisterFolderURI.Location = new System.Drawing.Point(72, 28);
+            this.settingRegisterFolderURI.Location = new System.Drawing.Point(87, 28);
             this.settingRegisterFolderURI.Name = "settingRegisterFolderURI";
             this.settingRegisterFolderURI.Size = new System.Drawing.Size(293, 20);
             this.settingRegisterFolderURI.TabIndex = 39;
@@ -209,9 +209,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(18, 31);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 38;
-            this.label13.Text = "Location";
+            this.label13.Text = "EDM Folder";
             // 
             // tabPage2
             // 
@@ -443,6 +443,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SettingForm";
             this.Text = "Archive Settings";
             this.tabControl1.ResumeLayout(false);
@@ -492,11 +494,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.RichTextBox documentTypeOptions;
+        private System.Windows.Forms.RichTextBox docTypesTextBox;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.RichTextBox documentDisciplineOptions;
+        private System.Windows.Forms.RichTextBox docDisciplinesTextBox;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.RichTextBox documentStatusOptions;
+        private System.Windows.Forms.RichTextBox docStatusesTextBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button connectDatabaseButton;

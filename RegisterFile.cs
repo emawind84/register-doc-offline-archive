@@ -7,7 +7,7 @@ using System.IO;
 
 namespace pmis
 {
-    class RegisterFile
+    public class RegisterFile
     {
 
         static string[] sizes = { "B", "KB", "MB", "GB" };
@@ -41,6 +41,43 @@ namespace pmis
         public override string ToString()
         {
             return this.FileName;
+        }
+
+        public static string SanitizeName(string name)
+        {
+            var sanitizedName = new StringBuilder();
+            foreach (char c in name)
+            {
+                if (c == '/')
+                {
+                    sanitizedName.Append('_');
+                }
+                else if (c == ':')
+                {
+                    sanitizedName.Append('_');
+                }
+                else if (c == '*')
+                {
+                    sanitizedName.Append('_');
+                }
+                else if (c == '<')
+                {
+                    sanitizedName.Append('_');
+                }
+                else if (c == '>')
+                {
+                    sanitizedName.Append('_');
+                }
+                else if (c == '"')
+                {
+                    sanitizedName.Append('_');
+                }
+                else
+                {
+                    sanitizedName.Append(c);
+                }
+            }
+            return sanitizedName.ToString();
         }
     }
 }

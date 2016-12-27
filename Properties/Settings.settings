@@ -14,6 +14,7 @@
     <Setting Name="register_discipline" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string /&gt;
   &lt;string&gt;Genaral(일반)&lt;/string&gt;
   &lt;string&gt;Architectural (건축)&lt;/string&gt;
   &lt;string&gt;Structural (구조)&lt;/string&gt;
@@ -41,6 +42,7 @@
     <Setting Name="register_status" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string /&gt;
   &lt;string&gt;Draft(임시)&lt;/string&gt;
   &lt;string&gt;For Information(정보)&lt;/string&gt;
   &lt;string&gt;For Review(검토)&lt;/string&gt;
@@ -56,6 +58,7 @@
     <Setting Name="register_type" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string /&gt;
   &lt;string&gt;#501동 &lt;/string&gt;
   &lt;string&gt;#501동 A-ZONE(구조)&lt;/string&gt;
   &lt;string&gt;#501동 B-ZONE(구조)&lt;/string&gt;

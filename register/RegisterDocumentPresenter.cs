@@ -10,6 +10,8 @@ namespace pmis
 {
     class RegisterDocumentPresenter
     {
+        public event EventHandler<RegisterDocument> OnLoadRegisterDocument;
+
         private RegisterDocumentMainForm _form;
         private RegisterDocumentDataService _service;
 
@@ -17,7 +19,8 @@ namespace pmis
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowRegisterDocumentInfo;
-            _form.OnShowRegisterDocumentList += ShowRegisterDocumentList;
+            _form.OnShowRegisterDocumentList += ShowRegisterDocuments;
+            OnLoadRegisterDocument += ShowRegisterDocumentFiles;
             _service = service;
         }
 
@@ -37,45 +40,41 @@ namespace pmis
             viewForm.Note = doc.Note;
             viewForm.ReviewStatus = doc.ReviewStatus;
 
-            showFileList(doc);
+            if(OnLoadRegisterDocument != null)
+            {
+                OnLoadRegisterDocument(this, doc);
+            }
         }
 
-        private void ShowRegisterDocumentList(object sender, EventArgs e)
+        private void ShowRegisterDocuments(object sender, EventArgs e)
         {
             Dictionary<string, object> criteria = new Dictionary<string, object>();
-            criteria.Add("docno", _form.SearchCriteriaDocNumber);
-            criteria.Add("from_date", _form.SearchCriteriaFromDate);
-            
+            if(!String.IsNullOrEmpty(_form.SearchCriteriaDocNumber))
+                criteria.Add("docno", _form.SearchCriteriaDocNumber);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaTitle))
+                criteria.Add("title", _form.SearchCriteriaTitle);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaFromDate))
+                criteria.Add("from_date", _form.SearchCriteriaFromDate);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaToDate))
+                criteria.Add("to_date", _form.SearchCriteriaToDate);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaStatus))
+                criteria.Add("status", _form.SearchCriteriaStatus);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaDiscipline))
+                criteria.Add("discipline", _form.SearchCriteriaDiscipline);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaType))
+                criteria.Add("type", _form.SearchCriteriaType);
+
+            if(_form.SearchCriteriaAllHistory.Equals("Latest Revision Only"))
+                criteria.Add("top_version", "1");
+
             DataTable dt = _service.SearchDocument(criteria);
 
             _form.DocumentList = dt;
         }
 
-        private void showFileList(RegisterDocument doc)
+        private void ShowRegisterDocumentFiles(object sender, RegisterDocument doc)
         {
-            string registerURI = Properties.Settings.Default.register_folder_uri;
-            registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
-            
-            string targetDirectory = registerURI + "/" + doc.DocumentNumber + "/" + doc.Version;
-            string[] files = new string[0];
-            try
-            {
-                files = Directory.GetFiles(targetDirectory);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                Console.WriteLine("Directory not found: {0}", targetDirectory);
-            }
-
-            var registerFiles = new List<RegisterFile>();
-            foreach (string fileName in files)
-            {
-                var regfile = new RegisterFile(fileName);
-                registerFiles.Add(regfile);
-                //fileManagerBS.Add(regfile);
-                Console.WriteLine("Processed file: {0}", regfile);
-            }
-            _form.DocumentFilesDataSource = registerFiles;
+            _form.RegisterFilesDS = _service.LoadRegisterFiles(doc);
         }
     }
 }

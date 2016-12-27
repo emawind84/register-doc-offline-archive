@@ -9,7 +9,7 @@ namespace pmis.reviewinfo
 {
     public interface ReviewInfoDaoInterface
     {
-        DataTable LoadReviewInfo(string docno, string version);
+        DataTable LoadReviewInfo(RegisterDocument doc);
 
         void DeleteReviewInfo();
 

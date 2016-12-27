@@ -27,14 +27,43 @@ namespace pmis
             _dao = dao;
         }
 
-        public DataTable LoadReviewInfo(string docno, string version)
+        public DataTable LoadReviewInfo(RegisterDocument doc)
         {
-            return _dao.LoadReviewInfo(docno, version);
+            return _dao.LoadReviewInfo(doc);
         }
 
         public void DeleteReviewInfo()
         {
             _dao.DeleteReviewInfo();
+        }
+
+        public List<RegisterFile> LoadReviewRegisterFiles(RegisterDocument doc)
+        {
+            string registerURI = Properties.Settings.Default.register_folder_uri;
+            registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
+
+            string targetDirectory = registerURI + "/" + 
+                RegisterFile.SanitizeName(doc.DocumentNumber) + 
+                "/" + doc.Version + "/extra";
+            string[] files = new string[0];
+            try
+            {
+                Console.WriteLine("Looking for files... {0}", targetDirectory);
+                files = Directory.GetFiles(targetDirectory);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine("Directory not found: {0}", targetDirectory);
+            }
+
+            var registerFiles = new List<RegisterFile>();
+            foreach (string fileName in files)
+            {
+                var regfile = new RegisterFile(fileName);
+                registerFiles.Add(regfile);
+                Console.WriteLine("Processed file: {0}", regfile);
+            }
+            return registerFiles;
         }
 
         public void ImportData(List<ReviewInfo> docs)
@@ -47,7 +76,7 @@ namespace pmis
             var apiurl = Properties.Settings.Default.pmis_api_url;
             var project = Properties.Settings.Default.pmis_project_code;
             var authkey = Properties.Settings.Default.pmis_auth_key;
-            string url = String.Format("http://localhost:8003/Core/CoreList.action", apiurl);
+            string url = String.Format("{0}/Core/CoreList.action", apiurl);
 
             try
             {

@@ -10,22 +10,32 @@ namespace pmis.reviewinfo
     {
         private RegisterDocumentMainForm _form;
         private ReviewInfoDataService _service;
+        private RegisterDocumentDataService _docService;
 
-        public ReviewInfoPresenter(RegisterDocumentMainForm form, ReviewInfoDataService service)
+        public ReviewInfoPresenter(RegisterDocumentMainForm form, ReviewInfoDataService service, RegisterDocumentDataService docService)
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowReviewInfoList;
             _service = service;
+            _docService = docService;
         }
 
         private void ShowReviewInfoList(object sender, EventArgs args)
         {
             var viewForm = _form.RegisterDocumentDetailView;
-            var docno = _form.RegisterDocumentDetailView.DocumentNumber;
-            var version = _form.RegisterDocumentDetailView.Version;
-            var dt = _service.LoadReviewInfo(docno, version);
+            var docno = viewForm.DocumentNumber;
+            var version = viewForm.Version;
+            RegisterDocument doc = _docService.LoadDocument(docno, version);
+            var dt = _service.LoadReviewInfo(doc);
 
             _form.ReviewInfoList = dt;
+
+            ShowReviewFiles(doc);
+        }
+
+        private void ShowReviewFiles(RegisterDocument doc)
+        {
+            _form.ReviewFilesDS = _service.LoadReviewRegisterFiles(doc);
         }
 
     }

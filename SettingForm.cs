@@ -51,20 +51,26 @@ namespace pmis
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
 
+            StringBuilder strbuilder = new StringBuilder();
             foreach (var opt in Properties.Settings.Default.register_status)
             {
-                documentStatusOptions.Text += opt + Environment.NewLine;
+                strbuilder.AppendLine(opt);
             }
+            docStatusesTextBox.Text = strbuilder.ToString();
 
+            strbuilder = new StringBuilder();
             foreach (var opt in Properties.Settings.Default.register_discipline)
             {
-                documentDisciplineOptions.Text += opt + Environment.NewLine;
+                strbuilder.AppendLine(opt);
             }
+            docDisciplinesTextBox.Text = strbuilder.ToString();
 
+            strbuilder = new StringBuilder();
             foreach (var opt in Properties.Settings.Default.register_type)
             {
-                documentTypeOptions.Text += opt + Environment.NewLine;
+                strbuilder.AppendLine(opt);
             }
+            docTypesTextBox.Text = strbuilder.ToString();
 
         }
 
@@ -79,16 +85,27 @@ namespace pmis
             Properties.Settings.Default.db_type = settingDbType.Text;
 
             Properties.Settings.Default.register_status.Clear();
-            foreach (var line in documentStatusOptions.Text
-                .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var line in docStatusesTextBox.Lines)
             {
-                Console.WriteLine(line);
                 Properties.Settings.Default.register_status.Add(line);
             }
 
-            Properties.Settings.Default.Save();
+            Properties.Settings.Default.register_discipline.Clear();
+            foreach (var line in docDisciplinesTextBox.Lines)
+            {
+                Properties.Settings.Default.register_discipline.Add(line);
+            }
 
-            if(SettingChanged != null)
+            Properties.Settings.Default.register_type.Clear();
+            foreach (var line in docTypesTextBox.Lines)
+            {
+                Properties.Settings.Default.register_type.Add(line);
+            }
+
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
+
+            if (SettingChanged != null)
             {
                 SettingChanged(this, EventArgs.Empty);
             }

@@ -36,6 +36,32 @@ namespace pmis
             return daoService.LoadDocument(docno, version);
         }
 
+        public List<RegisterFile> LoadRegisterFiles(RegisterDocument doc) {
+            string registerURI = Properties.Settings.Default.register_folder_uri;
+            registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
+
+            string targetDirectory = registerURI + "/" +
+                RegisterFile.SanitizeName(doc.DocumentNumber) + "/" + doc.Version;
+            string[] files = new string[0];
+            try
+            {
+                files = Directory.GetFiles(targetDirectory);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine("Directory not found: {0}", targetDirectory);
+            }
+
+            var registerFiles = new List<RegisterFile>();
+            foreach (string fileName in files)
+            {
+                var regfile = new RegisterFile(fileName);
+                registerFiles.Add(regfile);
+                Console.WriteLine("Processed file: {0}", regfile);
+            }
+            return registerFiles;
+        }
+
         public void ImportCSVFile(string csvfile)
         {
             FileStream fs = new FileStream(csvfile, FileMode.Open, FileAccess.Read);

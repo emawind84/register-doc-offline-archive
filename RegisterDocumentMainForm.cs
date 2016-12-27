@@ -23,6 +23,7 @@ namespace pmis
         private ReviewInfoPresenter reviewInfoPresenter;
         private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
+        private BindingSource reviewFilesBS;
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
@@ -36,14 +37,21 @@ namespace pmis
             get { return sqliteDaoService; }
         }
 
-        public string SearchCriteriaDocNumber {
-            get { return srchNumber.Text; }
-        }
+        public string SearchCriteriaDocNumber { get { return srchNumber.Text; } }
 
-        public string SearchCriteriaFromDate
-        {
-            get { return srchFromDate.Text; }
-        }
+        public string SearchCriteriaTitle { get { return srchTitle.Text; } }
+
+        public string SearchCriteriaFromDate { get { return srchFromDate.Text; } }
+
+        public string SearchCriteriaToDate { get { return srchToDate.Text; } }
+
+        public string SearchCriteriaStatus { get { return srchStatus.Text; } }
+
+        public string SearchCriteriaDiscipline { get { return srchDiscipline.Text; } }
+
+        public string SearchCriteriaType { get { return srchType.Text; } }
+
+        public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
         public RegisterDocumentMainForm()
         {
@@ -62,9 +70,15 @@ namespace pmis
             registerDataGridView.AutoGenerateColumns = false;
             
             reviewInfoDataService = new ReviewInfoDataService(sqliteDaoService);
-            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService);
+            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
             reviewDataGridView.AutoGenerateColumns = false;
             reviewDataGridView.AllowUserToAddRows = false;
+
+            reviewFilesBS = new BindingSource();
+            reviewFilesBS.DataSource = new List<RegisterFile>();
+            reviewFilesBS.AllowNew = false;
+            reviewFileDataGrid.AutoGenerateColumns = false;
+            reviewFileDataGrid.DataSource = reviewFilesBS;
 
             fileManagerBS = new BindingSource();
             fileManagerBS.DataSource = new List<RegisterFile>();
@@ -73,10 +87,10 @@ namespace pmis
             fileManagerDataGridView.DataSource = fileManagerBS;
 
             settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
-            settingForm.SettingChanged += UpdateSearchOptions;
+            settingForm.SettingChanged += LoadSearchOptions;
 
-            UpdateSearchOptions();
-            showRegisterList();
+            LoadSearchOptions();
+            ShowRegisterList();
         }
 
         public object DocumentList
@@ -89,13 +103,18 @@ namespace pmis
             set { reviewDataGridView.DataSource = value; }
         }
 
-        public object DocumentFilesDataSource
+        public object RegisterFilesDS
         {
             get { return fileManagerBS.DataSource; }
             set { fileManagerBS.DataSource = value; }
         }
 
-        private void UpdateSearchOptions(object sender = null, EventArgs args = null)
+        public object ReviewFilesDS {
+            get { return reviewFilesBS.DataSource; }
+            set { reviewFilesBS.DataSource = value; }
+        }
+
+        private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
             srchStatus.DataSource = Properties.Settings.Default.register_status;
             srchDiscipline.DataSource = Properties.Settings.Default.register_discipline;
@@ -118,16 +137,16 @@ namespace pmis
             
         }
 
-        private void openRegisterFile(RegisterFile file) {
+        private void OpenRegisterFile(RegisterFile file) {
             System.Diagnostics.Process.Start(String.Format(@"{0}", file.FilePath));
         }
 
-        private void openRegisterFileLocation(RegisterFile file)
+        private void OpenRegisterFileLocation(RegisterFile file)
         {
             System.Diagnostics.Process.Start("explorer.exe", "/select, " + file.FilePath);
         }
 
-        private void showRegisterList()
+        private void ShowRegisterList()
         {
             if(OnShowRegisterDocumentList != null)
                 OnShowRegisterDocumentList(this, EventArgs.Empty);
@@ -135,7 +154,7 @@ namespace pmis
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            showRegisterList();
+            ShowRegisterList();
         }
 
         private void fileManagerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -146,7 +165,7 @@ namespace pmis
             if (cellname.Equals("open_location"))
             {
                 RegisterFile file = fileManagerDataGridView.Rows[e.RowIndex].DataBoundItem as RegisterFile;
-                openRegisterFileLocation(file);
+                OpenRegisterFileLocation(file);
             }
         }
 
@@ -156,7 +175,7 @@ namespace pmis
 
             RegisterFile file = fileManagerDataGridView.Rows[e.RowIndex].DataBoundItem as RegisterFile;
             Console.WriteLine(file);
-            openRegisterFile(file);
+            OpenRegisterFile(file);
         }
 
         private void registerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

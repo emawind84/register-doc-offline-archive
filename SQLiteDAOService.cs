@@ -120,7 +120,7 @@ namespace pmis
                 sql += " AND doc_version = @version ";
             }
             else {
-                sql += " AND current = 1 ";
+                sql += " AND doc_current = 1 ";
             }
 
             RegisterDocument doc = null;
@@ -169,13 +169,29 @@ namespace pmis
             if (criteria.ContainsKey("docno"))
                 sql += " AND upper(docno) like upper('%'||@docno||'%') ";
 
+            if (criteria.ContainsKey("title"))
+                sql += " AND upper(title) like upper('%'||@title||'%') ";
+
             if (criteria.ContainsKey("from_date"))
                 sql += " AND registered >= @from_date ";
 
             if (criteria.ContainsKey("to_date"))
-                sql += " AND registered >= @to_date ";
+                sql += " AND registered <= @to_date ";
+
+            if (criteria.ContainsKey("status"))
+                sql += " AND doc_status = @status ";
+
+            if (criteria.ContainsKey("discipline"))
+                sql += " AND discipline = @discipline ";
+
+            if (criteria.ContainsKey("type"))
+                sql += " AND discipline = @type ";
+
+            if (criteria.ContainsKey("top_version"))
+                sql += " AND doc_current = 1 ";
 
             sql += "order by upper(docno)";
+            sql += "limit 1000";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
@@ -188,6 +204,18 @@ namespace pmis
 
                 if (criteria.ContainsKey("docno"))
                     cmd.Parameters.AddWithValue("@docno", criteria["docno"]);
+
+                if (criteria.ContainsKey("status"))
+                    cmd.Parameters.AddWithValue("@status", criteria["status"]);
+
+                if (criteria.ContainsKey("discipline"))
+                    cmd.Parameters.AddWithValue("@discipline", criteria["discipline"]);
+
+                if (criteria.ContainsKey("type"))
+                    cmd.Parameters.AddWithValue("@type", criteria["type"]);
+
+                if (criteria.ContainsKey("title"))
+                    cmd.Parameters.AddWithValue("@title", criteria["title"]);
 
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
 
@@ -205,7 +233,7 @@ namespace pmis
             return dt;
         }
 
-        public DataTable LoadReviewInfo(string docno, string version)
+        public DataTable LoadReviewInfo(RegisterDocument doc)
         {
             Console.WriteLine("Loading review info...");
             string filepath = Path.Combine(projectFolder, @"review.load.sqlite.sql");
@@ -217,8 +245,8 @@ namespace pmis
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
             {
-                cmd.Parameters.AddWithValue("@docno", docno);
-                cmd.Parameters.AddWithValue("@version", version);
+                cmd.Parameters.AddWithValue("@docno", doc.DocumentNumber);
+                cmd.Parameters.AddWithValue("@version", doc.Version);
 
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
 
