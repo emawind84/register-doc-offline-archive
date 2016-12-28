@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using pmis.reviewinfo;
+using System.IO;
 
 namespace pmis
 {
@@ -56,41 +57,42 @@ namespace pmis
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            daoService = new SQLiteDaoService();
+            
+            registerDocumentDataService = new RegisterDocumentDataService(daoService);
+            registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+            registerDocumentDetailView = new RegisterDocumentDetailView(this);
+            registerDataGridView.AllowUserToAddRows = false;
+            registerDataGridView.AutoGenerateColumns = false;
+            
+            reviewInfoDataService = new ReviewInfoDataService(daoService);
+            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
+            reviewDataGridView.AutoGenerateColumns = false;
+            reviewDataGridView.AllowUserToAddRows = false;
+
+            reviewFilesBS = new BindingSource();
+            reviewFilesBS.DataSource = new List<RegisterFile>();
+            reviewFilesBS.AllowNew = false;
+            reviewFileDataGrid.AutoGenerateColumns = false;
+            reviewFileDataGrid.DataSource = reviewFilesBS;
+
+            fileManagerBS = new BindingSource();
+            fileManagerBS.DataSource = new List<RegisterFile>();
+            fileManagerBS.AllowNew = false;
+            fileManagerDataGridView.AutoGenerateColumns = false;
+            fileManagerDataGridView.DataSource = fileManagerBS;
+
+            settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
+            settingForm.SettingChanged += LoadSearchOptions;
+
+            // load search options
+            LoadSearchOptions();
+
             try
             {
-                daoService = new SQLiteDaoService();
-            
-                registerDocumentDataService = new RegisterDocumentDataService(daoService);
-                registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
-                registerDocumentDetailView = new RegisterDocumentDetailView(this);
-                registerDataGridView.AllowUserToAddRows = false;
-                registerDataGridView.AutoGenerateColumns = false;
-            
-                reviewInfoDataService = new ReviewInfoDataService(daoService);
-                reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
-                reviewDataGridView.AutoGenerateColumns = false;
-                reviewDataGridView.AllowUserToAddRows = false;
-
-                reviewFilesBS = new BindingSource();
-                reviewFilesBS.DataSource = new List<RegisterFile>();
-                reviewFilesBS.AllowNew = false;
-                reviewFileDataGrid.AutoGenerateColumns = false;
-                reviewFileDataGrid.DataSource = reviewFilesBS;
-
-                fileManagerBS = new BindingSource();
-                fileManagerBS.DataSource = new List<RegisterFile>();
-                fileManagerBS.AllowNew = false;
-                fileManagerDataGridView.AutoGenerateColumns = false;
-                fileManagerDataGridView.DataSource = fileManagerBS;
-
-                settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
-                settingForm.SettingChanged += LoadSearchOptions;
-                
                 // open db connection before doing anything else
                 daoService.Open();
-
-                // load search options
-                LoadSearchOptions();
 
                 // request docs list
                 ShowRegisterList();

@@ -1130,7 +1130,7 @@
       <Value Profile="(Default)">register</Value>
     </Setting>
     <Setting Name="sqlite_db_location" Type="System.String" Scope="User">
-      <Value Profile="(Default)">test.db</Value>
+      <Value Profile="(Default)">archive.db</Value>
     </Setting>
     <Setting Name="db_type" Type="System.String" Scope="User">
       <Value Profile="(Default)">SQLite</Value>

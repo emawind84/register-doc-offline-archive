@@ -52,7 +52,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pmisWsErrorMessage = new System.Windows.Forms.RichTextBox();
             this.importReviewDataButton = new System.Windows.Forms.Button();
             this.settingPmisWsAuthKey = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.importRegisterDataButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.settingDbErrorMessage = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -239,7 +237,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.settingDbErrorMessage);
             this.tabPage2.Controls.Add(this.groupBox10);
             this.tabPage2.Controls.Add(this.groupBox9);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -339,7 +336,6 @@
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.Controls.Add(this.pmisWsErrorMessage);
             this.groupBox6.Controls.Add(this.importReviewDataButton);
             this.groupBox6.Controls.Add(this.settingPmisWsAuthKey);
             this.groupBox6.Controls.Add(this.label11);
@@ -354,18 +350,6 @@
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Web Service Settings";
-            // 
-            // pmisWsErrorMessage
-            // 
-            this.pmisWsErrorMessage.BackColor = System.Drawing.Color.White;
-            this.pmisWsErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pmisWsErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.pmisWsErrorMessage.Location = new System.Drawing.Point(11, 159);
-            this.pmisWsErrorMessage.Name = "pmisWsErrorMessage";
-            this.pmisWsErrorMessage.ReadOnly = true;
-            this.pmisWsErrorMessage.Size = new System.Drawing.Size(342, 53);
-            this.pmisWsErrorMessage.TabIndex = 10;
-            this.pmisWsErrorMessage.Text = "";
             // 
             // importReviewDataButton
             // 
@@ -464,16 +448,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // settingDbErrorMessage
-            // 
-            this.settingDbErrorMessage.AutoSize = true;
-            this.settingDbErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.settingDbErrorMessage.Location = new System.Drawing.Point(6, 364);
-            this.settingDbErrorMessage.Name = "settingDbErrorMessage";
-            this.settingDbErrorMessage.Size = new System.Drawing.Size(75, 13);
-            this.settingDbErrorMessage.TabIndex = 8;
-            this.settingDbErrorMessage.Text = "Error Message";
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,7 +472,6 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -516,7 +489,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RichTextBox pmisWsErrorMessage;
         private System.Windows.Forms.Button importReviewDataButton;
         private System.Windows.Forms.TextBox settingPmisWsAuthKey;
         private System.Windows.Forms.Label label11;
@@ -547,6 +519,5 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.RichTextBox docStatusesTextBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label settingDbErrorMessage;
     }
 }

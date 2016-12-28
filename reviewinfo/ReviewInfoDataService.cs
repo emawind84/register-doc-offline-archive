@@ -53,7 +53,7 @@ namespace pmis
             }
             catch (DirectoryNotFoundException e)
             {
-                Console.WriteLine("Directory not found: {0}", targetDirectory);
+                e.Log();
             }
 
             var registerFiles = new List<RegisterFile>();
@@ -93,25 +93,20 @@ namespace pmis
                     var response = await client.PostAsync(url, content);
                     response.EnsureSuccessStatusCode();
                     var responseString = await response.Content.ReadAsStringAsync();
-                    //Console.WriteLine(responseString);
                     PmisJsonResponse<ReviewInfo> dt = JsonConvert.DeserializeObject<PmisJsonResponse<ReviewInfo>>(responseString);
                     ImportData(dt.List);
                 }
             }
             catch (Exception ex)
             {
+                ex.Log().Display();
                 if (ImportErrorHandler != null)
-                {
                     ImportErrorHandler(this, new ErrorEventArgs(ex));
-                }
-                Console.WriteLine(ex);
             }
             finally
             {
                 if (ImportCompleteHandler != null)
-                {
                     ImportCompleteHandler(this, EventArgs.Empty);
-                }
             }
 
             //try

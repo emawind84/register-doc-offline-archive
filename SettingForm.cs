@@ -39,13 +39,13 @@ namespace pmis
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
 
-            this.registerService.ImportErrorHandler += ShowImportErrorMessage;
+            //this.registerService.ImportErrorHandler += ShowImportErrorMessage;
             this.registerService.ImportCompleteHandler += EnableImportRegisterDataButton;
 
-            this.reviewInfoService.ImportErrorHandler += ShowImportErrorMessage;
+            //this.reviewInfoService.ImportErrorHandler += ShowImportErrorMessage;
             this.reviewInfoService.ImportCompleteHandler += EnableImportReviewDataButton;
 
-            this.mainForm.DaoService.OnInitializationError += ShowSQLiteErrorMessage;
+            //this.mainForm.DaoService.OnInitializationError += ShowSQLiteErrorMessage;
 
             LoadSettings();
         }
@@ -114,25 +114,21 @@ namespace pmis
             Properties.Settings.Default.Reload();
 
             if (SettingChanged != null)
-            {
                 SettingChanged(this, EventArgs.Empty);
-            }
 
-            // reset db error message
-            settingDbErrorMessage.Text = "";
         }
 
         private void ShowImportErrorMessage(object sender, ErrorEventArgs args)
         {
-            if (this.pmisWsErrorMessage.InvokeRequired)
-            {
-                ChangeErrorMessage d = ShowImportErrorMessage;
-                this.Invoke(d, new object[] { sender, args });
-            }
-            else
-            {
-                pmisWsErrorMessage.Text = args.GetException().Message;
-            }
+            //if (this.pmisWsErrorMessage.InvokeRequired)
+            //{
+            //    ChangeErrorMessage d = ShowImportErrorMessage;
+            //    this.Invoke(d, new object[] { sender, args });
+            //}
+            //else
+            //{
+            //    pmisWsErrorMessage.Text = args.GetException().Message;
+            //}
         }
 
         private void EnableImportReviewDataButton(object sender = null, EventArgs args = null)
@@ -162,7 +158,7 @@ namespace pmis
 
         private void ShowSQLiteErrorMessage(object sender, ErrorEventArgs args)
         {
-            this.settingDbErrorMessage.Text = args.GetException().Message;
+            //this.settingDbErrorMessage.Text = args.GetException().Message;
         }
 
         private void importRegisterDataButton_Click(object sender, EventArgs e)

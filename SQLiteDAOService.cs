@@ -305,7 +305,7 @@ namespace pmis
             
             if (!Path.IsPathRooted(databaseFilePath))
             {
-                databaseFilePath = Path.Combine(AppConfig.AppDataFolder, databaseFilePath);
+                databaseFilePath = Path.Combine(AppConfig.AppDataFullPath, databaseFilePath);
                 Console.WriteLine(Path.GetFullPath(databaseFilePath));
             }
             Console.WriteLine("Setting db path: {0}", databaseFilePath);

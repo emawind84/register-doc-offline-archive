@@ -10,15 +10,21 @@ namespace pmis
     public static class AppConfig
     {
 
-        public static string AppDataFolder;
+        //private static string appDataName = ".pmis-archive";
+
+        private static string appDataFullPath;
+        public static string AppDataFullPath { get { return appDataFullPath; } }
 
         public static void InitConfig()
         {
-            var appdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            AppDataFolder = Path.Combine(appdataPath, ".pmisarchive");
+            var _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            appDataFullPath = Path.Combine(_path, ".pmis-archive");
 
-            if (!Directory.Exists(AppDataFolder))
-                Directory.CreateDirectory(AppDataFolder);
+            if (!Directory.Exists(AppDataFullPath))
+                Directory.CreateDirectory(AppDataFullPath);
+
+            // set the log root folder
+            ExceptionExtension.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
         }
     }
 }

@@ -587,7 +587,7 @@ namespace pmis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("archive.db")]
         public string sqlite_db_location {
             get {
                 return ((string)(this["sqlite_db_location"]));

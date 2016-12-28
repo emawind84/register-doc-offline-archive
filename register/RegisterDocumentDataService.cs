@@ -45,7 +45,7 @@ namespace pmis
             }
             catch (DirectoryNotFoundException e)
             {
-                Console.WriteLine("Directory not found: {0}", targetDirectory);
+                e.Log();
             }
 
             var registerFiles = new List<RegisterFile>();
@@ -105,35 +105,16 @@ namespace pmis
                     ImportData(dt.List);
                 }
             }
-            catch (NotSupportedException ex)
+            catch (Exception ex)
             {
+                ex.Log().Display();
                 if (ImportErrorHandler != null)
-                {
                     ImportErrorHandler(this, new ErrorEventArgs(ex));
-                }
-            }
-            catch (WebException ex)
-            {
-                WebResponse errorResponse = ex.Response;
-                using (Stream responseStream = errorResponse.GetResponseStream())
-                {
-                    StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-                    String errorText = reader.ReadToEnd();
-                    // log errorText
-                }
-                if( ImportErrorHandler != null )
-                {
-                    ImportErrorHandler(this, new ErrorEventArgs(ex));
-                }
-                
-                //throw;
             }
             finally
             {
                 if (ImportCompleteHandler != null)
-                {
                     ImportCompleteHandler(this, EventArgs.Empty);
-                }
             }
         }
 
