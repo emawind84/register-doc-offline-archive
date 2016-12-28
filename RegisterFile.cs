@@ -16,8 +16,10 @@ namespace pmis
 
         public long FileSize { get; set; }
 
-        public string FileHumanSize {
-            get{
+        public string FileHumanSize
+        {
+            get
+            {
                 int order = 0;
                 long len = this.FileSize;
                 while (len >= 1024 && ++order < sizes.Length)
@@ -45,39 +47,18 @@ namespace pmis
 
         public static string SanitizeName(string name)
         {
-            var sanitizedName = new StringBuilder();
-            foreach (char c in name)
+            string invalid = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+
+            // remove all invalid chars
+            foreach (char c in invalid)
             {
-                if (c == '/')
-                {
-                    sanitizedName.Append('_');
-                }
-                else if (c == ':')
-                {
-                    sanitizedName.Append('_');
-                }
-                else if (c == '*')
-                {
-                    sanitizedName.Append('_');
-                }
-                else if (c == '<')
-                {
-                    sanitizedName.Append('_');
-                }
-                else if (c == '>')
-                {
-                    sanitizedName.Append('_');
-                }
-                else if (c == '"')
-                {
-                    sanitizedName.Append('_');
-                }
-                else
-                {
-                    sanitizedName.Append(c);
-                }
+                name = name.Replace(c.ToString(), "_");
             }
-            return sanitizedName.ToString();
+
+            // strip the name left and right
+            name = name.Trim();
+
+            return name;
         }
     }
 }

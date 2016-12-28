@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace pmis.reviewinfo
 {
-    public interface ReviewInfoDaoInterface
+    public interface IReviewInfoDao
     {
         DataTable LoadReviewInfo(RegisterDocument doc);
 

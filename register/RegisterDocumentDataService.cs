@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.IO;
 using System.Data;
 using System.Net;
 using Newtonsoft.Json;
 using pmis.register;
-using System.Threading;
 
 namespace pmis
 {
@@ -18,12 +14,12 @@ namespace pmis
 
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-        private RegisterDocumentDaoService daoService;
+        private IRegisterDocumentDao daoService;
 
-        public event EventHandler<List<RegisterDocument>> ImportCompleteHandler;
+        public event EventHandler ImportCompleteHandler;
         public event ErrorEventHandler ImportErrorHandler;
 
-        public RegisterDocumentDataService(RegisterDocumentDaoService daoService) {
+        public RegisterDocumentDataService(IRegisterDocumentDao daoService) {
             this.daoService = daoService;
         }
 
@@ -107,12 +103,6 @@ namespace pmis
                     //Console.WriteLine(result);
                     PmisJsonResponse<RegisterDocument> dt = JsonConvert.DeserializeObject<PmisJsonResponse<RegisterDocument>>(result);
                     ImportData(dt.List);
-                    //return result;
-
-                    if (ImportCompleteHandler != null)
-                    {
-                        ImportCompleteHandler(this, dt.List);
-                    }
                 }
             }
             catch (NotSupportedException ex)
@@ -137,6 +127,13 @@ namespace pmis
                 }
                 
                 //throw;
+            }
+            finally
+            {
+                if (ImportCompleteHandler != null)
+                {
+                    ImportCompleteHandler(this, EventArgs.Empty);
+                }
             }
         }
 

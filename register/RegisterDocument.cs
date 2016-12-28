@@ -56,9 +56,9 @@ namespace pmis
 
         public override string ToString()
         {
-            return String.Format("Doocument [{0}, ver={1}]",
+            return String.Format("Doocument [{0}, {2}, ver={1}]",
                 DocumentNumber,
-                Version );
+                Version, Type );
 
         }
     }

@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
-using System.IO;
 using pmis.reviewinfo;
 
 namespace pmis
 {
-    public partial class RegisterDocumentMainForm : Form
+    public partial class ArchiveMainForm : Form
     {
         private SettingForm settingForm;
-        private SQLiteDAOService sqliteDaoService;
+        private SQLiteDaoService daoService;
         private RegisterDocumentDataService registerDocumentDataService;
         private RegisterDocumentPresenter registerDocumentPresenter;
         private RegisterDocumentDetailView registerDocumentDetailView;
@@ -33,8 +26,8 @@ namespace pmis
             get { return this.registerDocumentDetailView; }
         }
 
-        public SQLiteDAOService SQLiteDaoService {
-            get { return sqliteDaoService; }
+        public SQLiteDaoService DaoService {
+            get { return daoService; }
         }
 
         public string SearchCriteriaDocNumber { get { return srchNumber.Text; } }
@@ -53,44 +46,60 @@ namespace pmis
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
-        public RegisterDocumentMainForm()
+        public ArchiveMainForm()
         {
             InitializeComponent();
+
+            // configure user folder in appdata
+            AppConfig.InitConfig();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            sqliteDaoService = new SQLiteDAOService();
-            var conn = sqliteDaoService.InitDB();
-
-            registerDocumentDataService = new RegisterDocumentDataService(sqliteDaoService);
-            registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
-            registerDocumentDetailView = new RegisterDocumentDetailView(this);
-            registerDataGridView.AllowUserToAddRows = false;
-            registerDataGridView.AutoGenerateColumns = false;
+            try
+            {
+                daoService = new SQLiteDaoService();
             
-            reviewInfoDataService = new ReviewInfoDataService(sqliteDaoService);
-            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
-            reviewDataGridView.AutoGenerateColumns = false;
-            reviewDataGridView.AllowUserToAddRows = false;
+                registerDocumentDataService = new RegisterDocumentDataService(daoService);
+                registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+                registerDocumentDetailView = new RegisterDocumentDetailView(this);
+                registerDataGridView.AllowUserToAddRows = false;
+                registerDataGridView.AutoGenerateColumns = false;
+            
+                reviewInfoDataService = new ReviewInfoDataService(daoService);
+                reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
+                reviewDataGridView.AutoGenerateColumns = false;
+                reviewDataGridView.AllowUserToAddRows = false;
 
-            reviewFilesBS = new BindingSource();
-            reviewFilesBS.DataSource = new List<RegisterFile>();
-            reviewFilesBS.AllowNew = false;
-            reviewFileDataGrid.AutoGenerateColumns = false;
-            reviewFileDataGrid.DataSource = reviewFilesBS;
+                reviewFilesBS = new BindingSource();
+                reviewFilesBS.DataSource = new List<RegisterFile>();
+                reviewFilesBS.AllowNew = false;
+                reviewFileDataGrid.AutoGenerateColumns = false;
+                reviewFileDataGrid.DataSource = reviewFilesBS;
 
-            fileManagerBS = new BindingSource();
-            fileManagerBS.DataSource = new List<RegisterFile>();
-            fileManagerBS.AllowNew = false;
-            fileManagerDataGridView.AutoGenerateColumns = false;
-            fileManagerDataGridView.DataSource = fileManagerBS;
+                fileManagerBS = new BindingSource();
+                fileManagerBS.DataSource = new List<RegisterFile>();
+                fileManagerBS.AllowNew = false;
+                fileManagerDataGridView.AutoGenerateColumns = false;
+                fileManagerDataGridView.DataSource = fileManagerBS;
 
-            settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
-            settingForm.SettingChanged += LoadSearchOptions;
+                settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
+                settingForm.SettingChanged += LoadSearchOptions;
+                
+                // open db connection before doing anything else
+                daoService.Open();
 
-            LoadSearchOptions();
-            ShowRegisterList();
+                // load search options
+                LoadSearchOptions();
+
+                // request docs list
+                ShowRegisterList();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+            
         }
 
         public object DocumentList
@@ -127,7 +136,7 @@ namespace pmis
 
             //string docno = (string)registerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
             var dr = registerDataGridView.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            this.registerDocumentDetailView.DocumentNumber = Convert.ToString(dr["docno"]);
+            this.registerDocumentDetailView.Number = Convert.ToString(dr["docno"]);
             this.registerDocumentDetailView.Version = Convert.ToString(dr["doc_version"]);
 
             if (OnShowRegisterDocumentInfo != null)
@@ -148,13 +157,27 @@ namespace pmis
 
         private void ShowRegisterList()
         {
-            if(OnShowRegisterDocumentList != null)
-                OnShowRegisterDocumentList(this, EventArgs.Empty);
+            try
+            {
+                if (OnShowRegisterDocumentList != null)
+                    OnShowRegisterDocumentList(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Something really bad happened...", ex);
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            ShowRegisterList();
+            try
+            {
+                ShowRegisterList();
+            }
+            catch(Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void fileManagerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -194,5 +217,6 @@ namespace pmis
         {
             this.Close();
         }
+        
     }
 }

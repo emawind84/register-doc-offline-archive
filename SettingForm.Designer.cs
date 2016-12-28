@@ -30,7 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.docTypesTextBox = new System.Windows.Forms.RichTextBox();
@@ -38,6 +39,7 @@
             this.docDisciplinesTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.docStatusesTextBox = new System.Windows.Forms.RichTextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.settingRegisterFolderURI = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -61,13 +63,15 @@
             this.importRegisterDataButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.settingDbErrorMessage = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -91,6 +95,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox11);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -100,20 +106,24 @@
             this.tabPage3.Text = "General Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // groupBox11
+            // panel1
             // 
-            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox11.Controls.Add(this.tabControl2);
-            this.groupBox11.Controls.Add(this.settingRegisterFolderURI);
-            this.groupBox11.Controls.Add(this.label13);
-            this.groupBox11.Location = new System.Drawing.Point(6, 6);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(710, 380);
-            this.groupBox11.TabIndex = 41;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Register Settings";
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackgroundImage = global::pmis.Properties.Resources.sangah_logo;
+            this.panel1.Location = new System.Drawing.Point(516, 328);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 58);
+            this.panel1.TabIndex = 43;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tabControl2);
+            this.groupBox1.Location = new System.Drawing.Point(6, 74);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(361, 312);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search Options";
             // 
             // tabControl2
             // 
@@ -122,11 +132,11 @@
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Location = new System.Drawing.Point(21, 71);
+            this.tabControl2.Location = new System.Drawing.Point(6, 19);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(344, 272);
-            this.tabControl2.TabIndex = 49;
+            this.tabControl2.Size = new System.Drawing.Size(349, 282);
+            this.tabControl2.TabIndex = 50;
             // 
             // tabPage5
             // 
@@ -134,7 +144,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(336, 246);
+            this.tabPage5.Size = new System.Drawing.Size(341, 256);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Document Type";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -147,7 +157,7 @@
             this.docTypesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docTypesTextBox.Location = new System.Drawing.Point(-1, 0);
             this.docTypesTextBox.Name = "docTypesTextBox";
-            this.docTypesTextBox.Size = new System.Drawing.Size(337, 246);
+            this.docTypesTextBox.Size = new System.Drawing.Size(342, 256);
             this.docTypesTextBox.TabIndex = 42;
             this.docTypesTextBox.Text = "";
             // 
@@ -157,7 +167,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(336, 246);
+            this.tabPage6.Size = new System.Drawing.Size(341, 256);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Document Discipline";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -170,7 +180,7 @@
             this.docDisciplinesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docDisciplinesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docDisciplinesTextBox.Name = "docDisciplinesTextBox";
-            this.docDisciplinesTextBox.Size = new System.Drawing.Size(336, 246);
+            this.docDisciplinesTextBox.Size = new System.Drawing.Size(341, 256);
             this.docDisciplinesTextBox.TabIndex = 43;
             this.docDisciplinesTextBox.Text = "";
             // 
@@ -180,7 +190,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(336, 246);
+            this.tabPage7.Size = new System.Drawing.Size(341, 256);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Document Status";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -193,9 +203,23 @@
             this.docStatusesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docStatusesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docStatusesTextBox.Name = "docStatusesTextBox";
-            this.docStatusesTextBox.Size = new System.Drawing.Size(336, 246);
+            this.docStatusesTextBox.Size = new System.Drawing.Size(341, 256);
             this.docStatusesTextBox.TabIndex = 45;
             this.docStatusesTextBox.Text = "";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox11.Controls.Add(this.settingRegisterFolderURI);
+            this.groupBox11.Controls.Add(this.label13);
+            this.groupBox11.Location = new System.Drawing.Point(6, 6);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(403, 62);
+            this.groupBox11.TabIndex = 41;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Register Settings";
             // 
             // settingRegisterFolderURI
             // 
@@ -215,6 +239,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.settingDbErrorMessage);
             this.tabPage2.Controls.Add(this.groupBox10);
             this.tabPage2.Controls.Add(this.groupBox9);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -234,14 +259,14 @@
             this.groupBox10.Controls.Add(this.settingSQLiteDbLocation);
             this.groupBox10.Location = new System.Drawing.Point(6, 91);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(710, 93);
+            this.groupBox10.Size = new System.Drawing.Size(710, 109);
             this.groupBox10.TabIndex = 7;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "SQLite Settings";
             // 
             // connectDatabaseButton
             // 
-            this.connectDatabaseButton.BackColor = System.Drawing.SystemColors.Control;
+            this.connectDatabaseButton.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.connectDatabaseButton.Location = new System.Drawing.Point(9, 53);
             this.connectDatabaseButton.Name = "connectDatabaseButton";
             this.connectDatabaseButton.Size = new System.Drawing.Size(114, 26);
@@ -332,22 +357,25 @@
             // 
             // pmisWsErrorMessage
             // 
+            this.pmisWsErrorMessage.BackColor = System.Drawing.Color.White;
             this.pmisWsErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pmisWsErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.pmisWsErrorMessage.Location = new System.Drawing.Point(5, 156);
+            this.pmisWsErrorMessage.Location = new System.Drawing.Point(11, 159);
             this.pmisWsErrorMessage.Name = "pmisWsErrorMessage";
+            this.pmisWsErrorMessage.ReadOnly = true;
             this.pmisWsErrorMessage.Size = new System.Drawing.Size(342, 53);
             this.pmisWsErrorMessage.TabIndex = 10;
             this.pmisWsErrorMessage.Text = "";
             // 
             // importReviewDataButton
             // 
-            this.importReviewDataButton.Location = new System.Drawing.Point(184, 127);
+            this.importReviewDataButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.importReviewDataButton.Location = new System.Drawing.Point(188, 127);
             this.importReviewDataButton.Name = "importReviewDataButton";
-            this.importReviewDataButton.Size = new System.Drawing.Size(149, 23);
+            this.importReviewDataButton.Size = new System.Drawing.Size(149, 26);
             this.importReviewDataButton.TabIndex = 9;
             this.importReviewDataButton.Text = "Import Review Data";
-            this.importReviewDataButton.UseVisualStyleBackColor = true;
+            this.importReviewDataButton.UseVisualStyleBackColor = false;
             this.importReviewDataButton.Click += new System.EventHandler(this.importReviewDataButton_Click);
             // 
             // settingPmisWsAuthKey
@@ -403,12 +431,13 @@
             // 
             // importRegisterDataButton
             // 
-            this.importRegisterDataButton.Location = new System.Drawing.Point(20, 127);
+            this.importRegisterDataButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.importRegisterDataButton.Location = new System.Drawing.Point(24, 127);
             this.importRegisterDataButton.Name = "importRegisterDataButton";
-            this.importRegisterDataButton.Size = new System.Drawing.Size(149, 23);
+            this.importRegisterDataButton.Size = new System.Drawing.Size(149, 26);
             this.importRegisterDataButton.TabIndex = 0;
             this.importRegisterDataButton.Text = "Import Register Data";
-            this.importRegisterDataButton.UseVisualStyleBackColor = true;
+            this.importRegisterDataButton.UseVisualStyleBackColor = false;
             this.importRegisterDataButton.Click += new System.EventHandler(this.importRegisterDataButton_Click);
             // 
             // button3
@@ -435,11 +464,22 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // settingDbErrorMessage
+            // 
+            this.settingDbErrorMessage.AutoSize = true;
+            this.settingDbErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.settingDbErrorMessage.Location = new System.Drawing.Point(6, 364);
+            this.settingDbErrorMessage.Name = "settingDbErrorMessage";
+            this.settingDbErrorMessage.Size = new System.Drawing.Size(75, 13);
+            this.settingDbErrorMessage.TabIndex = 8;
+            this.settingDbErrorMessage.Text = "Error Message";
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 484);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
@@ -447,15 +487,18 @@
             this.MaximizeBox = false;
             this.Name = "SettingForm";
             this.Text = "Archive Settings";
+            this.Load += new System.EventHandler(this.SettingForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -492,6 +535,10 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.TextBox settingRegisterFolderURI;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button connectDatabaseButton;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.RichTextBox docTypesTextBox;
@@ -499,8 +546,7 @@
         private System.Windows.Forms.RichTextBox docDisciplinesTextBox;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.RichTextBox docStatusesTextBox;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button connectDatabaseButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label settingDbErrorMessage;
     }
 }

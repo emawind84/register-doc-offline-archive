@@ -12,10 +12,10 @@ namespace pmis
     {
         public event EventHandler<RegisterDocument> OnLoadRegisterDocument;
 
-        private RegisterDocumentMainForm _form;
+        private ArchiveMainForm _form;
         private RegisterDocumentDataService _service;
 
-        public RegisterDocumentPresenter(RegisterDocumentMainForm form, RegisterDocumentDataService service)
+        public RegisterDocumentPresenter(ArchiveMainForm form, RegisterDocumentDataService service)
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowRegisterDocumentInfo;
@@ -26,19 +26,25 @@ namespace pmis
 
         private void ShowRegisterDocumentInfo(object sender, EventArgs e) {
             var viewForm = _form.RegisterDocumentDetailView;
-            var docno = _form.RegisterDocumentDetailView.DocumentNumber;
+            var docno = _form.RegisterDocumentDetailView.Number;
             var version = _form.RegisterDocumentDetailView.Version;
             RegisterDocument doc = _service.LoadDocument(docno, version);
+            Console.WriteLine("Presenting doc: {0}", doc);
 
-            viewForm.DocumentNumber = doc.DocumentNumber;
-            viewForm.DocumentTitle = doc.Title;
+            viewForm.Number = doc.DocumentNumber;
+            viewForm.Title = doc.Title;
             viewForm.Revision = doc.Revision;
             viewForm.RevisionDate = doc.RevisionDate;
-            viewForm.DocumentStatus = doc.Status;
+            viewForm.Status = doc.Status;
             viewForm.Registered = doc.Registered;
             viewForm.RegisteredBy = doc.RegisteredBy;
             viewForm.Note = doc.Note;
             viewForm.ReviewStatus = doc.ReviewStatus;
+            viewForm.Version = doc.Version;
+            viewForm.Type = doc.Type;
+            viewForm.Organization = doc.Organization;
+            viewForm.Current = doc.Current == "1" ? "(Top Version)" : "(Old Version)";
+            viewForm.InternalNumber = doc.InternalNumber;
 
             if(OnLoadRegisterDocument != null)
             {

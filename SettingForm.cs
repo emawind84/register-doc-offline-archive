@@ -15,11 +15,14 @@ namespace pmis
     public partial class SettingForm : Form
     {
 
-        private RegisterDocumentMainForm mainForm;
+        private ArchiveMainForm mainForm;
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
 
         public event EventHandler SettingChanged;
+
+        delegate void ChangeButtonStateCallback(object sender = null, EventArgs args = null);
+        delegate void ChangeErrorMessage(object sender, ErrorEventArgs args);
 
         public SettingForm()
         {
@@ -32,12 +35,17 @@ namespace pmis
         {
             InitializeComponent();
 
-            this.mainForm = mainForm as RegisterDocumentMainForm;
+            this.mainForm = mainForm as ArchiveMainForm;
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
 
-            this.registerService.ImportErrorHandler += ImportErrorHandler;
-            this.reviewInfoService.ImportErrorHandler += ImportErrorHandler;
+            this.registerService.ImportErrorHandler += ShowImportErrorMessage;
+            this.registerService.ImportCompleteHandler += EnableImportRegisterDataButton;
+
+            this.reviewInfoService.ImportErrorHandler += ShowImportErrorMessage;
+            this.reviewInfoService.ImportCompleteHandler += EnableImportReviewDataButton;
+
+            this.mainForm.DaoService.OnInitializationError += ShowSQLiteErrorMessage;
 
             LoadSettings();
         }
@@ -71,7 +79,7 @@ namespace pmis
                 strbuilder.AppendLine(opt);
             }
             docTypesTextBox.Text = strbuilder.ToString();
-
+            
         }
 
         public void SaveSettings(object sender = null, EventArgs e = null)
@@ -109,29 +117,88 @@ namespace pmis
             {
                 SettingChanged(this, EventArgs.Empty);
             }
+
+            // reset db error message
+            settingDbErrorMessage.Text = "";
         }
 
-        private void ImportErrorHandler(object sender, ErrorEventArgs args)
+        private void ShowImportErrorMessage(object sender, ErrorEventArgs args)
         {
-            pmisWsErrorMessage.Text = args.GetException().Message;
+            if (this.pmisWsErrorMessage.InvokeRequired)
+            {
+                ChangeErrorMessage d = ShowImportErrorMessage;
+                this.Invoke(d, new object[] { sender, args });
+            }
+            else
+            {
+                pmisWsErrorMessage.Text = args.GetException().Message;
+            }
+        }
+
+        private void EnableImportReviewDataButton(object sender = null, EventArgs args = null)
+        {
+            if (this.importReviewDataButton.InvokeRequired)
+            {
+                ChangeButtonStateCallback d = EnableImportReviewDataButton;
+                this.Invoke(d, new object[] { null, null });
+            }
+            else {
+                importReviewDataButton.Enabled = true;
+            }
+        }
+
+        private void EnableImportRegisterDataButton(object sender, EventArgs args)
+        {
+            if (this.importRegisterDataButton.InvokeRequired)
+            {
+                ChangeButtonStateCallback d = EnableImportRegisterDataButton;
+                this.Invoke(d, new object[] { null, null });
+            }
+            else {
+                importRegisterDataButton.Enabled = true;
+            }
+            
+        }
+
+        private void ShowSQLiteErrorMessage(object sender, ErrorEventArgs args)
+        {
+            this.settingDbErrorMessage.Text = args.GetException().Message;
         }
 
         private void importRegisterDataButton_Click(object sender, EventArgs e)
         {
-            SaveSettings();
-            registerService.DeleteRegisterData();
+            try
+            {
+                importRegisterDataButton.Enabled = false;
+                SaveSettings();
 
-            Thread oThread = new Thread(new ThreadStart(registerService.ImportFromWebService));
-            oThread.Start();
+                registerService.DeleteRegisterData();
+
+                Thread oThread = new Thread(new ThreadStart(registerService.ImportFromWebService));
+                oThread.Start();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void importReviewDataButton_Click(object sender, EventArgs e)
         {
-            SaveSettings();
-            reviewInfoService.DeleteReviewInfo();
+            try
+            {
+                importReviewDataButton.Enabled = false;
+                SaveSettings();
 
-            Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
-            oThread.Start();
+                reviewInfoService.DeleteReviewInfo();
+
+                Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
+                oThread.Start();
+            }
+            catch(Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,15 +208,33 @@ namespace pmis
 
         private void connectDatabaseButton_Click(object sender, EventArgs e)
         {
-            SaveSettings();
-            mainForm.SQLiteDaoService.ConnectDatabase();
+            try
+            {
+                SaveSettings();
+                mainForm.DaoService.Open();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SaveSettings();
+            try
+            {
+                SaveSettings();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
 
-            this.Hide();
+        private void SettingForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

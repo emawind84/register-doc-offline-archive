@@ -1,6 +1,6 @@
 ﻿namespace pmis
 {
-    partial class RegisterDocumentMainForm
+    partial class ArchiveMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.archiveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,32 +92,33 @@
             this.filesize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.docViewCurrent = new System.Windows.Forms.TextBox();
-            this.docViewDiscipline = new System.Windows.Forms.TextBox();
-            this.docViewType = new System.Windows.Forms.TextBox();
-            this.docViewIntNumber = new System.Windows.Forms.TextBox();
-            this.docViewOrganization = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.docViewRegisteredBy = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.docViewRegistered = new System.Windows.Forms.TextBox();
-            this.docViewVersion = new System.Windows.Forms.TextBox();
             this.docViewRevisionDate = new System.Windows.Forms.TextBox();
             this.docViewRevision = new System.Windows.Forms.TextBox();
-            this.docViewStatus = new System.Windows.Forms.TextBox();
             this.docViewTitle = new System.Windows.Forms.TextBox();
+            this.docViewType = new System.Windows.Forms.TextBox();
             this.docViewDocNumber = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.docViewStatus = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.docViewDiscipline = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.docViewIntNumber = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.docViewVersion = new System.Windows.Forms.TextBox();
+            this.docViewCurrent = new System.Windows.Forms.TextBox();
+            this.docViewOrganization = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.reviewFileDataGrid = new System.Windows.Forms.DataGridView();
@@ -132,7 +134,9 @@
             this.doc_version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docViewReviewStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,6 +148,8 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileManagerDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reviewFileDataGrid)).BeginInit();
@@ -169,6 +175,7 @@
             // 
             this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archiveSettingsToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
@@ -177,14 +184,14 @@
             // archiveSettingsToolStripMenuItem
             // 
             this.archiveSettingsToolStripMenuItem.Name = "archiveSettingsToolStripMenuItem";
-            this.archiveSettingsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.archiveSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.archiveSettingsToolStripMenuItem.Text = "Settings...";
             this.archiveSettingsToolStripMenuItem.Click += new System.EventHandler(this.archiveSettingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -199,7 +206,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
             // 
             // openFileDialog1
@@ -214,7 +221,9 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 39);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1014, 590);
@@ -229,8 +238,9 @@
             this.tabPage1.Controls.Add(this.searchButton);
             this.tabPage1.Controls.Add(this.registerDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Size = new System.Drawing.Size(1006, 564);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Register";
@@ -240,6 +250,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button4.Location = new System.Drawing.Point(842, 100);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(68, 27);
             this.button4.TabIndex = 35;
@@ -255,7 +266,9 @@
             this.groupBox4.Controls.Add(this.srchType);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Location = new System.Drawing.Point(217, 6);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Size = new System.Drawing.Size(406, 121);
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
@@ -264,6 +277,7 @@
             // 
             this.srchDiscipline.FormattingEnabled = true;
             this.srchDiscipline.Location = new System.Drawing.Point(140, 50);
+            this.srchDiscipline.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchDiscipline.Name = "srchDiscipline";
             this.srchDiscipline.Size = new System.Drawing.Size(260, 21);
             this.srchDiscipline.TabIndex = 11;
@@ -282,6 +296,7 @@
             // 
             this.srchStatus.FormattingEnabled = true;
             this.srchStatus.Location = new System.Drawing.Point(140, 83);
+            this.srchStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchStatus.Name = "srchStatus";
             this.srchStatus.Size = new System.Drawing.Size(260, 21);
             this.srchStatus.TabIndex = 9;
@@ -300,6 +315,7 @@
             // 
             this.srchType.FormattingEnabled = true;
             this.srchType.Location = new System.Drawing.Point(140, 17);
+            this.srchType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchType.Name = "srchType";
             this.srchType.Size = new System.Drawing.Size(260, 21);
             this.srchType.TabIndex = 7;
@@ -323,7 +339,9 @@
             this.groupBox3.Controls.Add(this.srchHistory);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Location = new System.Drawing.Point(629, 6);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Size = new System.Drawing.Size(207, 121);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
@@ -352,7 +370,8 @@
             // 
             this.srchToDate.CustomFormat = "yyyy-MM-dd";
             this.srchToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchToDate.Location = new System.Drawing.Point(110, 88);
+            this.srchToDate.Location = new System.Drawing.Point(110, 87);
+            this.srchToDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchToDate.Name = "srchToDate";
             this.srchToDate.Size = new System.Drawing.Size(85, 20);
             this.srchToDate.TabIndex = 3;
@@ -361,7 +380,8 @@
             // 
             this.srchFromDate.CustomFormat = "yyyy-MM-dd";
             this.srchFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchFromDate.Location = new System.Drawing.Point(6, 88);
+            this.srchFromDate.Location = new System.Drawing.Point(6, 87);
+            this.srchFromDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchFromDate.Name = "srchFromDate";
             this.srchFromDate.Size = new System.Drawing.Size(85, 20);
             this.srchFromDate.TabIndex = 2;
@@ -374,6 +394,7 @@
             "Latest Revision Only",
             "Show All Revisions"});
             this.srchHistory.Location = new System.Drawing.Point(6, 31);
+            this.srchHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchHistory.Name = "srchHistory";
             this.srchHistory.Size = new System.Drawing.Size(121, 21);
             this.srchHistory.TabIndex = 1;
@@ -395,7 +416,9 @@
             this.groupBox2.Controls.Add(this.srchNumber);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Size = new System.Drawing.Size(205, 121);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
@@ -403,6 +426,7 @@
             // srchTitle
             // 
             this.srchTitle.Location = new System.Drawing.Point(9, 87);
+            this.srchTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchTitle.Name = "srchTitle";
             this.srchTitle.Size = new System.Drawing.Size(193, 20);
             this.srchTitle.TabIndex = 11;
@@ -420,6 +444,7 @@
             // srchNumber
             // 
             this.srchNumber.Location = new System.Drawing.Point(9, 32);
+            this.srchNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchNumber.Name = "srchNumber";
             this.srchNumber.Size = new System.Drawing.Size(190, 20);
             this.srchNumber.TabIndex = 9;
@@ -438,8 +463,8 @@
             // 
             this.searchButton.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(842, 59);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(98, 35);
             this.searchButton.TabIndex = 31;
@@ -454,18 +479,18 @@
             this.registerDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.registerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.registerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.registerDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.registerDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.registerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.registerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.doclist_docno,
@@ -481,33 +506,37 @@
             this.doclist_registered,
             this.doclist_discipline,
             this.doclist_status});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
-            this.registerDataGridView.Location = new System.Drawing.Point(6, 133);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.registerDataGridView.Location = new System.Drawing.Point(3, 138);
+            this.registerDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerDataGridView.Name = "registerDataGridView";
             this.registerDataGridView.ReadOnly = true;
             this.registerDataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.registerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.registerDataGridView.RowTemplate.Height = 40;
-            this.registerDataGridView.Size = new System.Drawing.Size(994, 425);
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.registerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.registerDataGridView.RowTemplate.Height = 30;
+            this.registerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.registerDataGridView.Size = new System.Drawing.Size(1000, 422);
             this.registerDataGridView.TabIndex = 1;
             this.registerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GetRegisterDocumentInfoButton_Click);
             this.registerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerDataGridView_CellDoubleClick);
             // 
             // doclist_docno
             // 
-            this.doclist_docno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.doclist_docno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.doclist_docno.DataPropertyName = "docno";
+            this.doclist_docno.Frozen = true;
             this.doclist_docno.HeaderText = "Document Number";
             this.doclist_docno.Name = "doclist_docno";
             this.doclist_docno.ReadOnly = true;
+            this.doclist_docno.Width = 271;
             // 
             // doclist_title
             // 
@@ -541,11 +570,12 @@
             this.doclist_current.Name = "doclist_current";
             this.doclist_current.ReadOnly = true;
             this.doclist_current.Visible = false;
-            this.doclist_current.Width = 66;
             // 
             // doclist_revision_date
             // 
             this.doclist_revision_date.DataPropertyName = "revision_date";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.doclist_revision_date.DefaultCellStyle = dataGridViewCellStyle2;
             this.doclist_revision_date.HeaderText = "Revision Date";
             this.doclist_revision_date.Name = "doclist_revision_date";
             this.doclist_revision_date.ReadOnly = true;
@@ -614,8 +644,9 @@
             this.tabPage2.Controls.Add(this.fileManagerDataGridView);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Size = new System.Drawing.Size(1006, 564);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Detail";
@@ -628,7 +659,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.docViewNote);
             this.groupBox5.Location = new System.Drawing.Point(6, 200);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Size = new System.Drawing.Size(994, 135);
             this.groupBox5.TabIndex = 34;
             this.groupBox5.TabStop = false;
@@ -642,6 +675,7 @@
             this.docViewNote.BackColor = System.Drawing.Color.White;
             this.docViewNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewNote.Location = new System.Drawing.Point(6, 19);
+            this.docViewNote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewNote.Name = "docViewNote";
             this.docViewNote.ReadOnly = true;
             this.docViewNote.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -661,14 +695,15 @@
             this.filename,
             this.filesize,
             this.action});
-            this.fileManagerDataGridView.Location = new System.Drawing.Point(6, 341);
+            this.fileManagerDataGridView.Location = new System.Drawing.Point(6, 343);
+            this.fileManagerDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileManagerDataGridView.MultiSelect = false;
             this.fileManagerDataGridView.Name = "fileManagerDataGridView";
             this.fileManagerDataGridView.ReadOnly = true;
             this.fileManagerDataGridView.RowHeadersVisible = false;
             this.fileManagerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.fileManagerDataGridView.ShowEditingIcon = false;
-            this.fileManagerDataGridView.Size = new System.Drawing.Size(994, 217);
+            this.fileManagerDataGridView.Size = new System.Drawing.Size(994, 210);
             this.fileManagerDataGridView.TabIndex = 33;
             this.fileManagerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fileManagerDataGridView_CellClick);
             this.fileManagerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fileManagerDataGridView_CellDoubleClick);
@@ -677,8 +712,8 @@
             // 
             this.filename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.filename.DataPropertyName = "FileName";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filename.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filename.DefaultCellStyle = dataGridViewCellStyle5;
             this.filename.FillWeight = 80F;
             this.filename.HeaderText = "File Name";
             this.filename.Name = "filename";
@@ -688,8 +723,8 @@
             // 
             this.filesize.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.filesize.DataPropertyName = "FileHumanSize";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.filesize.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.filesize.DefaultCellStyle = dataGridViewCellStyle6;
             this.filesize.FillWeight = 20F;
             this.filesize.HeaderText = "Size";
             this.filesize.Name = "filesize";
@@ -698,10 +733,10 @@
             // action
             // 
             this.action.DataPropertyName = "open_location";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.NullValue = "Show In Folder";
-            this.action.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.NullValue = "Show In Folder";
+            this.action.DefaultCellStyle = dataGridViewCellStyle7;
             this.action.FillWeight = 40F;
             this.action.HeaderText = "#";
             this.action.Name = "action";
@@ -713,332 +748,395 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.docViewCurrent);
-            this.groupBox1.Controls.Add(this.docViewDiscipline);
-            this.groupBox1.Controls.Add(this.docViewType);
-            this.groupBox1.Controls.Add(this.docViewIntNumber);
-            this.groupBox1.Controls.Add(this.docViewOrganization);
-            this.groupBox1.Controls.Add(this.docViewRegisteredBy);
-            this.groupBox1.Controls.Add(this.docViewRegistered);
-            this.groupBox1.Controls.Add(this.docViewVersion);
-            this.groupBox1.Controls.Add(this.docViewRevisionDate);
-            this.groupBox1.Controls.Add(this.docViewRevision);
-            this.groupBox1.Controls.Add(this.docViewStatus);
-            this.groupBox1.Controls.Add(this.docViewTitle);
-            this.groupBox1.Controls.Add(this.docViewDocNumber);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Size = new System.Drawing.Size(994, 188);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
             // 
-            // docViewCurrent
+            // tableLayoutPanel1
             // 
-            this.docViewCurrent.BackColor = System.Drawing.Color.White;
-            this.docViewCurrent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewCurrent.Location = new System.Drawing.Point(629, 133);
-            this.docViewCurrent.Name = "docViewCurrent";
-            this.docViewCurrent.ReadOnly = true;
-            this.docViewCurrent.Size = new System.Drawing.Size(244, 15);
-            this.docViewCurrent.TabIndex = 71;
-            this.docViewCurrent.Text = "N/A";
-            // 
-            // docViewDiscipline
-            // 
-            this.docViewDiscipline.BackColor = System.Drawing.Color.White;
-            this.docViewDiscipline.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewDiscipline.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewDiscipline.Location = new System.Drawing.Point(629, 112);
-            this.docViewDiscipline.Name = "docViewDiscipline";
-            this.docViewDiscipline.ReadOnly = true;
-            this.docViewDiscipline.Size = new System.Drawing.Size(244, 15);
-            this.docViewDiscipline.TabIndex = 70;
-            this.docViewDiscipline.Text = "N/A";
-            // 
-            // docViewType
-            // 
-            this.docViewType.BackColor = System.Drawing.Color.White;
-            this.docViewType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewType.Location = new System.Drawing.Point(629, 91);
-            this.docViewType.Name = "docViewType";
-            this.docViewType.ReadOnly = true;
-            this.docViewType.Size = new System.Drawing.Size(244, 15);
-            this.docViewType.TabIndex = 69;
-            this.docViewType.Text = "N/A";
-            // 
-            // docViewIntNumber
-            // 
-            this.docViewIntNumber.BackColor = System.Drawing.Color.White;
-            this.docViewIntNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewIntNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewIntNumber.Location = new System.Drawing.Point(629, 70);
-            this.docViewIntNumber.Name = "docViewIntNumber";
-            this.docViewIntNumber.ReadOnly = true;
-            this.docViewIntNumber.Size = new System.Drawing.Size(244, 15);
-            this.docViewIntNumber.TabIndex = 68;
-            this.docViewIntNumber.Text = "N/A";
-            // 
-            // docViewOrganization
-            // 
-            this.docViewOrganization.BackColor = System.Drawing.Color.White;
-            this.docViewOrganization.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewOrganization.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewOrganization.Location = new System.Drawing.Point(629, 49);
-            this.docViewOrganization.Name = "docViewOrganization";
-            this.docViewOrganization.ReadOnly = true;
-            this.docViewOrganization.Size = new System.Drawing.Size(244, 15);
-            this.docViewOrganization.TabIndex = 67;
-            this.docViewOrganization.Text = "N/A";
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.docViewRegisteredBy, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label27, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.docViewRegistered, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.docViewRevisionDate, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.docViewRevision, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.docViewTitle, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.docViewType, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.docViewDocNumber, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.docViewStatus, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label23, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label31, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.docViewDiscipline, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label25, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.docViewIntNumber, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.docViewOrganization, 3, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 24);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(982, 143);
+            this.tableLayoutPanel1.TabIndex = 93;
             // 
             // docViewRegisteredBy
             // 
+            this.docViewRegisteredBy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.docViewRegisteredBy.BackColor = System.Drawing.Color.White;
             this.docViewRegisteredBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRegisteredBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewRegisteredBy.Location = new System.Drawing.Point(629, 28);
+            this.docViewRegisteredBy.Location = new System.Drawing.Point(594, 100);
+            this.docViewRegisteredBy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewRegisteredBy.Name = "docViewRegisteredBy";
             this.docViewRegisteredBy.ReadOnly = true;
-            this.docViewRegisteredBy.Size = new System.Drawing.Size(244, 15);
-            this.docViewRegisteredBy.TabIndex = 66;
+            this.docViewRegisteredBy.Size = new System.Drawing.Size(385, 15);
+            this.docViewRegisteredBy.TabIndex = 101;
             this.docViewRegisteredBy.Text = "N/A";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(50, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "Number:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(67, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Title:";
+            // 
+            // label27
+            // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.DimGray;
+            this.label27.Location = new System.Drawing.Point(63, 53);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(34, 13);
+            this.label27.TabIndex = 81;
+            this.label27.Text = "Type:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(537, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Revision:";
+            // 
+            // label29
+            // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.DimGray;
+            this.label29.Location = new System.Drawing.Point(511, 29);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(77, 13);
+            this.label29.TabIndex = 82;
+            this.label29.Text = "Revision Date:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(543, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 75;
+            this.label4.Text = "Version:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(527, 77);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Registered:";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(512, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 78;
+            this.label7.Text = "Registered By:";
             // 
             // docViewRegistered
             // 
+            this.docViewRegistered.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.docViewRegistered.BackColor = System.Drawing.Color.White;
             this.docViewRegistered.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRegistered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewRegistered.Location = new System.Drawing.Point(121, 154);
+            this.docViewRegistered.Location = new System.Drawing.Point(594, 76);
+            this.docViewRegistered.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewRegistered.Name = "docViewRegistered";
             this.docViewRegistered.ReadOnly = true;
-            this.docViewRegistered.Size = new System.Drawing.Size(387, 15);
-            this.docViewRegistered.TabIndex = 65;
+            this.docViewRegistered.Size = new System.Drawing.Size(385, 15);
+            this.docViewRegistered.TabIndex = 91;
             this.docViewRegistered.Text = "N/A";
-            // 
-            // docViewVersion
-            // 
-            this.docViewVersion.BackColor = System.Drawing.Color.White;
-            this.docViewVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewVersion.Location = new System.Drawing.Point(121, 133);
-            this.docViewVersion.Name = "docViewVersion";
-            this.docViewVersion.ReadOnly = true;
-            this.docViewVersion.Size = new System.Drawing.Size(387, 15);
-            this.docViewVersion.TabIndex = 64;
-            this.docViewVersion.Text = "N/A";
             // 
             // docViewRevisionDate
             // 
+            this.docViewRevisionDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.docViewRevisionDate.BackColor = System.Drawing.Color.White;
             this.docViewRevisionDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRevisionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewRevisionDate.Location = new System.Drawing.Point(121, 112);
+            this.docViewRevisionDate.Location = new System.Drawing.Point(594, 28);
+            this.docViewRevisionDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewRevisionDate.Name = "docViewRevisionDate";
             this.docViewRevisionDate.ReadOnly = true;
-            this.docViewRevisionDate.Size = new System.Drawing.Size(387, 15);
-            this.docViewRevisionDate.TabIndex = 63;
+            this.docViewRevisionDate.Size = new System.Drawing.Size(385, 15);
+            this.docViewRevisionDate.TabIndex = 89;
             this.docViewRevisionDate.Text = "N/A";
             // 
             // docViewRevision
             // 
+            this.docViewRevision.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.docViewRevision.BackColor = System.Drawing.Color.White;
             this.docViewRevision.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRevision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewRevision.Location = new System.Drawing.Point(121, 91);
+            this.docViewRevision.Location = new System.Drawing.Point(594, 4);
+            this.docViewRevision.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewRevision.Name = "docViewRevision";
             this.docViewRevision.ReadOnly = true;
-            this.docViewRevision.Size = new System.Drawing.Size(387, 15);
-            this.docViewRevision.TabIndex = 62;
+            this.docViewRevision.Size = new System.Drawing.Size(385, 15);
+            this.docViewRevision.TabIndex = 88;
             this.docViewRevision.Text = "N/A";
-            // 
-            // docViewStatus
-            // 
-            this.docViewStatus.BackColor = System.Drawing.Color.White;
-            this.docViewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.docViewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewStatus.Location = new System.Drawing.Point(121, 70);
-            this.docViewStatus.Name = "docViewStatus";
-            this.docViewStatus.ReadOnly = true;
-            this.docViewStatus.Size = new System.Drawing.Size(387, 15);
-            this.docViewStatus.TabIndex = 61;
-            this.docViewStatus.Text = "N/A";
             // 
             // docViewTitle
             // 
+            this.docViewTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.docViewTitle.BackColor = System.Drawing.Color.White;
             this.docViewTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewTitle.Location = new System.Drawing.Point(121, 49);
+            this.docViewTitle.Location = new System.Drawing.Point(103, 28);
+            this.docViewTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewTitle.Name = "docViewTitle";
             this.docViewTitle.ReadOnly = true;
-            this.docViewTitle.Size = new System.Drawing.Size(387, 15);
-            this.docViewTitle.TabIndex = 60;
+            this.docViewTitle.Size = new System.Drawing.Size(385, 15);
+            this.docViewTitle.TabIndex = 86;
             this.docViewTitle.Text = "N/A";
+            // 
+            // docViewType
+            // 
+            this.docViewType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewType.BackColor = System.Drawing.Color.White;
+            this.docViewType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewType.Location = new System.Drawing.Point(103, 52);
+            this.docViewType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewType.Name = "docViewType";
+            this.docViewType.ReadOnly = true;
+            this.docViewType.Size = new System.Drawing.Size(385, 15);
+            this.docViewType.TabIndex = 95;
+            this.docViewType.Text = "N/A";
             // 
             // docViewDocNumber
             // 
             this.docViewDocNumber.BackColor = System.Drawing.Color.White;
             this.docViewDocNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewDocNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewDocNumber.Location = new System.Drawing.Point(121, 28);
+            this.docViewDocNumber.Location = new System.Drawing.Point(103, 4);
+            this.docViewDocNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewDocNumber.Name = "docViewDocNumber";
             this.docViewDocNumber.ReadOnly = true;
-            this.docViewDocNumber.Size = new System.Drawing.Size(387, 15);
-            this.docViewDocNumber.TabIndex = 59;
+            this.docViewDocNumber.Size = new System.Drawing.Size(385, 15);
+            this.docViewDocNumber.TabIndex = 85;
             this.docViewDocNumber.Text = "N/A";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.Color.DimGray;
-            this.label33.Location = new System.Drawing.Point(579, 135);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(44, 13);
-            this.label33.TabIndex = 57;
-            this.label33.Text = "Current:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.DimGray;
-            this.label31.Location = new System.Drawing.Point(568, 114);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(55, 13);
-            this.label31.TabIndex = 55;
-            this.label31.Text = "Discipline:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.DimGray;
-            this.label29.Location = new System.Drawing.Point(38, 114);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(77, 13);
-            this.label29.TabIndex = 53;
-            this.label29.Text = "Revision Date:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.DimGray;
-            this.label27.Location = new System.Drawing.Point(537, 93);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(86, 13);
-            this.label27.TabIndex = 51;
-            this.label27.Text = "Document Type:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.DimGray;
-            this.label25.Location = new System.Drawing.Point(538, 72);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(85, 13);
-            this.label25.TabIndex = 49;
-            this.label25.Text = "Internal Number:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.DimGray;
-            this.label23.Location = new System.Drawing.Point(554, 51);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(69, 13);
-            this.label23.TabIndex = 47;
-            this.label23.Text = "Organization:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(547, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Registered By:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(54, 156);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Registered:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(64, 93);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Revision:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(70, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Version:";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(75, 72);
+            this.label3.Location = new System.Drawing.Point(57, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 35;
+            this.label3.TabIndex = 74;
             this.label3.Text = "Status:";
             // 
-            // label2
+            // docViewStatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(85, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Title:";
+            this.docViewStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewStatus.BackColor = System.Drawing.Color.White;
+            this.docViewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewStatus.Location = new System.Drawing.Point(103, 76);
+            this.docViewStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewStatus.Name = "docViewStatus";
+            this.docViewStatus.ReadOnly = true;
+            this.docViewStatus.Size = new System.Drawing.Size(385, 15);
+            this.docViewStatus.TabIndex = 87;
+            this.docViewStatus.Text = "N/A";
             // 
-            // label1
+            // label23
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(68, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Number:";
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.DimGray;
+            this.label23.Location = new System.Drawing.Point(519, 125);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 13);
+            this.label23.TabIndex = 79;
+            this.label23.Text = "Organization:";
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.DimGray;
+            this.label31.Location = new System.Drawing.Point(42, 101);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(55, 13);
+            this.label31.TabIndex = 83;
+            this.label31.Text = "Discipline:";
+            // 
+            // docViewDiscipline
+            // 
+            this.docViewDiscipline.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewDiscipline.BackColor = System.Drawing.Color.White;
+            this.docViewDiscipline.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewDiscipline.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewDiscipline.Location = new System.Drawing.Point(103, 100);
+            this.docViewDiscipline.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewDiscipline.Name = "docViewDiscipline";
+            this.docViewDiscipline.ReadOnly = true;
+            this.docViewDiscipline.Size = new System.Drawing.Size(385, 15);
+            this.docViewDiscipline.TabIndex = 96;
+            this.docViewDiscipline.Text = "N/A";
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.DimGray;
+            this.label25.Location = new System.Drawing.Point(12, 125);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(85, 13);
+            this.label25.TabIndex = 80;
+            this.label25.Text = "Internal Number:";
+            // 
+            // docViewIntNumber
+            // 
+            this.docViewIntNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewIntNumber.BackColor = System.Drawing.Color.White;
+            this.docViewIntNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewIntNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewIntNumber.Location = new System.Drawing.Point(103, 124);
+            this.docViewIntNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewIntNumber.Name = "docViewIntNumber";
+            this.docViewIntNumber.ReadOnly = true;
+            this.docViewIntNumber.Size = new System.Drawing.Size(385, 15);
+            this.docViewIntNumber.TabIndex = 94;
+            this.docViewIntNumber.Text = "N/A";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.docViewVersion);
+            this.panel1.Controls.Add(this.docViewCurrent);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(594, 52);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(385, 16);
+            this.panel1.TabIndex = 98;
+            // 
+            // docViewVersion
+            // 
+            this.docViewVersion.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewVersion.BackColor = System.Drawing.Color.White;
+            this.docViewVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewVersion.Location = new System.Drawing.Point(0, -1);
+            this.docViewVersion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewVersion.Name = "docViewVersion";
+            this.docViewVersion.ReadOnly = true;
+            this.docViewVersion.Size = new System.Drawing.Size(25, 15);
+            this.docViewVersion.TabIndex = 92;
+            this.docViewVersion.Text = "{v}";
+            // 
+            // docViewCurrent
+            // 
+            this.docViewCurrent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewCurrent.BackColor = System.Drawing.Color.White;
+            this.docViewCurrent.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewCurrent.Location = new System.Drawing.Point(29, -1);
+            this.docViewCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewCurrent.Name = "docViewCurrent";
+            this.docViewCurrent.ReadOnly = true;
+            this.docViewCurrent.Size = new System.Drawing.Size(137, 15);
+            this.docViewCurrent.TabIndex = 97;
+            this.docViewCurrent.Text = "N/A";
+            // 
+            // docViewOrganization
+            // 
+            this.docViewOrganization.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.docViewOrganization.BackColor = System.Drawing.Color.White;
+            this.docViewOrganization.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.docViewOrganization.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.docViewOrganization.Location = new System.Drawing.Point(594, 124);
+            this.docViewOrganization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.docViewOrganization.Name = "docViewOrganization";
+            this.docViewOrganization.ReadOnly = true;
+            this.docViewOrganization.Size = new System.Drawing.Size(385, 15);
+            this.docViewOrganization.TabIndex = 99;
+            this.docViewOrganization.Text = "N/A";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox8);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Size = new System.Drawing.Size(1006, 564);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Review Detail";
@@ -1050,7 +1148,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.reviewFileDataGrid);
             this.groupBox8.Location = new System.Drawing.Point(6, 390);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Size = new System.Drawing.Size(994, 168);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
@@ -1059,9 +1159,6 @@
             // reviewFileDataGrid
             // 
             this.reviewFileDataGrid.AllowUserToResizeRows = false;
-            this.reviewFileDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.reviewFileDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.reviewFileDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.reviewFileDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1069,22 +1166,24 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.reviewFileDataGrid.Location = new System.Drawing.Point(6, 19);
+            this.reviewFileDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.reviewFileDataGrid.Location = new System.Drawing.Point(3, 21);
+            this.reviewFileDataGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reviewFileDataGrid.MultiSelect = false;
             this.reviewFileDataGrid.Name = "reviewFileDataGrid";
             this.reviewFileDataGrid.ReadOnly = true;
             this.reviewFileDataGrid.RowHeadersVisible = false;
             this.reviewFileDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.reviewFileDataGrid.ShowEditingIcon = false;
-            this.reviewFileDataGrid.Size = new System.Drawing.Size(982, 143);
+            this.reviewFileDataGrid.Size = new System.Drawing.Size(988, 143);
             this.reviewFileDataGrid.TabIndex = 35;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "FileName";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
             this.dataGridViewTextBoxColumn1.HeaderText = "File Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1094,8 +1193,8 @@
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "FileHumanSize";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn2.FillWeight = 20F;
             this.dataGridViewTextBoxColumn2.HeaderText = "Size";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1104,10 +1203,10 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "open_location";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.NullValue = "Show In Folder";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.NullValue = "Show In Folder";
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.FillWeight = 40F;
             this.dataGridViewTextBoxColumn3.HeaderText = "#";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -1124,7 +1223,9 @@
             this.groupBox7.Controls.Add(this.docViewReviewStatus);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Location = new System.Drawing.Point(6, 6);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Size = new System.Drawing.Size(994, 378);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
@@ -1141,15 +1242,15 @@
             this.reviewDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.reviewDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.reviewDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reviewDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reviewDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.reviewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reviewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.review_date,
@@ -1158,10 +1259,12 @@
             this.review_note,
             this.doc_version});
             this.reviewDataGridView.Location = new System.Drawing.Point(6, 67);
+            this.reviewDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reviewDataGridView.Name = "reviewDataGridView";
             this.reviewDataGridView.ReadOnly = true;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.reviewDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.reviewDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.reviewDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.reviewDataGridView.Size = new System.Drawing.Size(982, 305);
             this.reviewDataGridView.TabIndex = 61;
             // 
@@ -1210,7 +1313,8 @@
             this.docViewReviewStatus.BackColor = System.Drawing.Color.White;
             this.docViewReviewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewReviewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewReviewStatus.Location = new System.Drawing.Point(119, 32);
+            this.docViewReviewStatus.Location = new System.Drawing.Point(113, 30);
+            this.docViewReviewStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewReviewStatus.Name = "docViewReviewStatus";
             this.docViewReviewStatus.ReadOnly = true;
             this.docViewReviewStatus.Size = new System.Drawing.Size(387, 15);
@@ -1226,6 +1330,21 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Review Outcome:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1006, 564);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Temporary";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            // 
             // RegisterDocumentMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,7 +1352,9 @@
             this.ClientSize = new System.Drawing.Size(1038, 641);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
-            this.MinimumSize = new System.Drawing.Size(1020, 600);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(1020, 601);
             this.Name = "RegisterDocumentMainForm";
             this.Text = "PMIS - Offline Archive";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1252,7 +1373,10 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileManagerDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reviewFileDataGrid)).EndInit();
@@ -1295,19 +1419,6 @@
         private System.Windows.Forms.DateTimePicker srchFromDate;
         private System.Windows.Forms.GroupBox groupBox5;
         public System.Windows.Forms.RichTextBox docViewNote;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ComboBox srchDiscipline;
         private System.Windows.Forms.Label label9;
@@ -1315,36 +1426,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn filename;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesize;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
-        public System.Windows.Forms.TextBox docViewRegistered;
-        public System.Windows.Forms.TextBox docViewVersion;
-        public System.Windows.Forms.TextBox docViewRevisionDate;
-        public System.Windows.Forms.TextBox docViewRevision;
-        public System.Windows.Forms.TextBox docViewStatus;
-        public System.Windows.Forms.TextBox docViewTitle;
-        public System.Windows.Forms.TextBox docViewDocNumber;
-        public System.Windows.Forms.TextBox docViewCurrent;
-        public System.Windows.Forms.TextBox docViewDiscipline;
-        public System.Windows.Forms.TextBox docViewType;
-        public System.Windows.Forms.TextBox docViewIntNumber;
-        public System.Windows.Forms.TextBox docViewOrganization;
-        public System.Windows.Forms.TextBox docViewRegisteredBy;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView reviewDataGridView;
         public System.Windows.Forms.TextBox docViewReviewStatus;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_docno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_current;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_organization;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_review_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView reviewFileDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1359,6 +1444,48 @@
         private System.Windows.Forms.ToolStripMenuItem archiveSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_docno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_current;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_organization;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_review_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox docViewRegistered;
+        public System.Windows.Forms.TextBox docViewRevisionDate;
+        public System.Windows.Forms.TextBox docViewRevision;
+        public System.Windows.Forms.TextBox docViewTitle;
+        public System.Windows.Forms.TextBox docViewType;
+        public System.Windows.Forms.TextBox docViewDocNumber;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox docViewStatus;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label31;
+        public System.Windows.Forms.TextBox docViewDiscipline;
+        private System.Windows.Forms.Label label25;
+        public System.Windows.Forms.TextBox docViewIntNumber;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.TextBox docViewVersion;
+        public System.Windows.Forms.TextBox docViewCurrent;
+        public System.Windows.Forms.TextBox docViewRegisteredBy;
+        public System.Windows.Forms.TextBox docViewOrganization;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 

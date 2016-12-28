@@ -8,19 +8,19 @@ namespace pmis
 {
     public class RegisterDocumentDetailView
     {
-        private RegisterDocumentMainForm _form;
+        private ArchiveMainForm _form;
 
-        public RegisterDocumentDetailView(RegisterDocumentMainForm form) {
+        public RegisterDocumentDetailView(ArchiveMainForm form) {
             _form = form;
         }
 
-        public string DocumentNumber
+        public string Number
         {
             get { return _form.docViewDocNumber.Text; }
             set { _form.docViewDocNumber.Text = value; }
         }
 
-        public string DocumentTitle
+        public string Title
         {
             get { return _form.docViewTitle.Text; }
             set { _form.docViewTitle.Text = value; }
@@ -38,7 +38,7 @@ namespace pmis
             set { _form.docViewRevisionDate.Text = value; }
         }
 
-        public string DocumentStatus
+        public string Status
         {
             get { return _form.docViewStatus.Text; }
             set { _form.docViewStatus.Text = value; }
@@ -62,7 +62,8 @@ namespace pmis
             set { _form.docViewNote.Text = value; }
         }
 
-        public string Version {
+        public string Version
+        {
             get { return _form.docViewVersion.Text; }
             set { _form.docViewVersion.Text = value; }
         }
@@ -71,6 +72,36 @@ namespace pmis
         {
             get { return _form.docViewReviewStatus.Text; }
             set { _form.docViewReviewStatus.Text = value; }
+        }
+
+        public string Type
+        {
+            get { return _form.docViewType.Text; }
+            set { _form.docViewType.Text = value; }
+        }
+
+        public string Discipline
+        {
+            get { return _form.docViewDiscipline.Text; }
+            set { _form.docViewDiscipline.Text = value; }
+        }
+
+        public string Organization
+        {
+            get { return _form.docViewOrganization.Text; }
+            set { _form.docViewOrganization.Text = value; }
+        }
+
+        public string Current
+        {
+            get { return _form.docViewCurrent.Text; }
+            set { _form.docViewCurrent.Text = value; }
+        }
+
+        public string InternalNumber
+        {
+            get { return _form.docViewIntNumber.Text; }
+            set { _form.docViewIntNumber.Text = value; }
         }
 
     }

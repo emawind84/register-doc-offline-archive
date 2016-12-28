@@ -17,12 +17,12 @@ namespace pmis
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-        public event EventHandler<List<ReviewInfo>> ImportCompleteHandler;
+        public event EventHandler ImportCompleteHandler;
         public event ErrorEventHandler ImportErrorHandler;
 
-        private ReviewInfoDaoInterface _dao;
+        private IReviewInfoDao _dao;
 
-        public ReviewInfoDataService(ReviewInfoDaoInterface dao)
+        public ReviewInfoDataService(IReviewInfoDao dao)
         {
             _dao = dao;
         }
@@ -96,11 +96,6 @@ namespace pmis
                     //Console.WriteLine(responseString);
                     PmisJsonResponse<ReviewInfo> dt = JsonConvert.DeserializeObject<PmisJsonResponse<ReviewInfo>>(responseString);
                     ImportData(dt.List);
-
-                    if (ImportCompleteHandler != null)
-                    {
-                        ImportCompleteHandler(this, dt.List);
-                    }
                 }
             }
             catch (Exception ex)
@@ -110,6 +105,13 @@ namespace pmis
                     ImportErrorHandler(this, new ErrorEventArgs(ex));
                 }
                 Console.WriteLine(ex);
+            }
+            finally
+            {
+                if (ImportCompleteHandler != null)
+                {
+                    ImportCompleteHandler(this, EventArgs.Empty);
+                }
             }
 
             //try

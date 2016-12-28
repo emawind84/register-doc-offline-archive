@@ -16,7 +16,7 @@ namespace pmis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterDocumentMainForm());
+            Application.Run(new ArchiveMainForm());
         }
     }
 }

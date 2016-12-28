@@ -2,6 +2,7 @@
 using pmis.reviewinfo;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
@@ -11,31 +12,33 @@ using System.Threading.Tasks;
 
 namespace pmis
 {
-    public class SQLiteDAOService : RegisterDocumentDaoService, ReviewInfoDaoInterface
+    public class SQLiteDaoService : IDbConnection, IRegisterDocumentDao, IReviewInfoDao
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
         private string databaseFilePath;
         private SQLiteConnection m_dbConnection;
 
+        public event ErrorEventHandler OnInitializationError;
+
         public string DatabaseFilePath {
-            get {
-                return databaseFilePath;
-            }
-            set {
-                this.databaseFilePath = value;
-            }
+            get { return databaseFilePath; }
+            set { this.databaseFilePath = value; }
         }
 
-        public SQLiteDAOService()
+        public bool IsOpen {
+            get { return m_dbConnection.State == ConnectionState.Open; }
+        }
+
+        public SQLiteDaoService()
         {
-            this.databaseFilePath = Properties.Settings.Default.sqlite_db_location;
+            
         }
 
-        public SQLiteConnection InitDB()
+        private SQLiteConnection InitDB()
         {
             Console.WriteLine("Connecting database...");
-            this.databaseFilePath = Properties.Settings.Default.sqlite_db_location;
+            ConfigureDatabasePath();
 
             string connectionString = string.Format("Data Source={0};Version=3;", databaseFilePath);
 
@@ -53,22 +56,27 @@ namespace pmis
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
+            else
+            {
+                m_dbConnection = new SQLiteConnection(connectionString);
+                m_dbConnection.Open();
+            }
 
-            m_dbConnection = new SQLiteConnection(connectionString);
-            m_dbConnection.Open();
-
+            Console.WriteLine("Connection state: {0}", m_dbConnection.State);
+            
             return m_dbConnection;
         }
 
-        public void ConnectDatabase()
+        public void Open()
         {
-            DisconnectDatabase();
+            Close();
             InitDB();
         }
 
-        public void DisconnectDatabase()
+        public void Close()
         {
-            m_dbConnection.Close();
+            if(m_dbConnection != null)
+                m_dbConnection.Close();
         }
 
         public void DeleteRegisterData()
@@ -150,7 +158,11 @@ namespace pmis
                             RevisionDate = reader["revision_date"].ToString(),
                             Status = reader["doc_status"].ToString(),
                             Version = reader["doc_version"].ToString(),
-                            Note = reader["descr"].ToString()
+                            Note = reader["descr"].ToString(),
+                            Organization = reader["organization"].ToString(),
+                            Current = reader["doc_current"].ToString(),
+                            Type = reader["doc_type"].ToString(),
+                            InternalNumber = reader["int_cd"].ToString()
                         };
                     }
                 }
@@ -286,5 +298,18 @@ namespace pmis
                 Console.WriteLine("Adding review data: {0}", d);
             }
         }
+
+        private void ConfigureDatabasePath()
+        {
+            databaseFilePath = Properties.Settings.Default.sqlite_db_location;
+            
+            if (!Path.IsPathRooted(databaseFilePath))
+            {
+                databaseFilePath = Path.Combine(AppConfig.AppDataFolder, databaseFilePath);
+                Console.WriteLine(Path.GetFullPath(databaseFilePath));
+            }
+            Console.WriteLine("Setting db path: {0}", databaseFilePath);
+        }
+        
     }
 }

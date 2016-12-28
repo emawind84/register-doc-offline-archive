@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace pmis.register
 {
-    public interface RegisterDocumentDaoService
+    public interface IRegisterDocumentDao
     {
         /// <summary>
         /// Load a single document instance
