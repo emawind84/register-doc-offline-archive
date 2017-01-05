@@ -24,7 +24,7 @@ namespace pmis
                 Directory.CreateDirectory(AppDataFullPath);
 
             // set the log root folder
-            ExceptionExtension.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
+            LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
         }
     }
 }

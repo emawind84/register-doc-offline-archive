@@ -1135,5 +1135,8 @@
     <Setting Name="db_type" Type="System.String" Scope="User">
       <Value Profile="(Default)">SQLite</Value>
     </Setting>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Korean</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

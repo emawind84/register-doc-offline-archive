@@ -114,10 +114,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppConfig.cs" />
     <Compile Include="ExceptionExtension.cs" />
     <Compile Include="IDbConnection.cs" />
+    <Compile Include="LogUtil.cs" />
     <Compile Include="PmisJsonResponse.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterFileService.cs" />
     <Compile Include="register\IRegisterDocumentDao.cs" />
     <Compile Include="register\RegisterDocumentDetailView.cs" />
     <Compile Include="ArchiveMainForm.cs">
@@ -142,32 +155,41 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLiteDaoService.cs" />
-    <EmbeddedResource Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="ArchiveMainForm.resx">
       <DependentUpon>ArchiveMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <Resource Include="resources\sangah-logo.png" />
-    <Content Include="etc\edms_export.py" />
-    <None Include="lib\SQLite.Interop.dll" />
+    <None Include="etc\edms_export.py" />
+    <Resource Include="resources\sangah_logo_16.ico" />
+    <None Include="resources\kspmis_logo.png" />
+    <None Include="resources\sangah-logo-2.png" />
     <Content Include="review.import.sqlite.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -201,8 +223,7 @@
   <ItemGroup>
     <None Include="lib\Newtonsoft.Json.dll" />
     <None Include="lib\System.Data.SQLite.dll" />
-    <Content Include="etc\options_queries.txt" />
-    <Resource Include="resources\btn_folder_en.gif" />
+    <None Include="etc\options_queries.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

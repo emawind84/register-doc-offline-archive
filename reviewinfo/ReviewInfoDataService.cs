@@ -48,7 +48,7 @@ namespace pmis
             string[] files = new string[0];
             try
             {
-                Console.WriteLine("Looking for files... {0}", targetDirectory);
+                LogUtil.Log("Looking for files... {0}", targetDirectory);
                 files = Directory.GetFiles(targetDirectory);
             }
             catch (DirectoryNotFoundException e)
@@ -61,7 +61,7 @@ namespace pmis
             {
                 var regfile = new RegisterFile(fileName);
                 registerFiles.Add(regfile);
-                Console.WriteLine("Processed file: {0}", regfile);
+                LogUtil.Log(String.Format("Processed file: {0}", regfile));
             }
             return registerFiles;
         }
@@ -76,25 +76,36 @@ namespace pmis
             var apiurl = Properties.Settings.Default.pmis_api_url;
             var project = Properties.Settings.Default.pmis_project_code;
             var authkey = Properties.Settings.Default.pmis_auth_key;
-            string url = String.Format("{0}/Core/CoreList.action", apiurl);
+            string url = String.Format("{0}/api/register/reviews.action", apiurl);
 
             try
             {
                 using (var client = new HttpClient())
                 {
                     var values = new Dictionary<string, string> {
-                        { "user-forward", "json" },
-                        { "user-query", "doc.register.etc.selectDocumentReviewInfo" },
                         { "pjt_cd", project },
-                        { "access_token", authkey }
+                        { "access_token", authkey },
+                        { "pageScale", "200" },
+                        { "pageNo", "1" }
                     };
 
-                    var content = new FormUrlEncodedContent(values);
-                    var response = await client.PostAsync(url, content);
-                    response.EnsureSuccessStatusCode();
-                    var responseString = await response.Content.ReadAsStringAsync();
-                    PmisJsonResponse<ReviewInfo> dt = JsonConvert.DeserializeObject<PmisJsonResponse<ReviewInfo>>(responseString);
-                    ImportData(dt.List);
+                    var page = 1;
+                    var total = 999;
+                    while (page <= total)
+                    {
+                        values["pageNo"] = "" + page;
+                        var content = new FormUrlEncodedContent(values);
+                        var response = await client.PostAsync(url, content);
+                        response.EnsureSuccessStatusCode();
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        PmisJsonResponse<ReviewInfo> dt = JsonConvert.DeserializeObject<PmisJsonResponse<ReviewInfo>>(responseString);
+                        
+                        ImportData(dt.List);
+
+                        page = dt.PageInfo.CurrentPage + 1;
+                        total = dt.PageInfo.TotalPages;
+                        LogUtil.Log(dt.ToString());
+                    }
                 }
             }
             catch (Exception ex)

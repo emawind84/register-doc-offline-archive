@@ -6,6 +6,7 @@ using System.Data;
 using System.Net;
 using Newtonsoft.Json;
 using pmis.register;
+using System.Net.Http;
 
 namespace pmis
 {
@@ -53,7 +54,6 @@ namespace pmis
             {
                 var regfile = new RegisterFile(fileName);
                 registerFiles.Add(regfile);
-                Console.WriteLine("Processed file: {0}", regfile);
             }
             return registerFiles;
         }
@@ -85,24 +85,42 @@ namespace pmis
             ImportData(docs);
         }
 
-        public void ImportFromWebService() {
+        public async void ImportFromWebService() {
             var apiurl = Properties.Settings.Default.pmis_api_url;
             var project = Properties.Settings.Default.pmis_project_code;
             var authkey = Properties.Settings.Default.pmis_auth_key;
-            string url = String.Format("{0}/Doc/Register/loadDocList.action?pageScale=9999&srch_show_hist=1&forward=json&pjt_cd={1}&access_token={2}", apiurl, project, authkey);
+            string url = String.Format("{0}/api/register/docs.action", apiurl);
 
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-                WebResponse response = request.GetResponse();
-                using (Stream responseStream = response.GetResponseStream())
+                using (var client = new HttpClient())
                 {
-                    StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-                    var result = reader.ReadToEnd();
-                    //Console.WriteLine(result);
-                    PmisJsonResponse<RegisterDocument> dt = JsonConvert.DeserializeObject<PmisJsonResponse<RegisterDocument>>(result);
-                    ImportData(dt.List);
+                    var values = new Dictionary<string, string> {
+                        { "forward", "json" },
+                        { "srch_show_hist", "1" },
+                        { "pjt_cd", project },
+                        { "access_token", authkey },
+                        { "pageScale", "200" },
+                        { "pageNo", "1" },
+                        { "login_locale", "ko_KR" }
+                    };
+
+                    var page = 1;
+                    var total = 999;
+                    while (page <= total)
+                    {
+                        values["pageNo"]= "" + page;
+                        var content = new FormUrlEncodedContent(values);
+                        var response = await client.PostAsync(url, content);
+                        response.EnsureSuccessStatusCode();
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        PmisJsonResponse<RegisterDocument> dt = JsonConvert.DeserializeObject<PmisJsonResponse<RegisterDocument>>(responseString);
+                        ImportData(dt.List);
+
+                        page = dt.PageInfo.CurrentPage + 1;
+                        total = dt.PageInfo.TotalPages;
+                        LogUtil.Log(dt.ToString());
+                    }
                 }
             }
             catch (Exception ex)
@@ -116,6 +134,7 @@ namespace pmis
                 if (ImportCompleteHandler != null)
                     ImportCompleteHandler(this, EventArgs.Empty);
             }
+
         }
 
         private void ImportData(List<RegisterDocument> docs)

@@ -37,21 +37,21 @@ namespace pmis
 
         private SQLiteConnection InitDB()
         {
-            Console.WriteLine("Connecting database...");
+            LogUtil.Log("Connecting database...");
             ConfigureDatabasePath();
 
             string connectionString = string.Format("Data Source={0};Version=3;", databaseFilePath);
 
             if (!File.Exists(databaseFilePath))
             {
-                Console.WriteLine("Creating new database...");
+                LogUtil.Log("Creating new database...");
                 SQLiteConnection.CreateFile(databaseFilePath);
                 m_dbConnection = new SQLiteConnection(connectionString);
                 m_dbConnection.Open();
 
                 //string setupfile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"setup.sqlite.sql");
                 string sql = File.ReadAllText(@"setup.sqlite.sql");
-                Console.WriteLine("Executing query: {0}", sql);
+                LogUtil.Log(String.Format("Executing query: {0}", sql));
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -60,9 +60,13 @@ namespace pmis
             {
                 m_dbConnection = new SQLiteConnection(connectionString);
                 m_dbConnection.Open();
+                using (var transaction = m_dbConnection.BeginTransaction())
+                {
+                    transaction.Rollback();
+                }
             }
 
-            Console.WriteLine("Connection state: {0}", m_dbConnection.State);
+            LogUtil.Log(String.Format("Connection state: {0}", m_dbConnection.State));
             
             return m_dbConnection;
         }

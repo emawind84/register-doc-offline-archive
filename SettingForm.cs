@@ -18,6 +18,7 @@ namespace pmis
         private ArchiveMainForm mainForm;
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
+        private Dictionary<string, string> languages;
 
         public event EventHandler SettingChanged;
 
@@ -47,6 +48,14 @@ namespace pmis
 
             //this.mainForm.DaoService.OnInitializationError += ShowSQLiteErrorMessage;
 
+            languages = new Dictionary<string, string> {
+                { "en_US", "English" },
+                { "ko_KR", "Korean" }
+            };
+            settingLanguage.DataSource = new BindingSource(languages, null);
+            settingLanguage.DisplayMember = "Value";
+            settingLanguage.ValueMember = "Key";
+
             LoadSettings();
         }
 
@@ -58,6 +67,7 @@ namespace pmis
             settingDbType.Text = Properties.Settings.Default.db_type;
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
+            settingLanguage.SelectedValue = Properties.Settings.Default.language;
 
             StringBuilder strbuilder = new StringBuilder();
             foreach (var opt in Properties.Settings.Default.register_status)
@@ -84,30 +94,37 @@ namespace pmis
 
         public void SaveSettings(object sender = null, EventArgs e = null)
         {
-            Console.WriteLine("Saving settings...");
+            LogUtil.Log("Saving settings...");
             Properties.Settings.Default.pmis_project_code = settingPmisWsProjectCode.Text;
             Properties.Settings.Default.pmis_api_url = settingPmisWsUrl.Text;
             Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
             Properties.Settings.Default.db_type = settingDbType.Text;
+            Properties.Settings.Default.language = settingLanguage.SelectedValue.ToString();
 
             Properties.Settings.Default.register_status.Clear();
+            Properties.Settings.Default.register_status.Add("");
             foreach (var line in docStatusesTextBox.Lines)
             {
-                Properties.Settings.Default.register_status.Add(line);
+                if(!String.IsNullOrEmpty(line))
+                    Properties.Settings.Default.register_status.Add(line);
             }
 
             Properties.Settings.Default.register_discipline.Clear();
+            Properties.Settings.Default.register_discipline.Add("");
             foreach (var line in docDisciplinesTextBox.Lines)
             {
-                Properties.Settings.Default.register_discipline.Add(line);
+                if (!String.IsNullOrEmpty(line))
+                    Properties.Settings.Default.register_discipline.Add(line);
             }
 
             Properties.Settings.Default.register_type.Clear();
+            Properties.Settings.Default.register_type.Add("");
             foreach (var line in docTypesTextBox.Lines)
             {
-                Properties.Settings.Default.register_type.Add(line);
+                if (!String.IsNullOrEmpty(line))
+                    Properties.Settings.Default.register_type.Add(line);
             }
 
             Properties.Settings.Default.Save();
@@ -230,7 +247,23 @@ namespace pmis
 
         private void SettingForm_Load(object sender, EventArgs e)
         {
+            productInfoLabel.Text = string.Format("{0} - Version {1}", Application.ProductName, Application.ProductVersion);
+        }
 
+        private void registerLocationButton_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.ShowDialog();
+
+            if(!string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                settingRegisterFolderURI.Text = folderBrowserDialog.SelectedPath;
+        }
+
+        private void sqliteFileLocationButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                settingSQLiteDbLocation.Text = openFileDialog.FileName;
+            }
         }
     }
 }

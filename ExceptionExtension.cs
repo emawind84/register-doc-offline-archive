@@ -11,15 +11,10 @@ namespace pmis
     public static class ExceptionExtension
     {
 
-        public static string LogRootFolder { get; set; }
-
         internal static Exception Log(this Exception ex)
         {
-            if(LogRootFolder != null)
-                Directory.CreateDirectory(LogRootFolder);
-
-            var log = Path.Combine(LogRootFolder ?? "", "CaughtExceptions_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log");
-            File.AppendAllText(log, DateTime.Now.ToString("HH:mm:ss") + ": " + ex.Message + "\n" + ex.ToString() + "\n");
+            LogUtil.Log(ex.Message + "\n" + ex.ToString(), "CaughtExceptions_" + DateTime.Now.ToString("yyyy-MM-dd") + ".log");
+            
             return ex;
         }
 

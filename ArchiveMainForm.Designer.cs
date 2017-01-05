@@ -40,9 +40,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchiveMainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.archiveSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +60,7 @@
             this.srchType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.srchToDate = new System.Windows.Forms.DateTimePicker();
@@ -134,9 +137,7 @@
             this.doc_version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docViewReviewStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -184,14 +185,19 @@
             // archiveSettingsToolStripMenuItem
             // 
             this.archiveSettingsToolStripMenuItem.Name = "archiveSettingsToolStripMenuItem";
-            this.archiveSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.archiveSettingsToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.archiveSettingsToolStripMenuItem.Text = "Settings...";
             this.archiveSettingsToolStripMenuItem.Click += new System.EventHandler(this.archiveSettingsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(122, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -208,6 +214,7 @@
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // openFileDialog1
             // 
@@ -221,7 +228,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 39);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
@@ -276,7 +282,7 @@
             // srchDiscipline
             // 
             this.srchDiscipline.FormattingEnabled = true;
-            this.srchDiscipline.Location = new System.Drawing.Point(140, 50);
+            this.srchDiscipline.Location = new System.Drawing.Point(140, 53);
             this.srchDiscipline.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchDiscipline.Name = "srchDiscipline";
             this.srchDiscipline.Size = new System.Drawing.Size(260, 21);
@@ -286,7 +292,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 53);
+            this.label9.Location = new System.Drawing.Point(23, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 13);
             this.label9.TabIndex = 10;
@@ -295,7 +301,7 @@
             // srchStatus
             // 
             this.srchStatus.FormattingEnabled = true;
-            this.srchStatus.Location = new System.Drawing.Point(140, 83);
+            this.srchStatus.Location = new System.Drawing.Point(140, 86);
             this.srchStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchStatus.Name = "srchStatus";
             this.srchStatus.Size = new System.Drawing.Size(260, 21);
@@ -305,7 +311,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(38, 86);
+            this.label17.Location = new System.Drawing.Point(38, 89);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(89, 13);
             this.label17.TabIndex = 8;
@@ -314,7 +320,7 @@
             // srchType
             // 
             this.srchType.FormattingEnabled = true;
-            this.srchType.Location = new System.Drawing.Point(140, 17);
+            this.srchType.Location = new System.Drawing.Point(140, 20);
             this.srchType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchType.Name = "srchType";
             this.srchType.Size = new System.Drawing.Size(260, 21);
@@ -324,7 +330,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(44, 20);
+            this.label15.Location = new System.Drawing.Point(44, 23);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 6;
@@ -332,6 +338,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.srchToDate);
@@ -345,6 +352,15 @@
             this.groupBox3.Size = new System.Drawing.Size(207, 121);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(94, 93);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "~";
             // 
             // label21
             // 
@@ -428,7 +444,7 @@
             this.srchTitle.Location = new System.Drawing.Point(9, 87);
             this.srchTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchTitle.Name = "srchTitle";
-            this.srchTitle.Size = new System.Drawing.Size(193, 20);
+            this.srchTitle.Size = new System.Drawing.Size(190, 20);
             this.srchTitle.TabIndex = 11;
             // 
             // label18
@@ -525,7 +541,6 @@
             this.registerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.registerDataGridView.Size = new System.Drawing.Size(1000, 422);
             this.registerDataGridView.TabIndex = 1;
-            this.registerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GetRegisterDocumentInfoButton_Click);
             this.registerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerDataGridView_CellDoubleClick);
             // 
             // doclist_docno
@@ -1313,7 +1328,7 @@
             this.docViewReviewStatus.BackColor = System.Drawing.Color.White;
             this.docViewReviewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewReviewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.docViewReviewStatus.Location = new System.Drawing.Point(113, 30);
+            this.docViewReviewStatus.Location = new System.Drawing.Point(119, 32);
             this.docViewReviewStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.docViewReviewStatus.Name = "docViewReviewStatus";
             this.docViewReviewStatus.ReadOnly = true;
@@ -1330,22 +1345,7 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Review Outcome:";
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1006, 564);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Temporary";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // RegisterDocumentMainForm
+            // ArchiveMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1353,9 +1353,10 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1020, 601);
-            this.Name = "RegisterDocumentMainForm";
+            this.Name = "ArchiveMainForm";
             this.Text = "PMIS - Offline Archive";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -1457,7 +1458,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -1486,6 +1486,7 @@
         public System.Windows.Forms.TextBox docViewRegisteredBy;
         public System.Windows.Forms.TextBox docViewOrganization;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.Label label10;
     }
 }
 

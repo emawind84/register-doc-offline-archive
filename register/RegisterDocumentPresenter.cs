@@ -29,8 +29,7 @@ namespace pmis
             var docno = _form.RegisterDocumentDetailView.Number;
             var version = _form.RegisterDocumentDetailView.Version;
             RegisterDocument doc = _service.LoadDocument(docno, version);
-            Console.WriteLine("Presenting doc: {0}", doc);
-
+            
             viewForm.Number = doc.DocumentNumber;
             viewForm.Title = doc.Title;
             viewForm.Revision = doc.Revision;

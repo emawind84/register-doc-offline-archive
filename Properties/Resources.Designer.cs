@@ -63,9 +63,9 @@ namespace pmis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btn_folder_en {
+        internal static System.Drawing.Bitmap kspmis_logo {
             get {
-                object obj = ResourceManager.GetObject("btn_folder_en", resourceCulture);
+                object obj = ResourceManager.GetObject("kspmis_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,17 @@ namespace pmis.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap sangah_logo {
             get {
-                object obj = ResourceManager.GetObject("sangah-logo", resourceCulture);
+                object obj = ResourceManager.GetObject("sangah_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sangah_logo_2 {
+            get {
+                object obj = ResourceManager.GetObject("sangah_logo_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
