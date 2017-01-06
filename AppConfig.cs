@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,14 @@ namespace pmis
             { "sqlite", "SQLite" }
         };
 
+        public static string HISTORY_SHOW_ALL = "show_all";
+        public static string HISTORY_LATEST = "last_revision";
+        public static Dictionary<string, string> RegisterHistoryOptions = new Dictionary<string, string>
+        {
+            { HISTORY_SHOW_ALL, "Show All Revisions" },
+            { HISTORY_LATEST, "Latest Revision Only" }
+        };
+
         public static void InitConfig()
         {
             var _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -36,5 +45,14 @@ namespace pmis
             // set the log root folder
             LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
         }
+
+        public static string ProductVersion
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+
     }
 }

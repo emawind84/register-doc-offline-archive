@@ -34,37 +34,47 @@ namespace pmis
             get { return daoService; }
         }
 
-        public string SearchCriteriaDocNumber { get { return srchNumber.Text; } }
+        public string SearchCriteriaDocNumber {
+            get { return srchNumber.Text; }
+            set { srchNumber.Text = value; }
+        }
 
-        public string SearchCriteriaTitle { get { return srchTitle.Text; } }
+        public string SearchCriteriaTitle {
+            get { return srchTitle.Text; }
+            set { srchTitle.Text = value; }
+        }
 
         public string SearchCriteriaFromDate { get { return srchFromDate.Text; } }
 
         public string SearchCriteriaToDate { get { return srchToDate.Text; } }
 
-        public string SearchCriteriaStatus { get { return srchStatus.Text; } }
+        public string SearchCriteriaStatus {
+            get { return srchStatus.Text; }
+            set { srchStatus.Text = value; }
+        }
 
-        public string SearchCriteriaDiscipline { get { return srchDiscipline.Text; } }
+        public string SearchCriteriaDiscipline {
+            get { return srchDiscipline.Text; }
+            set { srchDiscipline.Text = value; }
+        }
 
-        public string SearchCriteriaType { get { return srchType.Text; } }
+        public string SearchCriteriaType {
+            get { return srchType.Text; }
+            set { srchType.Text = value; }
+        }
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
         public ArchiveMainForm()
         {
-            Thread t = new Thread(new ThreadStart(delegate () {
-                SplashForm splash = new SplashForm();
-                Application.Run(splash);
-            }));
-            t.Start();
-            Thread.Sleep(3000);
+            SplashForm.ShowSplash();
 
             InitializeComponent();
 
             // configure user folder in appdata
             AppConfig.InitConfig();
 
-            t.Abort();
+            SplashForm.HideSplash(2000);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,6 +104,11 @@ namespace pmis
             fileManagerBS.AllowNew = false;
             fileManagerDataGridView.AutoGenerateColumns = false;
             fileManagerDataGridView.DataSource = fileManagerBS;
+
+            srchHistory.DataSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
+            srchHistory.DisplayMember = "Value";
+            srchHistory.ValueMember = "Key";
+            srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
             settingForm = new SettingForm(
                 daoService as IDbConnection, 
@@ -248,6 +263,15 @@ namespace pmis
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             aboutForm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SearchCriteriaDiscipline = "";
+            SearchCriteriaStatus = "";
+            SearchCriteriaType = "";
+            SearchCriteriaDocNumber = "";
+            SearchCriteriaTitle = "";
         }
     }
 }

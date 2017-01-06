@@ -53,6 +53,7 @@
             this.settingDbType = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.importLogViewer = new System.Windows.Forms.RichTextBox();
             this.pmisWsProjectCodeLabel = new System.Windows.Forms.Label();
             this.settingPmisWsProjectCode = new System.Windows.Forms.TextBox();
             this.pmisWsUrlLabel = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.productInfoLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.importLogViewer = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -379,6 +379,19 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Web Service Settings";
             // 
+            // importLogViewer
+            // 
+            this.importLogViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.importLogViewer.Location = new System.Drawing.Point(6, 223);
+            this.importLogViewer.MaxLength = 10;
+            this.importLogViewer.Name = "importLogViewer";
+            this.importLogViewer.ReadOnly = true;
+            this.importLogViewer.Size = new System.Drawing.Size(698, 151);
+            this.importLogViewer.TabIndex = 19;
+            this.importLogViewer.Text = "";
+            // 
             // pmisWsProjectCodeLabel
             // 
             this.pmisWsProjectCodeLabel.AutoSize = true;
@@ -537,19 +550,6 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "archive.db";
-            // 
-            // importLogViewer
-            // 
-            this.importLogViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.importLogViewer.Location = new System.Drawing.Point(6, 223);
-            this.importLogViewer.MaxLength = 10;
-            this.importLogViewer.Name = "importLogViewer";
-            this.importLogViewer.ReadOnly = true;
-            this.importLogViewer.Size = new System.Drawing.Size(698, 151);
-            this.importLogViewer.TabIndex = 19;
-            this.importLogViewer.Text = "";
             // 
             // SettingForm
             // 

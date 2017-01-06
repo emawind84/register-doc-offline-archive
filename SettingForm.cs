@@ -56,6 +56,8 @@ namespace pmis
             registerService.RegisterDocumentImported += LogRegisterImportedData;
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
 
+            productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
+
             LoadSettings();
         }
 
@@ -270,7 +272,7 @@ namespace pmis
 
         private void SettingForm_Load(object sender, EventArgs e)
         {
-            productInfoLabel.Text = string.Format("{0} - Version {1}", Application.ProductName, Application.ProductVersion);
+            
         }
 
         private void registerLocationButton_Click(object sender, EventArgs e)
