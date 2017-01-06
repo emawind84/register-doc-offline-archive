@@ -17,8 +17,9 @@ namespace pmis
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-        public event EventHandler ImportCompleteHandler;
-        public event ErrorEventHandler ImportErrorHandler;
+        public event EventHandler<ReviewInfo> ReviewInfoImported;
+        public event EventHandler ImportComplete;
+        public event ErrorEventHandler ImportError;
 
         private IReviewInfoDao _dao;
 
@@ -48,7 +49,7 @@ namespace pmis
             string[] files = new string[0];
             try
             {
-                LogUtil.Log("Looking for files... {0}", targetDirectory);
+                LogUtil.Log(String.Format("Looking for files... {0}", targetDirectory));
                 files = Directory.GetFiles(targetDirectory);
             }
             catch (DirectoryNotFoundException e)
@@ -68,7 +69,12 @@ namespace pmis
 
         public void ImportData(List<ReviewInfo> docs)
         {
-            _dao.ImportReviewInfoData(docs);
+            foreach(ReviewInfo d in docs)
+            {
+                _dao.ImportReviewInfoData(d);
+                Console.WriteLine("Adding review data: {0}", d);
+                OnReviewInfoImported(d);
+            }
         }
 
         public async void ImportFromWebService()
@@ -111,13 +117,11 @@ namespace pmis
             catch (Exception ex)
             {
                 ex.Log().Display();
-                if (ImportErrorHandler != null)
-                    ImportErrorHandler(this, new ErrorEventArgs(ex));
+                OnImportError(new ErrorEventArgs(ex));
             }
             finally
             {
-                if (ImportCompleteHandler != null)
-                    ImportCompleteHandler(this, EventArgs.Empty);
+                OnImportComplete(EventArgs.Empty);
             }
 
             //try
@@ -161,6 +165,34 @@ namespace pmis
 
             //    //throw;
             //}
+
         }
+
+        protected virtual void OnImportComplete(EventArgs e) {
+            EventHandler handler = ImportComplete;
+            if(handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnImportError(ErrorEventArgs e)
+        {
+            ErrorEventHandler handler = ImportError;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnReviewInfoImported(ReviewInfo d)
+        {
+            EventHandler<ReviewInfo> handler = ReviewInfoImported;
+            if (handler != null)
+            {
+                handler(this, d);
+            }
+        }
+
     }
 }

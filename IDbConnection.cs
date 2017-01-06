@@ -18,5 +18,7 @@ namespace pmis
         /// </summary>
         void Close();
 
+        Boolean IsOpen();
+
     }
 }

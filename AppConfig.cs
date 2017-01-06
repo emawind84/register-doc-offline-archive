@@ -15,6 +15,16 @@ namespace pmis
         private static string appDataFullPath;
         public static string AppDataFullPath { get { return appDataFullPath; } }
 
+        public static Dictionary<string, string> Languages = new Dictionary<string, string> {
+            { "en_US", "English" },
+            { "ko_KR", "Korean" }
+        };
+
+        public static Dictionary<string, string> StorageOptions = new Dictionary<string, string>
+        {
+            { "sqlite", "SQLite" }
+        };
+
         public static void InitConfig()
         {
             var _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

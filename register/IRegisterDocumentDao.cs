@@ -20,7 +20,7 @@ namespace pmis.register
         /// <summary>
         /// Import documents from outer source
         /// </summary>
-        void ImportDocumentData(List<RegisterDocument> docs);
+        void ImportDocumentData(RegisterDocument d);
 
         /// <summary>
         /// Search through all documents

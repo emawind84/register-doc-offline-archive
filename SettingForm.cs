@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pmis.reviewinfo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +16,9 @@ namespace pmis
     public partial class SettingForm : Form
     {
 
-        private ArchiveMainForm mainForm;
+        private IDbConnection dbConnection;
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
-        private Dictionary<string, string> languages;
 
         public event EventHandler SettingChanged;
 
@@ -31,30 +31,30 @@ namespace pmis
             
         }
 
-        public SettingForm(Form mainForm, 
+        public SettingForm(IDbConnection dbConnection, 
             RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
         {
             InitializeComponent();
 
-            this.mainForm = mainForm as ArchiveMainForm;
+            this.dbConnection = dbConnection;
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
 
-            //this.registerService.ImportErrorHandler += ShowImportErrorMessage;
-            this.registerService.ImportCompleteHandler += EnableImportRegisterDataButton;
+            this.registerService.ImportComplete += EnableImportRegisterDataButton;
+            this.reviewInfoService.ImportComplete += EnableImportReviewDataButton;
 
-            //this.reviewInfoService.ImportErrorHandler += ShowImportErrorMessage;
-            this.reviewInfoService.ImportCompleteHandler += EnableImportReviewDataButton;
+            //SettingChanged += ToggleDbConnectionButton;
 
-            //this.mainForm.DaoService.OnInitializationError += ShowSQLiteErrorMessage;
-
-            languages = new Dictionary<string, string> {
-                { "en_US", "English" },
-                { "ko_KR", "Korean" }
-            };
-            settingLanguage.DataSource = new BindingSource(languages, null);
+            settingLanguage.DataSource = new BindingSource(AppConfig.Languages, null);
             settingLanguage.DisplayMember = "Value";
             settingLanguage.ValueMember = "Key";
+
+            settingDbType.DataSource = new BindingSource(AppConfig.StorageOptions, null);
+            settingDbType.DisplayMember = "Value";
+            settingDbType.ValueMember = "Key";
+
+            registerService.RegisterDocumentImported += LogRegisterImportedData;
+            reviewInfoService.ReviewInfoImported += LogReviewImportedData;
 
             LoadSettings();
         }
@@ -64,7 +64,7 @@ namespace pmis
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
             settingPmisWsAuthKey.Text = Properties.Settings.Default.pmis_auth_key;
-            settingDbType.Text = Properties.Settings.Default.db_type;
+            settingDbType.SelectedValue = Properties.Settings.Default.db_type;
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
             settingLanguage.SelectedValue = Properties.Settings.Default.language;
@@ -100,8 +100,8 @@ namespace pmis
             Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
-            Properties.Settings.Default.db_type = settingDbType.Text;
-            Properties.Settings.Default.language = settingLanguage.SelectedValue.ToString();
+            Properties.Settings.Default.db_type = settingDbType.SelectedValue as string;
+            Properties.Settings.Default.language = settingLanguage.SelectedValue as string;
 
             Properties.Settings.Default.register_status.Clear();
             Properties.Settings.Default.register_status.Add("");
@@ -130,22 +130,29 @@ namespace pmis
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
 
-            if (SettingChanged != null)
-                SettingChanged(this, EventArgs.Empty);
-
+            OnSettingChanged(EventArgs.Empty);
         }
 
-        private void ShowImportErrorMessage(object sender, ErrorEventArgs args)
+        protected virtual void OnSettingChanged(EventArgs e)
         {
-            //if (this.pmisWsErrorMessage.InvokeRequired)
-            //{
-            //    ChangeErrorMessage d = ShowImportErrorMessage;
-            //    this.Invoke(d, new object[] { sender, args });
-            //}
-            //else
-            //{
-            //    pmisWsErrorMessage.Text = args.GetException().Message;
-            //}
+            EventHandler handler = SettingChanged;
+            if(handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        private void LogImportMessage(string message)
+        {
+            if (!importLogViewer.InvokeRequired)
+            {
+                if (importLogViewer.Lines.Length > 10)
+                    importLogViewer.Clear();
+                importLogViewer.AppendText(message + Environment.NewLine);
+            }
+            else {
+                Invoke(new Action<string>(LogImportMessage), message);
+            }
         }
 
         private void EnableImportReviewDataButton(object sender = null, EventArgs args = null)
@@ -173,9 +180,25 @@ namespace pmis
             
         }
 
-        private void ShowSQLiteErrorMessage(object sender, ErrorEventArgs args)
+        private void ToggleDbConnectionButton(object sender, EventArgs args)
         {
-            //this.settingDbErrorMessage.Text = args.GetException().Message;
+            if (dbConnection.IsOpen())
+            {
+                connectDatabaseButton.Enabled = false;
+            } else
+            {
+                connectDatabaseButton.Enabled = true;
+            }
+        }
+
+        private void LogRegisterImportedData(object sender, RegisterDocument d)
+        {
+            LogImportMessage(String.Format("Imported {0}", d.ToString()));
+        }
+
+        private void LogReviewImportedData(object sender, ReviewInfo d)
+        {
+            LogImportMessage(String.Format("Imported {0}", d.ToString()));
         }
 
         private void importRegisterDataButton_Click(object sender, EventArgs e)
@@ -224,7 +247,7 @@ namespace pmis
             try
             {
                 SaveSettings();
-                mainForm.DaoService.Open();
+                dbConnection.Open();
             }
             catch (Exception ex)
             {

@@ -17,8 +17,9 @@ namespace pmis
 
         private IRegisterDocumentDao daoService;
 
-        public event EventHandler ImportCompleteHandler;
-        public event ErrorEventHandler ImportErrorHandler;
+        public event EventHandler<RegisterDocument> RegisterDocumentImported;
+        public event EventHandler ImportComplete;
+        public event ErrorEventHandler ImportError;
 
         public RegisterDocumentDataService(IRegisterDocumentDao daoService) {
             this.daoService = daoService;
@@ -56,6 +57,11 @@ namespace pmis
                 registerFiles.Add(regfile);
             }
             return registerFiles;
+        }
+
+        public void DeleteRegisterData()
+        {
+            daoService.DeleteRegisterData();
         }
 
         public void ImportCSVFile(string csvfile)
@@ -126,24 +132,53 @@ namespace pmis
             catch (Exception ex)
             {
                 ex.Log().Display();
-                if (ImportErrorHandler != null)
-                    ImportErrorHandler(this, new ErrorEventArgs(ex));
+                if (ImportError != null)
+                    ImportError(this, new ErrorEventArgs(ex));
             }
             finally
             {
-                if (ImportCompleteHandler != null)
-                    ImportCompleteHandler(this, EventArgs.Empty);
+                if (ImportComplete != null)
+                    ImportComplete(this, EventArgs.Empty);
             }
 
+        }
+
+        protected virtual void OnImportComplete(EventArgs e)
+        {
+            EventHandler handler = ImportComplete;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnImportError(ErrorEventArgs e)
+        {
+            ErrorEventHandler handler = ImportError;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        protected virtual void OnRegisterDocumentImported(RegisterDocument d)
+        {
+            EventHandler<RegisterDocument> handler = RegisterDocumentImported;
+            if (handler != null)
+            {
+                handler(this, d);
+            }
         }
 
         private void ImportData(List<RegisterDocument> docs)
         {
-            daoService.ImportDocumentData(docs);
+            foreach(RegisterDocument d in docs)
+            {
+                daoService.ImportDocumentData(d);
+                Console.WriteLine("Adding register data: {0}", d);
+                OnRegisterDocumentImported(d);
+            }
         }
 
-        public void DeleteRegisterData() {
-            daoService.DeleteRegisterData();
-        }
     }
 }

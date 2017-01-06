@@ -19,20 +19,9 @@ namespace pmis
         private string databaseFilePath;
         private SQLiteConnection m_dbConnection;
 
-        public event ErrorEventHandler OnInitializationError;
-
         public string DatabaseFilePath {
             get { return databaseFilePath; }
             set { this.databaseFilePath = value; }
-        }
-
-        public bool IsOpen {
-            get { return m_dbConnection.State == ConnectionState.Open; }
-        }
-
-        public SQLiteDaoService()
-        {
-            
         }
 
         private SQLiteConnection InitDB()
@@ -44,7 +33,7 @@ namespace pmis
 
             if (!File.Exists(databaseFilePath))
             {
-                LogUtil.Log("Creating new database...");
+                LogUtil.Log(String.Format("Creating new database... {0}", connectionString));
                 SQLiteConnection.CreateFile(databaseFilePath);
                 m_dbConnection = new SQLiteConnection(connectionString);
                 m_dbConnection.Open();
@@ -66,7 +55,7 @@ namespace pmis
                 }
             }
 
-            LogUtil.Log(String.Format("Connection state: {0}", m_dbConnection.State));
+            LogUtil.Log(String.Format("New Connection {0}", m_dbConnection));
             
             return m_dbConnection;
         }
@@ -79,8 +68,16 @@ namespace pmis
 
         public void Close()
         {
-            if(m_dbConnection != null)
+            if (m_dbConnection != null)
+            {
+                LogUtil.Log(String.Format("Closing db connection... {0}", m_dbConnection));
                 m_dbConnection.Close();
+            }
+        }
+
+        public Boolean IsOpen()
+        {
+            return m_dbConnection.State == ConnectionState.Open;
         }
 
         public void DeleteRegisterData()
@@ -90,35 +87,31 @@ namespace pmis
             command.Dispose();
         }
 
-        public void ImportDocumentData(List<RegisterDocument> docs)
+        public void ImportDocumentData(RegisterDocument d)
         {
             string filepath = Path.Combine(projectFolder, @"register.import.sqlite.sql");
             string sql = File.ReadAllText(@"register.import.sqlite.sql");
 
-            foreach (RegisterDocument d in docs)
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
-                cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
-                cmd.Parameters.AddWithValue("@title", d.Title);
-                cmd.Parameters.AddWithValue("@discipline", d.Discipline);
-                cmd.Parameters.AddWithValue("@revision", d.Revision);
-                cmd.Parameters.AddWithValue("@revision_date", d.RevisionDate);
-                cmd.Parameters.AddWithValue("@version", d.Version);
-                cmd.Parameters.AddWithValue("@status", d.Status);
-                cmd.Parameters.AddWithValue("@int_cd", d.InternalNumber);
-                cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
-                cmd.Parameters.AddWithValue("@registered_by", d.RegisteredBy);
-                cmd.Parameters.AddWithValue("@registered", d.Registered);
-                cmd.Parameters.AddWithValue("@organization", d.Organization);
-                cmd.Parameters.AddWithValue("@descr", d.Note);
-                cmd.Parameters.AddWithValue("@type", d.Type);
-                cmd.Parameters.AddWithValue("@current", d.Current);
+            SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
+            cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
+            cmd.Parameters.AddWithValue("@title", d.Title);
+            cmd.Parameters.AddWithValue("@discipline", d.Discipline);
+            cmd.Parameters.AddWithValue("@revision", d.Revision);
+            cmd.Parameters.AddWithValue("@revision_date", d.RevisionDate);
+            cmd.Parameters.AddWithValue("@version", d.Version);
+            cmd.Parameters.AddWithValue("@status", d.Status);
+            cmd.Parameters.AddWithValue("@int_cd", d.InternalNumber);
+            cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
+            cmd.Parameters.AddWithValue("@registered_by", d.RegisteredBy);
+            cmd.Parameters.AddWithValue("@registered", d.Registered);
+            cmd.Parameters.AddWithValue("@organization", d.Organization);
+            cmd.Parameters.AddWithValue("@descr", d.Note);
+            cmd.Parameters.AddWithValue("@type", d.Type);
+            cmd.Parameters.AddWithValue("@current", d.Current);
 
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-                Console.WriteLine("Adding register data: {0}", d);
-            }
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            
         }
 
         public RegisterDocument LoadDocument(string docno, string version = null)
@@ -257,6 +250,7 @@ namespace pmis
 
             sql += " AND docno = @docno ";
             sql += " AND doc_version = @version ";
+            sql += "order by review_date desc";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
@@ -281,26 +275,21 @@ namespace pmis
             command.Dispose();
         }
 
-        public void ImportReviewInfoData(List<ReviewInfo> docs)
+        public void ImportReviewInfoData(ReviewInfo d)
         {
             string filepath = Path.Combine(projectFolder, @"review.import.sqlite.sql");
             string sql = File.ReadAllText(filepath);
+            
+            SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
+            cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
+            cmd.Parameters.AddWithValue("@version", d.DocumentVersion);
+            cmd.Parameters.AddWithValue("@review_date", d.ReviewDate);
+            cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
+            cmd.Parameters.AddWithValue("@review_note", d.ReviewNote);
+            cmd.Parameters.AddWithValue("@reviewed_by", d.ReviewedBy);
 
-            foreach (ReviewInfo d in docs)
-            {
-                SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
-                cmd.Parameters.AddWithValue("@docno", d.DocumentNumber);
-                cmd.Parameters.AddWithValue("@version", d.DocumentVersion);
-                cmd.Parameters.AddWithValue("@review_date", d.ReviewDate);
-                cmd.Parameters.AddWithValue("@review_status", d.ReviewStatus);
-                cmd.Parameters.AddWithValue("@review_note", d.ReviewNote);
-                cmd.Parameters.AddWithValue("@reviewed_by", d.ReviewedBy);
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-                Console.WriteLine("Adding review data: {0}", d);
-            }
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
         }
 
         private void ConfigureDatabasePath()

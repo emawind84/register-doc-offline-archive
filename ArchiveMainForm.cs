@@ -95,9 +95,13 @@ namespace pmis
             fileManagerDataGridView.AutoGenerateColumns = false;
             fileManagerDataGridView.DataSource = fileManagerBS;
 
-            settingForm = new SettingForm(this, registerDocumentDataService, reviewInfoDataService);
-            settingForm.SettingChanged += LoadSearchOptions;
+            settingForm = new SettingForm(
+                daoService as IDbConnection, 
+                registerDocumentDataService, 
+                reviewInfoDataService);
 
+            settingForm.SettingChanged += LoadSearchOptions;
+            
             aboutForm = new AboutBox();
 
             // load search options
@@ -118,7 +122,6 @@ namespace pmis
             
             Application.ApplicationExit += delegate (object s, EventArgs args)
             {
-                LogUtil.Log("Closing db connection...");
                 daoService.Close();
             };
         }

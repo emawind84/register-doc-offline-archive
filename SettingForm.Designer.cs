@@ -39,12 +39,26 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.docStatusesTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.registerFolderLocationButton = new System.Windows.Forms.Button();
+            this.settingRegisterFolderURI = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.sqliteFileLocationButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.settingSQLiteDbLocation = new System.Windows.Forms.TextBox();
             this.connectDatabaseButton = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.settingDbType = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pmisWsProjectCodeLabel = new System.Windows.Forms.Label();
+            this.settingPmisWsProjectCode = new System.Windows.Forms.TextBox();
+            this.pmisWsUrlLabel = new System.Windows.Forms.Label();
+            this.settingPmisWsUrl = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.settingPmisWsAuthKey = new System.Windows.Forms.TextBox();
             this.importReviewDataButton = new System.Windows.Forms.Button();
             this.importRegisterDataButton = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -55,21 +69,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.productInfoLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.registerFolderLocationButton = new System.Windows.Forms.Button();
-            this.settingRegisterFolderURI = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.settingDbType = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.settingSQLiteDbLocation = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.settingPmisWsAuthKey = new System.Windows.Forms.TextBox();
-            this.pmisWsUrlLabel = new System.Windows.Forms.Label();
-            this.settingPmisWsUrl = new System.Windows.Forms.TextBox();
-            this.pmisWsProjectCodeLabel = new System.Windows.Forms.Label();
-            this.settingPmisWsProjectCode = new System.Windows.Forms.TextBox();
-            this.sqliteFileLocationButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.importLogViewer = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -221,6 +222,35 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Register Settings";
             // 
+            // registerFolderLocationButton
+            // 
+            this.registerFolderLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.registerFolderLocationButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.registerFolderLocationButton.Location = new System.Drawing.Point(342, 46);
+            this.registerFolderLocationButton.Name = "registerFolderLocationButton";
+            this.registerFolderLocationButton.Size = new System.Drawing.Size(80, 24);
+            this.registerFolderLocationButton.TabIndex = 43;
+            this.registerFolderLocationButton.Text = "Browse...";
+            this.registerFolderLocationButton.UseVisualStyleBackColor = false;
+            this.registerFolderLocationButton.Click += new System.EventHandler(this.registerLocationButton_Click);
+            // 
+            // settingRegisterFolderURI
+            // 
+            this.settingRegisterFolderURI.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.settingRegisterFolderURI.Location = new System.Drawing.Point(6, 49);
+            this.settingRegisterFolderURI.Name = "settingRegisterFolderURI";
+            this.settingRegisterFolderURI.Size = new System.Drawing.Size(330, 20);
+            this.settingRegisterFolderURI.TabIndex = 45;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 13);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "Folder Location:";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox10);
@@ -248,6 +278,34 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "SQLite Settings";
             // 
+            // sqliteFileLocationButton
+            // 
+            this.sqliteFileLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sqliteFileLocationButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.sqliteFileLocationButton.Location = new System.Drawing.Point(302, 39);
+            this.sqliteFileLocationButton.Name = "sqliteFileLocationButton";
+            this.sqliteFileLocationButton.Size = new System.Drawing.Size(80, 24);
+            this.sqliteFileLocationButton.TabIndex = 44;
+            this.sqliteFileLocationButton.Text = "Browse...";
+            this.sqliteFileLocationButton.UseVisualStyleBackColor = false;
+            this.sqliteFileLocationButton.Click += new System.EventHandler(this.sqliteFileLocationButton_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "DB File Location:";
+            // 
+            // settingSQLiteDbLocation
+            // 
+            this.settingSQLiteDbLocation.Location = new System.Drawing.Point(6, 42);
+            this.settingSQLiteDbLocation.Name = "settingSQLiteDbLocation";
+            this.settingSQLiteDbLocation.Size = new System.Drawing.Size(290, 20);
+            this.settingSQLiteDbLocation.TabIndex = 4;
+            // 
             // connectDatabaseButton
             // 
             this.connectDatabaseButton.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -272,6 +330,23 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Database Settings";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "DB Type:";
+            // 
+            // settingDbType
+            // 
+            this.settingDbType.FormattingEnabled = true;
+            this.settingDbType.Location = new System.Drawing.Point(6, 46);
+            this.settingDbType.Name = "settingDbType";
+            this.settingDbType.Size = new System.Drawing.Size(228, 21);
+            this.settingDbType.TabIndex = 5;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox6);
@@ -288,6 +363,7 @@
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.importLogViewer);
             this.groupBox6.Controls.Add(this.pmisWsProjectCodeLabel);
             this.groupBox6.Controls.Add(this.settingPmisWsProjectCode);
             this.groupBox6.Controls.Add(this.pmisWsUrlLabel);
@@ -303,10 +379,61 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Web Service Settings";
             // 
+            // pmisWsProjectCodeLabel
+            // 
+            this.pmisWsProjectCodeLabel.AutoSize = true;
+            this.pmisWsProjectCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pmisWsProjectCodeLabel.Location = new System.Drawing.Point(6, 79);
+            this.pmisWsProjectCodeLabel.Name = "pmisWsProjectCodeLabel";
+            this.pmisWsProjectCodeLabel.Size = new System.Drawing.Size(71, 13);
+            this.pmisWsProjectCodeLabel.TabIndex = 17;
+            this.pmisWsProjectCodeLabel.Text = "Project Code:";
+            // 
+            // settingPmisWsProjectCode
+            // 
+            this.settingPmisWsProjectCode.Location = new System.Drawing.Point(6, 95);
+            this.settingPmisWsProjectCode.Name = "settingPmisWsProjectCode";
+            this.settingPmisWsProjectCode.Size = new System.Drawing.Size(245, 20);
+            this.settingPmisWsProjectCode.TabIndex = 18;
+            // 
+            // pmisWsUrlLabel
+            // 
+            this.pmisWsUrlLabel.AutoSize = true;
+            this.pmisWsUrlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pmisWsUrlLabel.Location = new System.Drawing.Point(6, 30);
+            this.pmisWsUrlLabel.Name = "pmisWsUrlLabel";
+            this.pmisWsUrlLabel.Size = new System.Drawing.Size(43, 13);
+            this.pmisWsUrlLabel.TabIndex = 15;
+            this.pmisWsUrlLabel.Text = "API Url:";
+            // 
+            // settingPmisWsUrl
+            // 
+            this.settingPmisWsUrl.Location = new System.Drawing.Point(6, 46);
+            this.settingPmisWsUrl.Name = "settingPmisWsUrl";
+            this.settingPmisWsUrl.Size = new System.Drawing.Size(245, 20);
+            this.settingPmisWsUrl.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 128);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Authentication Key:";
+            // 
+            // settingPmisWsAuthKey
+            // 
+            this.settingPmisWsAuthKey.Location = new System.Drawing.Point(6, 144);
+            this.settingPmisWsAuthKey.Name = "settingPmisWsAuthKey";
+            this.settingPmisWsAuthKey.Size = new System.Drawing.Size(245, 20);
+            this.settingPmisWsAuthKey.TabIndex = 14;
+            // 
             // importReviewDataButton
             // 
             this.importReviewDataButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.importReviewDataButton.Location = new System.Drawing.Point(170, 212);
+            this.importReviewDataButton.Location = new System.Drawing.Point(170, 180);
             this.importReviewDataButton.Name = "importReviewDataButton";
             this.importReviewDataButton.Size = new System.Drawing.Size(149, 26);
             this.importReviewDataButton.TabIndex = 9;
@@ -317,7 +444,7 @@
             // importRegisterDataButton
             // 
             this.importRegisterDataButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.importRegisterDataButton.Location = new System.Drawing.Point(6, 212);
+            this.importRegisterDataButton.Location = new System.Drawing.Point(6, 180);
             this.importRegisterDataButton.Name = "importRegisterDataButton";
             this.importRegisterDataButton.Size = new System.Drawing.Size(149, 26);
             this.importRegisterDataButton.TabIndex = 0;
@@ -348,7 +475,7 @@
             this.groupBox2.Size = new System.Drawing.Size(710, 380);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "International Settings";
+            this.groupBox2.Text = " ";
             // 
             // settingLanguage
             // 
@@ -407,134 +534,22 @@
             // 
             this.folderBrowserDialog.ShowNewFolderButton = false;
             // 
-            // registerFolderLocationButton
-            // 
-            this.registerFolderLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.registerFolderLocationButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.registerFolderLocationButton.Location = new System.Drawing.Point(342, 46);
-            this.registerFolderLocationButton.Name = "registerFolderLocationButton";
-            this.registerFolderLocationButton.Size = new System.Drawing.Size(80, 24);
-            this.registerFolderLocationButton.TabIndex = 43;
-            this.registerFolderLocationButton.Text = "Browse...";
-            this.registerFolderLocationButton.UseVisualStyleBackColor = false;
-            this.registerFolderLocationButton.Click += new System.EventHandler(this.registerLocationButton_Click);
-            // 
-            // settingRegisterFolderURI
-            // 
-            this.settingRegisterFolderURI.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.settingRegisterFolderURI.Location = new System.Drawing.Point(6, 49);
-            this.settingRegisterFolderURI.Name = "settingRegisterFolderURI";
-            this.settingRegisterFolderURI.Size = new System.Drawing.Size(330, 20);
-            this.settingRegisterFolderURI.TabIndex = 45;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 13);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "Folder Location:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 30);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "DB Type:";
-            // 
-            // settingDbType
-            // 
-            this.settingDbType.FormattingEnabled = true;
-            this.settingDbType.Location = new System.Drawing.Point(6, 46);
-            this.settingDbType.Name = "settingDbType";
-            this.settingDbType.Size = new System.Drawing.Size(228, 21);
-            this.settingDbType.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 26);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "DB File Location:";
-            // 
-            // settingSQLiteDbLocation
-            // 
-            this.settingSQLiteDbLocation.Location = new System.Drawing.Point(6, 42);
-            this.settingSQLiteDbLocation.Name = "settingSQLiteDbLocation";
-            this.settingSQLiteDbLocation.Size = new System.Drawing.Size(290, 20);
-            this.settingSQLiteDbLocation.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 142);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Authentication Key:";
-            // 
-            // settingPmisWsAuthKey
-            // 
-            this.settingPmisWsAuthKey.Location = new System.Drawing.Point(6, 158);
-            this.settingPmisWsAuthKey.Name = "settingPmisWsAuthKey";
-            this.settingPmisWsAuthKey.Size = new System.Drawing.Size(245, 20);
-            this.settingPmisWsAuthKey.TabIndex = 14;
-            // 
-            // pmisWsUrlLabel
-            // 
-            this.pmisWsUrlLabel.AutoSize = true;
-            this.pmisWsUrlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pmisWsUrlLabel.Location = new System.Drawing.Point(6, 30);
-            this.pmisWsUrlLabel.Name = "pmisWsUrlLabel";
-            this.pmisWsUrlLabel.Size = new System.Drawing.Size(43, 13);
-            this.pmisWsUrlLabel.TabIndex = 15;
-            this.pmisWsUrlLabel.Text = "API Url:";
-            // 
-            // settingPmisWsUrl
-            // 
-            this.settingPmisWsUrl.Location = new System.Drawing.Point(6, 46);
-            this.settingPmisWsUrl.Name = "settingPmisWsUrl";
-            this.settingPmisWsUrl.Size = new System.Drawing.Size(245, 20);
-            this.settingPmisWsUrl.TabIndex = 16;
-            // 
-            // pmisWsProjectCodeLabel
-            // 
-            this.pmisWsProjectCodeLabel.AutoSize = true;
-            this.pmisWsProjectCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pmisWsProjectCodeLabel.Location = new System.Drawing.Point(6, 86);
-            this.pmisWsProjectCodeLabel.Name = "pmisWsProjectCodeLabel";
-            this.pmisWsProjectCodeLabel.Size = new System.Drawing.Size(71, 13);
-            this.pmisWsProjectCodeLabel.TabIndex = 17;
-            this.pmisWsProjectCodeLabel.Text = "Project Code:";
-            // 
-            // settingPmisWsProjectCode
-            // 
-            this.settingPmisWsProjectCode.Location = new System.Drawing.Point(6, 102);
-            this.settingPmisWsProjectCode.Name = "settingPmisWsProjectCode";
-            this.settingPmisWsProjectCode.Size = new System.Drawing.Size(245, 20);
-            this.settingPmisWsProjectCode.TabIndex = 18;
-            // 
-            // sqliteFileLocationButton
-            // 
-            this.sqliteFileLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sqliteFileLocationButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.sqliteFileLocationButton.Location = new System.Drawing.Point(302, 39);
-            this.sqliteFileLocationButton.Name = "sqliteFileLocationButton";
-            this.sqliteFileLocationButton.Size = new System.Drawing.Size(80, 24);
-            this.sqliteFileLocationButton.TabIndex = 44;
-            this.sqliteFileLocationButton.Text = "Browse...";
-            this.sqliteFileLocationButton.UseVisualStyleBackColor = false;
-            this.sqliteFileLocationButton.Click += new System.EventHandler(this.sqliteFileLocationButton_Click);
-            // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "archive.db";
+            // 
+            // importLogViewer
+            // 
+            this.importLogViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.importLogViewer.Location = new System.Drawing.Point(6, 223);
+            this.importLogViewer.MaxLength = 10;
+            this.importLogViewer.Name = "importLogViewer";
+            this.importLogViewer.ReadOnly = true;
+            this.importLogViewer.Size = new System.Drawing.Size(698, 151);
+            this.importLogViewer.TabIndex = 19;
+            this.importLogViewer.Text = "";
             // 
             // SettingForm
             // 
@@ -620,5 +635,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button sqliteFileLocationButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.RichTextBox importLogViewer;
     }
 }

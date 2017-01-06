@@ -13,6 +13,6 @@ namespace pmis.reviewinfo
 
         void DeleteReviewInfo();
 
-        void ImportReviewInfoData(List<ReviewInfo> docs);
+        void ImportReviewInfoData(ReviewInfo d);
     }
 }
