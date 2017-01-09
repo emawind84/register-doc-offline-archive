@@ -13,6 +13,7 @@ namespace pmis
 
         public static void Log(string message="<empty>", string filename=null)
         {
+            Console.WriteLine(message);
             if (LogRootFolder != null)
                 Directory.CreateDirectory(LogRootFolder);
 

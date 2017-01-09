@@ -39,8 +39,24 @@ namespace pmis
             var _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             appDataFullPath = Path.Combine(_path, ".pmis-archive");
 
+            // create user app folder
             if (!Directory.Exists(AppDataFullPath))
                 Directory.CreateDirectory(AppDataFullPath);
+
+            // create data folder in user app folder
+            DirectoryInfo userDataDir = new DirectoryInfo(Path.Combine(AppDataFullPath, "data"));
+            if (!userDataDir.Exists)
+            {
+                userDataDir.Create();
+
+                DirectoryInfo dataDir = new DirectoryInfo("data");
+                FileInfo[] files = dataDir.GetFiles();
+                foreach (FileInfo file in files)
+                {
+                    string temppath = Path.Combine(userDataDir.FullName, file.Name);
+                    file.CopyTo(temppath, false);
+                }
+            }
 
             // set the log root folder
             LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");

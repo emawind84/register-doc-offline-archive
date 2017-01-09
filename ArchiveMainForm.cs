@@ -72,15 +72,21 @@ namespace pmis
             InitializeComponent();
 
             // configure user folder in appdata
-            AppConfig.InitConfig();
+            try {
+                AppConfig.InitConfig();
+            } catch (Exception e)
+            {
+                new ApplicationException("Application didn't start correctly, please check the log.", e)
+                    .Log()
+                    .Display();
+            }
 
             SplashForm.HideSplash(2000);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            daoService = new SQLiteDaoService();
+            daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
             
             registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
             registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
@@ -111,9 +117,11 @@ namespace pmis
             srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
             settingForm = new SettingForm(
-                daoService as IDbConnection, 
                 registerDocumentDataService, 
                 reviewInfoDataService);
+
+            // adding sqlite module to setting form
+            settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
             settingForm.SettingChanged += LoadSearchOptions;
             
@@ -164,9 +172,20 @@ namespace pmis
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
-            srchStatus.DataSource = Properties.Settings.Default.register_status;
-            srchDiscipline.DataSource = Properties.Settings.Default.register_discipline;
-            srchType.DataSource = Properties.Settings.Default.register_type;
+            string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
+            statuses[0] = "";
+            Properties.Settings.Default.register_status.CopyTo(statuses, 1);
+            srchStatus.DataSource = statuses;
+
+            string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
+            disciplines[0] = "";
+            Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
+            srchDiscipline.DataSource = disciplines;
+
+            string[] types = new string[Properties.Settings.Default.register_type.Count + 1];
+            types[0] = "";
+            Properties.Settings.Default.register_type.CopyTo(types, 1);
+            srchType.DataSource = types;
         }
 
         private void ShowRegisterList()
@@ -182,7 +201,7 @@ namespace pmis
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButtonClickHandler(object sender, EventArgs e)
         {
             try
             {
@@ -265,7 +284,7 @@ namespace pmis
             aboutForm.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void SearchClearButtonClickHandler(object sender, EventArgs e)
         {
             SearchCriteriaDiscipline = "";
             SearchCriteriaStatus = "";
@@ -273,5 +292,19 @@ namespace pmis
             SearchCriteriaDocNumber = "";
             SearchCriteriaTitle = "";
         }
+
+        private void DataGridViewShowInFolderHandler(object sender, DataGridViewCellEventArgs e)
+        {
+            //Skip the Column and Row headers
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+            {
+                return;
+            }
+            var dataGridView = (sender as DataGridView);
+            
+            if (e.ColumnIndex == 2)
+                dataGridView.Cursor = Cursors.Hand;
+        }
+
     }
 }

@@ -27,11 +27,26 @@ namespace pmis
 
         public DataTable SearchDocument(Dictionary<string,object> criteria = null)
         {
-            return daoService.SearchDocument(criteria);
+            try {
+                return daoService.SearchDocument(criteria);
+            }
+            catch(Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
         public RegisterDocument LoadDocument(string docno, string version = null) {
-            return daoService.LoadDocument(docno, version);
+            try
+            {
+                return daoService.LoadDocument(docno, version);
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
         public List<RegisterFile> LoadRegisterFiles(RegisterDocument doc) {
@@ -43,6 +58,7 @@ namespace pmis
             string[] files = new string[0];
             try
             {
+                LogUtil.Log(String.Format("Looking for files... {0}", targetDirectory));
                 files = Directory.GetFiles(targetDirectory);
             }
             catch (DirectoryNotFoundException e)
@@ -61,7 +77,15 @@ namespace pmis
 
         public void DeleteRegisterData()
         {
-            daoService.DeleteRegisterData();
+            try
+            {
+                daoService.DeleteRegisterData();
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
         public void ImportCSVFile(string csvfile)
@@ -172,11 +196,19 @@ namespace pmis
 
         private void ImportData(List<RegisterDocument> docs)
         {
-            foreach(RegisterDocument d in docs)
+            try
             {
-                daoService.ImportDocumentData(d);
-                Console.WriteLine("Adding register data: {0}", d);
-                OnRegisterDocumentImported(d);
+                foreach (RegisterDocument d in docs)
+                {
+                    daoService.ImportDocumentData(d);
+                    Console.WriteLine("Adding register data: {0}", d);
+                    OnRegisterDocumentImported(d);
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
             }
         }
 

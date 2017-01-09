@@ -16,9 +16,11 @@ namespace pmis
     public partial class SettingForm : Form
     {
 
-        private IDbConnection dbConnection;
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
+
+        // sqlite module
+        public SQLiteDaoService SQLiteDaoService;
 
         public event EventHandler SettingChanged;
 
@@ -31,19 +33,15 @@ namespace pmis
             
         }
 
-        public SettingForm(IDbConnection dbConnection, 
-            RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
+        public SettingForm(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
         {
             InitializeComponent();
 
-            this.dbConnection = dbConnection;
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
 
             this.registerService.ImportComplete += EnableImportRegisterDataButton;
             this.reviewInfoService.ImportComplete += EnableImportReviewDataButton;
-
-            //SettingChanged += ToggleDbConnectionButton;
 
             settingLanguage.DataSource = new BindingSource(AppConfig.Languages, null);
             settingLanguage.DisplayMember = "Value";
@@ -57,6 +55,8 @@ namespace pmis
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
 
             productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
+
+            openFileDialog.InitialDirectory = AppConfig.AppDataFullPath;
 
             LoadSettings();
         }
@@ -106,7 +106,6 @@ namespace pmis
             Properties.Settings.Default.language = settingLanguage.SelectedValue as string;
 
             Properties.Settings.Default.register_status.Clear();
-            Properties.Settings.Default.register_status.Add("");
             foreach (var line in docStatusesTextBox.Lines)
             {
                 if(!String.IsNullOrEmpty(line))
@@ -114,7 +113,6 @@ namespace pmis
             }
 
             Properties.Settings.Default.register_discipline.Clear();
-            Properties.Settings.Default.register_discipline.Add("");
             foreach (var line in docDisciplinesTextBox.Lines)
             {
                 if (!String.IsNullOrEmpty(line))
@@ -122,7 +120,6 @@ namespace pmis
             }
 
             Properties.Settings.Default.register_type.Clear();
-            Properties.Settings.Default.register_type.Add("");
             foreach (var line in docTypesTextBox.Lines)
             {
                 if (!String.IsNullOrEmpty(line))
@@ -182,17 +179,6 @@ namespace pmis
             
         }
 
-        private void ToggleDbConnectionButton(object sender, EventArgs args)
-        {
-            if (dbConnection.IsOpen())
-            {
-                connectDatabaseButton.Enabled = false;
-            } else
-            {
-                connectDatabaseButton.Enabled = true;
-            }
-        }
-
         private void LogRegisterImportedData(object sender, RegisterDocument d)
         {
             LogImportMessage(String.Format("Imported {0}", d.ToString()));
@@ -244,12 +230,13 @@ namespace pmis
             this.Hide();
         }
 
-        private void connectDatabaseButton_Click(object sender, EventArgs e)
+        private void connectSQLiteDatabaseButton_Click(object sender, EventArgs e)
         {
             try
             {
                 SaveSettings();
-                dbConnection.Open();
+                SQLiteDaoService.DatabaseFilePath = Properties.Settings.Default.sqlite_db_location;
+                SQLiteDaoService.Open();
             }
             catch (Exception ex)
             {
@@ -268,11 +255,6 @@ namespace pmis
             {
                 ex.Log().Display();
             }
-        }
-
-        private void SettingForm_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void registerLocationButton_Click(object sender, EventArgs e)

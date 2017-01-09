@@ -30,12 +30,28 @@ namespace pmis
 
         public DataTable LoadReviewInfo(RegisterDocument doc)
         {
-            return _dao.LoadReviewInfo(doc);
+            try
+            {
+                return _dao.LoadReviewInfo(doc);
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
         public void DeleteReviewInfo()
         {
-            _dao.DeleteReviewInfo();
+            try
+            {
+                _dao.DeleteReviewInfo();
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
         public List<RegisterFile> LoadReviewRegisterFiles(RegisterDocument doc)
@@ -69,11 +85,19 @@ namespace pmis
 
         public void ImportData(List<ReviewInfo> docs)
         {
-            foreach(ReviewInfo d in docs)
+            try
             {
-                _dao.ImportReviewInfoData(d);
-                Console.WriteLine("Adding review data: {0}", d);
-                OnReviewInfoImported(d);
+                foreach (ReviewInfo d in docs)
+                {
+                    _dao.ImportReviewInfoData(d);
+                    Console.WriteLine("Adding review data: {0}", d);
+                    OnReviewInfoImported(d);
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
             }
         }
 

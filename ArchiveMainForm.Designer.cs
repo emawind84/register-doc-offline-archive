@@ -48,10 +48,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.searchClearButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.srchDiscipline = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -137,7 +136,6 @@
             this.doc_version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docViewReviewStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -216,10 +214,6 @@
             this.aboutToolStripMenuItem1.Text = "&About...";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -237,7 +231,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.searchClearButton);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -252,17 +246,17 @@
             this.tabPage1.Text = "Register";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // searchClearButton
             // 
-            this.button4.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button4.Location = new System.Drawing.Point(842, 100);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(68, 27);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.searchClearButton.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.searchClearButton.Location = new System.Drawing.Point(842, 100);
+            this.searchClearButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchClearButton.Name = "searchClearButton";
+            this.searchClearButton.Size = new System.Drawing.Size(68, 27);
+            this.searchClearButton.TabIndex = 35;
+            this.searchClearButton.Text = "Clear";
+            this.searchClearButton.UseVisualStyleBackColor = false;
+            this.searchClearButton.Click += new System.EventHandler(this.SearchClearButtonClickHandler);
             // 
             // groupBox4
             // 
@@ -487,7 +481,7 @@
             this.searchButton.TabIndex = 31;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButtonClickHandler);
             // 
             // registerDataGridView
             // 
@@ -552,7 +546,7 @@
             this.doclist_docno.HeaderText = "Document Number";
             this.doclist_docno.Name = "doclist_docno";
             this.doclist_docno.ReadOnly = true;
-            this.doclist_docno.Width = 271;
+            this.doclist_docno.Width = 240;
             // 
             // doclist_title
             // 
@@ -723,6 +717,7 @@
             this.fileManagerDataGridView.TabIndex = 33;
             this.fileManagerDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fileManagerDataGridView_CellClick);
             this.fileManagerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fileManagerDataGridView_CellDoubleClick);
+            this.fileManagerDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewShowInFolderHandler);
             // 
             // filename
             // 
@@ -1193,6 +1188,7 @@
             this.reviewFileDataGrid.ShowEditingIcon = false;
             this.reviewFileDataGrid.Size = new System.Drawing.Size(988, 143);
             this.reviewFileDataGrid.TabIndex = 35;
+            this.reviewFileDataGrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewShowInFolderHandler);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1394,7 +1390,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button searchButton;
@@ -1424,7 +1419,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ComboBox srchDiscipline;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button searchClearButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn filename;
         private System.Windows.Forms.DataGridViewTextBoxColumn filesize;
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
@@ -1442,23 +1437,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn review_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn review_note;
         private System.Windows.Forms.DataGridViewTextBoxColumn doc_version;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem archiveSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_docno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_current;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_organization;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_review_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered_by;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -1488,6 +1469,19 @@
         public System.Windows.Forms.TextBox docViewOrganization;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_docno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_current;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_revision_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_organization;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_review_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
     }
 }
 

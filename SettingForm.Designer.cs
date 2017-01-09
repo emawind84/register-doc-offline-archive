@@ -42,12 +42,16 @@
             this.registerFolderLocationButton = new System.Windows.Forms.Button();
             this.settingRegisterFolderURI = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.settingLanguage = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.sqliteFileLocationButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.settingSQLiteDbLocation = new System.Windows.Forms.TextBox();
-            this.connectDatabaseButton = new System.Windows.Forms.Button();
+            this.connectSQLiteDatabaseButton = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.settingDbType = new System.Windows.Forms.ComboBox();
@@ -62,10 +66,6 @@
             this.settingPmisWsAuthKey = new System.Windows.Forms.TextBox();
             this.importReviewDataButton = new System.Windows.Forms.Button();
             this.importRegisterDataButton = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.settingLanguage = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.productInfoLabel = new System.Windows.Forms.Label();
@@ -79,13 +79,13 @@
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,9 +94,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -251,6 +251,51 @@
             this.label13.TabIndex = 44;
             this.label13.Text = "Folder Location:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(722, 392);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "International Settings";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.settingLanguage);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(710, 380);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = " International Settings";
+            // 
+            // settingLanguage
+            // 
+            this.settingLanguage.FormattingEnabled = true;
+            this.settingLanguage.Items.AddRange(new object[] {
+            "English",
+            "Korean"});
+            this.settingLanguage.Location = new System.Drawing.Point(6, 40);
+            this.settingLanguage.Name = "settingLanguage";
+            this.settingLanguage.Size = new System.Drawing.Size(208, 21);
+            this.settingLanguage.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Language:";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox10);
@@ -270,7 +315,7 @@
             this.groupBox10.Controls.Add(this.sqliteFileLocationButton);
             this.groupBox10.Controls.Add(this.label12);
             this.groupBox10.Controls.Add(this.settingSQLiteDbLocation);
-            this.groupBox10.Controls.Add(this.connectDatabaseButton);
+            this.groupBox10.Controls.Add(this.connectSQLiteDatabaseButton);
             this.groupBox10.Location = new System.Drawing.Point(6, 105);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(710, 120);
@@ -295,9 +340,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 26);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 13);
+            this.label12.Size = new System.Drawing.Size(119, 13);
             this.label12.TabIndex = 5;
-            this.label12.Text = "DB File Location:";
+            this.label12.Text = "Database File Location:";
             // 
             // settingSQLiteDbLocation
             // 
@@ -306,16 +351,16 @@
             this.settingSQLiteDbLocation.Size = new System.Drawing.Size(290, 20);
             this.settingSQLiteDbLocation.TabIndex = 4;
             // 
-            // connectDatabaseButton
+            // connectSQLiteDatabaseButton
             // 
-            this.connectDatabaseButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.connectDatabaseButton.Location = new System.Drawing.Point(9, 77);
-            this.connectDatabaseButton.Name = "connectDatabaseButton";
-            this.connectDatabaseButton.Size = new System.Drawing.Size(114, 26);
-            this.connectDatabaseButton.TabIndex = 2;
-            this.connectDatabaseButton.Text = "Connect Database";
-            this.connectDatabaseButton.UseVisualStyleBackColor = false;
-            this.connectDatabaseButton.Click += new System.EventHandler(this.connectDatabaseButton_Click);
+            this.connectSQLiteDatabaseButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.connectSQLiteDatabaseButton.Location = new System.Drawing.Point(9, 77);
+            this.connectSQLiteDatabaseButton.Name = "connectSQLiteDatabaseButton";
+            this.connectSQLiteDatabaseButton.Size = new System.Drawing.Size(114, 26);
+            this.connectSQLiteDatabaseButton.TabIndex = 2;
+            this.connectSQLiteDatabaseButton.Text = "Connect Database";
+            this.connectSQLiteDatabaseButton.UseVisualStyleBackColor = false;
+            this.connectSQLiteDatabaseButton.Click += new System.EventHandler(this.connectSQLiteDatabaseButton_Click);
             // 
             // groupBox9
             // 
@@ -335,9 +380,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 30);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 4;
-            this.label10.Text = "DB Type:";
+            this.label10.Text = "Database Type:";
             // 
             // settingDbType
             // 
@@ -355,7 +400,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(722, 392);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Web Service Settings";
+            this.tabPage1.Text = "Data Import Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox6
@@ -465,51 +510,6 @@
             this.importRegisterDataButton.UseVisualStyleBackColor = false;
             this.importRegisterDataButton.Click += new System.EventHandler(this.importRegisterDataButton_Click);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.groupBox2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(722, 392);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "International Settings";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.settingLanguage);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(710, 380);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " ";
-            // 
-            // settingLanguage
-            // 
-            this.settingLanguage.FormattingEnabled = true;
-            this.settingLanguage.Items.AddRange(new object[] {
-            "English",
-            "Korean"});
-            this.settingLanguage.Location = new System.Drawing.Point(9, 44);
-            this.settingLanguage.Name = "settingLanguage";
-            this.settingLanguage.Size = new System.Drawing.Size(208, 21);
-            this.settingLanguage.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Language:";
-            // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -565,7 +565,6 @@
             this.MaximizeBox = false;
             this.Name = "SettingForm";
             this.Text = "Archive Settings";
-            this.Load += new System.EventHandler(this.SettingForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -575,6 +574,9 @@
             this.tabPage7.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
@@ -583,9 +585,6 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -605,7 +604,7 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button connectDatabaseButton;
+        private System.Windows.Forms.Button connectSQLiteDatabaseButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage5;

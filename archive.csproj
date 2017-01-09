@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://dev.sangah.com/util/pmis-archive/</PublishUrl>
+    <PublishUrl>sftp://dev.sangah.com/util/pmis-archive/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -32,7 +32,7 @@
     <PublisherName>SangAh</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>20</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -201,6 +201,7 @@
     </Content>
     <EmbeddedResource Include="ArchiveMainForm.resx">
       <DependentUpon>ArchiveMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -212,6 +213,9 @@
     </EmbeddedResource>
     <Resource Include="resources\sangah-logo.png" />
     <None Include="archive_TemporaryKey.pfx" />
+    <Content Include="data\archive.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="etc\edms_export.py" />
     <Resource Include="resources\sangah_logo_16.ico" />
     <None Include="resources\kspmis_logo.png" />

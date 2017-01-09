@@ -30,15 +30,18 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.productInfoLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.productInfoLabel);
-            this.panel1.Location = new System.Drawing.Point(5, 87);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 24);
+            this.panel1.Size = new System.Drawing.Size(288, 24);
             this.panel1.TabIndex = 8;
             // 
             // productInfoLabel
@@ -50,12 +53,22 @@
             this.productInfoLabel.TabIndex = 8;
             this.productInfoLabel.Text = "Version";
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::pmis.Properties.Resources.kspmis_logo;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(288, 84);
+            this.panel2.TabIndex = 9;
+            // 
             // SplashForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::pmis.Properties.Resources.kspmis_logo;
-            this.ClientSize = new System.Drawing.Size(290, 110);
+            this.ClientSize = new System.Drawing.Size(288, 107);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -75,5 +88,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label productInfoLabel;
+        private System.Windows.Forms.Panel panel2;
     }
 }

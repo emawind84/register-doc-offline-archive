@@ -40,7 +40,7 @@ namespace pmis
             Thread t = new Thread(new ThreadStart(delegate ()
             {
                 Thread.Sleep(delay);
-                splash.Invoke(new Action(splash.Hide));
+                splash.Invoke(new Action(splash.Dispose));
             }));
             t.Start();
         }

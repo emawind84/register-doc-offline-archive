@@ -11,12 +11,27 @@ namespace pmis
 
         public static void OpenRegisterFile(RegisterFile file)
         {
-            System.Diagnostics.Process.Start(String.Format(@"{0}", file.FilePath));
+            try
+            {
+                System.Diagnostics.Process.Start(String.Format(@"{0}", file.FilePath));
+            }
+            catch (Exception e) {
+                e.Log();
+                throw e;
+            }
         }
 
         public static void OpenRegisterFileLocation(RegisterFile file)
         {
-            System.Diagnostics.Process.Start("explorer.exe", "/select, " + file.FilePath);
+            try
+            {
+                System.Diagnostics.Process.Start("explorer.exe", "/select, " + file.FilePath);
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
         }
 
     }

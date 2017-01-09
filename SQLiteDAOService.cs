@@ -16,18 +16,29 @@ namespace pmis
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-        private string databaseFilePath;
         private SQLiteConnection m_dbConnection;
 
+        private string databaseFilePath;
         public string DatabaseFilePath {
             get { return databaseFilePath; }
-            set { this.databaseFilePath = value; }
+            set {
+                if (!Path.IsPathRooted(value))
+                {
+                    value = Path.Combine(AppConfig.AppDataFullPath, value);
+                }
+                this.databaseFilePath = value;
+            }
+        }
+
+        public SQLiteDaoService(string databaseFilePath)
+        {
+            DatabaseFilePath = databaseFilePath;
         }
 
         private SQLiteConnection InitDB()
         {
             LogUtil.Log("Connecting database...");
-            ConfigureDatabasePath();
+            //ConfigureDatabasePath();
 
             string connectionString = string.Format("Data Source={0};Version=3;", databaseFilePath);
 
@@ -55,7 +66,7 @@ namespace pmis
                 }
             }
 
-            LogUtil.Log(String.Format("New Connection {0}", m_dbConnection));
+            LogUtil.Log(String.Format("New Connection status {0}", m_dbConnection.State));
             
             return m_dbConnection;
         }
@@ -194,7 +205,7 @@ namespace pmis
                 sql += " AND discipline = @discipline ";
 
             if (criteria.ContainsKey("type"))
-                sql += " AND discipline = @type ";
+                sql += " AND doc_type = @type ";
 
             if (criteria.ContainsKey("top_version"))
                 sql += " AND doc_current = 1 ";
@@ -296,11 +307,7 @@ namespace pmis
         {
             databaseFilePath = Properties.Settings.Default.sqlite_db_location;
             
-            if (!Path.IsPathRooted(databaseFilePath))
-            {
-                databaseFilePath = Path.Combine(AppConfig.AppDataFullPath, databaseFilePath);
-                Console.WriteLine(Path.GetFullPath(databaseFilePath));
-            }
+            
             Console.WriteLine("Setting db path: {0}", databaseFilePath);
         }
         
