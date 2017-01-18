@@ -67,6 +67,8 @@
             this.srchHistory = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.srchRegisteredBy = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.srchTitle = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.srchNumber = new System.Windows.Forms.TextBox();
@@ -249,7 +251,7 @@
             // searchClearButton
             // 
             this.searchClearButton.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.searchClearButton.Location = new System.Drawing.Point(842, 100);
+            this.searchClearButton.Location = new System.Drawing.Point(842, 131);
             this.searchClearButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchClearButton.Name = "searchClearButton";
             this.searchClearButton.Size = new System.Drawing.Size(68, 27);
@@ -270,14 +272,14 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(406, 121);
+            this.groupBox4.Size = new System.Drawing.Size(406, 152);
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
             // 
             // srchDiscipline
             // 
             this.srchDiscipline.FormattingEnabled = true;
-            this.srchDiscipline.Location = new System.Drawing.Point(140, 53);
+            this.srchDiscipline.Location = new System.Drawing.Point(6, 76);
             this.srchDiscipline.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchDiscipline.Name = "srchDiscipline";
             this.srchDiscipline.Size = new System.Drawing.Size(260, 21);
@@ -287,7 +289,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 56);
+            this.label9.Location = new System.Drawing.Point(6, 59);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 13);
             this.label9.TabIndex = 10;
@@ -296,7 +298,7 @@
             // srchStatus
             // 
             this.srchStatus.FormattingEnabled = true;
-            this.srchStatus.Location = new System.Drawing.Point(140, 86);
+            this.srchStatus.Location = new System.Drawing.Point(6, 122);
             this.srchStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchStatus.Name = "srchStatus";
             this.srchStatus.Size = new System.Drawing.Size(260, 21);
@@ -306,7 +308,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(38, 89);
+            this.label17.Location = new System.Drawing.Point(6, 105);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(89, 13);
             this.label17.TabIndex = 8;
@@ -315,17 +317,17 @@
             // srchType
             // 
             this.srchType.FormattingEnabled = true;
-            this.srchType.Location = new System.Drawing.Point(140, 20);
+            this.srchType.Location = new System.Drawing.Point(6, 32);
             this.srchType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchType.Name = "srchType";
-            this.srchType.Size = new System.Drawing.Size(260, 21);
+            this.srchType.Size = new System.Drawing.Size(394, 21);
             this.srchType.TabIndex = 7;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(44, 23);
+            this.label15.Location = new System.Drawing.Point(6, 15);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 6;
@@ -340,7 +342,7 @@
             this.groupBox3.Controls.Add(this.srchFromDate);
             this.groupBox3.Controls.Add(this.srchHistory);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Location = new System.Drawing.Point(629, 6);
+            this.groupBox3.Location = new System.Drawing.Point(629, 37);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -351,7 +353,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(94, 93);
+            this.label10.Location = new System.Drawing.Point(94, 43);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(14, 13);
             this.label10.TabIndex = 6;
@@ -361,7 +363,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 72);
+            this.label21.Location = new System.Drawing.Point(3, 22);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(30, 13);
             this.label21.TabIndex = 5;
@@ -371,7 +373,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(107, 72);
+            this.label20.Location = new System.Drawing.Point(107, 22);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(20, 13);
             this.label20.TabIndex = 4;
@@ -381,7 +383,7 @@
             // 
             this.srchToDate.CustomFormat = "yyyy-MM-dd";
             this.srchToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchToDate.Location = new System.Drawing.Point(110, 87);
+            this.srchToDate.Location = new System.Drawing.Point(110, 37);
             this.srchToDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchToDate.Name = "srchToDate";
             this.srchToDate.Size = new System.Drawing.Size(85, 20);
@@ -391,7 +393,7 @@
             // 
             this.srchFromDate.CustomFormat = "yyyy-MM-dd";
             this.srchFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchFromDate.Location = new System.Drawing.Point(6, 87);
+            this.srchFromDate.Location = new System.Drawing.Point(6, 37);
             this.srchFromDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchFromDate.Name = "srchFromDate";
             this.srchFromDate.Size = new System.Drawing.Size(85, 20);
@@ -404,7 +406,7 @@
             this.srchHistory.Items.AddRange(new object[] {
             "Latest Revision Only",
             "Show All Revisions"});
-            this.srchHistory.Location = new System.Drawing.Point(6, 31);
+            this.srchHistory.Location = new System.Drawing.Point(6, 85);
             this.srchHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchHistory.Name = "srchHistory";
             this.srchHistory.Size = new System.Drawing.Size(121, 21);
@@ -414,7 +416,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(3, 15);
+            this.label19.Location = new System.Drawing.Point(3, 69);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 13);
             this.label19.TabIndex = 0;
@@ -422,6 +424,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.srchRegisteredBy);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.srchTitle);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.srchNumber);
@@ -430,13 +434,31 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(205, 121);
+            this.groupBox2.Size = new System.Drawing.Size(205, 152);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             // 
+            // srchRegisteredBy
+            // 
+            this.srchRegisteredBy.Location = new System.Drawing.Point(6, 122);
+            this.srchRegisteredBy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.srchRegisteredBy.Name = "srchRegisteredBy";
+            this.srchRegisteredBy.Size = new System.Drawing.Size(190, 20);
+            this.srchRegisteredBy.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Registered By";
+            // 
             // srchTitle
             // 
-            this.srchTitle.Location = new System.Drawing.Point(9, 87);
+            this.srchTitle.Location = new System.Drawing.Point(6, 77);
             this.srchTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchTitle.Name = "srchTitle";
             this.srchTitle.Size = new System.Drawing.Size(190, 20);
@@ -446,7 +468,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 70);
+            this.label18.Location = new System.Drawing.Point(6, 61);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 13);
             this.label18.TabIndex = 10;
@@ -454,7 +476,7 @@
             // 
             // srchNumber
             // 
-            this.srchNumber.Location = new System.Drawing.Point(9, 32);
+            this.srchNumber.Location = new System.Drawing.Point(6, 31);
             this.srchNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.srchNumber.Name = "srchNumber";
             this.srchNumber.Size = new System.Drawing.Size(190, 20);
@@ -464,7 +486,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(9, 15);
+            this.label16.Location = new System.Drawing.Point(6, 14);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 13);
             this.label16.TabIndex = 8;
@@ -474,7 +496,7 @@
             // 
             this.searchButton.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.searchButton.Location = new System.Drawing.Point(842, 59);
+            this.searchButton.Location = new System.Drawing.Point(842, 90);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(98, 35);
@@ -490,7 +512,6 @@
             this.registerDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.registerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.registerDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.registerDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -525,7 +546,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.registerDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.registerDataGridView.Location = new System.Drawing.Point(3, 138);
+            this.registerDataGridView.Location = new System.Drawing.Point(3, 166);
             this.registerDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerDataGridView.Name = "registerDataGridView";
             this.registerDataGridView.ReadOnly = true;
@@ -534,7 +555,7 @@
             this.registerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.registerDataGridView.RowTemplate.Height = 30;
             this.registerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registerDataGridView.Size = new System.Drawing.Size(1000, 422);
+            this.registerDataGridView.Size = new System.Drawing.Size(1000, 394);
             this.registerDataGridView.TabIndex = 1;
             this.registerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerDataGridView_CellDoubleClick);
             // 
@@ -1344,8 +1365,7 @@
             // 
             // ArchiveMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1038, 641);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
@@ -1482,6 +1502,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_registered;
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_discipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn doclist_status;
+        private System.Windows.Forms.TextBox srchRegisteredBy;
+        private System.Windows.Forms.Label label11;
     }
 }
 

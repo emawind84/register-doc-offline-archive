@@ -272,5 +272,17 @@ namespace pmis
                 settingSQLiteDbLocation.Text = openFileDialog.FileName;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.Reset();
+                LoadSettings();
+            } catch(Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
     }
 }

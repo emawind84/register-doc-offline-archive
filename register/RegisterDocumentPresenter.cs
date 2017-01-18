@@ -66,8 +66,14 @@ namespace pmis
                 criteria.Add("status", _form.SearchCriteriaStatus);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaDiscipline))
                 criteria.Add("discipline", _form.SearchCriteriaDiscipline);
+            if (!String.IsNullOrEmpty(_form.SearchCriteriaRegisteredBy))
+                criteria.Add("registered_by", _form.SearchCriteriaRegisteredBy);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaType))
-                criteria.Add("type", _form.SearchCriteriaType);
+            {
+                var value = _form.SearchCriteriaType;
+                String[] values = value.Split('>');
+                criteria.Add("type", values[values.Length - 1].Trim());
+            }
 
             if(_form.SearchCriteriaAllHistory.Equals("Latest Revision Only"))
                 criteria.Add("top_version", "1");

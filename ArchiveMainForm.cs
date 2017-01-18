@@ -65,6 +65,8 @@ namespace pmis
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
+        public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
+
         public ArchiveMainForm()
         {
             SplashForm.ShowSplash();
@@ -248,7 +250,8 @@ namespace pmis
 
         private void registerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try {
+            try
+            {
                 if (e.RowIndex == -1) { return; }
 
                 //string docno = (string)registerDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;

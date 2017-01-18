@@ -207,11 +207,14 @@ namespace pmis
             if (criteria.ContainsKey("type"))
                 sql += " AND doc_type = @type ";
 
+            if (criteria.ContainsKey("registered_by"))
+                sql += " AND registered_by = @registered_by ";
+
             if (criteria.ContainsKey("top_version"))
                 sql += " AND doc_current = 1 ";
 
             sql += "order by upper(docno)";
-            sql += "limit 1000";
+            sql += "limit 200";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
@@ -236,6 +239,9 @@ namespace pmis
 
                 if (criteria.ContainsKey("title"))
                     cmd.Parameters.AddWithValue("@title", criteria["title"]);
+
+                if (criteria.ContainsKey("registered_by"))
+                    cmd.Parameters.AddWithValue("@registered_by", criteria["registered_by"]);
 
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
 

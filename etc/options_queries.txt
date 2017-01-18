@@ -12,3 +12,21 @@ SELECT
   COMM_NAME
 FROM COMMON_CODE WHERE COMM_CD = 'DOC_STATUS'
 AND COMM_ID != '00';
+
+
+### TREE STYLE TYPE ###
+select
+  LTRIM( SYS_CONNECT_BY_PATH(
+    (case when level < 4 and CONNECT_BY_ISLEAF != 1  then '' else DOC_CLSS_NAME end) , ' > '), ' > ' ) DOC_CLSS_NAME
+from doc_clss
+  where CONNECT_BY_ISLEAF = 1 OR level >= 4
+
+connect by prior DOC_CD = UP_DOC_CD
+and prior pjt_cd = pjt_cd
+and prior doc_div = '6'
+
+start with up_doc_cd = '!0!'
+and pjt_cd = 'PCITY_PMIS'
+and doc_div = '6'
+
+order by doc_clss_name;
