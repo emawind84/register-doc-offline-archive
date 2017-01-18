@@ -245,7 +245,6 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Size = new System.Drawing.Size(1006, 564);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Register";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // searchClearButton
@@ -640,7 +639,6 @@
             // doclist_registered_by
             // 
             this.doclist_registered_by.DataPropertyName = "registered_by";
-            this.doclist_registered_by.HeaderText = "Registered By";
             this.doclist_registered_by.Name = "doclist_registered_by";
             this.doclist_registered_by.ReadOnly = true;
             this.doclist_registered_by.Width = 130;

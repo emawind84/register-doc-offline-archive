@@ -30,6 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.resetSettingsButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -71,11 +74,9 @@
             this.productInfoLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.resetSettingsButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -89,7 +90,6 @@
             this.groupBox9.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -119,6 +119,40 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "General Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.resetSettingsButton);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox3.Location = new System.Drawing.Point(373, 299);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(343, 87);
+            this.groupBox3.TabIndex = 43;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reset Settings";
+            // 
+            // resetSettingsButton
+            // 
+            this.resetSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.resetSettingsButton.ForeColor = System.Drawing.Color.Black;
+            this.resetSettingsButton.Location = new System.Drawing.Point(6, 47);
+            this.resetSettingsButton.Name = "resetSettingsButton";
+            this.resetSettingsButton.Size = new System.Drawing.Size(108, 31);
+            this.resetSettingsButton.TabIndex = 1;
+            this.resetSettingsButton.Text = "Reset settings";
+            this.resetSettingsButton.UseVisualStyleBackColor = false;
+            this.resetSettingsButton.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(6, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(197, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Restore settings to their original defaults.";
             // 
             // groupBox1
             // 
@@ -172,7 +206,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(448, 207);
+            this.tabPage6.Size = new System.Drawing.Size(341, 207);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Discipline items";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -185,7 +219,7 @@
             this.docDisciplinesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docDisciplinesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docDisciplinesTextBox.Name = "docDisciplinesTextBox";
-            this.docDisciplinesTextBox.Size = new System.Drawing.Size(341, 207);
+            this.docDisciplinesTextBox.Size = new System.Drawing.Size(234, 207);
             this.docDisciplinesTextBox.TabIndex = 43;
             this.docDisciplinesTextBox.Text = "";
             // 
@@ -195,7 +229,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(448, 207);
+            this.tabPage7.Size = new System.Drawing.Size(341, 207);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Status items";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -208,7 +242,7 @@
             this.docStatusesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docStatusesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docStatusesTextBox.Name = "docStatusesTextBox";
-            this.docStatusesTextBox.Size = new System.Drawing.Size(341, 207);
+            this.docStatusesTextBox.Size = new System.Drawing.Size(234, 207);
             this.docStatusesTextBox.TabIndex = 45;
             this.docStatusesTextBox.Text = "";
             // 
@@ -554,40 +588,6 @@
             // 
             this.openFileDialog.FileName = "archive.db";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.resetSettingsButton);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox3.Location = new System.Drawing.Point(373, 299);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(343, 87);
-            this.groupBox3.TabIndex = 43;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Reset Settings";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(6, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Restore settings to their original defaults.";
-            // 
-            // resetSettingsButton
-            // 
-            this.resetSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.resetSettingsButton.ForeColor = System.Drawing.Color.Black;
-            this.resetSettingsButton.Location = new System.Drawing.Point(6, 47);
-            this.resetSettingsButton.Name = "resetSettingsButton";
-            this.resetSettingsButton.Size = new System.Drawing.Size(108, 31);
-            this.resetSettingsButton.TabIndex = 1;
-            this.resetSettingsButton.Text = "Reset settings";
-            this.resetSettingsButton.UseVisualStyleBackColor = false;
-            this.resetSettingsButton.Click += new System.EventHandler(this.button2_Click);
-            // 
             // SettingForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -603,6 +603,8 @@
             this.Text = "Archive Settings";
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -621,8 +623,6 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

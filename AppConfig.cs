@@ -12,6 +12,7 @@ namespace pmis
     {
 
         //private static string appDataName = ".pmis-archive";
+        public static LanguageService i18n;
 
         private static string appDataFullPath;
         public static string AppDataFullPath { get { return appDataFullPath; } }
@@ -60,6 +61,8 @@ namespace pmis
 
             // set the log root folder
             LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
+
+            i18n = new LanguageService(Properties.Settings.Default.language);
         }
 
         public static string ProductVersion

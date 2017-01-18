@@ -145,8 +145,21 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="i18n\en_US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en_US.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ExceptionExtension.cs" />
+    <Compile Include="i18n\ko_KR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ko_KR.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="IDbConnection.cs" />
+    <Compile Include="LanguageService.cs" />
     <Compile Include="LogUtil.cs" />
     <Compile Include="PmisJsonResponse.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -190,6 +203,16 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="i18n\en_US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en_US.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="i18n\ko_KR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ko_KR.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>

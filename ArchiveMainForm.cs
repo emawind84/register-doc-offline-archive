@@ -71,8 +71,6 @@ namespace pmis
         {
             SplashForm.ShowSplash();
 
-            InitializeComponent();
-
             // configure user folder in appdata
             try {
                 AppConfig.InitConfig();
@@ -82,6 +80,8 @@ namespace pmis
                     .Log()
                     .Display();
             }
+
+            InitializeComponent();
 
             SplashForm.HideSplash(2000);
         }
@@ -308,6 +308,6 @@ namespace pmis
             if (e.ColumnIndex == 2)
                 dataGridView.Cursor = Cursors.Hand;
         }
-
+        
     }
 }
