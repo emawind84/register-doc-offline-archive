@@ -61,6 +61,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string clear {
+            get {
+                return ResourceManager.GetString("clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 연제버전.
         /// </summary>
         internal static string current {
@@ -133,6 +142,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 파일 이름.
+        /// </summary>
+        internal static string file_name {
+            get {
+                return ResourceManager.GetString("file_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         internal static string from {
@@ -142,7 +160,25 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to History.
+        ///   Looks up a localized string similar to 일반.
+        /// </summary>
+        internal static string general {
+            get {
+                return ResourceManager.GetString("general", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 일반 설정.
+        /// </summary>
+        internal static string general_settings {
+            get {
+                return ResourceManager.GetString("general_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 이력.
         /// </summary>
         internal static string history {
             get {
@@ -151,7 +187,16 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modified.
+        ///   Looks up a localized string similar to 내부번호.
+        /// </summary>
+        internal static string internalno {
+            get {
+                return ResourceManager.GetString("internalno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 수정날짜.
         /// </summary>
         internal static string modified {
             get {
@@ -169,7 +214,7 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number.
+        ///   Looks up a localized string similar to 번호.
         /// </summary>
         internal static string number {
             get {
@@ -196,7 +241,7 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered.
+        ///   Looks up a localized string similar to 등록자.
         /// </summary>
         internal static string registered {
             get {
@@ -205,11 +250,56 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered By.
+        ///   Looks up a localized string similar to 등록일자.
         /// </summary>
         internal static string registeredby {
             get {
                 return ResourceManager.GetString("registeredby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 재설정 설정.
+        /// </summary>
+        internal static string reset_settings {
+            get {
+                return ResourceManager.GetString("reset_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 설정을 원래 기본값으로 복원한다..
+        /// </summary>
+        internal static string restore_settings_message {
+            get {
+                return ResourceManager.GetString("restore_settings_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 검토정보.
+        /// </summary>
+        internal static string review_info {
+            get {
+                return ResourceManager.GetString("review_info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review Supplementary Files.
+        /// </summary>
+        internal static string review_supp_file {
+            get {
+                return ResourceManager.GetString("review_supp_file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review Detail.
+        /// </summary>
+        internal static string reviewdetail {
+            get {
+                return ResourceManager.GetString("reviewdetail", resourceCulture);
             }
         }
         
@@ -241,11 +331,47 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 검색.
+        /// </summary>
+        internal static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 폴더에 표시.
+        /// </summary>
+        internal static string show_in_folder {
+            get {
+                return ResourceManager.GetString("show_in_folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 크기.
+        /// </summary>
+        internal static string size {
+            get {
+                return ResourceManager.GetString("size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 상태.
         /// </summary>
         internal static string status {
             get {
                 return ResourceManager.GetString("status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 제목.
+        /// </summary>
+        internal static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
             }
         }
         
@@ -264,6 +390,15 @@ namespace pmis.i18n {
         internal static string type {
             get {
                 return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 버전.
+        /// </summary>
+        internal static string version {
+            get {
+                return ResourceManager.GetString("version", resourceCulture);
             }
         }
     }

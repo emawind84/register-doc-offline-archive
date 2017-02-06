@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
   <data name="current" xml:space="preserve">
     <value>Current</value>
   </data>
@@ -124,7 +127,7 @@
     <value>Detail</value>
   </data>
   <data name="discipline" xml:space="preserve">
-    <value>분야</value>
+    <value>Discipline</value>
   </data>
   <data name="docdiscipline" xml:space="preserve">
     <value>Document Discipline</value>
@@ -141,14 +144,32 @@
   <data name="doctype" xml:space="preserve">
     <value>Document Type</value>
   </data>
+  <data name="file_name" xml:space="preserve">
+    <value>File Name</value>
+  </data>
   <data name="from" xml:space="preserve">
     <value>From</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="general_settings" xml:space="preserve">
+    <value>General Settings</value>
   </data>
   <data name="history" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="internalno" xml:space="preserve">
+    <value>Internal Number</value>
+  </data>
+  <data name="modified" xml:space="preserve">
+    <value>Modified</value>
+  </data>
   <data name="note" xml:space="preserve">
-    <value>메모</value>
+    <value>Note</value>
+  </data>
+  <data name="number" xml:space="preserve">
+    <value>Number</value>
   </data>
   <data name="organization" xml:space="preserve">
     <value>Organization</value>
@@ -162,8 +183,23 @@
   <data name="registeredby" xml:space="preserve">
     <value>Registered By</value>
   </data>
+  <data name="reset_settings" xml:space="preserve">
+    <value>Reset Settings</value>
+  </data>
+  <data name="restore_settings_message" xml:space="preserve">
+    <value>Restore settings to their original defaults.</value>
+  </data>
+  <data name="reviewdetail" xml:space="preserve">
+    <value>Review Detail</value>
+  </data>
   <data name="reviewstatus" xml:space="preserve">
     <value>Review Status</value>
+  </data>
+  <data name="review_info" xml:space="preserve">
+    <value>Review Information</value>
+  </data>
+  <data name="review_supp_file" xml:space="preserve">
+    <value>Review Supplementary Files</value>
   </data>
   <data name="revision" xml:space="preserve">
     <value>Revision</value>
@@ -171,13 +207,28 @@
   <data name="revisiondate" xml:space="preserve">
     <value>Revision Date</value>
   </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="show_in_folder" xml:space="preserve">
+    <value>Show In Folder</value>
+  </data>
+  <data name="size" xml:space="preserve">
+    <value>Size</value>
+  </data>
   <data name="status" xml:space="preserve">
-    <value>상태</value>
+    <value>Status</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="to" xml:space="preserve">
     <value>To</value>
   </data>
   <data name="type" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Version</value>
   </data>
 </root>

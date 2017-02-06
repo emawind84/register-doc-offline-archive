@@ -117,7 +117,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(722, 392);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "General Settings";
+            this.tabPage3.Text = AppConfig.i18n.Get("general_settings");
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -130,7 +130,7 @@
             this.groupBox3.Size = new System.Drawing.Size(343, 87);
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Reset Settings";
+            this.groupBox3.Text = AppConfig.i18n.Get("reset_settings");
             // 
             // resetSettingsButton
             // 
@@ -140,7 +140,7 @@
             this.resetSettingsButton.Name = "resetSettingsButton";
             this.resetSettingsButton.Size = new System.Drawing.Size(108, 31);
             this.resetSettingsButton.TabIndex = 1;
-            this.resetSettingsButton.Text = "Reset settings";
+            this.resetSettingsButton.Text = AppConfig.i18n.Get("reset_settings");
             this.resetSettingsButton.UseVisualStyleBackColor = false;
             this.resetSettingsButton.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -152,7 +152,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Restore settings to their original defaults.";
+            this.label2.Text = AppConfig.i18n.Get("restore_settings_message");
             // 
             // groupBox1
             // 

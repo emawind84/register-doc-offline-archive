@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
   <data name="current" xml:space="preserve">
     <value>연제버전</value>
   </data>
@@ -141,20 +144,32 @@
   <data name="doctype" xml:space="preserve">
     <value>문서구분</value>
   </data>
+  <data name="file_name" xml:space="preserve">
+    <value>파일 이름</value>
+  </data>
   <data name="from" xml:space="preserve">
     <value>From</value>
   </data>
+  <data name="general" xml:space="preserve">
+    <value>일반</value>
+  </data>
+  <data name="general_settings" xml:space="preserve">
+    <value>일반 설정</value>
+  </data>
   <data name="history" xml:space="preserve">
-    <value>History</value>
+    <value>이력</value>
+  </data>
+  <data name="internalno" xml:space="preserve">
+    <value>내부번호</value>
   </data>
   <data name="modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>수정날짜</value>
   </data>
   <data name="note" xml:space="preserve">
     <value>메모</value>
   </data>
   <data name="number" xml:space="preserve">
-    <value>Number</value>
+    <value>번호</value>
   </data>
   <data name="organization" xml:space="preserve">
     <value>조직</value>
@@ -163,13 +178,28 @@
     <value>Register</value>
   </data>
   <data name="registered" xml:space="preserve">
-    <value>Registered</value>
+    <value>등록자</value>
   </data>
   <data name="registeredby" xml:space="preserve">
-    <value>Registered By</value>
+    <value>등록일자</value>
+  </data>
+  <data name="reset_settings" xml:space="preserve">
+    <value>재설정 설정</value>
+  </data>
+  <data name="restore_settings_message" xml:space="preserve">
+    <value>설정을 원래 기본값으로 복원한다.</value>
+  </data>
+  <data name="reviewdetail" xml:space="preserve">
+    <value>Review Detail</value>
   </data>
   <data name="reviewstatus" xml:space="preserve">
     <value>검토상태</value>
+  </data>
+  <data name="review_info" xml:space="preserve">
+    <value>검토정보</value>
+  </data>
+  <data name="review_supp_file" xml:space="preserve">
+    <value>Review Supplementary Files</value>
   </data>
   <data name="revision" xml:space="preserve">
     <value>Revision</value>
@@ -177,13 +207,28 @@
   <data name="revisiondate" xml:space="preserve">
     <value>Revision Date</value>
   </data>
+  <data name="search" xml:space="preserve">
+    <value>검색</value>
+  </data>
+  <data name="show_in_folder" xml:space="preserve">
+    <value>폴더에 표시</value>
+  </data>
+  <data name="size" xml:space="preserve">
+    <value>크기</value>
+  </data>
   <data name="status" xml:space="preserve">
     <value>상태</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>제목</value>
   </data>
   <data name="to" xml:space="preserve">
     <value>To</value>
   </data>
   <data name="type" xml:space="preserve">
     <value>구분</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>버전</value>
   </data>
 </root>

@@ -245,6 +245,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Size = new System.Drawing.Size(1006, 564);
             this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = AppConfig.i18n.Get("register");
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // searchClearButton
@@ -255,7 +256,7 @@
             this.searchClearButton.Name = "searchClearButton";
             this.searchClearButton.Size = new System.Drawing.Size(68, 27);
             this.searchClearButton.TabIndex = 35;
-            this.searchClearButton.Text = "Clear";
+            this.searchClearButton.Text = AppConfig.i18n.Get("clear");
             this.searchClearButton.UseVisualStyleBackColor = false;
             this.searchClearButton.Click += new System.EventHandler(this.SearchClearButtonClickHandler);
             // 
@@ -292,7 +293,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 13);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Document Discipline";
+            this.label9.Text = AppConfig.i18n.Get("docdiscipline");
             // 
             // srchStatus
             // 
@@ -311,7 +312,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(89, 13);
             this.label17.TabIndex = 8;
-            this.label17.Text = "Document Status";
+            this.label17.Text = AppConfig.i18n.Get("docstatus");
             // 
             // srchType
             // 
@@ -330,7 +331,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 6;
-            this.label15.Text = "Document Type";
+            this.label15.Text = AppConfig.i18n.Get("doctype");
             // 
             // groupBox3
             // 
@@ -419,7 +420,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 13);
             this.label19.TabIndex = 0;
-            this.label19.Text = "History";
+            this.label19.Text = AppConfig.i18n.Get("history");
             // 
             // groupBox2
             // 
@@ -453,7 +454,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 13);
             this.label11.TabIndex = 12;
-            this.label11.Text = "Registered By";
+            this.label11.Text = AppConfig.i18n.Get("registeredby");
             // 
             // srchTitle
             // 
@@ -471,7 +472,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 13);
             this.label18.TabIndex = 10;
-            this.label18.Text = "Document Title";
+            this.label18.Text = AppConfig.i18n.Get("doctitle");
             // 
             // srchNumber
             // 
@@ -489,7 +490,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 13);
             this.label16.TabIndex = 8;
-            this.label16.Text = "Document Number";
+            this.label16.Text = AppConfig.i18n.Get("docno");
             // 
             // searchButton
             // 
@@ -500,7 +501,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(98, 35);
             this.searchButton.TabIndex = 31;
-            this.searchButton.Text = "Search";
+            this.searchButton.Text = AppConfig.i18n.Get("search");
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.SearchButtonClickHandler);
             // 
@@ -563,7 +564,7 @@
             this.doclist_docno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.doclist_docno.DataPropertyName = "docno";
             this.doclist_docno.Frozen = true;
-            this.doclist_docno.HeaderText = "Document Number";
+            this.doclist_docno.HeaderText = AppConfig.i18n.Get("docno");
             this.doclist_docno.Name = "doclist_docno";
             this.doclist_docno.ReadOnly = true;
             this.doclist_docno.Width = 240;
@@ -572,14 +573,14 @@
             // 
             this.doclist_title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.doclist_title.DataPropertyName = "title";
-            this.doclist_title.HeaderText = "Title";
+            this.doclist_title.HeaderText = AppConfig.i18n.Get("title");
             this.doclist_title.Name = "doclist_title";
             this.doclist_title.ReadOnly = true;
             // 
             // doclist_revision
             // 
             this.doclist_revision.DataPropertyName = "revision";
-            this.doclist_revision.HeaderText = "Revision";
+            this.doclist_revision.HeaderText = AppConfig.i18n.Get("revision");
             this.doclist_revision.Name = "doclist_revision";
             this.doclist_revision.ReadOnly = true;
             this.doclist_revision.Width = 60;
@@ -587,7 +588,7 @@
             // doclist_version
             // 
             this.doclist_version.DataPropertyName = "doc_version";
-            this.doclist_version.HeaderText = "Version";
+            this.doclist_version.HeaderText = AppConfig.i18n.Get("version");
             this.doclist_version.Name = "doclist_version";
             this.doclist_version.ReadOnly = true;
             this.doclist_version.Width = 60;
@@ -596,7 +597,7 @@
             // 
             this.doclist_current.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.doclist_current.DataPropertyName = "doc_current";
-            this.doclist_current.HeaderText = "Current";
+            this.doclist_current.HeaderText = AppConfig.i18n.Get("current");
             this.doclist_current.Name = "doclist_current";
             this.doclist_current.ReadOnly = true;
             this.doclist_current.Visible = false;
@@ -606,14 +607,14 @@
             this.doclist_revision_date.DataPropertyName = "revision_date";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.doclist_revision_date.DefaultCellStyle = dataGridViewCellStyle2;
-            this.doclist_revision_date.HeaderText = "Revision Date";
+            this.doclist_revision_date.HeaderText = AppConfig.i18n.Get("revisiondate");
             this.doclist_revision_date.Name = "doclist_revision_date";
             this.doclist_revision_date.ReadOnly = true;
             // 
             // doclist_organization
             // 
             this.doclist_organization.DataPropertyName = "organization";
-            this.doclist_organization.HeaderText = "Organization";
+            this.doclist_organization.HeaderText = AppConfig.i18n.Get("organization");
             this.doclist_organization.Name = "doclist_organization";
             this.doclist_organization.ReadOnly = true;
             this.doclist_organization.Visible = false;
@@ -622,7 +623,7 @@
             // doclist_type
             // 
             this.doclist_type.DataPropertyName = "doc_type";
-            this.doclist_type.HeaderText = "Type";
+            this.doclist_type.HeaderText = AppConfig.i18n.Get("type");
             this.doclist_type.Name = "doclist_type";
             this.doclist_type.ReadOnly = true;
             this.doclist_type.Visible = false;
@@ -630,7 +631,7 @@
             // 
             // doclist_review_status
             // 
-            this.doclist_review_status.HeaderText = "Review Status";
+            this.doclist_review_status.HeaderText = AppConfig.i18n.Get("reviewstatus");
             this.doclist_review_status.Name = "doclist_review_status";
             this.doclist_review_status.ReadOnly = true;
             this.doclist_review_status.Visible = false;
@@ -639,6 +640,7 @@
             // doclist_registered_by
             // 
             this.doclist_registered_by.DataPropertyName = "registered_by";
+            this.doclist_registered_by.HeaderText = AppConfig.i18n.Get("registeredby");
             this.doclist_registered_by.Name = "doclist_registered_by";
             this.doclist_registered_by.ReadOnly = true;
             this.doclist_registered_by.Width = 130;
@@ -646,7 +648,7 @@
             // doclist_registered
             // 
             this.doclist_registered.DataPropertyName = "registered";
-            this.doclist_registered.HeaderText = "Modified";
+            this.doclist_registered.HeaderText = AppConfig.i18n.Get("modified");
             this.doclist_registered.Name = "doclist_registered";
             this.doclist_registered.ReadOnly = true;
             this.doclist_registered.Visible = false;
@@ -654,7 +656,7 @@
             // 
             // doclist_discipline
             // 
-            this.doclist_discipline.HeaderText = "Discipline";
+            this.doclist_discipline.HeaderText = AppConfig.i18n.Get("discipline");
             this.doclist_discipline.Name = "doclist_discipline";
             this.doclist_discipline.ReadOnly = true;
             this.doclist_discipline.Visible = false;
@@ -663,7 +665,7 @@
             // doclist_status
             // 
             this.doclist_status.DataPropertyName = "doc_status";
-            this.doclist_status.HeaderText = "Status";
+            this.doclist_status.HeaderText = AppConfig.i18n.Get("status");
             this.doclist_status.Name = "doclist_status";
             this.doclist_status.ReadOnly = true;
             // 
@@ -678,7 +680,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Size = new System.Drawing.Size(1006, 564);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Detail";
+            this.tabPage2.Text = AppConfig.i18n.Get("detail");
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -694,7 +696,7 @@
             this.groupBox5.Size = new System.Drawing.Size(994, 135);
             this.groupBox5.TabIndex = 34;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Note";
+            this.groupBox5.Text = AppConfig.i18n.Get("note");
             // 
             // docViewNote
             // 
@@ -745,7 +747,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filename.DefaultCellStyle = dataGridViewCellStyle5;
             this.filename.FillWeight = 80F;
-            this.filename.HeaderText = "File Name";
+            this.filename.HeaderText = AppConfig.i18n.Get("file_name");
             this.filename.Name = "filename";
             this.filename.ReadOnly = true;
             // 
@@ -756,7 +758,7 @@
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.filesize.DefaultCellStyle = dataGridViewCellStyle6;
             this.filesize.FillWeight = 20F;
-            this.filesize.HeaderText = "Size";
+            this.filesize.HeaderText = AppConfig.i18n.Get("size");
             this.filesize.Name = "filesize";
             this.filesize.ReadOnly = true;
             // 
@@ -765,7 +767,7 @@
             this.action.DataPropertyName = "open_location";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.NullValue = "Show In Folder";
+            dataGridViewCellStyle7.NullValue = AppConfig.i18n.Get("show_in_folder");
             this.action.DefaultCellStyle = dataGridViewCellStyle7;
             this.action.FillWeight = 40F;
             this.action.HeaderText = "#";
@@ -786,7 +788,7 @@
             this.groupBox1.Size = new System.Drawing.Size(994, 188);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General";
+            this.groupBox1.Text = AppConfig.i18n.Get("general");
             // 
             // tableLayoutPanel1
             // 
@@ -857,7 +859,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 72;
-            this.label1.Text = "Number:";
+            this.label1.Text = AppConfig.i18n.Get("number") + ":";
             // 
             // label2
             // 
@@ -868,7 +870,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 73;
-            this.label2.Text = "Title:";
+            this.label2.Text = AppConfig.i18n.Get("title") + ":";
             // 
             // label27
             // 
@@ -879,7 +881,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(34, 13);
             this.label27.TabIndex = 81;
-            this.label27.Text = "Type:";
+            this.label27.Text = AppConfig.i18n.Get("type") + ":";
             // 
             // label5
             // 
@@ -890,7 +892,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 76;
-            this.label5.Text = "Revision:";
+            this.label5.Text = AppConfig.i18n.Get("revision") + ":";
             // 
             // label29
             // 
@@ -901,7 +903,7 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(77, 13);
             this.label29.TabIndex = 82;
-            this.label29.Text = "Revision Date:";
+            this.label29.Text = AppConfig.i18n.Get("revisiondate") + ":";
             // 
             // label4
             // 
@@ -912,7 +914,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 75;
-            this.label4.Text = "Version:";
+            this.label4.Text = AppConfig.i18n.Get("version") + ":";
             // 
             // label6
             // 
@@ -923,7 +925,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 77;
-            this.label6.Text = "Registered:";
+            this.label6.Text = AppConfig.i18n.Get("registered") + ":";
             // 
             // label7
             // 
@@ -934,7 +936,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 13);
             this.label7.TabIndex = 78;
-            this.label7.Text = "Registered By:";
+            this.label7.Text = AppConfig.i18n.Get("registeredby") + ":";
             // 
             // docViewRegistered
             // 
@@ -1028,7 +1030,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 74;
-            this.label3.Text = "Status:";
+            this.label3.Text = AppConfig.i18n.Get("status") + ":";
             // 
             // docViewStatus
             // 
@@ -1053,7 +1055,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(69, 13);
             this.label23.TabIndex = 79;
-            this.label23.Text = "Organization:";
+            this.label23.Text = AppConfig.i18n.Get("organization") + ":";
             // 
             // label31
             // 
@@ -1064,7 +1066,7 @@
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(55, 13);
             this.label31.TabIndex = 83;
-            this.label31.Text = "Discipline:";
+            this.label31.Text = AppConfig.i18n.Get("discipline") + ":";
             // 
             // docViewDiscipline
             // 
@@ -1089,7 +1091,7 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(85, 13);
             this.label25.TabIndex = 80;
-            this.label25.Text = "Internal Number:";
+            this.label25.Text = AppConfig.i18n.Get("internalno") + ":";
             // 
             // docViewIntNumber
             // 
@@ -1169,7 +1171,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Size = new System.Drawing.Size(1006, 564);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Review Detail";
+            this.tabPage3.Text = AppConfig.i18n.Get("reviewdetail");
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox8
@@ -1184,7 +1186,7 @@
             this.groupBox8.Size = new System.Drawing.Size(994, 168);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Review Supplementary Files";
+            this.groupBox8.Text = AppConfig.i18n.Get("review_supp_file") + ":";
             // 
             // reviewFileDataGrid
             // 
@@ -1216,7 +1218,7 @@
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn1.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "File Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = AppConfig.i18n.Get("file_name");
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -1236,7 +1238,7 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "open_location";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.NullValue = "Show In Folder";
+            dataGridViewCellStyle10.NullValue = AppConfig.i18n.Get("show_in_folder");
             this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.FillWeight = 40F;
             this.dataGridViewTextBoxColumn3.HeaderText = "#";
@@ -1260,7 +1262,7 @@
             this.groupBox7.Size = new System.Drawing.Size(994, 378);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Review Information";
+            this.groupBox7.Text = AppConfig.i18n.Get("review_info");
             // 
             // reviewDataGridView
             // 
