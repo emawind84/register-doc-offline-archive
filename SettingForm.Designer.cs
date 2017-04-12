@@ -117,7 +117,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(722, 392);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = AppConfig.i18n.Get("general_settings");
+            this.tabPage3.Text = "General Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -130,7 +130,7 @@
             this.groupBox3.Size = new System.Drawing.Size(343, 87);
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = AppConfig.i18n.Get("reset_settings");
+            this.groupBox3.Text = "Reset Settings";
             // 
             // resetSettingsButton
             // 
@@ -140,7 +140,7 @@
             this.resetSettingsButton.Name = "resetSettingsButton";
             this.resetSettingsButton.Size = new System.Drawing.Size(108, 31);
             this.resetSettingsButton.TabIndex = 1;
-            this.resetSettingsButton.Text = AppConfig.i18n.Get("reset_settings");
+            this.resetSettingsButton.Text = "Reset Settings";
             this.resetSettingsButton.UseVisualStyleBackColor = false;
             this.resetSettingsButton.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -152,7 +152,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = AppConfig.i18n.Get("restore_settings_message");
+            this.label2.Text = "Restore settings to their original defaults.";
             // 
             // groupBox1
             // 
@@ -630,51 +630,51 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button importReviewDataButton;
-        private System.Windows.Forms.Button importRegisterDataButton;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button connectSQLiteDatabaseButton;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.RichTextBox docTypesTextBox;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.RichTextBox docDisciplinesTextBox;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.RichTextBox docStatusesTextBox;
-        private System.Windows.Forms.Label productInfoLabel;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox settingLanguage;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button registerFolderLocationButton;
-        private System.Windows.Forms.TextBox settingRegisterFolderURI;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox settingSQLiteDbLocation;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox settingDbType;
-        private System.Windows.Forms.Label pmisWsProjectCodeLabel;
-        private System.Windows.Forms.TextBox settingPmisWsProjectCode;
-        private System.Windows.Forms.Label pmisWsUrlLabel;
-        private System.Windows.Forms.TextBox settingPmisWsUrl;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox settingPmisWsAuthKey;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.Button sqliteFileLocationButton;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.RichTextBox importLogViewer;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button resetSettingsButton;
-        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.GroupBox groupBox6;
+        public System.Windows.Forms.Button importReviewDataButton;
+        public System.Windows.Forms.Button importRegisterDataButton;
+        public System.Windows.Forms.GroupBox groupBox10;
+        public System.Windows.Forms.GroupBox groupBox9;
+        public System.Windows.Forms.TabPage tabPage3;
+        public System.Windows.Forms.GroupBox groupBox11;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button connectSQLiteDatabaseButton;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TabControl tabControl2;
+        public System.Windows.Forms.TabPage tabPage5;
+        public System.Windows.Forms.RichTextBox docTypesTextBox;
+        public System.Windows.Forms.TabPage tabPage6;
+        public System.Windows.Forms.RichTextBox docDisciplinesTextBox;
+        public System.Windows.Forms.TabPage tabPage7;
+        public System.Windows.Forms.RichTextBox docStatusesTextBox;
+        public System.Windows.Forms.Label productInfoLabel;
+        public System.Windows.Forms.TabPage tabPage4;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.ComboBox settingLanguage;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button registerFolderLocationButton;
+        public System.Windows.Forms.TextBox settingRegisterFolderURI;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox settingSQLiteDbLocation;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.ComboBox settingDbType;
+        public System.Windows.Forms.Label pmisWsProjectCodeLabel;
+        public System.Windows.Forms.TextBox settingPmisWsProjectCode;
+        public System.Windows.Forms.Label pmisWsUrlLabel;
+        public System.Windows.Forms.TextBox settingPmisWsUrl;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox settingPmisWsAuthKey;
+        public System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        public System.Windows.Forms.Button sqliteFileLocationButton;
+        public System.Windows.Forms.OpenFileDialog openFileDialog;
+        public System.Windows.Forms.RichTextBox importLogViewer;
+        public System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.Button resetSettingsButton;
+        public System.Windows.Forms.Label label2;
     }
 }

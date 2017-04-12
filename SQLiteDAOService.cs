@@ -269,6 +269,9 @@ namespace pmis
             sql += " AND doc_version = @version ";
             sql += "order by review_date desc";
 
+            Console.WriteLine(doc);
+            Console.WriteLine(sql);
+
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
             {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pmis.i18n;
 
 namespace pmis
 {
@@ -57,6 +58,9 @@ namespace pmis
             productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
 
             openFileDialog.InitialDirectory = AppConfig.AppDataFullPath;
+
+            LanguageSupport language = new LanguageSupport();
+            language.SetSettingFormLanguage(this);
 
             LoadSettings();
         }

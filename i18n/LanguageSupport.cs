@@ -11,7 +11,7 @@ namespace pmis.i18n
 
         public LanguageSupport() { }
         
-        public void SetLanguageMainFrom(ArchiveMainForm _form)
+        public void SetMainFromLanguage(ArchiveMainForm _form)
         {
             _form.tabPage1.Text = AppConfig.i18n.Get("register");
             _form.searchClearButton.Text = AppConfig.i18n.Get("clear");
@@ -65,6 +65,36 @@ namespace pmis.i18n
             _form.reviewDataGridViewReviewStatus.HeaderText = AppConfig.i18n.Get("review_outcome");
             _form.reviewDataGridViewReviewNote.HeaderText = AppConfig.i18n.Get("comment");
             _form.label8.Text = AppConfig.i18n.Get("review_outcome");
+        }
+
+        public void SetSettingFormLanguage(SettingForm _form)
+        {
+            _form.tabPage3.Text = AppConfig.i18n.Get("general_settings");
+            _form.groupBox3.Text = AppConfig.i18n.Get("reset_settings");
+            _form.resetSettingsButton.Text = AppConfig.i18n.Get("reset_settings");
+            _form.label2.Text = AppConfig.i18n.Get("restore_settings_message");
+            _form.label13.Text = "Folder Location:";
+            _form.groupBox11.Text = "Register Settings";
+            _form.tabPage7.Text = "Status items";
+            _form.tabPage6.Text = "Discipline items";
+            _form.tabPage5.Text = "Type items";
+            _form.groupBox1.Text = "Search Options";
+            _form.tabPage4.Text = "International Settings";
+            _form.groupBox2.Text = " International Settings";
+            _form.label1.Text = "Language:";
+            _form.tabPage2.Text = "Database Settings";
+            _form.groupBox10.Text = "SQLite Settings";
+            _form.label12.Text = "Database File Location:";
+            _form.groupBox9.Text = "Database Settings";
+            _form.label10.Text = "Database Type:";
+            _form.tabPage1.Text = "Data Import Settings";
+            _form.groupBox6.Text = "Web Service Settings";
+            _form.pmisWsProjectCodeLabel.Text = "Project Code:";
+            _form.pmisWsUrlLabel.Text = "API Url:";
+            _form.label11.Text = "Authentication Key:";
+            _form.importReviewDataButton.Text = "Import Review Data";
+            _form.importRegisterDataButton.Text = "Import Register Data";
+            _form.productInfoLabel.Text = "Version";
         }
     }
 }

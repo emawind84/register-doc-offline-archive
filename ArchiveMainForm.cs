@@ -134,7 +134,7 @@ namespace pmis
             LoadSearchOptions();
 
             LanguageSupport i18n = new LanguageSupport();
-            i18n.SetLanguageMainFrom(this);
+            i18n.SetMainFromLanguage(this);
 
             try
             {
