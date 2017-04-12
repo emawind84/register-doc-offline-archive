@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using pmis.reviewinfo;
 using pmis.register;
+using pmis.i18n;
 using System.IO;
 using System.Threading;
 
@@ -131,6 +132,9 @@ namespace pmis
 
             // load search options
             LoadSearchOptions();
+
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetLanguageMainFrom(this);
 
             try
             {
@@ -308,6 +312,10 @@ namespace pmis
             if (e.ColumnIndex == 2)
                 dataGridView.Cursor = Cursors.Hand;
         }
-        
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

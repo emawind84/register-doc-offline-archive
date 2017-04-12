@@ -231,4 +231,16 @@
   <data name="version" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="reviewed" xml:space="preserve">
+    <value>Reviewed</value>
+  </data>
+  <data name="reviewed_by" xml:space="preserve">
+    <value>Reviewed By</value>
+  </data>
+  <data name="review_outcome" xml:space="preserve">
+    <value>Review Outcome</value>
+  </data>
 </root>

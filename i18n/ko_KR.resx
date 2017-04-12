@@ -178,10 +178,10 @@
     <value>Register</value>
   </data>
   <data name="registered" xml:space="preserve">
-    <value>등록자</value>
+    <value>등록일자</value>
   </data>
   <data name="registeredby" xml:space="preserve">
-    <value>등록일자</value>
+    <value>등록자</value>
   </data>
   <data name="reset_settings" xml:space="preserve">
     <value>재설정 설정</value>
@@ -190,7 +190,7 @@
     <value>설정을 원래 기본값으로 복원한다.</value>
   </data>
   <data name="reviewdetail" xml:space="preserve">
-    <value>Review Detail</value>
+    <value>검토의견</value>
   </data>
   <data name="reviewstatus" xml:space="preserve">
     <value>검토상태</value>
@@ -230,5 +230,17 @@
   </data>
   <data name="version" xml:space="preserve">
     <value>버전</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>의견</value>
+  </data>
+  <data name="reviewed" xml:space="preserve">
+    <value>검토자</value>
+  </data>
+  <data name="reviewed_by" xml:space="preserve">
+    <value>검토일자</value>
+  </data>
+  <data name="review_outcome" xml:space="preserve">
+    <value>검토결과</value>
   </data>
 </root>

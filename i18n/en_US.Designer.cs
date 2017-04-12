@@ -70,6 +70,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string comment {
+            get {
+                return ResourceManager.GetString("comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current.
         /// </summary>
         internal static string current {
@@ -286,6 +295,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review Outcome.
+        /// </summary>
+        internal static string review_outcome {
+            get {
+                return ResourceManager.GetString("review_outcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Review Supplementary Files.
         /// </summary>
         internal static string review_supp_file {
@@ -300,6 +318,24 @@ namespace pmis.i18n {
         internal static string reviewdetail {
             get {
                 return ResourceManager.GetString("reviewdetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reviewed.
+        /// </summary>
+        internal static string reviewed {
+            get {
+                return ResourceManager.GetString("reviewed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reviewed By.
+        /// </summary>
+        internal static string reviewed_by {
+            get {
+                return ResourceManager.GetString("reviewed_by", resourceCulture);
             }
         }
         
