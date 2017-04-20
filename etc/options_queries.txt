@@ -1,13 +1,16 @@
-﻿select 
+﻿# DOC TYPE!
+select
   distinct DOC_CLSS_NAME
 from doc_clss where pjt_cd = 'GLB_PMIS'
 order by doc_clss_name;
 
+# DOC DISCIPLINE!
 select
   COMM_NAME
 from common_Code WHERE COMM_CD = 'DOC_DISCIPLINE'
 AND COMM_ID != '00';
 
+# DOC STATUS!
 SELECT
   COMM_NAME
 FROM COMMON_CODE WHERE COMM_CD = 'DOC_STATUS'
