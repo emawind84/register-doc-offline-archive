@@ -90,7 +90,18 @@ namespace pmis
         private void Form1_Load(object sender, EventArgs e)
         {
             daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
-            
+
+            try
+            {
+                // open db connection before doing anything else
+                daoService.Open();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+                return;
+            }
+
             registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
             registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
             registerDocumentDetailView = new RegisterDocumentDetailView(this);
@@ -130,16 +141,13 @@ namespace pmis
             
             aboutForm = new AboutBox();
 
-            // load search options
-            LoadSearchOptions();
-
             LanguageSupport i18n = new LanguageSupport();
             i18n.SetMainFromLanguage(this);
 
             try
             {
-                // open db connection before doing anything else
-                daoService.Open();
+                // load search options
+                LoadSearchOptions();
 
                 // request docs list
                 ShowRegisterList();
@@ -147,6 +155,7 @@ namespace pmis
             catch (Exception ex)
             {
                 ex.Log().Display();
+                return;
             }
             
             Application.ApplicationExit += delegate (object s, EventArgs args)

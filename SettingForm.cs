@@ -53,7 +53,9 @@ namespace pmis
             settingDbType.ValueMember = "Key";
 
             registerService.RegisterDocumentImported += LogRegisterImportedData;
+            registerService.RegisterDocumentImported += UpdateDataCount;
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
+            reviewInfoService.ReviewInfoImported += UpdateDataCount;
 
             productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
 
@@ -63,6 +65,8 @@ namespace pmis
             language.SetSettingFormLanguage(this);
 
             LoadSettings();
+
+            UpdateDataCount();
         }
 
         public void LoadSettings(object sender = null, EventArgs e = null)
@@ -183,6 +187,12 @@ namespace pmis
             
         }
 
+        private void UpdateDataCount(object sender = null, object empty = null)
+        {
+            this.settingsDocumentCount.Text = registerService.LoadRegisterCount().ToString();
+            this.settingsReviewCount.Text = reviewInfoService.LoadReviewCount().ToString();
+        }
+
         private void LogRegisterImportedData(object sender, RegisterDocument d)
         {
             LogImportMessage(String.Format("Imported {0}", d.ToString()));
@@ -229,7 +239,7 @@ namespace pmis
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void settingsCancelButtonOnClick(object sender, EventArgs e)
         {
             this.Hide();
         }
@@ -248,7 +258,7 @@ namespace pmis
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void settingsOkButtonOnClick(object sender, EventArgs e)
         {
             try
             {
@@ -277,7 +287,7 @@ namespace pmis
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void settingsResetButtonOnClick(object sender, EventArgs e)
         {
             try
             {
@@ -288,5 +298,6 @@ namespace pmis
                 ex.Log().Display();
             }
         }
+
     }
 }

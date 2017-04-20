@@ -75,6 +75,19 @@ namespace pmis
             return registerFiles;
         }
 
+        public int LoadRegisterCount()
+        {
+            try
+            {
+                return daoService.LoadRegisterCount();
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
+        }
+
         public void DeleteRegisterData()
         {
             try

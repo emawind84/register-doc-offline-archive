@@ -14,5 +14,7 @@ namespace pmis.reviewinfo
         void DeleteReviewInfo();
 
         void ImportReviewInfoData(ReviewInfo d);
+
+        int LoadReviewInfoCount();
     }
 }

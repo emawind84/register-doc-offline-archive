@@ -34,5 +34,7 @@ namespace pmis.register
         /// </summary>
         void DeleteRegisterData();
 
+        int LoadRegisterCount();
+
     }
 }

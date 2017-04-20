@@ -71,7 +71,7 @@ namespace pmis.i18n
         {
             _form.tabPage3.Text = AppConfig.i18n.Get("general_settings");
             _form.groupBox3.Text = AppConfig.i18n.Get("reset_settings");
-            _form.resetSettingsButton.Text = AppConfig.i18n.Get("reset_settings");
+            _form.settingsResetButton.Text = AppConfig.i18n.Get("reset_settings");
             _form.label2.Text = AppConfig.i18n.Get("restore_settings_message");
             _form.label13.Text = "Folder Location:";
             _form.groupBox11.Text = "Register Settings";

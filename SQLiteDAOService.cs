@@ -88,7 +88,7 @@ namespace pmis
 
         public Boolean IsOpen()
         {
-            return m_dbConnection.State == ConnectionState.Open;
+            return m_dbConnection != null && m_dbConnection.State == ConnectionState.Open;
         }
 
         public void DeleteRegisterData()
@@ -319,6 +319,45 @@ namespace pmis
             
             Console.WriteLine("Setting db path: {0}", databaseFilePath);
         }
-        
+
+        public int LoadRegisterCount()
+        {
+            int count = 0;
+            //throw new NotImplementedException();
+            string sql = "select count(*) as total from register";
+
+            using (var cmd = new SQLiteCommand(sql, m_dbConnection))
+            {
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        count = Int32.Parse(reader["total"].ToString());
+                    }
+                }
+                    
+            }
+            return count;
+        }
+
+        public int LoadReviewInfoCount()
+        {
+            int count = 0;
+            //throw new NotImplementedException();
+            string sql = "select count(*) as total from review_info";
+
+            using (var cmd = new SQLiteCommand(sql, m_dbConnection))
+            {
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        count = Int32.Parse(reader["total"].ToString());
+                    }
+                }
+
+            }
+            return count;
+        }
     }
 }

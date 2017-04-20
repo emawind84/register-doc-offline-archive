@@ -83,6 +83,19 @@ namespace pmis
             return registerFiles;
         }
 
+        public int LoadReviewCount()
+        {
+            try
+            {
+                return _dao.LoadReviewInfoCount();
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                throw e;
+            }
+        }
+
         public void ImportData(List<ReviewInfo> docs)
         {
             try
