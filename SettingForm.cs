@@ -27,6 +27,7 @@ namespace pmis
 
         delegate void ChangeButtonStateCallback(object sender = null, EventArgs args = null);
         delegate void ChangeErrorMessage(object sender, ErrorEventArgs args);
+        delegate void UpdateDataCountCallback(object sender = null, EventArgs args = null);
 
         public SettingForm()
         {
@@ -189,8 +190,16 @@ namespace pmis
 
         private void UpdateDataCount(object sender = null, object empty = null)
         {
-            this.settingsDocumentCount.Text = registerService.LoadRegisterCount().ToString();
-            this.settingsReviewCount.Text = reviewInfoService.LoadReviewCount().ToString();
+            if (this.InvokeRequired)
+            {
+                UpdateDataCountCallback d = UpdateDataCount;
+                this.Invoke(d, new object[] { null, null });
+            }
+            else
+            {
+                this.settingsDocumentCount.Text = registerService.LoadRegisterCount().ToString();
+                this.settingsReviewCount.Text = reviewInfoService.LoadReviewCount().ToString();
+            }
         }
 
         private void LogRegisterImportedData(object sender, RegisterDocument d)

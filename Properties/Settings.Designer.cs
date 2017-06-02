@@ -63,16 +63,32 @@ namespace pmis.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>관리</string>
+  <string>일반</string>
   <string>건축</string>
+  <string>구조</string>
   <string>토목</string>
-  <string>상업</string>
-  <string>비용</string>
-  <string>전기</string>
   <string>조경</string>
   <string>기계</string>
+  <string>전기</string>
   <string>통신</string>
   <string>소방</string>
+  <string>Other</string>
+  <string>계측</string>
+  <string>M</string>
+  <string>P</string>
+  <string>F</string>
+  <string>H</string>
+  <string>R</string>
+  <string>J</string>
+  <string>E</string>
+  <string>C</string>
+  <string>A</string>
+  <string>S</string>
+  <string>Q</string>
+  <string>X</string>
+  <string>T</string>
+  <string>V</string>
+  <string>공통</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection register_discipline {
             get {
@@ -87,6 +103,9 @@ namespace pmis.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>정보용</string>
+  <string>공사용</string>
+  <string>승인용</string>
   <string>폐기</string>
   <string>완료</string>
   <string>임시</string>
@@ -107,283 +126,29 @@ namespace pmis.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
             "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>CM Daily Report(NEW)</string>\r\n  <string>CM Weekly Report(NEW)</string>\r\n " +
-            " <string>CM 일반보고</string>\r\n  <string>CM 일반보고 &gt; 건축</string>\r\n  <string>CM 일반보고" +
-            " &gt; 구조</string>\r\n  <string>CM 일반보고 &gt; 기계설비</string>\r\n  <string>CM 일반보고 &gt; " +
-            "기타</string>\r\n  <string>CM 일반보고 &gt; 소방설비</string>\r\n  <string>CM 일반보고 &gt; 운송설비</" +
-            "string>\r\n  <string>CM 일반보고 &gt; 운송설비 &gt; UPS설치공사</string>\r\n  <string>CM 일반보고 &g" +
-            "t; 운송설비 &gt; 발전기설치공사</string>\r\n  <string>CM 일반보고 &gt; 운송설비 &gt; 변전실배관배선공사</strin" +
-            "g>\r\n  <string>CM 일반보고 &gt; 운송설비 &gt; 수배전반설치공사</string>\r\n  <string>CM 일반보고 &gt; 운" +
-            "송설비 &gt; 시험</string>\r\n  <string>CM 일반보고 &gt; 운송설비 &gt; 전력제어설비공사</string>\r\n  <str" +
-            "ing>CM 일반보고 &gt; 인테리어</string>\r\n  <string>CM 일반보고 &gt; 전기설비</string>\r\n  <string>" +
-            "CM 일반보고 &gt; 조경</string>\r\n  <string>CM 일반보고 &gt; 토목</string>\r\n  <string>CM 일반보고 " +
-            "&gt; 통신설비</string>\r\n  <string>Calculation</string>\r\n  <string>Construction daily" +
-            " report</string>\r\n  <string>Construction daily report(new)</string>\r\n  <string>C" +
-            "onstruction daily report(new) &gt; 배관공사</string>\r\n  <string>Construction daily r" +
-            "eport(new) &gt; 배선공사</string>\r\n  <string>Construction daily report(new) &gt; 시험<" +
-            "/string>\r\n  <string>Construction daily report(new) &gt; 장비설치공사</string>\r\n  <stri" +
-            "ng>Construction details progress chart</string>\r\n  <string>Construction monthly " +
-            "report</string>\r\n  <string>Construction weekly report</string>\r\n  <string>Constr" +
-            "uction weekly report &gt; 발주처주간회의_회의록</string>\r\n  <string>Contract Databank</str" +
-            "ing>\r\n  <string>Design change document</string>\r\n  <string>Design change documen" +
-            "t &gt; Design change notice (DCN)</string>\r\n  <string>Design change document &gt" +
-            "; Field change notification (FCN)</string>\r\n  <string>Design change document &gt" +
-            "; Field change request (FCR)</string>\r\n  <string>Design change document &gt; Sup" +
-            "plier default disposal requests (SDDR)</string>\r\n  <string>Drawing</string>\r\n  <" +
-            "string>Drawing &gt; Basic design drawing/doc.</string>\r\n  <string>Drawing &gt; C" +
-            "hange of design</string>\r\n  <string>Drawing &gt; Completion drawing</string>\r\n  " +
-            "<string>Drawing &gt; Contract design drawing/doc.</string>\r\n  <string>Drawing &g" +
-            "t; Enforcement design 100%</string>\r\n  <string>Drawing &gt; Enforcement design 5" +
-            "0%</string>\r\n  <string>Drawing &gt; Start construction drawing/doc.</string>\r\n  " +
-            "<string>Earning Databank</string>\r\n  <string>Environmental Management</string>\r\n" +
-            "  <string>Environmental Management &gt; Agreement contents management document</" +
-            "string>\r\n  <string>Environmental Management &gt; Daily environment inspection re" +
-            "port</string>\r\n  <string>Environmental Management &gt; Daily environmental educa" +
-            "tion report</string>\r\n  <string>Environmental Management &gt; Environmental Data" +
-            "bank</string>\r\n  <string>Environmental Management &gt; Environmental Education M" +
-            "anagement</string>\r\n  <string>Environmental Management &gt; Environmental Inspec" +
-            "tion Management</string>\r\n  <string>Environmental Management &gt; Environmental " +
-            "Management Plan</string>\r\n  <string>Environmental Management &gt; Environmental " +
-            "visibility requirements</string>\r\n  <string>Environmental Management &gt; Histor" +
-            "y of usge of environment preservation cost </string>\r\n  <string>Environmental Ma" +
-            "nagement &gt; Waste Management document</string>\r\n  <string>Event Photos</string" +
-            ">\r\n  <string>Material</string>\r\n  <string>Material &gt; 검수요청서</string>\r\n  <strin" +
-            "g>Material &gt; 검수요청서 &gt; 건축</string>\r\n  <string>Material &gt; 검수요청서 &gt; 기계설비<" +
-            "/string>\r\n  <string>Material &gt; 검수요청서 &gt; 소방설비</string>\r\n  <string>Material &" +
-            "gt; 검수요청서 &gt; 운송설비</string>\r\n  <string>Material &gt; 검수요청서 &gt; 인테리어</string>\r\n" +
-            "  <string>Material &gt; 검수요청서 &gt; 전기설비</string>\r\n  <string>Material &gt; 검수요청서 " +
-            "&gt; 전기설비 &gt; 기구취부공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 전기설비 &gt; 노출배" +
-            "관공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 전기설비 &gt; 매입배관공사</string>\r\n  <s" +
-            "tring>Material &gt; 검수요청서 &gt; 전기설비 &gt; 배선공사</string>\r\n  <string>Material &gt; " +
-            "검수요청서 &gt; 전기설비 &gt; 시험</string>\r\n  <string>Material &gt; 검수요청서 &gt; 전기설비 &gt; 전" +
-            "등제어설비공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 조경</string>\r\n  <string>Mate" +
-            "rial &gt; 검수요청서 &gt; 조경 &gt; CATV설비공사</string>\r\n  <string>Material &gt; 검수요청서 &g" +
-            "t; 조경 &gt; 가설공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 조경 &gt; 방송설비공사</str" +
-            "ing>\r\n  <string>Material &gt; 검수요청서 &gt; 조경 &gt; 옥외통신공사</string>\r\n  <string>Mate" +
-            "rial &gt; 검수요청서 &gt; 조경 &gt; 통합배선설비공사</string>\r\n  <string>Material &gt; 검수요청서 &g" +
-            "t; 조경 &gt; 폐쇄회로텔레비전(CCTV)설비공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 조경 &g" +
-            "t; 홈네트워크시스템공사</string>\r\n  <string>Material &gt; 검수요청서 &gt; 토목</string>\r\n  <strin" +
-            "g>Material &gt; 검수요청서 &gt; 통신설비</string>\r\n  <string>Material &gt; 검측요청서</string>" +
-            "\r\n  <string>Material &gt; 검측요청서 &gt; 가설공사</string>\r\n  <string>Material &gt; 검측요청" +
-            "서 &gt; 건축</string>\r\n  <string>Material &gt; 검측요청서 &gt; 공동구전기공사</string>\r\n  <stri" +
-            "ng>Material &gt; 검측요청서 &gt; 기계설비</string>\r\n  <string>Material &gt; 검측요청서 &gt; 단위" +
-            "세대전등전열공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 무선통신 보조설비 공사</string>\r\n  <" +
-            "string>Material &gt; 검측요청서 &gt; 변전실전기공사</string>\r\n  <string>Material &gt; 검측요청서 " +
-            "&gt; 소방설비</string>\r\n  <string>Material &gt; 검측요청서 &gt; 소방전기설비공사</string>\r\n  <str" +
-            "ing>Material &gt; 검측요청서 &gt; 승강기공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; " +
-            "열교환실설비공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 옥외전기공사</string>\r\n  <string" +
-            ">Material &gt; 검측요청서 &gt; 운송설비</string>\r\n  <string>Material &gt; 검측요청서 &gt; 원격검침" +
-            "설비공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 인테리어</string>\r\n  <string>Mater" +
-            "ial &gt; 검측요청서 &gt; 전기설비</string>\r\n  <string>Material &gt; 검측요청서 &gt; 전등설비공사</st" +
-            "ring>\r\n  <string>Material &gt; 검측요청서 &gt; 전력간선공사</string>\r\n  <string>Material &g" +
-            "t; 검측요청서 &gt; 전력인입공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 전열설비공사</string" +
-            ">\r\n  <string>Material &gt; 검측요청서 &gt; 전원인입공사</string>\r\n  <string>Material &gt; 검" +
-            "측요청서 &gt; 조경</string>\r\n  <string>Material &gt; 검측요청서 &gt; 지하저수조전기공사</string>\r\n  " +
-            "<string>Material &gt; 검측요청서 &gt; 차량통제시스템 전기공사</string>\r\n  <string>Material &gt; " +
-            "검측요청서 &gt; 태양광 발전 설치공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 토목</string>\r" +
-            "\n  <string>Material &gt; 검측요청서 &gt; 토목 &gt; 기구취부공사</string>\r\n  <string>Material " +
-            "&gt; 검측요청서 &gt; 토목 &gt; 노출배관공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 토목 &" +
-            "gt; 매입배관공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 토목 &gt; 배선공사</string>\r\n " +
-            " <string>Material &gt; 검측요청서 &gt; 토목 &gt; 시험</string>\r\n  <string>Material &gt; 검" +
-            "측요청서 &gt; 토목 &gt; 전열제어설비공사</string>\r\n  <string>Material &gt; 검측요청서 &gt; 통신설비</st" +
-            "ring>\r\n  <string>Material &gt; 검측요청서 &gt; 특고전력인입공사</string>\r\n  <string>Material " +
-            "&gt; 검측요청서 &gt; 피뢰 및 접지공사</string>\r\n  <string>Material &gt; 수불부</string>\r\n  <str" +
-            "ing>Measures for delay</string>\r\n  <string>Measures for delay</string>\r\n  <strin" +
-            "g>Measures for delay</string>\r\n  <string>Monthly foreground photo</string>\r\n  <s" +
-            "tring>Pre-construction work report</string>\r\n  <string>Process photo</string>\r\n " +
-            " <string>Production process photo</string>\r\n  <string>Project Management</string" +
-            ">\r\n  <string>Project Status</string>\r\n  <string>Project Status &gt; Master Plan<" +
-            "/string>\r\n  <string>Project Status &gt; Promotional materials</string>\r\n  <strin" +
-            "g>QS Report</string>\r\n  <string>QS Report &gt; QS Report</string>\r\n  <string>QS " +
-            "Report &gt; QS monthly report</string>\r\n  <string>QS Report &gt; QS weekly repor" +
-            "t</string>\r\n  <string>Quality Management</string>\r\n  <string>Quality Management " +
-            "&gt; Concrete Test</string>\r\n  <string>Quality Management &gt; Correction Action" +
-            " Request (CAR)</string>\r\n  <string>Quality Management &gt; Nonconformity reports" +
-            " (NCR)</string>\r\n  <string>Quality Management &gt; On-site inspection</string>\r\n" +
-            "  <string>Quality Management &gt; Quality Databank</string>\r\n  <string>Quality M" +
-            "anagement &gt; Quality Diagnostic</string>\r\n  <string>Quality Management &gt; Qu" +
-            "ality Improvement Program(QIP)</string>\r\n  <string>Quality Management &gt; Quali" +
-            "ty Improvement Program(QIP) &gt; Initiation inspection bowel management</string>" +
-            "\r\n  <string>Quality Management &gt; Quality Improvement Program(QIP) &gt; Inspec" +
-            "tion procedures / plans</string>\r\n  <string>Quality Management &gt; Quality Impr" +
-            "ovement Program(QIP) &gt; Status of defects per company</string>\r\n  <string>Qual" +
-            "ity Management &gt; Quality Improvement Program(QIP) &gt; The-spot inspection re" +
-            "port</string>\r\n  <string>Quality Management &gt; Quality Management Plan</string" +
-            ">\r\n  <string>Quality Management &gt; Quality Manual</string>\r\n  <string>Quality " +
-            "Management &gt; Quality Test</string>\r\n  <string>Quality Management &gt; Quality" +
-            " procedures</string>\r\n  <string>Safety Management</string>\r\n  <string>Safety Man" +
-            "agement &gt; Daily Health and Safety Training Report</string>\r\n  <string>Safety " +
-            "Management &gt; Daily safety Inspection report</string>\r\n  <string>Safety Manage" +
-            "ment &gt; Safety Databank</string>\r\n  <string>Safety Management &gt; Safety Educ" +
-            "ation Management</string>\r\n  <string>Safety Management &gt; Safety Inspection Ma" +
-            "nagement</string>\r\n  <string>Safety Management &gt; Safety Management Plan</stri" +
-            "ng>\r\n  <string>Safety Management &gt; Safety intellectual</string>\r\n  <string>Sa" +
-            "fety Management &gt; Safety management usage</string>\r\n  <string>Safety Manageme" +
-            "nt &gt; Status of the event of a disaster</string>\r\n  <string>Specification</str" +
-            "ing>\r\n  <string>Subcontract Management</string>\r\n  <string>Subcontractor daily r" +
-            "eport</string>\r\n  <string>Supervision Day report</string>\r\n  <string>Supervision" +
-            " monthly report</string>\r\n  <string>Supervision weekly report</string>\r\n  <strin" +
-            "g>Supervision work report</string>\r\n  <string>VE Databank</string>\r\n  <string>VE" +
-            " Report</string>\r\n  <string>결함통보서(DN)</string>\r\n  <string>결함통보서(DN) &gt; 건축</str" +
-            "ing>\r\n  <string>결함통보서(DN) &gt; 구조</string>\r\n  <string>결함통보서(DN) &gt; 기계설비</strin" +
-            "g>\r\n  <string>결함통보서(DN) &gt; 기타</string>\r\n  <string>결함통보서(DN) &gt; 소방설비</string>" +
-            "\r\n  <string>결함통보서(DN) &gt; 운송설비</string>\r\n  <string>결함통보서(DN) &gt; 인테리어</string>" +
-            "\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(건물우수관연결공사)-100%완료</string>\r\n  <string>" +
-            "결함통보서(DN) &gt; 인테리어 &gt; 배수공사(건물우수관연결공사)-중기60%완료</string>\r\n  <string>결함통보서(DN) &" +
-            "gt; 인테리어 &gt; 배수공사(건물우수관연결공사)-초기30%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &g" +
-            "t; 배수공사(구조물및관로공사)</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(빗물받이및연결관공사)-" +
-            "100%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(빗물받이및연결관공사)-중기55%완</str" +
-            "ing>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(빗물받이및연결관공사)-중후기80%</string>\r\n  <st" +
-            "ring>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(빗물받이및연결관공사)-초기30%완</string>\r\n  <string>결함통보서(" +
-            "DN) &gt; 인테리어 &gt; 배수공사(집수정및연결관공사)-100%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리" +
-            "어 &gt; 배수공사(집수정및연결관공사)-중기55%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사" +
-            "(집수정및연결관공사)-중후기80%완</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(집수정및연결관공사)" +
-            "-초기30%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(측구및플륨관공사)-100%완료</str" +
-            "ing>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(측구및플륨관공사)-중기55%완료</string>\r\n  <str" +
-            "ing>결함통보서(DN) &gt; 인테리어 &gt; 배수공사(측구및플륨관공사)-중후기80%완료</string>\r\n  <string>결함통보서(D" +
-            "N) &gt; 인테리어 &gt; 배수공사(측구및플륨관공사)-초기30%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어" +
-            " &gt; 배수공사(토공사)</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 오수공사(건물오수관연결공사)-100" +
-            "%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 오수공사(건물오수관연결공사)-중기60%완료</string" +
-            ">\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 오수공사(건물오수관연결공사)-초기30%완료</string>\r\n  <strin" +
-            "g>결함통보서(DN) &gt; 인테리어 &gt; 오수공사(오수관로 및 맨홀공사)</string>\r\n  <string>결함통보서(DN) &gt; " +
-            "인테리어 &gt; 오수공사(토공사)</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 주자재비(배수공사)-100%" +
-            "완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 주자재비(배수공사)-중기55%완료</string>\r\n  <" +
-            "string>결함통보서(DN) &gt; 인테리어 &gt; 주자재비(배수공사)-중후기80%완료</string>\r\n  <string>결함통보서(DN" +
-            ") &gt; 인테리어 &gt; 주자재비(배수공사)-초기30%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt;" +
-            " 주자재비(오수공사)-100%완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 주자재비(오수공사)-중기60%" +
-            "완료</string>\r\n  <string>결함통보서(DN) &gt; 인테리어 &gt; 주자재비(오수공사)-초기30%완료</string>\r\n  <" +
-            "string>결함통보서(DN) &gt; 전기설비</string>\r\n  <string>결함통보서(DN) &gt; 조경</string>\r\n  <st" +
-            "ring>결함통보서(DN) &gt; 토목</string>\r\n  <string>결함통보서(DN) &gt; 통신설비</string>\r\n  <stri" +
-            "ng>공사중지지시서(SWO)</string>\r\n  <string>공사중지지시서(SWO) &gt; 건축</string>\r\n  <string>공사중" +
-            "지지시서(SWO) &gt; 구조</string>\r\n  <string>공사중지지시서(SWO) &gt; 기계설비</string>\r\n  <string" +
-            ">공사중지지시서(SWO) &gt; 기타</string>\r\n  <string>공사중지지시서(SWO) &gt; 소방설비</string>\r\n  <st" +
-            "ring>공사중지지시서(SWO) &gt; 운송설비</string>\r\n  <string>공사중지지시서(SWO) &gt; 인테리어</string>\r" +
-            "\n  <string>공사중지지시서(SWO) &gt; 전기설비</string>\r\n  <string>공사중지지시서(SWO) &gt; 조경</stri" +
-            "ng>\r\n  <string>공사중지지시서(SWO) &gt; 토목</string>\r\n  <string>공사중지지시서(SWO) &gt; 통신설비</" +
-            "string>\r\n  <string>공사중지지시서(SWO) &gt; 통신설비 &gt; 급수간선공사(관로공사)</string>\r\n  <string>" +
-            "공사중지지시서(SWO) &gt; 통신설비 &gt; 급수간선공사(토공사)</string>\r\n  <string>공사중지지시서(SWO) &gt; 통신" +
-            "설비 &gt; 주자재비(급구간선공사)</string>\r\n  <string>발주처 작업지시서</string>\r\n  <string>발주처회의록</s" +
-            "tring>\r\n  <string>부적합사항보고서(NCR)</string>\r\n  <string>부적합사항보고서(NCR) &gt; 건축</strin" +
-            "g>\r\n  <string>부적합사항보고서(NCR) &gt; 구조</string>\r\n  <string>부적합사항보고서(NCR) &gt; 기계설비<" +
-            "/string>\r\n  <string>부적합사항보고서(NCR) &gt; 기타</string>\r\n  <string>부적합사항보고서(NCR) &gt;" +
-            " 소방설비</string>\r\n  <string>부적합사항보고서(NCR) &gt; 운송설비</string>\r\n  <string>부적합사항보고서(N" +
-            "CR) &gt; 인테리어</string>\r\n  <string>부적합사항보고서(NCR) &gt; 전기설비</string>\r\n  <string>부적" +
-            "합사항보고서(NCR) &gt; 조경</string>\r\n  <string>부적합사항보고서(NCR) &gt; 토목</string>\r\n  <strin" +
-            "g>부적합사항보고서(NCR) &gt; 통신설비</string>\r\n  <string>비상주건설사업관리자일지</string>\r\n  <string>설" +
-            "계변경승인요청서</string>\r\n  <string>설계변경승인요청서 &gt; 건축</string>\r\n  <string>설계변경승인요청서 &gt" +
-            "; 구조</string>\r\n  <string>설계변경승인요청서 &gt; 기계설비</string>\r\n  <string>설계변경승인요청서 &gt; " +
-            "기타</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 급수배관공사(수직)</string>\r\n  <string>설계변" +
-            "경승인요청서 &gt; 기타 &gt; 급수배관공사(수평)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 급탕배관공사" +
-            "(수직)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 급탕배관공사(수평)</string>\r\n  <string>설" +
-            "계변경승인요청서 &gt; 기타 &gt; 난방배관공사(수직)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 난방배관" +
-            "공사수평)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 보온공사(수직)</string>\r\n  <string>설계" +
-            "변경승인요청서 &gt; 기타 &gt; 보온공사(수평)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 시험 </st" +
-            "ring>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt; 오배수 및 통기관배관공사(수직)</string>\r\n  <string>설계" +
-            "변경승인요청서 &gt; 기타 &gt; 오배수 및 통기관배관공사(수평)</string>\r\n  <string>설계변경승인요청서 &gt; 기타 &gt" +
-            "; 지지물설치공사</string>\r\n  <string>설계변경승인요청서 &gt; 소방설비</string>\r\n  <string>설계변경승인요청서 " +
-            "&gt; 운송설비</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; T.A.B 및 시운전</string>\r\n  <" +
-            "string>설계변경승인요청서 &gt; 운송설비 &gt; 가설공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt" +
-            "; 가스설비공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 공기조화설비공사</string>\r\n  <stri" +
-            "ng>설계변경승인요청서 &gt; 운송설비 &gt; 공동구배관공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt;" +
-            " 기계실배관공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 소화설비공사</string>\r\n  <string" +
-            ">설계변경승인요청서 &gt; 운송설비 &gt; 수전류설치공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 옥" +
-            "외자동제어공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 위생기구류설치</string>\r\n  <string" +
-            ">설계변경승인요청서 &gt; 운송설비 &gt; 위생도기류설치공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt;" +
-            " 자동제어설비공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 장비설치공사</string>\r\n  <strin" +
-            "g>설계변경승인요청서 &gt; 운송설비 &gt; 지급자재</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 통합배" +
-            "관공사</string>\r\n  <string>설계변경승인요청서 &gt; 운송설비 &gt; 펌프실배관공사</string>\r\n  <string>설계변" +
-            "경승인요청서 &gt; 운송설비 &gt; 환기설비공사</string>\r\n  <string>설계변경승인요청서 &gt; 인테리어</string>\r\n " +
-            " <string>설계변경승인요청서 &gt; 인테리어 &gt; 가설공사</string>\r\n  <string>설계변경승인요청서 &gt; 전기설비</" +
-            "string>\r\n  <string>설계변경승인요청서 &gt; 조경</string>\r\n  <string>설계변경승인요청서 &gt; 토목</stri" +
-            "ng>\r\n  <string>설계변경승인요청서 &gt; 통신설비</string>\r\n  <string>소방건설사업관리자일지</string>\r\n  <" +
-            "string>승인요청서(TFA)</string>\r\n  <string>승인요청서(TFA) &gt; 건축</string>\r\n  <string>승인요" +
-            "청서(TFA) &gt; 구조</string>\r\n  <string>승인요청서(TFA) &gt; 기계설비</string>\r\n  <string>승인요" +
-            "청서(TFA) &gt; 기타</string>\r\n  <string>승인요청서(TFA) &gt; 소방설비</string>\r\n  <string>승인요" +
-            "청서(TFA) &gt; 운송설비</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어</string>\r\n  <string>승" +
-            "인요청서(TFA) &gt; 인테리어 &gt; 돌쌓기공사-완료</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &gt; " +
-            "돌쌓기공사-초기50%완료</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &gt; 생태복원녹화공사-인공토포설</stri" +
-            "ng>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &gt; 생태복원녹화공사-종자포설</string>\r\n  <string>승인요청서" +
-            "(TFA) &gt; 인테리어 &gt; 콘크리트옹벽공사-구체40m완료</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &" +
-            "gt; 콘크리트옹벽공사-구체80m완료</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &gt; 콘크리트옹벽공사-구체완료" +
-            "</string>\r\n  <string>승인요청서(TFA) &gt; 인테리어 &gt; 콘크리트옹벽공사-벽체마감완료</string>\r\n  <stri" +
-            "ng>승인요청서(TFA) &gt; 전기설비</string>\r\n  <string>승인요청서(TFA) &gt; 조경</string>\r\n  <stri" +
-            "ng>승인요청서(TFA) &gt; 조경 &gt; 배관공사</string>\r\n  <string>승인요청서(TFA) &gt; 조경 &gt; 배선공사" +
-            "</string>\r\n  <string>승인요청서(TFA) &gt; 조경 &gt; 시험</string>\r\n  <string>승인요청서(TFA) &" +
-            "gt; 조경 &gt; 장비설치공사</string>\r\n  <string>승인요청서(TFA) &gt; 토목</string>\r\n  <string>승인" +
-            "요청서(TFA) &gt; 통신설비</string>\r\n  <string>시공 일반보고</string>\r\n  <string>안전시정지시서(SCAR)" +
-            "</string>\r\n  <string>자료요청서(RFI)</string>\r\n  <string>자료요청서(RFI) &gt; 건축</string>\r" +
-            "\n  <string>자료요청서(RFI) &gt; 구조</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하1" +
-            "층)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하1층)-중기50%완료</string>\r" +
-            "\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하1층)-중후기80%완</string>\r\n  <string>자료요청서(RF" +
-            "I) &gt; 구조물 되메우기공사(지하1층)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(" +
-            "지하2층)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하2층)-중기50%완료</strin" +
-            "g>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하2층)-중후기80%완</string>\r\n  <string>자료요청서" +
-            "(RFI) &gt; 구조물 되메우기공사(지하2층)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기" +
-            "공사(지하3층)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하3층)-중기50%완료</st" +
-            "ring>\r\n  <string>자료요청서(RFI) &gt; 구조물 되메우기공사(지하3층)-중후기80%완</string>\r\n  <string>자료" +
-            "요청서(RFI) &gt; 구조물 되메우기공사(지하3층)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공" +
-            "사(외부반출토-사질토)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(외부반출토-사질토)-중기50%<" +
-            "/string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(외부반출토-사질토)-중후기80</string>\r\n  <string>" +
-            "자료요청서(RFI) &gt; 구조물토공사(외부반출토-사질토)-초기30%</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토" +
-            "공사(외부반출토-암반)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(외부반출토-암반)-중기50%완<" +
-            "/string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(외부반출토-암반)-중후기80%</string>\r\n  <string>" +
-            "자료요청서(RFI) &gt; 구조물토공사(외부반출토-암반)-초기30%완</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토" +
-            "공사(절토-사질토)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(절토-사질토)-중기50%완료</st" +
-            "ring>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(절토-사질토)-중후기80%완료</string>\r\n  <string>자료요" +
-            "청서(RFI) &gt; 구조물토공사(절토-사질토)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(절" +
-            "토-암반)-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(절토-암반)-중기50%완료</string>\r" +
-            "\n  <string>자료요청서(RFI) &gt; 구조물토공사(절토-암반)-중후기80%완료</string>\r\n  <string>자료요청서(RFI)" +
-            " &gt; 구조물토공사(절토-암반)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(현장내운반토)-1" +
-            "00%완료</string>\r\n  <string>자료요청서(RFI) &gt; 구조물토공사(현장내운반토)-중기50%완료</string>\r\n  <st" +
-            "ring>자료요청서(RFI) &gt; 구조물토공사(현장내운반토)-중후기80%완료</string>\r\n  <string>자료요청서(RFI) &gt;" +
-            " 구조물토공사(현장내운반토)-초기30%완료</string>\r\n  <string>자료요청서(RFI) &gt; 기계설비</string>\r\n  <st" +
-            "ring>자료요청서(RFI) &gt; 기타</string>\r\n  <string>자료요청서(RFI) &gt; 소방설비</string>\r\n  <st" +
-            "ring>자료요청서(RFI) &gt; 순성토 포설 및 다짐-100%완료</string>\r\n  <string>자료요청서(RFI) &gt; 순성토 " +
-            "포설 및 다짐-중기50%완료</string>\r\n  <string>자료요청서(RFI) &gt; 순성토 포설 및 다짐-중후기80%완료</string" +
-            ">\r\n  <string>자료요청서(RFI) &gt; 순성토 포설 및 다짐-초기30%완료</string>\r\n  <string>자료요청서(RFI) " +
-            "&gt; 운송설비</string>\r\n  <string>자료요청서(RFI) &gt; 인테리어</string>\r\n  <string>자료요청서(RFI" +
-            ") &gt; 전기설비</string>\r\n  <string>자료요청서(RFI) &gt; 조경</string>\r\n  <string>자료요청서(RFI" +
-            ") &gt; 조경 &gt; 가설건물공사</string>\r\n  <string>자료요청서(RFI) &gt; 조경 &gt; 전력비</string>\r\n" +
-            "  <string>자료요청서(RFI) &gt; 조경 &gt; 준공도서작성비</string>\r\n  <string>자료요청서(RFI) &gt; 조경" +
-            " &gt; 지급자재현장관리비</string>\r\n  <string>자료요청서(RFI) &gt; 토목</string>\r\n  <string>자료요청서" +
-            "(RFI) &gt; 통신설비</string>\r\n  <string>작업지시서(FI)</string>\r\n  <string>작업지시서(FI) &gt;" +
-            " 건축</string>\r\n  <string>작업지시서(FI) &gt; 구조</string>\r\n  <string>작업지시서(FI) &gt; 기계설" +
-            "비</string>\r\n  <string>작업지시서(FI) &gt; 기타</string>\r\n  <string>작업지시서(FI) &gt; 소방설비<" +
-            "/string>\r\n  <string>작업지시서(FI) &gt; 운송설비</string>\r\n  <string>작업지시서(FI) &gt; 인테리어<" +
-            "/string>\r\n  <string>작업지시서(FI) &gt; 인테리어 &gt; 부대공사철근콘크리트공사-100%완료</string>\r\n  <st" +
-            "ring>작업지시서(FI) &gt; 인테리어 &gt; 부대공사철근콘크리트공사-30%완료</string>\r\n  <string>작업지시서(FI) &" +
-            "gt; 인테리어 &gt; 부대공사철근콘크리트공사-60%완료</string>\r\n  <string>작업지시서(FI) &gt; 인테리어 &gt; 철근" +
-            "콘크리트공사-구체100%완료</string>\r\n  <string>작업지시서(FI) &gt; 인테리어 &gt; 철근콘크리트공사-구체10m완료</s" +
-            "tring>\r\n  <string>작업지시서(FI) &gt; 인테리어 &gt; 철근콘크리트공사-구체15m완료</string>\r\n  <string>" +
-            "작업지시서(FI) &gt; 인테리어 &gt; 철근콘크리트공사-구체20m완료</string>\r\n  <string>작업지시서(FI) &gt; 인테리" +
-            "어 &gt; 철근콘크리트공사-구체22m완료</string>\r\n  <string>작업지시서(FI) &gt; 인테리어 &gt; 철근콘크리트공사-구체" +
-            "30m완료</string>\r\n  <string>작업지시서(FI) &gt; 전기설비</string>\r\n  <string>작업지시서(FI) &gt;" +
-            " 조경</string>\r\n  <string>작업지시서(FI) &gt; 토목</string>\r\n  <string>작업지시서(FI) &gt; 통신설" +
-            "비</string>\r\n  <string>주요공정사진</string>\r\n  <string>주요공정사진 &gt; 건축</string>\r\n  <str" +
-            "ing>주요공정사진 &gt; 구조</string>\r\n  <string>주요공정사진 &gt; 구조 &gt; 전원인입공사</string>\r\n  <s" +
-            "tring>주요공정사진 &gt; 기계설비</string>\r\n  <string>주요공정사진 &gt; 기계설비 &gt; 특고전력인입공사</strin" +
-            "g>\r\n  <string>주요공정사진 &gt; 기성사진</string>\r\n  <string>주요공정사진 &gt; 기성사진 &gt; 태양광 발전 " +
-            "설치공사</string>\r\n  <string>주요공정사진 &gt; 기타</string>\r\n  <string>주요공정사진 &gt; 무선통신 보조설" +
-            "비 공사</string>\r\n  <string>주요공정사진 &gt; 소방설비</string>\r\n  <string>주요공정사진 &gt; 운송설비</" +
-            "string>\r\n  <string>주요공정사진 &gt; 인테리어</string>\r\n  <string>주요공정사진 &gt; 인테리어 &gt; 배관" +
-            "배선공사</string>\r\n  <string>주요공정사진 &gt; 인테리어 &gt; 시스템설치공사</string>\r\n  <string>주요공정사" +
-            "진 &gt; 전기설비</string>\r\n  <string>주요공정사진 &gt; 조경</string>\r\n  <string>주요공정사진 &gt; 토" +
-            "목</string>\r\n  <string>주요공정사진 &gt; 통신설비</string>\r\n  <string>주요공정사진 &gt; 통신설비 &gt;" +
-            " 전력인입공사</string>\r\n  <string>회의록</string>\r\n  <string>회의록 &gt; 발주자 회의</string>\r\n  " +
-            "<string>회의록 &gt; 발주자 회의 &gt; 건물지하접지공사</string>\r\n  <string>회의록 &gt; 발주자 회의 &gt; 기" +
-            "타회의</string>\r\n  <string>회의록 &gt; 발주자 회의 &gt; 사업관리회의</string>\r\n  <string>회의록 &gt;" +
-            " 발주자 회의 &gt; 시험</string>\r\n  <string>회의록 &gt; 발주자 회의 &gt; 입상배관배선공사</string>\r\n  <s" +
-            "tring>회의록 &gt; 발주자 회의 &gt; 피뢰침설치공사</string>\r\n  <string>회의록 &gt; 시공사회의</string>\r\n" +
-            "  <string>회의록 &gt; 시공사회의 &gt; 기타회의</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회" +
-            "의</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 노출배관공사</string>\r\n  <string" +
-            ">회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 매입배관공사</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; " +
-            "인테리어회의 &gt; 무선통보조설비공사</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 배선공사</" +
-            "string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 수신반설치공사</string>\r\n  <string>회" +
-            "의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 시험</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의" +
-            " &gt; 옥외소방간선공사</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 유도표시공사</strin" +
-            "g>\r\n  <string>회의록 &gt; 시공사회의 &gt; 인테리어회의 &gt; 자동화재탐지설비공사</string>\r\n  <string>회의록" +
-            " &gt; 시공사회의 &gt; 주간공정회의</string>\r\n  <string>회의록 &gt; 시공사회의 &gt; 주간설계회의</string>\r" +
-            "\n</ArrayOfString>")]
+            "tring>Drawing &gt; Start construction drawing/doc. &gt; 건축</string>\r\n  <string>D" +
+            "rawing &gt; Start construction drawing/doc. &gt; 구조</string>\r\n  <string>Drawing " +
+            "&gt; Start construction drawing/doc. &gt; 기계 &gt; MA(공통)</string>\r\n  <string>Dra" +
+            "wing &gt; Start construction drawing/doc. &gt; 기계 &gt; MC(자동제어)</string>\r\n  <str" +
+            "ing>Drawing &gt; Start construction drawing/doc. &gt; 기계 &gt; MD(공조덕트)</string>\r" +
+            "\n  <string>Drawing &gt; Start construction drawing/doc. &gt; 기계 &gt; ME(냉매배관)</s" +
+            "tring>\r\n  <string>Drawing &gt; Start construction drawing/doc. &gt; 기계 &gt; MH(공" +
+            "조배관)</string>\r\n  <string>Drawing &gt; Start construction drawing/doc. &gt; 기계 &g" +
+            "t; MP(위생배관)</string>\r\n  <string>Drawing &gt; Start construction drawing/doc. &gt" +
+            "; 기계 &gt; MR(냉동냉장)</string>\r\n  <string>Drawing &gt; Start construction drawing/d" +
+            "oc. &gt; 기계 &gt; MS(지열)</string>\r\n  <string>Drawing &gt; Start construction draw" +
+            "ing/doc. &gt; 기계 &gt; MT(상세도)</string>\r\n  <string>Drawing &gt; Start constructio" +
+            "n drawing/doc. &gt; 기계 &gt; MU(유틸리티가스)</string>\r\n  <string>Drawing &gt; Start co" +
+            "nstruction drawing/doc. &gt; 소방 &gt; 소방기계</string>\r\n  <string>Drawing &gt; Start" +
+            " construction drawing/doc. &gt; 소방 &gt; 소방전기</string>\r\n  <string>Drawing &gt; St" +
+            "art construction drawing/doc. &gt; 전기</string>\r\n  <string>Drawing &gt; Start con" +
+            "struction drawing/doc. &gt; 조경</string>\r\n  <string>Drawing &gt; Start constructi" +
+            "on drawing/doc. &gt; 조경 &gt; 00 X-REF이미지</string>\r\n  <string>Drawing &gt; Start " +
+            "construction drawing/doc. &gt; 토목</string>\r\n  <string>Drawing &gt; Start constru" +
+            "ction drawing/doc. &gt; 통신</string>\r\n  <string>Material &gt; 검측요청서 &gt; 무선통신 보조설" +
+            "비 공사</string>\r\n  <string>VE Report</string>\r\n  <string>설계문서 &gt; RFI</string>\r\n " +
+            " <string>설계문서 &gt; 설계변경</string>\r\n  <string>설계변경요청서</string>\r\n  <string>임시양식</st" +
+            "ring>\r\n  <string>주요공정사진</string>\r\n  <string>회의록</string>\r\n</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection register_type {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["register_type"]));

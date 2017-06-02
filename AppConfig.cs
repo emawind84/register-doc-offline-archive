@@ -49,12 +49,15 @@ namespace pmis
             if (!userDataDir.Exists)
             {
                 userDataDir.Create();
+            }
 
-                DirectoryInfo dataDir = new DirectoryInfo("data");
-                FileInfo[] files = dataDir.GetFiles();
-                foreach (FileInfo file in files)
+            DirectoryInfo dataDir = new DirectoryInfo("data");
+            FileInfo[] files = dataDir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(userDataDir.FullName, file.Name);
+                if (!File.Exists(temppath))
                 {
-                    string temppath = Path.Combine(userDataDir.FullName, file.Name);
                     file.CopyTo(temppath, false);
                 }
             }
