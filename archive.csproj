@@ -158,6 +158,7 @@
     </Compile>
     <Compile Include="i18n\LanguageSupport.cs" />
     <Compile Include="IDbConnection.cs" />
+    <Compile Include="ImageService.cs" />
     <Compile Include="LanguageService.cs" />
     <Compile Include="LogUtil.cs" />
     <Compile Include="PmisJsonResponse.cs" />

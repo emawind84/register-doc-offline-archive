@@ -7,6 +7,7 @@ using pmis.register;
 using pmis.i18n;
 using System.IO;
 using System.Threading;
+using System.Drawing;
 
 namespace pmis
 {
@@ -22,6 +23,8 @@ namespace pmis
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private Form aboutForm;
+        protected Graphics myGraphics;
+        private int currentImage = 0;
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
@@ -129,6 +132,22 @@ namespace pmis
             srchHistory.DisplayMember = "Value";
             srchHistory.ValueMember = "Key";
             srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
+
+            // Assigns the graphics object to use in the draw options.
+            myGraphics = Graphics.FromHwnd(pictureBox1.Handle);
+
+            string targetDirectory = Path.Combine(AppConfig.AppDataFullPath, "images"); ;
+
+            listBox1.Items.Clear();
+            imageList1.Images.Clear();
+
+            listBox1.BeginUpdate();
+            string[] dirs = Directory.GetDirectories(targetDirectory);
+            foreach (string dir in dirs)
+            {
+                listBox1.Items.Add(dir);
+            }
+            listBox1.EndUpdate();
 
             settingForm = new SettingForm(
                 registerDocumentDataService, 
@@ -325,6 +344,57 @@ namespace pmis
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            nextImage();
+        }
+
+        private void nextImage()
+        {
+            if (imageList1.Images.Empty != true)
+            {
+                if (imageList1.Images.Count - 1 > currentImage)
+                {
+                    currentImage++;
+                }
+                else
+                {
+                    currentImage = 0;
+                }
+                pictureBox1.Refresh();
+
+                // Draw the image in the panel.
+                imageList1.Draw(myGraphics, 10, 10, currentImage);
+
+                // Show the image in the PictureBox.
+                pictureBox1.Image = imageList1.Images[currentImage];
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string imageDirectory = listBox1.SelectedItem.ToString();
+            string[] files = new string[0];
+            try
+            {
+                LogUtil.Log(String.Format("Looking for files... {0}", imageDirectory));
+                files = Directory.GetFiles(imageDirectory);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                ex.Log();
+            }
+
+            var images = new List<RegisterFile>();
+
+            foreach (string fileName in files)
+            {
+                imageList1.Images.Add(Image.FromFile(fileName));
+            }
+            currentImage = 0;
+            nextImage();
         }
     }
 }
