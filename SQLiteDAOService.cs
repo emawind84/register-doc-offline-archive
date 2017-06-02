@@ -18,6 +18,8 @@ namespace pmis
 
         private SQLiteConnection m_dbConnection;
 
+        public EventHandler DatabaseInitialized;
+
         private string databaseFilePath;
         public string DatabaseFilePath {
             get { return databaseFilePath; }
@@ -66,6 +68,8 @@ namespace pmis
                 }
             }
 
+            OnDatabaseInitialization();
+
             LogUtil.Log(String.Format("New Connection status {0}", m_dbConnection.State));
             
             return m_dbConnection;
@@ -96,6 +100,15 @@ namespace pmis
             SQLiteCommand command = new SQLiteCommand("delete from register", m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             command.Dispose();
+        }
+
+        public virtual void OnDatabaseInitialization()
+        {
+            EventHandler handler = DatabaseInitialized;
+            if(handler != null)
+            {
+                handler.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public void ImportDocumentData(RegisterDocument d)

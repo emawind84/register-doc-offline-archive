@@ -20,10 +20,18 @@ namespace pmis
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
 
-        // sqlite module
-        public SQLiteDaoService SQLiteDaoService;
-
         public event EventHandler SettingChanged;
+
+        // sqlite module
+        private SQLiteDaoService sqliteDaoService;
+        public SQLiteDaoService SQLiteDaoService
+        {
+            set
+            {
+                this.sqliteDaoService = value;
+                this.sqliteDaoService.DatabaseInitialized += UpdateDataCount;
+            }
+        }
 
         delegate void ChangeButtonStateCallback(object sender = null, EventArgs args = null);
         delegate void ChangeErrorMessage(object sender, ErrorEventArgs args);
@@ -258,8 +266,8 @@ namespace pmis
             try
             {
                 SaveSettings();
-                SQLiteDaoService.DatabaseFilePath = Properties.Settings.Default.sqlite_db_location;
-                SQLiteDaoService.Open();
+                sqliteDaoService.DatabaseFilePath = Properties.Settings.Default.sqlite_db_location;
+                sqliteDaoService.Open();
             }
             catch (Exception ex)
             {
