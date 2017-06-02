@@ -100,5 +100,8 @@
     <Setting Name="language" Type="System.String" Scope="User">
       <Value Profile="(Default)">ko_KR</Value>
     </Setting>
+    <Setting Name="picture_folder_uri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pictures</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

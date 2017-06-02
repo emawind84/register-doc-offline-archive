@@ -22,9 +22,9 @@ namespace pmis
         private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
+        private BindingSource pictureFilesBS;
         private Form aboutForm;
-        protected Graphics myGraphics;
-        private int currentImage = 0;
+        private PicturePresenter imageService;
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
@@ -70,6 +70,13 @@ namespace pmis
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
         public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
+
+        public Image ImageBox {
+            set
+            {
+                this.pictureBox1.Image = value;
+            }
+        }
 
         public ArchiveMainForm()
         {
@@ -133,22 +140,22 @@ namespace pmis
             srchHistory.ValueMember = "Key";
             srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
-            // Assigns the graphics object to use in the draw options.
-            myGraphics = Graphics.FromHwnd(pictureBox1.Handle);
-
-            string targetDirectory = Path.Combine(AppConfig.AppDataFullPath, "images"); ;
-
+            pictureFilesBS = new BindingSource();
+            pictureFilesBS.DataSource = new List<RegisterFile>();
+            pictureFilesBS.AllowNew = false;
+            pictureGridView.AutoGenerateColumns = false;
+            pictureGridView.DataSource = pictureFilesBS;
+            
+            imageService = new PicturePresenter(this);
+            imageService.OnPictureSelected += SelectPictureFileOnSelection;
             listBox1.Items.Clear();
-            imageList1.Images.Clear();
-
-            listBox1.BeginUpdate();
-            string[] dirs = Directory.GetDirectories(targetDirectory);
-            foreach (string dir in dirs)
+            listBox1.DisplayMember = "Value";
+            listBox1.ValueMember = "Key";
+            if(imageService.Directories.Count > 0)
             {
-                listBox1.Items.Add(dir);
+                listBox1.DataSource = new BindingSource(imageService.Directories, null);
             }
-            listBox1.EndUpdate();
-
+            
             settingForm = new SettingForm(
                 registerDocumentDataService, 
                 reviewInfoDataService);
@@ -202,6 +209,11 @@ namespace pmis
         public object ReviewFilesDS {
             get { return reviewFilesBS.DataSource; }
             set { reviewFilesBS.DataSource = value; }
+        }
+
+        public object PictureFilesDS
+        {
+            set { pictureFilesBS.DataSource = value; }
         }
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
@@ -348,53 +360,53 @@ namespace pmis
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nextImage();
+            imageService.NextImage();
         }
-
-        private void nextImage()
-        {
-            if (imageList1.Images.Empty != true)
-            {
-                if (imageList1.Images.Count - 1 > currentImage)
-                {
-                    currentImage++;
-                }
-                else
-                {
-                    currentImage = 0;
-                }
-                pictureBox1.Refresh();
-
-                // Draw the image in the panel.
-                imageList1.Draw(myGraphics, 10, 10, currentImage);
-
-                // Show the image in the PictureBox.
-                pictureBox1.Image = imageList1.Images[currentImage];
-            }
-        }
-
+       
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string imageDirectory = listBox1.SelectedItem.ToString();
-            string[] files = new string[0];
             try
             {
-                LogUtil.Log(String.Format("Looking for files... {0}", imageDirectory));
-                files = Directory.GetFiles(imageDirectory);
+                imageService.InitList(listBox1.SelectedValue.ToString());
             }
-            catch (DirectoryNotFoundException ex)
+            catch (Exception ex)
             {
-                ex.Log();
+                ex.Log().Display();
             }
+        }
 
-            var images = new List<RegisterFile>();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            imageService.PreviousImage();
+        }
 
-            foreach (string fileName in files)
+        private void pictureGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
             {
-                imageList1.Images.Add(Image.FromFile(fileName));
+                if (e.RowIndex == -1) { return; }
+
+                RegisterFile file = pictureGridView.Rows[e.RowIndex].DataBoundItem as RegisterFile;
+                //RegisterFileService.OpenRegisterFile(file);
+                ImageBox = Image.FromFile(file.FilePath);
             }
-            currentImage = 0;
-            nextImage();
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void SelectPictureFileOnSelection(object sender, RegisterFile file)
+        {
+            foreach (DataGridViewRow row in pictureGridView.Rows)
+            {
+                var _t = row.DataBoundItem as RegisterFile;
+                if (_t.FilePath.Equals(file.FilePath))
+                {
+                    pictureFilesBS.Position = row.Index;
+                    break;
+                }
+            }
         }
     }
 }

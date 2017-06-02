@@ -205,5 +205,17 @@ namespace pmis.Properties {
                 this["language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pictures")]
+        public string picture_folder_uri {
+            get {
+                return ((string)(this["picture_folder_uri"]));
+            }
+            set {
+                this["picture_folder_uri"] = value;
+            }
+        }
     }
 }

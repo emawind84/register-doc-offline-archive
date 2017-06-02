@@ -618,7 +618,7 @@
             // settingsCancelButton
             // 
             this.settingsCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsCancelButton.BackColor = System.Drawing.SystemColors.Control;
+            this.settingsCancelButton.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.settingsCancelButton.Location = new System.Drawing.Point(625, 436);
             this.settingsCancelButton.Name = "settingsCancelButton";
             this.settingsCancelButton.Size = new System.Drawing.Size(111, 36);
