@@ -252,4 +252,7 @@
   <data name="picture_viewer_settings" xml:space="preserve">
     <value>Picture Viewer Settings</value>
   </data>
+  <data name="picture_viewer" xml:space="preserve">
+    <value>Picture Viewer</value>
+  </data>
 </root>
