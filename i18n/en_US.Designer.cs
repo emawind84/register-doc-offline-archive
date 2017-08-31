@@ -241,6 +241,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Picture Viewer Settings.
+        /// </summary>
+        internal static string picture_viewer_settings {
+            get {
+                return ResourceManager.GetString("picture_viewer_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string register {

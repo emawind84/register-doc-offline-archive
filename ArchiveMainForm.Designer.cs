@@ -143,14 +143,14 @@
             this.docViewReviewStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picturePreviousButton = new System.Windows.Forms.Button();
+            this.pictureFolderListBox = new System.Windows.Forms.ListBox();
+            this.pictureNextButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -170,8 +170,8 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reviewDataGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -721,7 +721,7 @@
             this.docViewNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.docViewNote.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewNote.BackColor = System.Drawing.Color.White;
             this.docViewNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewNote.Location = new System.Drawing.Point(6, 19);
             this.docViewNote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -857,7 +857,7 @@
             // docViewRegisteredBy
             // 
             this.docViewRegisteredBy.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewRegisteredBy.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewRegisteredBy.BackColor = System.Drawing.Color.White;
             this.docViewRegisteredBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRegisteredBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewRegisteredBy.Location = new System.Drawing.Point(594, 100);
@@ -959,7 +959,7 @@
             // docViewRegistered
             // 
             this.docViewRegistered.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewRegistered.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewRegistered.BackColor = System.Drawing.Color.White;
             this.docViewRegistered.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRegistered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewRegistered.Location = new System.Drawing.Point(594, 76);
@@ -973,7 +973,7 @@
             // docViewRevisionDate
             // 
             this.docViewRevisionDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewRevisionDate.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewRevisionDate.BackColor = System.Drawing.Color.White;
             this.docViewRevisionDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRevisionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewRevisionDate.Location = new System.Drawing.Point(594, 28);
@@ -987,7 +987,7 @@
             // docViewRevision
             // 
             this.docViewRevision.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewRevision.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewRevision.BackColor = System.Drawing.Color.White;
             this.docViewRevision.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewRevision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewRevision.Location = new System.Drawing.Point(594, 4);
@@ -1001,7 +1001,7 @@
             // docViewTitle
             // 
             this.docViewTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewTitle.BackColor = System.Drawing.Color.White;
             this.docViewTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewTitle.Location = new System.Drawing.Point(103, 28);
@@ -1015,7 +1015,7 @@
             // docViewType
             // 
             this.docViewType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewType.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewType.BackColor = System.Drawing.Color.White;
             this.docViewType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewType.Location = new System.Drawing.Point(103, 52);
@@ -1028,7 +1028,7 @@
             // 
             // docViewDocNumber
             // 
-            this.docViewDocNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewDocNumber.BackColor = System.Drawing.Color.White;
             this.docViewDocNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewDocNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewDocNumber.Location = new System.Drawing.Point(103, 4);
@@ -1053,7 +1053,7 @@
             // docViewStatus
             // 
             this.docViewStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewStatus.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewStatus.BackColor = System.Drawing.Color.White;
             this.docViewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewStatus.Location = new System.Drawing.Point(103, 76);
@@ -1089,7 +1089,7 @@
             // docViewDiscipline
             // 
             this.docViewDiscipline.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewDiscipline.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewDiscipline.BackColor = System.Drawing.Color.White;
             this.docViewDiscipline.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewDiscipline.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewDiscipline.Location = new System.Drawing.Point(103, 100);
@@ -1114,7 +1114,7 @@
             // docViewIntNumber
             // 
             this.docViewIntNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewIntNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewIntNumber.BackColor = System.Drawing.Color.White;
             this.docViewIntNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewIntNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewIntNumber.Location = new System.Drawing.Point(103, 124);
@@ -1140,7 +1140,7 @@
             // docViewVersion
             // 
             this.docViewVersion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewVersion.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewVersion.BackColor = System.Drawing.Color.White;
             this.docViewVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewVersion.Location = new System.Drawing.Point(0, -1);
@@ -1154,7 +1154,7 @@
             // docViewCurrent
             // 
             this.docViewCurrent.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewCurrent.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewCurrent.BackColor = System.Drawing.Color.White;
             this.docViewCurrent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewCurrent.Location = new System.Drawing.Point(29, -1);
@@ -1168,7 +1168,7 @@
             // docViewOrganization
             // 
             this.docViewOrganization.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.docViewOrganization.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewOrganization.BackColor = System.Drawing.Color.White;
             this.docViewOrganization.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewOrganization.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewOrganization.Location = new System.Drawing.Point(594, 124);
@@ -1367,7 +1367,7 @@
             // 
             // docViewReviewStatus
             // 
-            this.docViewReviewStatus.BackColor = System.Drawing.SystemColors.Control;
+            this.docViewReviewStatus.BackColor = System.Drawing.Color.White;
             this.docViewReviewStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docViewReviewStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docViewReviewStatus.Location = new System.Drawing.Point(119, 32);
@@ -1391,9 +1391,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.pictureGridView);
-            this.tabPage4.Controls.Add(this.button2);
-            this.tabPage4.Controls.Add(this.listBox1);
-            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.picturePreviousButton);
+            this.tabPage4.Controls.Add(this.pictureFolderListBox);
+            this.tabPage4.Controls.Add(this.pictureNextButton);
             this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -1401,55 +1401,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pictures";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(304, 520);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "< Previous";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBox1.DisplayMember = "name";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 14);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(295, 329);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(385, 520);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Next >";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(304, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(686, 500);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureGridView
             // 
@@ -1512,6 +1463,55 @@
             this.dataGridViewTextBoxColumn3.Visible = false;
             this.dataGridViewTextBoxColumn3.Width = 80;
             // 
+            // picturePreviousButton
+            // 
+            this.picturePreviousButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.picturePreviousButton.BackColor = System.Drawing.SystemColors.Control;
+            this.picturePreviousButton.Location = new System.Drawing.Point(304, 520);
+            this.picturePreviousButton.Name = "picturePreviousButton";
+            this.picturePreviousButton.Size = new System.Drawing.Size(75, 31);
+            this.picturePreviousButton.TabIndex = 4;
+            this.picturePreviousButton.Text = "< Previous";
+            this.picturePreviousButton.UseVisualStyleBackColor = false;
+            this.picturePreviousButton.Click += new System.EventHandler(this.picturePreviousButtonOnClick);
+            // 
+            // pictureFolderListBox
+            // 
+            this.pictureFolderListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureFolderListBox.DisplayMember = "name";
+            this.pictureFolderListBox.FormattingEnabled = true;
+            this.pictureFolderListBox.Location = new System.Drawing.Point(3, 14);
+            this.pictureFolderListBox.Name = "pictureFolderListBox";
+            this.pictureFolderListBox.Size = new System.Drawing.Size(295, 329);
+            this.pictureFolderListBox.TabIndex = 3;
+            this.pictureFolderListBox.SelectedIndexChanged += new System.EventHandler(this.pictureFolderListBoxSelectedIndexChanged);
+            // 
+            // pictureNextButton
+            // 
+            this.pictureNextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureNextButton.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureNextButton.Location = new System.Drawing.Point(385, 520);
+            this.pictureNextButton.Name = "pictureNextButton";
+            this.pictureNextButton.Size = new System.Drawing.Size(75, 31);
+            this.pictureNextButton.TabIndex = 2;
+            this.pictureNextButton.Text = "Next >";
+            this.pictureNextButton.UseVisualStyleBackColor = false;
+            this.pictureNextButton.Click += new System.EventHandler(this.pictureNextButtonOnClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(304, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(686, 500);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // ArchiveMainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1551,8 +1551,8 @@
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reviewDataGridView)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1658,9 +1658,9 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn reviewDataGridViewDocVersion;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pictureNextButton;
+        private System.Windows.Forms.ListBox pictureFolderListBox;
+        private System.Windows.Forms.Button picturePreviousButton;
         public System.Windows.Forms.DataGridView pictureGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

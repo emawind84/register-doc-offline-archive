@@ -94,7 +94,8 @@ namespace pmis.i18n
             _form.label11.Text = "Authentication Key:";
             _form.importReviewDataButton.Text = "Import Review Data";
             _form.importRegisterDataButton.Text = "Import Register Data";
-            _form.productInfoLabel.Text = "Version";
+            _form.productInfoLabel.Text = AppConfig.i18n.Get("version");
+            _form.pictureViewerSettingsGroupBox.Text = AppConfig.i18n.Get("picture_viewer_settings");
         }
     }
 }

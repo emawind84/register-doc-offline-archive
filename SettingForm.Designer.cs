@@ -79,6 +79,10 @@
             this.productInfoLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.pictureViewerSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.pictureFolderLocationButton = new System.Windows.Forms.Button();
+            this.settingPictureFolderURI = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +100,7 @@
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.pictureViewerSettingsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,6 +120,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pictureViewerSettingsGroupBox);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox11);
@@ -163,9 +169,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 123);
+            this.groupBox1.Location = new System.Drawing.Point(6, 196);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 263);
+            this.groupBox1.Size = new System.Drawing.Size(361, 190);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Options";
@@ -180,7 +186,7 @@
             this.tabControl2.Location = new System.Drawing.Point(6, 19);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(349, 233);
+            this.tabControl2.Size = new System.Drawing.Size(349, 160);
             this.tabControl2.TabIndex = 50;
             // 
             // tabPage5
@@ -189,7 +195,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(341, 207);
+            this.tabPage5.Size = new System.Drawing.Size(341, 134);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Type items";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -202,7 +208,7 @@
             this.docTypesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docTypesTextBox.Location = new System.Drawing.Point(-1, 0);
             this.docTypesTextBox.Name = "docTypesTextBox";
-            this.docTypesTextBox.Size = new System.Drawing.Size(342, 207);
+            this.docTypesTextBox.Size = new System.Drawing.Size(342, 134);
             this.docTypesTextBox.TabIndex = 42;
             this.docTypesTextBox.Text = "";
             // 
@@ -212,7 +218,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(341, 207);
+            this.tabPage6.Size = new System.Drawing.Size(341, 134);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Discipline items";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -225,7 +231,7 @@
             this.docDisciplinesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docDisciplinesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docDisciplinesTextBox.Name = "docDisciplinesTextBox";
-            this.docDisciplinesTextBox.Size = new System.Drawing.Size(234, 207);
+            this.docDisciplinesTextBox.Size = new System.Drawing.Size(341, 134);
             this.docDisciplinesTextBox.TabIndex = 43;
             this.docDisciplinesTextBox.Text = "";
             // 
@@ -235,7 +241,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(341, 207);
+            this.tabPage7.Size = new System.Drawing.Size(341, 134);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Status items";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -248,7 +254,7 @@
             this.docStatusesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.docStatusesTextBox.Location = new System.Drawing.Point(0, 0);
             this.docStatusesTextBox.Name = "docStatusesTextBox";
-            this.docStatusesTextBox.Size = new System.Drawing.Size(234, 207);
+            this.docStatusesTextBox.Size = new System.Drawing.Size(341, 134);
             this.docStatusesTextBox.TabIndex = 45;
             this.docStatusesTextBox.Text = "";
             // 
@@ -262,7 +268,7 @@
             this.groupBox11.Controls.Add(this.label13);
             this.groupBox11.Location = new System.Drawing.Point(6, 6);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(468, 86);
+            this.groupBox11.Size = new System.Drawing.Size(438, 86);
             this.groupBox11.TabIndex = 41;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Register Settings";
@@ -644,6 +650,48 @@
             // 
             this.openFileDialog.FileName = "archive.db";
             // 
+            // pictureViewerSettingsGroupBox
+            // 
+            this.pictureViewerSettingsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureViewerSettingsGroupBox.Controls.Add(this.pictureFolderLocationButton);
+            this.pictureViewerSettingsGroupBox.Controls.Add(this.settingPictureFolderURI);
+            this.pictureViewerSettingsGroupBox.Controls.Add(this.label5);
+            this.pictureViewerSettingsGroupBox.Location = new System.Drawing.Point(6, 98);
+            this.pictureViewerSettingsGroupBox.Name = "pictureViewerSettingsGroupBox";
+            this.pictureViewerSettingsGroupBox.Size = new System.Drawing.Size(438, 86);
+            this.pictureViewerSettingsGroupBox.TabIndex = 46;
+            this.pictureViewerSettingsGroupBox.TabStop = false;
+            this.pictureViewerSettingsGroupBox.Text = "Picture Viewer Settings";
+            // 
+            // pictureFolderLocationButton
+            // 
+            this.pictureFolderLocationButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pictureFolderLocationButton.Location = new System.Drawing.Point(342, 46);
+            this.pictureFolderLocationButton.Name = "pictureFolderLocationButton";
+            this.pictureFolderLocationButton.Size = new System.Drawing.Size(80, 24);
+            this.pictureFolderLocationButton.TabIndex = 43;
+            this.pictureFolderLocationButton.Text = "Browse...";
+            this.pictureFolderLocationButton.UseVisualStyleBackColor = false;
+            this.pictureFolderLocationButton.Click += new System.EventHandler(this.registerPicitureButton_Click);
+            // 
+            // settingPictureFolderURI
+            // 
+            this.settingPictureFolderURI.Location = new System.Drawing.Point(6, 49);
+            this.settingPictureFolderURI.Name = "settingPictureFolderURI";
+            this.settingPictureFolderURI.Size = new System.Drawing.Size(330, 20);
+            this.settingPictureFolderURI.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Folder Location:";
+            // 
             // SettingForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -681,6 +729,8 @@
             this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.pictureViewerSettingsGroupBox.ResumeLayout(false);
+            this.pictureViewerSettingsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -739,5 +789,9 @@
         private System.Windows.Forms.Label settingsReviewCount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.GroupBox pictureViewerSettingsGroupBox;
+        public System.Windows.Forms.Button pictureFolderLocationButton;
+        public System.Windows.Forms.TextBox settingPictureFolderURI;
+        public System.Windows.Forms.Label label5;
     }
 }

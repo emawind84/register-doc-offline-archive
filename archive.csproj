@@ -161,6 +161,7 @@
     <Compile Include="PicturePresenter.cs" />
     <Compile Include="LanguageService.cs" />
     <Compile Include="LogUtil.cs" />
+    <Compile Include="PictureViewerService.cs" />
     <Compile Include="PmisJsonResponse.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -243,4 +243,7 @@
   <data name="review_outcome" xml:space="preserve">
     <value>Review Outcome</value>
   </data>
+  <data name="picture_viewer_settings" xml:space="preserve">
+    <value>Picture Viewer Settings</value>
+  </data>
 </root>

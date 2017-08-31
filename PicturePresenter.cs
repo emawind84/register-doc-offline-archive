@@ -5,112 +5,49 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace pmis
 {
     public class PicturePresenter
     {
 
-        public List<RegisterFile> Images;
-        public Dictionary<string, string> Directories;
         private ArchiveMainForm _form;
-        private int currentImage = -1;
+        private PictureViewerService _service;
 
-        public EventHandler<RegisterFile> OnPictureSelected;
-
-        public PicturePresenter(ArchiveMainForm form) {
+        public PicturePresenter(ArchiveMainForm form, PictureViewerService service) {
             _form = form;
-            Images = new List<RegisterFile>();
+            _service = service;
+        }
 
-            Directories = new Dictionary<string, string>();
-            try
+        public void LoadPictureDirectories()
+        {
+            _service.LoadDirectoryList();
+            if (_service.Directories.Count > 0)
             {
-                string[] dirs = Directory.GetDirectories(
-                Path.Combine(AppConfig.AppDataFullPath, Properties.Settings.Default.picture_folder_uri));
-                foreach (string dir in dirs)
-                {
-                    Directories.Add(dir, new DirectoryInfo(dir).Name);
-                }
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                ex.Log();
+                _form.PictureDirectoriesDS = _service.Directories;
             }
         }
 
-        public void InitList(String path)
+        public void LoadPictureFiles(String dirPath)
         {
-            string imageDirectory = path;
-            string[] files = new string[0];
-            try
-            {
-                LogUtil.Log(String.Format("Looking for files... {0}", imageDirectory));
-                files = Directory.GetFiles(imageDirectory);
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                ex.Log();
-            }
-
-            Images.Clear();
-            foreach (string fileName in files)
-            {
-                Images.Add(new RegisterFile(fileName));
-            }
-            currentImage = -1;
-            NextImage();
-
-            ShowPictureFiles();
-        }
-
-        private void ShowPictureFiles()
-        {
+            _service.LoadImageList(dirPath);
             _form.PictureFilesDS = null;
-            _form.PictureFilesDS = Images;
+            _form.PictureFilesDS = _service.Images;
+
+            NextImage();
         }
 
         public void NextImage()
         {
-            if (Images.Count != 0)
-            {
-                if (Images.Count - 1 > currentImage)
-                {
-                    currentImage++;
-                }
-                else
-                {
-                    currentImage = 0;
-                }
-                _form.ImageBox = Image.FromFile(Images[currentImage].FilePath);
-
-                EventHandler<RegisterFile> handler = OnPictureSelected;
-                if (handler != null)
-                {
-                    handler.Invoke(this, Images[currentImage]);
-                }
-            }
+            _form.ImageBox = null;
+            _form.ImageBox = _service.NextImage();
         }
 
         public void PreviousImage()
         {
-            if (Images.Count != 0)
-            {
-                if (currentImage > 0)
-                {
-                    currentImage--;
-                }
-                else
-                {
-                    currentImage = Images.Count - 1;
-                }
-                _form.ImageBox = Image.FromFile(Images[currentImage].FilePath);
-
-                EventHandler<RegisterFile> handler = OnPictureSelected;
-                if (handler != null)
-                {
-                    handler.Invoke(this, Images[currentImage]);
-                }
-            }
+            _form.ImageBox = null;
+            _form.ImageBox = _service.PreviousImage();
         }
     }
 }

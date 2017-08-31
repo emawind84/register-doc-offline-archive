@@ -243,4 +243,7 @@
   <data name="review_outcome" xml:space="preserve">
     <value>검토결과</value>
   </data>
+  <data name="picture_viewer_settings" xml:space="preserve">
+    <value>사진 뷰어 설정</value>
+  </data>
 </root>

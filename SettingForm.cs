@@ -86,6 +86,7 @@ namespace pmis
             settingDbType.SelectedValue = Properties.Settings.Default.db_type;
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
+            settingPictureFolderURI.Text = Properties.Settings.Default.picture_folder_uri;
             settingLanguage.SelectedValue = Properties.Settings.Default.language;
 
             StringBuilder strbuilder = new StringBuilder();
@@ -118,6 +119,7 @@ namespace pmis
             Properties.Settings.Default.pmis_api_url = settingPmisWsUrl.Text;
             Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
+            Properties.Settings.Default.picture_folder_uri = settingPictureFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
             Properties.Settings.Default.db_type = settingDbType.SelectedValue as string;
             Properties.Settings.Default.language = settingLanguage.SelectedValue as string;
@@ -294,6 +296,14 @@ namespace pmis
 
             if(!string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
                 settingRegisterFolderURI.Text = folderBrowserDialog.SelectedPath;
+        }
+
+        private void registerPicitureButton_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.ShowDialog();
+
+            if (!string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                settingPictureFolderURI.Text = folderBrowserDialog.SelectedPath;
         }
 
         private void sqliteFileLocationButton_Click(object sender, EventArgs e)

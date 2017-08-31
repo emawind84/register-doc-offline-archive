@@ -8,6 +8,7 @@ using pmis.i18n;
 using System.IO;
 using System.Threading;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace pmis
 {
@@ -23,8 +24,10 @@ namespace pmis
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private BindingSource pictureFilesBS;
+        private BindingSource pictureDirectoriesBS;
         private Form aboutForm;
-        private PicturePresenter imageService;
+        private PicturePresenter picturePresenter;
+        private PictureViewerService pictureViewerService;
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
@@ -74,6 +77,10 @@ namespace pmis
         public Image ImageBox {
             set
             {
+                if (pictureBox1.Image != null)
+                {
+                    this.pictureBox1.Image.Dispose();
+                }
                 this.pictureBox1.Image = value;
             }
         }
@@ -140,22 +147,6 @@ namespace pmis
             srchHistory.ValueMember = "Key";
             srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
-            pictureFilesBS = new BindingSource();
-            pictureFilesBS.DataSource = new List<RegisterFile>();
-            pictureFilesBS.AllowNew = false;
-            pictureGridView.AutoGenerateColumns = false;
-            pictureGridView.DataSource = pictureFilesBS;
-            
-            imageService = new PicturePresenter(this);
-            imageService.OnPictureSelected += SelectPictureFileOnSelection;
-            listBox1.Items.Clear();
-            listBox1.DisplayMember = "Value";
-            listBox1.ValueMember = "Key";
-            if(imageService.Directories.Count > 0)
-            {
-                listBox1.DataSource = new BindingSource(imageService.Directories, null);
-            }
-            
             settingForm = new SettingForm(
                 registerDocumentDataService, 
                 reviewInfoDataService);
@@ -164,6 +155,7 @@ namespace pmis
             settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
             settingForm.SettingChanged += LoadSearchOptions;
+            settingForm.SettingChanged += LoadPictureViewer;
             
             aboutForm = new AboutBox();
 
@@ -177,6 +169,9 @@ namespace pmis
 
                 // request docs list
                 ShowRegisterList();
+
+                // load picture viewer
+                LoadPictureViewer();
             }
             catch (Exception ex)
             {
@@ -216,6 +211,13 @@ namespace pmis
             set { pictureFilesBS.DataSource = value; }
         }
 
+        public object PictureDirectoriesDS
+        {
+            set {
+                pictureFolderListBox.DataSource = new BindingSource(value, null);
+            }
+        }
+
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
             string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
@@ -232,6 +234,28 @@ namespace pmis
             types[0] = "";
             Properties.Settings.Default.register_type.CopyTo(types, 1);
             srchType.DataSource = types;
+        }
+
+        private void LoadPictureViewer(object sender = null, EventArgs args = null)
+        {
+            if (pictureViewerService == null )
+            {
+                pictureFilesBS = new BindingSource();
+                pictureFilesBS.DataSource = new List<RegisterFile>();
+                pictureFilesBS.AllowNew = false;
+                pictureGridView.AutoGenerateColumns = false;
+                pictureGridView.DataSource = pictureFilesBS;
+
+                pictureFolderListBox.Items.Clear();
+                pictureFolderListBox.DisplayMember = "Value";
+                pictureFolderListBox.ValueMember = "Key";
+
+                pictureViewerService = new PictureViewerService();
+                pictureViewerService.OnPictureSelected += SelectPictureFileOnSelection;
+
+                picturePresenter = new PicturePresenter(this, pictureViewerService);
+            }
+            picturePresenter.LoadPictureDirectories();
         }
 
         private void ShowRegisterList()
@@ -358,16 +382,16 @@ namespace pmis
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureNextButtonOnClick(object sender, EventArgs e)
         {
-            imageService.NextImage();
+            picturePresenter.NextImage();
         }
        
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void pictureFolderListBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                imageService.InitList(listBox1.SelectedValue.ToString());
+                picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
             }
             catch (Exception ex)
             {
@@ -375,9 +399,9 @@ namespace pmis
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void picturePreviousButtonOnClick(object sender, EventArgs e)
         {
-            imageService.PreviousImage();
+            picturePresenter.PreviousImage();
         }
 
         private void pictureGridView_CellClick(object sender, DataGridViewCellEventArgs e)
