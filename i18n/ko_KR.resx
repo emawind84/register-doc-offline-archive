@@ -205,7 +205,7 @@
     <value>Revision</value>
   </data>
   <data name="revisiondate" xml:space="preserve">
-    <value>Revision Date</value>
+    <value>수정 날짜</value>
   </data>
   <data name="search" xml:space="preserve">
     <value>검색</value>
@@ -242,5 +242,11 @@
   </data>
   <data name="review_outcome" xml:space="preserve">
     <value>검토결과</value>
+  </data>
+  <data name="folder_location" xml:space="preserve">
+    <value>폴더 위치</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>언어</value>
   </data>
 </root>

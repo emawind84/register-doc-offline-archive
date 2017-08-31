@@ -73,7 +73,7 @@ namespace pmis.i18n
             _form.groupBox3.Text = AppConfig.i18n.Get("reset_settings");
             _form.settingsResetButton.Text = AppConfig.i18n.Get("reset_settings");
             _form.label2.Text = AppConfig.i18n.Get("restore_settings_message");
-            _form.label13.Text = "Folder Location:";
+            _form.label13.Text = AppConfig.i18n.Get("folder_location") + ":";
             _form.groupBox11.Text = "Register Settings";
             _form.tabPage7.Text = "Status items";
             _form.tabPage6.Text = "Discipline items";
@@ -81,7 +81,7 @@ namespace pmis.i18n
             _form.groupBox1.Text = "Search Options";
             _form.tabPage4.Text = "International Settings";
             _form.groupBox2.Text = " International Settings";
-            _form.label1.Text = "Language:";
+            _form.label1.Text = AppConfig.i18n.Get("language") + ":";
             _form.tabPage2.Text = "Database Settings";
             _form.groupBox10.Text = "SQLite Settings";
             _form.label12.Text = "Database File Location:";
@@ -94,7 +94,7 @@ namespace pmis.i18n
             _form.label11.Text = "Authentication Key:";
             _form.importReviewDataButton.Text = "Import Review Data";
             _form.importRegisterDataButton.Text = "Import Register Data";
-            _form.productInfoLabel.Text = "Version";
+            _form.productInfoLabel.Text = AppConfig.i18n.Get("version");
         }
     }
 }

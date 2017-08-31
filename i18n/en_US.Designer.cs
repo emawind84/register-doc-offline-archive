@@ -160,6 +160,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Folder Location.
+        /// </summary>
+        internal static string folder_location {
+            get {
+                return ResourceManager.GetString("folder_location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         internal static string from {
@@ -201,6 +210,15 @@ namespace pmis.i18n {
         internal static string internalno {
             get {
                 return ResourceManager.GetString("internalno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
             }
         }
         
