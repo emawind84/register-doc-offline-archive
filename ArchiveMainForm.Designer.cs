@@ -564,7 +564,7 @@
             this.registerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.registerDataGridView.RowTemplate.Height = 30;
             this.registerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registerDataGridView.Size = new System.Drawing.Size(1000, 387);
+            this.registerDataGridView.Size = new System.Drawing.Size(1000, 390);
             this.registerDataGridView.TabIndex = 1;
             this.registerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerDataGridView_CellDoubleClick);
             // 
@@ -683,11 +683,11 @@
             this.detailTabPage.Controls.Add(this.groupBox5);
             this.detailTabPage.Controls.Add(this.fileManagerDataGridView);
             this.detailTabPage.Controls.Add(this.groupBox1);
-            this.detailTabPage.Location = new System.Drawing.Point(4, 22);
+            this.detailTabPage.Location = new System.Drawing.Point(4, 23);
             this.detailTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.detailTabPage.Name = "detailTabPage";
             this.detailTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.detailTabPage.Size = new System.Drawing.Size(1006, 564);
+            this.detailTabPage.Size = new System.Drawing.Size(1006, 563);
             this.detailTabPage.TabIndex = 1;
             this.detailTabPage.Text = "Detail";
             this.detailTabPage.UseVisualStyleBackColor = true;
@@ -1174,11 +1174,11 @@
             // 
             this.reviewDetailTabPage.Controls.Add(this.groupBox8);
             this.reviewDetailTabPage.Controls.Add(this.groupBox7);
-            this.reviewDetailTabPage.Location = new System.Drawing.Point(4, 22);
+            this.reviewDetailTabPage.Location = new System.Drawing.Point(4, 23);
             this.reviewDetailTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reviewDetailTabPage.Name = "reviewDetailTabPage";
             this.reviewDetailTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.reviewDetailTabPage.Size = new System.Drawing.Size(1006, 564);
+            this.reviewDetailTabPage.Size = new System.Drawing.Size(1006, 563);
             this.reviewDetailTabPage.TabIndex = 2;
             this.reviewDetailTabPage.Text = "Review Detail";
             this.reviewDetailTabPage.UseVisualStyleBackColor = true;
@@ -1188,7 +1188,7 @@
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.reviewFileDataGrid);
-            this.groupBox8.Location = new System.Drawing.Point(6, 386);
+            this.groupBox8.Location = new System.Drawing.Point(6, 387);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1267,7 +1267,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(994, 374);
+            this.groupBox7.Size = new System.Drawing.Size(994, 375);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             // 
@@ -1313,7 +1313,7 @@
             dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.reviewDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.reviewDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.reviewDataGridView.Size = new System.Drawing.Size(982, 301);
+            this.reviewDataGridView.Size = new System.Drawing.Size(982, 302);
             this.reviewDataGridView.TabIndex = 61;
             // 
             // reviewDataGridViewReviewDate

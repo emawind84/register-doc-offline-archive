@@ -67,7 +67,7 @@ namespace pmis.i18n
             _form.label8.Text = AppConfig.i18n.Get("review_outcome");
             _form.pictureViewerTabPage.Text = AppConfig.i18n.Get("picture_viewer");
             _form.pictureDataGridViewFileName.HeaderText = AppConfig.i18n.Get("file_name");
-            _form.pictureDataGridViewFileSize.HeaderText = AppConfig.i18n.Get("size");
+            _form.pictureDataGridViewFileSize.HeaderText = AppConfig.i18n.Get("file_size");
         }
 
         public void SetSettingFormLanguage(SettingForm _form)
@@ -98,7 +98,6 @@ namespace pmis.i18n
             _form.importReviewDataButton.Text = "Import Review Data";
             _form.importRegisterDataButton.Text = "Import Register Data";
             _form.productInfoLabel.Text = AppConfig.i18n.Get("version");
-            _form.pictureViewerSettingsGroupBox.Text = AppConfig.i18n.Get("picture_viewer_settings");
         }
     }
 }
