@@ -13,7 +13,7 @@ namespace pmis.i18n
         
         public void SetMainFromLanguage(ArchiveMainForm _form)
         {
-            _form.tabPage1.Text = AppConfig.i18n.Get("register");
+            _form.registerTabPage.Text = AppConfig.i18n.Get("register");
             _form.searchClearButton.Text = AppConfig.i18n.Get("clear");
             _form.label9.Text = AppConfig.i18n.Get("docdiscipline");
             _form.label17.Text = AppConfig.i18n.Get("docstatus");
@@ -36,7 +36,7 @@ namespace pmis.i18n
             _form.doclist_registered.HeaderText = AppConfig.i18n.Get("modified");
             _form.doclist_discipline.HeaderText = AppConfig.i18n.Get("discipline");
             _form.doclist_status.HeaderText = AppConfig.i18n.Get("status");
-            _form.tabPage2.Text = AppConfig.i18n.Get("detail");
+            _form.detailTabPage.Text = AppConfig.i18n.Get("detail");
             _form.groupBox5.Text = AppConfig.i18n.Get("note");
             _form.fileManagerDataGridViewFilename.HeaderText = AppConfig.i18n.Get("file_name");
             _form.fileManagerDataGridViewFilesize.HeaderText = AppConfig.i18n.Get("size");
@@ -54,7 +54,7 @@ namespace pmis.i18n
             _form.label23.Text = AppConfig.i18n.Get("organization") + ":";
             _form.label31.Text = AppConfig.i18n.Get("discipline") + ":";
             _form.label25.Text = AppConfig.i18n.Get("internalno") + ":";
-            _form.tabPage3.Text = AppConfig.i18n.Get("reviewdetail");
+            _form.reviewDetailTabPage.Text = AppConfig.i18n.Get("reviewdetail");
             _form.groupBox8.Text = AppConfig.i18n.Get("review_supp_file") + ":";
             _form.reviewFileDataGridFilename.HeaderText = AppConfig.i18n.Get("file_name");
             _form.reviewFileDataGridFilesize.HeaderText = AppConfig.i18n.Get("size");
