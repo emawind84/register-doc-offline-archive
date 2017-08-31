@@ -160,6 +160,15 @@ namespace pmis.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 폴더 위치.
+        /// </summary>
+        internal static string folder_location {
+            get {
+                return ResourceManager.GetString("folder_location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         internal static string from {
@@ -201,6 +210,15 @@ namespace pmis.i18n {
         internal static string internalno {
             get {
                 return ResourceManager.GetString("internalno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 언어.
+        /// </summary>
+        internal static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
             }
         }
         
@@ -367,7 +385,7 @@ namespace pmis.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revision Date.
+        ///   Looks up a localized string similar to 수정 날짜.
         /// </summary>
         internal static string revisiondate {
             get {

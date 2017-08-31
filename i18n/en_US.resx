@@ -243,6 +243,12 @@
   <data name="review_outcome" xml:space="preserve">
     <value>Review Outcome</value>
   </data>
+  <data name="folder_location" xml:space="preserve">
+    <value>Folder Location</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="picture_viewer_settings" xml:space="preserve">
     <value>Picture Viewer Settings</value>
   </data>

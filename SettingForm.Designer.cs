@@ -539,7 +539,7 @@
             // pmisWsProjectCodeLabel
             // 
             this.pmisWsProjectCodeLabel.AutoSize = true;
-            this.pmisWsProjectCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pmisWsProjectCodeLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pmisWsProjectCodeLabel.Location = new System.Drawing.Point(6, 79);
             this.pmisWsProjectCodeLabel.Name = "pmisWsProjectCodeLabel";
             this.pmisWsProjectCodeLabel.Size = new System.Drawing.Size(71, 13);
@@ -556,7 +556,7 @@
             // pmisWsUrlLabel
             // 
             this.pmisWsUrlLabel.AutoSize = true;
-            this.pmisWsUrlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pmisWsUrlLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pmisWsUrlLabel.Location = new System.Drawing.Point(6, 30);
             this.pmisWsUrlLabel.Name = "pmisWsUrlLabel";
             this.pmisWsUrlLabel.Size = new System.Drawing.Size(43, 13);
@@ -573,7 +573,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 128);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(99, 13);
