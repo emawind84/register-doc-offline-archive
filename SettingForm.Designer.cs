@@ -522,6 +522,8 @@
             this.importLogViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.importLogViewer.BackColor = System.Drawing.Color.White;
+            this.importLogViewer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.importLogViewer.Location = new System.Drawing.Point(6, 223);
             this.importLogViewer.MaxLength = 10;
             this.importLogViewer.Name = "importLogViewer";
@@ -536,7 +538,7 @@
             this.pmisWsProjectCodeLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pmisWsProjectCodeLabel.Location = new System.Drawing.Point(6, 79);
             this.pmisWsProjectCodeLabel.Name = "pmisWsProjectCodeLabel";
-            this.pmisWsProjectCodeLabel.Size = new System.Drawing.Size(71, 13);
+            this.pmisWsProjectCodeLabel.Size = new System.Drawing.Size(71, 14);
             this.pmisWsProjectCodeLabel.TabIndex = 17;
             this.pmisWsProjectCodeLabel.Text = "Project Code:";
             // 
@@ -553,7 +555,7 @@
             this.pmisWsUrlLabel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pmisWsUrlLabel.Location = new System.Drawing.Point(6, 30);
             this.pmisWsUrlLabel.Name = "pmisWsUrlLabel";
-            this.pmisWsUrlLabel.Size = new System.Drawing.Size(43, 13);
+            this.pmisWsUrlLabel.Size = new System.Drawing.Size(42, 14);
             this.pmisWsUrlLabel.TabIndex = 15;
             this.pmisWsUrlLabel.Text = "API Url:";
             // 
@@ -570,7 +572,7 @@
             this.label11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 128);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 13);
+            this.label11.Size = new System.Drawing.Size(101, 14);
             this.label11.TabIndex = 13;
             this.label11.Text = "Authentication Key:";
             // 
