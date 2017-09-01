@@ -66,8 +66,6 @@ namespace pmis
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
             reviewInfoService.ReviewInfoImported += UpdateDataCount;
 
-            productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
-
             openFileDialog.InitialDirectory = AppConfig.AppDataFullPath;
 
             LanguageSupport language = new LanguageSupport();
@@ -80,6 +78,8 @@ namespace pmis
 
         public void LoadSettings(object sender = null, EventArgs e = null)
         {
+            productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
+
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
             settingPmisWsAuthKey.Text = Properties.Settings.Default.pmis_auth_key;
