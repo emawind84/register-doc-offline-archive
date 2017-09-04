@@ -169,7 +169,6 @@
     <Content Include="review.load.sqlite.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="sangah_logo_64.ico" />
     <Content Include="setup.sqlite.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

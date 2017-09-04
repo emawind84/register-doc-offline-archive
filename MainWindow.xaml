@@ -10,21 +10,20 @@
         <TabControl x:Name="tabControl" Margin="10,31,10,10">
             <TabItem Header="Register">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="registerDataGridView" Margin="0,124,0,0">
+                    <DataGrid x:Name="registerDataGridView" Margin="0,124,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Document Number" Binding="{Binding docno}"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Title"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Revision"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Version"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Current"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Revision Date"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Organization"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Type"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Review Status"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Registered By"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Registered"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Discipline"/>
-                            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Status"/>
+                            <DataGridTextColumn Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number"/>
+                            <DataGridTextColumn Binding="{Binding [title]}" ClipboardContentBinding="{x:Null}" Header="Title"/>
+                            <DataGridTextColumn Binding="{Binding [revision]}" ClipboardContentBinding="{x:Null}" Header="Revision"/>
+                            <DataGridTextColumn Binding="{Binding [doc_version]}" ClipboardContentBinding="{x:Null}" Header="Version"/>
+                            <DataGridTextColumn Binding="{Binding [revision_date]}" ClipboardContentBinding="{x:Null}" Header="Revision Date"/>
+                            <DataGridTextColumn Binding="{Binding [organization]}" ClipboardContentBinding="{x:Null}" Header="Organization"/>
+                            <DataGridTextColumn Binding="{Binding [doc_type]}" ClipboardContentBinding="{x:Null}" Header="Type"/>
+                            <DataGridTextColumn Binding="{Binding [review_status]}" ClipboardContentBinding="{x:Null}" Header="Review Status"/>
+                            <DataGridTextColumn Binding="{Binding [registered_by]}" ClipboardContentBinding="{x:Null}" Header="Registered By"/>
+                            <DataGridTextColumn Binding="{Binding [registered]}" ClipboardContentBinding="{x:Null}" Header="Registered"/>
+                            <DataGridTextColumn Binding="{Binding [discipline]}" ClipboardContentBinding="{x:Null}" Header="Discipline"/>
+                            <DataGridTextColumn Binding="{Binding [doc_status]}" ClipboardContentBinding="{x:Null}" Header="Status"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="button" Content="Search" HorizontalAlignment="Left" Margin="712,55,0,0" VerticalAlignment="Top" Width="104" Height="33"/>
@@ -53,12 +52,12 @@
                 <Grid Background="#FFE5E5E5">
                     <GroupBox x:Name="groupBox" Header="Data" Margin="10,10,10,0" VerticalAlignment="Top" Height="222">
                         <Grid>
-                            <Label x:Name="label1" Content="Number" HorizontalAlignment="Right" Margin="0,9,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy" Content="Title" HorizontalAlignment="Right" Margin="0,40,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy1" Content="Type" HorizontalAlignment="Right" Margin="0,71,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy2" Content="Status" HorizontalAlignment="Right" Margin="0,102,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy3" Content="Discipline" HorizontalAlignment="Right" Margin="0,133,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy4" Content="Internal Number" HorizontalAlignment="Right" Margin="0,164,886,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                            <Label x:Name="label1" Content="Number" Margin="53,9,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="54"/>
+                            <Label x:Name="label1_Copy" Content="Title" Margin="75,40,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="32"/>
+                            <Label x:Name="label1_Copy1" Content="Type" Margin="72,71,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="35"/>
+                            <Label x:Name="label1_Copy2" Content="Status" Margin="65,102,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="42"/>
+                            <Label x:Name="label1_Copy3" Content="Discipline" Margin="46,133,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="61"/>
+                            <Label x:Name="label1_Copy4" Content="Internal Number" Margin="10,164,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="97"/>
                             <TextBlock x:Name="docViewDocNumber" HorizontalAlignment="Left" Margin="112,14,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                             <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="117,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                             <TextBlock x:Name="docViewTitle" HorizontalAlignment="Left" Margin="112,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
@@ -66,12 +65,12 @@
                             <TextBlock x:Name="docViewStatus" HorizontalAlignment="Left" Margin="112,107,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                             <TextBlock x:Name="docViewDiscipline" HorizontalAlignment="Left" Margin="112,138,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                             <TextBlock x:Name="docViewIntNumber" HorizontalAlignment="Left" Margin="112,169,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-                            <Label x:Name="label1_Copy5" Content="Revision" HorizontalAlignment="Right" Margin="0,9,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy6" Content="Revision Date" HorizontalAlignment="Right" Margin="0,40,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy7" Content="Version" HorizontalAlignment="Right" Margin="0,71,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy8" Content="Registered" HorizontalAlignment="Right" Margin="0,102,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy9" Content="Registered By" HorizontalAlignment="Right" Margin="0,133,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
-                            <Label x:Name="label1_Copy10" Content="Organization" HorizontalAlignment="Right" Margin="0,164,394,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                            <Label x:Name="label1_Copy5" Content="Revision" HorizontalAlignment="Left" Margin="545,9,0,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                            <Label x:Name="label1_Copy6" Content="Revision Date" Margin="517,40,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="82"/>
+                            <Label x:Name="label1_Copy7" Content="Version" HorizontalAlignment="Left" Margin="549,71,0,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                            <Label x:Name="label1_Copy8" Content="Registered" HorizontalAlignment="Left" Margin="533,102,0,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                            <Label x:Name="label1_Copy9" Content="Registered By" Margin="517,133,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="82"/>
+                            <Label x:Name="label1_Copy10" Content="Organization" HorizontalAlignment="Left" Margin="521,164,0,0" VerticalAlignment="Top" Foreground="#FF727272"/>
                             <TextBlock x:Name="docViewRevision" HorizontalAlignment="Left" Margin="603,14,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                             <TextBlock x:Name="docViewRevisionDate" HorizontalAlignment="Left" Margin="603,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                             <TextBlock x:Name="docViewVersion" HorizontalAlignment="Left" Margin="603,76,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
@@ -95,9 +94,9 @@
             </TabItem>
             <TabItem Header="Review Detail">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="label1_Copy11" Content="Review Outcome" HorizontalAlignment="Right" Margin="0,11,913,0" VerticalAlignment="Top" Foreground="#FF727272"/>
+                    <Label x:Name="label1_Copy11" Content="Review Outcome" Margin="13,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="99"/>
                     <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="117,16,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="reviewDataGridView" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="296" Width="1005"/>
+                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,181"/>
                     <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
@@ -109,7 +108,7 @@
             </TabItem>
             <TabItem Header="Picture Viewer"/>
         </TabControl>
-        <Menu x:Name="menu" VerticalAlignment="Top" Height="26">
+        <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">
                 <MenuItem Header="_Settings" />
                 <Separator />

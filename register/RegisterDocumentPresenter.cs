@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.IO;
 using pmis;
+using System.Collections;
 
 namespace pmis
 {
@@ -81,12 +82,24 @@ namespace pmis
 
             DataTable dt = _service.SearchDocument(criteria);
 
-            _form.DocumentList = dt;
+            _form.DocumentList = dt.AsEnumerable();
         }
 
         private void ShowRegisterDocumentFiles(object sender, RegisterDocument doc)
         {
             _form.RegisterFilesDS = _service.LoadRegisterFiles(doc);
         }
+
+        //private IEnumerable<RegisterDocument> GetEnumerator(DataTable dt)
+        //{
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        // Return the current element and then on next function call 
+        //        // resume from next element rather than starting all over again;
+        //        yield return new RegisterDocument {
+        //            DocumentNumber = Convert.ToString(row["docno"])
+        //        };
+        //    }
+        //}
     }
 }

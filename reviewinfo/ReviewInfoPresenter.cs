@@ -1,6 +1,7 @@
 ﻿using pmis;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,9 @@ namespace pmis.reviewinfo
             var docno = viewForm.Number;
             var version = viewForm.Version;
             RegisterDocument doc = _docService.LoadDocument(docno, version);
-            var dt = _service.LoadReviewInfo(doc);
+            DataTable dt = _service.LoadReviewInfo(doc);
 
-            _form.ReviewInfoList = dt;
+            _form.ReviewInfoList = dt.AsEnumerable();
 
             ShowReviewFiles(doc);
         }

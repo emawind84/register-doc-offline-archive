@@ -91,14 +91,14 @@ namespace pmis
 
         public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
 
-        public object DocumentList
+        public IEnumerable DocumentList
         {
-            set { registerDataGridView.ItemsSource = (IEnumerable)value; }
+            set { registerDataGridView.ItemsSource = value; }
         }
 
-        public object ReviewInfoList
+        public IEnumerable ReviewInfoList
         {
-            set { reviewDataGridView.ItemsSource = (IEnumerable)value; }
+            set { reviewDataGridView.ItemsSource = value; }
         }
 
         public object RegisterFilesDS
@@ -147,13 +147,13 @@ namespace pmis
             registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
             registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
             registerDocumentDetailView = new RegisterDocumentDetailView(this);
-            //registerDataGridView.AllowUserToAddRows = false;
-            //registerDataGridView.AutoGenerateColumns = false;
+            registerDataGridView.CanUserAddRows = false;
+            registerDataGridView.AutoGenerateColumns = false;
 
             reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
             reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
-            //reviewDataGridView.AutoGenerateColumns = false;
-            //reviewDataGridView.AllowUserToAddRows = false;
+            reviewDataGridView.AutoGenerateColumns = false;
+            reviewDataGridView.CanUserAddRows = false;
 
             reviewFilesBS = new BindingSource();
             reviewFilesBS.DataSource = new List<RegisterFile>();
