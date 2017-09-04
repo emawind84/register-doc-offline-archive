@@ -1,4 +1,5 @@
-﻿using System;
+﻿using archive2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace pmis
 {
     public class RegisterDocumentDetailView
     {
-        private ArchiveMainForm _form;
+        private MainWindow _form;
 
-        public RegisterDocumentDetailView(ArchiveMainForm form) {
+        public RegisterDocumentDetailView(MainWindow form) {
             _form = form;
         }
 

@@ -56,7 +56,7 @@ namespace pmis
 
         public List<RegisterFile> LoadReviewRegisterFiles(RegisterDocument doc)
         {
-            string registerURI = Properties.Settings.Default.register_folder_uri;
+            string registerURI = archive2.Properties.Settings.Default.register_folder_uri;
             registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
 
             string targetDirectory = registerURI + "/" + 
@@ -116,9 +116,9 @@ namespace pmis
 
         public async void ImportFromWebService()
         {
-            var apiurl = Properties.Settings.Default.pmis_api_url;
-            var project = Properties.Settings.Default.pmis_project_code;
-            var authkey = Properties.Settings.Default.pmis_auth_key;
+            var apiurl = archive2.Properties.Settings.Default.pmis_api_url;
+            var project = archive2.Properties.Settings.Default.pmis_project_code;
+            var authkey = archive2.Properties.Settings.Default.pmis_auth_key;
             string url = String.Format("{0}/api/register/reviews.action", apiurl);
 
             try

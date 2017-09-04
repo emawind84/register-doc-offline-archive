@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
 
 namespace pmis
 {
@@ -18,9 +18,9 @@ namespace pmis
             return ex;
         }
 
-        internal static Exception Display(this Exception ex, string msg = null, MessageBoxIcon icon = MessageBoxIcon.Error)
+        internal static Exception Display(this Exception ex, string msg = null, System.Windows.MessageBoxImage icon = System.Windows.MessageBoxImage.Error)
         {
-            MessageBox.Show(msg ?? ex.Message, "", MessageBoxButtons.OK, icon);
+            MessageBox.Show(msg ?? ex.Message, "", System.Windows.MessageBoxButton.OK, icon);
             return ex;
         }
     }

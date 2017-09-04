@@ -1,4 +1,5 @@
-﻿using System;
+﻿using archive2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace pmis.reviewinfo
 {
     public class ReviewInfoPresenter
     {
-        private ArchiveMainForm _form;
+        private MainWindow _form;
         private ReviewInfoDataService _service;
         private RegisterDocumentDataService _docService;
 
-        public ReviewInfoPresenter(ArchiveMainForm form, ReviewInfoDataService service, RegisterDocumentDataService docService)
+        public ReviewInfoPresenter(MainWindow form, ReviewInfoDataService service, RegisterDocumentDataService docService)
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowReviewInfoList;
