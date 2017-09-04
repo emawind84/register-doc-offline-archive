@@ -5,6 +5,7 @@ using pmis.reviewinfo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -203,7 +204,7 @@ namespace pmis
                 ex.Log().Display();
                 return;
             }
-            
+
         }
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
@@ -252,6 +253,72 @@ namespace pmis
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             daoService.Close();
+        }
+
+        private void registerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
+                    if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                    {
+                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                        Console.WriteLine(dgr.Item);
+                        DataRow dr = dgr.Item as DataRow;
+                        this.registerDocumentDetailView.Number = Convert.ToString(dr["docno"]);
+                        this.registerDocumentDetailView.Version = Convert.ToString(dr["doc_version"]);
+
+                        if (OnShowRegisterDocumentInfo != null)
+                        {
+                            OnShowRegisterDocumentInfo(this, EventArgs.Empty);
+                        }
+
+                        tabControl1.SelectedIndex = 1;
+                    }
+                }
+
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void fileManagerDataGridView_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void fileManagerDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void fileManagerDataGridView_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    Console.WriteLine(e);
+                    System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
+                    DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                    
+                    if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                    {
+                        //Console.WriteLine(grid.SelectedCells.);
+                        //RegisterFileService.OpenRegisterFileLocation(grid.SelectedItem as RegisterFile);
+                    }
+                }
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
     }
 }

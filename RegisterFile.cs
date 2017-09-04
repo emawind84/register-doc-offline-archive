@@ -28,6 +28,7 @@ namespace pmis
                 }
                 return String.Format("{0:0.##} {1}", len, sizes[order]); ;
             }
+            set { }
         }
 
         public string FilePath { get; set; }
