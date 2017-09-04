@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="MainWindow" Height="622" Width="1063" Closing="Window_Closing">
+        Title="PMIS - Offline Archive" Height="622" Width="1063" Closing="Window_Closing" Icon="resources/sangah_logo_16.ico">
     <Grid>
         <TabControl x:Name="tabControl1" Margin="10,31,10,10">
             <TabItem Header="Register">
                 <Grid Background="White">
-                    <DataGrid x:Name="registerDataGridView" Margin="0,124,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="30">
+                    <DataGrid x:Name="registerDataGridView" Margin="0,124,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="30" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number"/>
                             <DataGridTextColumn Binding="{Binding [title]}" ClipboardContentBinding="{x:Null}" Header="Title"/>
@@ -26,8 +26,8 @@
                             <DataGridTextColumn Binding="{Binding [doc_status]}" ClipboardContentBinding="{x:Null}" Header="Status"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="button" Content="Search" HorizontalAlignment="Left" Margin="712,55,0,0" VerticalAlignment="Top" Width="104" Height="33"/>
-                    <Button x:Name="button1" Content="Cancel" HorizontalAlignment="Left" Margin="712,95,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Margin="712,55,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="searchButton_Click"/>
+                    <Button x:Name="searchClearButton" Content="Clear" HorizontalAlignment="Left" Margin="712,95,0,0" VerticalAlignment="Top" Width="75" Click="searchClearButton_Click"/>
                     <Label x:Name="label" Content="Document Number" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,7,0,0"/>
                     <TextBox x:Name="srchNumber" HorizontalAlignment="Left" Height="23" Margin="125,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191"/>
                     <Label x:Name="label_Copy" Content="Document Title" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,35,0,0"/>
@@ -82,7 +82,7 @@
                     <GroupBox x:Name="groupBox_Copy" Header="Note" Margin="10,217,10,180">
                         <TextBlock x:Name="docViewNote" TextWrapping="Wrap" Text="" />
                     </GroupBox>
-                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" MouseDown="fileManagerDataGridView_MouseDown" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="fileManagerDataGridView_SelectionChanged" MouseUp="fileManagerDataGridView_MouseUp">
+                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" MouseDown="fileManagerDataGridView_MouseDown" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="fileManagerDataGridView_SelectionChanged" MouseUp="fileManagerDataGridView_MouseUp" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
                             <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size"/>
@@ -95,7 +95,7 @@
                 <Grid Background="White">
                     <Label x:Name="label1_Copy11" Content="Review Outcome" Margin="13,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="99"/>
                     <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="117,16,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,181" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30">
+                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,181" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding [review_date]}" ClipboardContentBinding="{x:Null}" Header="Reviewed"/>
                             <DataGridTextColumn Binding="{Binding [reviewed_by]}" ClipboardContentBinding="{x:Null}" Header="Reviewed By"/>
@@ -103,7 +103,7 @@
                             <DataGridTextColumn Binding="{Binding [review_note]}" ClipboardContentBinding="{x:Null}" Header="Comment"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom">
+                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
                             <DataGridCheckBoxColumn Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size"/>
@@ -116,7 +116,7 @@
         </TabControl>
         <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">
-                <MenuItem Header="_Settings" />
+                <MenuItem Header="_Settings" Click="MenuItem_Click" />
                 <Separator />
                 <MenuItem Header="_Exit" />
             </MenuItem>

@@ -71,7 +71,7 @@ namespace pmis.i18n
             //_form.pictureDataGridViewFileSize.HeaderText = AppConfig.i18n.Get("file_size");
         }
 
-        public void SetSettingFormLanguage(MainWindow _form)
+        public void SetSettingFormLanguage(SettingWindow _form)
         {
             //_form.tabPage3.Text = AppConfig.i18n.Get("general_settings");
             //_form.groupBox3.Text = AppConfig.i18n.Get("reset_settings");

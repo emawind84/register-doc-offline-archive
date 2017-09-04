@@ -27,7 +27,7 @@ namespace pmis
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private SettingWindow settingForm;
         private IDbConnection daoService;
         private RegisterDocumentDataService registerDocumentDataService;
         private RegisterDocumentPresenter registerDocumentPresenter;
@@ -173,14 +173,14 @@ namespace pmis
             srchHistory.SelectedValuePath = "Key";
             srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
-            //settingForm = new SettingForm(
-            //    registerDocumentDataService,
-            //    reviewInfoDataService);
+            settingForm = new SettingWindow(
+                registerDocumentDataService,
+                reviewInfoDataService);
 
             // adding sqlite module to setting form
-            //settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
+            settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
-            //settingForm.SettingChanged += LoadSearchOptions;
+            settingForm.SettingChanged += LoadSearchOptions;
             //settingForm.SettingChanged += LoadPictureViewer;
 
             //aboutForm = new AboutBox();
@@ -319,6 +319,32 @@ namespace pmis
             {
                 ex.Log().Display();
             }
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ShowRegisterList();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void searchClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchCriteriaDiscipline = "";
+            SearchCriteriaStatus = "";
+            SearchCriteriaType = "";
+            SearchCriteriaDocNumber = "";
+            SearchCriteriaTitle = "";
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            settingForm.Show();
         }
     }
 }

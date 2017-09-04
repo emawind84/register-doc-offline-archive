@@ -1,0 +1,113 @@
+﻿<Window x:Class="pmis.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pmis"
+        mc:Ignorable="d"
+        Title="Archive Settings" Height="513" Width="786.249" ResizeMode="NoResize" Icon="resources/sangah_logo_16.ico">
+    <Grid>
+        <TabControl x:Name="tabControl" Margin="0,0,0,55">
+            <TabItem Header="General Settings">
+                <Grid Background="White">
+                    <GroupBox x:Name="groupBox" Header="Register Settings" HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="395">
+                        <Grid >
+                            <Label x:Name="label" Content="Folder Location" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="settingRegisterFolderURI" HorizontalAlignment="Left" Height="23" Margin="10,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
+                            <Button x:Name="button" Content="Browse..." HorizontalAlignment="Left" Margin="297,34,0,0" VerticalAlignment="Top" Width="75"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox_Copy" Header="Picture Viewer Settings" HorizontalAlignment="Left" Height="85" Margin="0,90,0,0" VerticalAlignment="Top" Width="395">
+                        <Grid>
+                            <Label x:Name="label2" Content="Folder Location" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="settingPictureFolderURI" HorizontalAlignment="Left" Height="23" Margin="10,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
+                            <Button x:Name="button2" Content="Browse..." HorizontalAlignment="Left" Margin="297,34,0,0" VerticalAlignment="Top" Width="75"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox_Copy1" Header="Search Options" HorizontalAlignment="Left" Margin="0,180,0,0" Width="425">
+                        <Grid>
+                            <TabControl x:Name="tabControl1"  >
+                                <TabItem Header="Type items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docTypesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Discipline items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docDisciplinesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem Header="Status items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docStatusesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox_Copy2" Header="Reset Settings" Margin="430,295,10,0">
+                        <Grid />
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="International Settings">
+                <Grid Background="White">
+                    <GroupBox x:Name="groupBox1" Header="International Settings" >
+                        <Grid>
+                            <Label x:Name="label1" Content="Language" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="settingLanguage" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="263"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Database Settings">
+                <Grid Background="White">
+                    <GroupBox x:Name="groupBox2" Header="Database Settings" Height="96" VerticalAlignment="Top" >
+                        <Grid>
+                            <Label x:Name="label123" Content="Database Type" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="settingDbType" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="263"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox3" Header="SQLite Settings" Height="129" VerticalAlignment="Top" Margin="0,101,0,0" >
+                        <Grid>
+                            <Label x:Name="label123_Copy" Content="Database File Location" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <Button x:Name="sqliteFileLocationButton" Content="Browse..." HorizontalAlignment="Left" Margin="271,36,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="connectSQLiteDatabaseButton" Content="Connect Database" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Click="connectSQLiteDatabaseButton_Click" Padding="4,1" />
+                            <TextBox x:Name="settingSQLiteDbLocation" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Data Import Settings">
+                <Grid Background="White">
+                    <GroupBox x:Name="groupBox4" Header="Web Service Settings" >
+                        <Grid >
+                            <TextBox x:Name="settingPmisWsUrl" HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
+                            <TextBox x:Name="settingPmisWsAuthKey" HorizontalAlignment="Left" Height="23" Margin="10,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
+                            <TextBox x:Name="settingPmisWsProjectCode" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
+                            <Button x:Name="importRegisterDataButton" Content="Import Register Data" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importRegisterDataButton_Click"/>
+                            <Button x:Name="importReviewDataButton" Content="Import Review Data" HorizontalAlignment="Left" Margin="146,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importReviewDataButton_Click"/>
+                            <GroupBox x:Name="groupBox5" Header="Data Stats" Height="89" Margin="558,10,10,0" VerticalAlignment="Top">
+                                <Grid >
+                                    <Label x:Name="label3" Content="Review #" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top"/>
+                                    <Label x:Name="label3_Copy" Content="Document #" HorizontalAlignment="Left" Margin="20,36,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="settingsReviewCount" HorizontalAlignment="Left" Margin="112,15,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="settingsDocumentCount" HorizontalAlignment="Left" Margin="112,41,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
+                                </Grid>
+                            </GroupBox>
+                            <Label x:Name="label4" Content="API Url" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label4_Copy" Content="Project Code" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label4_Copy1" Content="Authentication Key" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="importLogViewer" Margin="10,218,10,10" TextWrapping="Wrap"/>
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="settingsOkButton" Content="OK" HorizontalAlignment="Left" Margin="579,0,0,10" Width="91" Height="39" VerticalAlignment="Bottom" Click="settingsOkButton_Click"/>
+        <Button x:Name="settingsCancelButton" Content="Cancel" Margin="675,0,10,10" Height="39" VerticalAlignment="Bottom" Click="settingsCancelButton_Click"/>
+        <TextBlock x:Name="productInfoLabel" HorizontalAlignment="Left" Margin="10,0,0,10" TextWrapping="Wrap" Text="Version" Height="16" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>
