@@ -237,6 +237,18 @@ namespace pmis
             }
         }
 
+        private void SearchButtonClickHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowRegisterList();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             daoService.Close();

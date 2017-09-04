@@ -9,7 +9,7 @@
     <Grid>
         <TabControl x:Name="tabControl" Margin="10,31,10,10">
             <TabItem Header="Register">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="White">
                     <DataGrid x:Name="registerDataGridView" Margin="0,124,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number"/>
@@ -49,7 +49,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Detail">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="White">
                     <GroupBox x:Name="groupBox" Header="Data" Margin="10,10,10,0" VerticalAlignment="Top" Height="222">
                         <Grid>
                             <Label x:Name="label1" Content="Number" Margin="53,9,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="54"/>
@@ -93,10 +93,17 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Review Detail">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="White">
                     <Label x:Name="label1_Copy11" Content="Review Outcome" Margin="13,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left" Width="99"/>
                     <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="117,16,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,181"/>
+                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,181" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding [review_date]}" ClipboardContentBinding="{x:Null}" Header="Reviewed"/>
+                            <DataGridTextColumn Binding="{Binding [reviewed_by]}" ClipboardContentBinding="{x:Null}" Header="Reviewed By"/>
+                            <DataGridTextColumn Binding="{Binding [review_status]}" ClipboardContentBinding="{x:Null}" Header="Review Outcome"/>
+                            <DataGridTextColumn Binding="{Binding [review_note]}" ClipboardContentBinding="{x:Null}" Header="Comment"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
