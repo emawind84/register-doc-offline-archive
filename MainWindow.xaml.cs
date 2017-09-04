@@ -3,6 +3,7 @@ using pmis.i18n;
 using pmis.register;
 using pmis.reviewinfo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace archive2
+namespace pmis
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -31,6 +33,10 @@ namespace archive2
         private RegisterDocumentDetailView registerDocumentDetailView;
         private ReviewInfoPresenter reviewInfoPresenter;
         private ReviewInfoDataService reviewInfoDataService;
+        private BindingSource fileManagerBS;
+        private BindingSource reviewFilesBS;
+        private BindingSource pictureFilesBS;
+        private BindingSource pictureDirectoriesBS;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
 
@@ -81,6 +87,32 @@ namespace archive2
             set { srchType.Text = value; }
         }
 
+        public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
+
+        public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
+
+        public object DocumentList
+        {
+            set { registerDataGridView.ItemsSource = (IEnumerable)value; }
+        }
+
+        public object ReviewInfoList
+        {
+            set { reviewDataGridView.ItemsSource = (IEnumerable)value; }
+        }
+
+        public object RegisterFilesDS
+        {
+            get { return fileManagerBS.DataSource; }
+            set { fileManagerBS.DataSource = value; }
+        }
+
+        public object ReviewFilesDS
+        {
+            get { return reviewFilesBS.DataSource; }
+            set { reviewFilesBS.DataSource = value; }
+        }
+
         public MainWindow()
         {
             //SplashForm.ShowSplash();
@@ -123,22 +155,22 @@ namespace archive2
             //reviewDataGridView.AutoGenerateColumns = false;
             //reviewDataGridView.AllowUserToAddRows = false;
 
-            //reviewFilesBS = new BindingSource();
-            //reviewFilesBS.DataSource = new List<RegisterFile>();
-            //reviewFilesBS.AllowNew = false;
-            //reviewFileDataGrid.AutoGenerateColumns = false;
-            //reviewFileDataGrid.DataSource = reviewFilesBS;
+            reviewFilesBS = new BindingSource();
+            reviewFilesBS.DataSource = new List<RegisterFile>();
+            reviewFilesBS.AllowNew = false;
+            reviewFileDataGrid.AutoGenerateColumns = false;
+            reviewFileDataGrid.ItemsSource = reviewFilesBS;
 
-            //fileManagerBS = new BindingSource();
-            //fileManagerBS.DataSource = new List<RegisterFile>();
-            //fileManagerBS.AllowNew = false;
-            //fileManagerDataGridView.AutoGenerateColumns = false;
-            //fileManagerDataGridView.DataSource = fileManagerBS;
+            fileManagerBS = new BindingSource();
+            fileManagerBS.DataSource = new List<RegisterFile>();
+            fileManagerBS.AllowNew = false;
+            fileManagerDataGridView.AutoGenerateColumns = false;
+            fileManagerDataGridView.ItemsSource = fileManagerBS;
 
-            //srchHistory.DataSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
-            //srchHistory.DisplayMember = "Value";
-            //srchHistory.ValueMember = "Key";
-            //srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
+            srchHistory.ItemsSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
+            srchHistory.DisplayMemberPath = "Value";
+            srchHistory.SelectedValuePath = "Key";
+            srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
             //settingForm = new SettingForm(
             //    registerDocumentDataService,
@@ -158,10 +190,10 @@ namespace archive2
             try
             {
                 // load search options
-                //LoadSearchOptions();
+                LoadSearchOptions();
 
                 // request docs list
-                //ShowRegisterList();
+                ShowRegisterList();
 
                 // load picture viewer
                 //LoadPictureViewer();
@@ -172,6 +204,37 @@ namespace archive2
                 return;
             }
             
+        }
+
+        private void LoadSearchOptions(object sender = null, EventArgs args = null)
+        {
+            string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
+            statuses[0] = "";
+            Properties.Settings.Default.register_status.CopyTo(statuses, 1);
+            srchStatus.ItemsSource = statuses;
+
+            string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
+            disciplines[0] = "";
+            Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
+            srchDiscipline.ItemsSource = disciplines;
+
+            string[] types = new string[Properties.Settings.Default.register_type.Count + 1];
+            types[0] = "";
+            Properties.Settings.Default.register_type.CopyTo(types, 1);
+            srchType.ItemsSource = types;
+        }
+
+        private void ShowRegisterList()
+        {
+            try
+            {
+                if (OnShowRegisterDocumentList != null)
+                    OnShowRegisterDocumentList(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
