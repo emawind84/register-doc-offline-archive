@@ -37,7 +37,6 @@ namespace pmis
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private BindingSource pictureFilesBS;
-        private BindingSource pictureDirectoriesBS;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
 
@@ -92,6 +91,14 @@ namespace pmis
 
         public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
 
+        public ImageSource ImageBox
+        {
+            set
+            {
+                this.pictureBox1.Source = value;
+            }
+        }
+
         public IEnumerable DocumentList
         {
             set { registerDataGridView.ItemsSource = value; }
@@ -112,6 +119,18 @@ namespace pmis
         {
             get { return reviewFilesBS.DataSource; }
             set { reviewFilesBS.DataSource = value; }
+        }
+
+        public object PictureFilesDS
+        {
+            set { pictureFilesBS.DataSource = value; }
+        }
+
+        public object PictureDirectoriesDS
+        {
+            set {
+                pictureFolderListBox.ItemsSource = new BindingSource(value, null);
+            }
         }
 
         public MainWindow()
@@ -181,7 +200,7 @@ namespace pmis
             settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
             settingForm.SettingChanged += LoadSearchOptions;
-            //settingForm.SettingChanged += LoadPictureViewer;
+            settingForm.SettingChanged += LoadPictureViewer;
 
             //aboutForm = new AboutBox();
 
@@ -197,7 +216,7 @@ namespace pmis
                 ShowRegisterList();
 
                 // load picture viewer
-                //LoadPictureViewer();
+                LoadPictureViewer();
             }
             catch (Exception ex)
             {
@@ -223,6 +242,28 @@ namespace pmis
             types[0] = "";
             Properties.Settings.Default.register_type.CopyTo(types, 1);
             srchType.ItemsSource = types;
+        }
+
+        private void LoadPictureViewer(object sender = null, EventArgs args = null)
+        {
+            if (pictureViewerService == null)
+            {
+                pictureFilesBS = new BindingSource();
+                pictureFilesBS.DataSource = new List<RegisterFile>();
+                pictureFilesBS.AllowNew = false;
+                pictureGridView.AutoGenerateColumns = false;
+                pictureGridView.ItemsSource = pictureFilesBS;
+
+                pictureFolderListBox.Items.Clear();
+                pictureFolderListBox.DisplayMemberPath = "Value";
+                pictureFolderListBox.SelectedValuePath = "Key";
+
+                pictureViewerService = new PictureViewerService();
+                pictureViewerService.OnPictureSelected += SelectPictureFileOnSelection;
+
+                picturePresenter = new PicturePresenter(this, pictureViewerService);
+            }
+            picturePresenter.LoadPictureDirectories();
         }
 
         private void ShowRegisterList()
@@ -287,30 +328,37 @@ namespace pmis
             }
         }
 
-        private void fileManagerDataGridView_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void fileManagerDataGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
         private void fileManagerDataGridView_MouseUp(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                if (sender != null)
+                //System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
+                //DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+
+                DependencyObject dep = (DependencyObject)e.OriginalSource;
+                // iteratively traverse the visual tree
+                while ((dep != null) 
+                    && !(dep is System.Windows.Controls.DataGridCell))
                 {
-                    Console.WriteLine(e);
-                    System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
-                    DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
-                    
-                    if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                    dep = VisualTreeHelper.GetParent(dep);
+                }
+
+                if (dep is System.Windows.Controls.DataGridCell)
+                {
+                    var cell = dep as System.Windows.Controls.DataGridCell;
+                    // navigate further up the tree
+                    while ((dep != null) && !(dep is DataGridRow))
                     {
-                        //Console.WriteLine(grid.SelectedCells.);
-                        //RegisterFileService.OpenRegisterFileLocation(grid.SelectedItem as RegisterFile);
+                        dep = VisualTreeHelper.GetParent(dep);
+                    }
+                    DataGridRow row = dep as DataGridRow;
+
+                    DataGridBoundColumn col = cell.Column as DataGridBoundColumn;
+
+                    if ( col.DisplayIndex == 2 )
+                    {
+                        RegisterFile file = row.Item as RegisterFile;
+                        RegisterFileService.OpenRegisterFileLocation(file);
                     }
                 }
                 e.Handled = true;
@@ -345,6 +393,104 @@ namespace pmis
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             settingForm.Show();
+        }
+
+        private void fileManagerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DependencyObject dep = (DependencyObject)e.OriginalSource;
+                // iteratively traverse the visual tree
+                while ((dep != null)
+                    && !(dep is System.Windows.Controls.DataGridCell))
+                {
+                    dep = VisualTreeHelper.GetParent(dep);
+                }
+
+                if (dep is System.Windows.Controls.DataGridCell)
+                {
+                    var cell = dep as System.Windows.Controls.DataGridCell;
+                    // navigate further up the tree
+                    while ((dep != null) && !(dep is DataGridRow))
+                    {
+                        dep = VisualTreeHelper.GetParent(dep);
+                    }
+                    DataGridRow row = dep as DataGridRow;
+                    RegisterFile file = row.Item as RegisterFile;
+                    RegisterFileService.OpenRegisterFile(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void pictureNextButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            picturePresenter.NextImage();
+        }
+
+        private void picturePreviousButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            picturePresenter.PreviousImage();
+        }
+
+        private void pictureGridView_CellClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DependencyObject dep = (DependencyObject)e.OriginalSource;
+                // iteratively traverse the visual tree
+                while ((dep != null)
+                    && !(dep is System.Windows.Controls.DataGridCell))
+                {
+                    dep = VisualTreeHelper.GetParent(dep);
+                }
+
+                if (dep is System.Windows.Controls.DataGridCell)
+                {
+                    var cell = dep as System.Windows.Controls.DataGridCell;
+                    // navigate further up the tree
+                    while ((dep != null) && !(dep is DataGridRow))
+                    {
+                        dep = VisualTreeHelper.GetParent(dep);
+                    }
+                    DataGridRow row = dep as DataGridRow;
+                    RegisterFile file = row.Item as RegisterFile;
+
+                    picturePresenter.ShowImage(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void SelectPictureFileOnSelection(object sender, RegisterFile file)
+        {
+            //foreach (var row in pictureGridView.Items)
+            //{
+            //    var _t = row as RegisterFile;
+            //    if (_t.FilePath.Equals(file.FilePath))
+            //    {
+            //        pictureFilesBS.Position = row.Index;
+            //        break;
+            //    }
+            //}
+        }
+
+        private void pictureFolderListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
     }
 }

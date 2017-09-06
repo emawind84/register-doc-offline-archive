@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace pmis
 {
@@ -70,7 +72,7 @@ namespace pmis
             currentImage = -1;
         }
 
-        public Image NextImage()
+        public BitmapImage NextImage()
         {
             if (Images.Count != 0)
             {
@@ -89,13 +91,13 @@ namespace pmis
                     handler.Invoke(this, Images[currentImage]);
                 }
 
-                return Image.FromFile(Images[currentImage].FilePath);
+                return LoadImage(Images[currentImage]);
             }
 
             return null;
         }
 
-        public Image PreviousImage()
+        public BitmapImage PreviousImage()
         {
             if (Images.Count != 0)
             {
@@ -114,10 +116,21 @@ namespace pmis
                     handler.Invoke(this, Images[currentImage]);
                 }
 
-                return Image.FromFile(Images[currentImage].FilePath);
+                return LoadImage(Images[currentImage]);
             }
 
             return null;
+        }
+
+        public BitmapImage LoadImage(RegisterFile image)
+        {
+            var _source = new Uri(image.FilePath);
+            var _bi = new BitmapImage();
+            _bi.BeginInit();
+            _bi.UriSource = _source;
+            _bi.EndInit();
+
+            return _bi;
         }
 
     }

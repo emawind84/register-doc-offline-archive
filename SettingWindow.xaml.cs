@@ -27,7 +27,6 @@ namespace pmis
 
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
-        private OpenFileDialog openFileDialog;
 
         public event EventHandler SettingChanged;
 
@@ -73,9 +72,6 @@ namespace pmis
             registerService.RegisterDocumentImported += UpdateDataCount;
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
             reviewInfoService.ReviewInfoImported += UpdateDataCount;
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = AppConfig.AppDataFullPath;
 
             LanguageSupport language = new LanguageSupport();
             language.SetSettingFormLanguage(this);
@@ -291,6 +287,44 @@ namespace pmis
 
                 Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
                 oThread.Start();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void sqliteFileLocationButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = AppConfig.AppDataFullPath;
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.FileName))
+                settingSQLiteDbLocation.Text = dialog.FileName;
+        }
+
+        private void registerFolderURIButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                settingRegisterFolderURI.Text = dialog.SelectedPath;
+        }
+
+        private void pictureFolderURIButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                settingPictureFolderURI.Text = dialog.SelectedPath;
+        }
+
+        private void settingsResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.Reset();
+                LoadSettings();
             }
             catch (Exception ex)
             {

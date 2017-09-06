@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="PMIS - Offline Archive" Height="622" Width="1063" Closing="Window_Closing" Icon="resources/sangah_logo_16.ico">
+        Title="PMIS - Offline Archive" Height="622" Width="1063" Icon="resources/sangah_logo_16.ico" Closing="Window_Closing">
     <Grid>
         <TabControl x:Name="tabControl1" Margin="10,31,10,10">
             <TabItem Header="Register">
@@ -82,11 +82,11 @@
                     <GroupBox x:Name="groupBox_Copy" Header="Note" Margin="10,217,10,180">
                         <TextBlock x:Name="docViewNote" TextWrapping="Wrap" Text="" />
                     </GroupBox>
-                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" MouseDown="fileManagerDataGridView_MouseDown" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="fileManagerDataGridView_SelectionChanged" MouseUp="fileManagerDataGridView_MouseUp" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column">
+                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="fileManagerDataGridView_MouseUp" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
-                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size"/>
-                            <DataGridTextColumn Binding="{Binding open_location}" ClipboardContentBinding="{x:Null}" Header="#"/>
+                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
+                            <DataGridTextColumn Binding="{Binding Path=finish, TargetNullValue=EMPTY}" ClipboardContentBinding="{x:Null}" Header="#" Width="100" CanUserSort="False"  />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -103,16 +103,37 @@
                             <DataGridTextColumn Binding="{Binding [review_note]}" ClipboardContentBinding="{x:Null}" Header="Comment"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column">
+                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" MouseUp="fileManagerDataGridView_MouseUp" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name"/>
-                            <DataGridCheckBoxColumn Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size"/>
+                            <DataGridCheckBoxColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
+                            <DataGridCheckBoxColumn Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
                             <DataGridCheckBoxColumn Binding="{Binding open_location}" ClipboardContentBinding="{x:Null}" Header="#" CanUserResize="False" Width="40"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Picture Viewer"/>
+            <TabItem Header="Picture Viewer">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="321*"/>
+                        <ColumnDefinition Width="704*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="pictureFolderListBox" Margin="10,10,15,214" SelectionChanged="pictureFolderListBox_SelectionChanged"/>
+                    <Image x:Name="pictureBox1" Margin="10,10,10,37" Grid.Column="1">
+
+                    </Image>
+                    <DataGrid x:Name="pictureGridView" Margin="10,0,15,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding finish, TargetNullValue=EMPTY}" ClipboardContentBinding="{x:Null}" Header="#" Width="100" CanUserSort="False" Visibility="Hidden"  />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="picturePreviousButton" Content="&lt; Previous" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="22" VerticalAlignment="Bottom" Click="picturePreviousButtonOnClick"/>
+                    <Button x:Name="pictureNextButton" Content="Next &gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="90,0,0,10" Width="75" Click="pictureNextButtonOnClick" Height="22" VerticalAlignment="Bottom"/>
+
+                </Grid>
+            </TabItem>
         </TabControl>
         <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">

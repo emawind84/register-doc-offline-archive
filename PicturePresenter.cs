@@ -13,7 +13,7 @@ namespace pmis
     public class PicturePresenter
     {
 
-        private Window _form;
+        private MainWindow _form;
         private PictureViewerService _service;
 
         public PicturePresenter(MainWindow form, PictureViewerService service) {
@@ -26,29 +26,35 @@ namespace pmis
             _service.LoadDirectoryList();
             if (_service.Directories.Count > 0)
             {
-                //_form.PictureDirectoriesDS = _service.Directories;
+                _form.PictureDirectoriesDS = _service.Directories;
             }
         }
 
         public void LoadPictureFiles(String dirPath)
         {
             _service.LoadImageList(dirPath);
-            //_form.PictureFilesDS = null;
-            //_form.PictureFilesDS = _service.Images;
+            _form.PictureFilesDS = null;
+            _form.PictureFilesDS = _service.Images;
 
             NextImage();
         }
 
         public void NextImage()
         {
-            //_form.ImageBox = null;
-            //_form.ImageBox = _service.NextImage();
+            _form.ImageBox = null;
+            _form.ImageBox = _service.NextImage();
         }
 
         public void PreviousImage()
         {
-            //_form.ImageBox = null;
-            //_form.ImageBox = _service.PreviousImage();
+            _form.ImageBox = null;
+            _form.ImageBox = _service.PreviousImage();
+        }
+
+        public void ShowImage(RegisterFile file)
+        {
+            _form.ImageBox = null;
+            _form.ImageBox = _service.LoadImage(file);
         }
     }
 }
