@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace pmis
 {
@@ -331,6 +332,13 @@ namespace pmis
                 ex.Log().Display();
             }
         }
-        
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            //base.OnClosing(e);
+            this.Hide();
+            e.Cancel = true;
+        }
+
     }
 }

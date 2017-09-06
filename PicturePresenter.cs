@@ -26,7 +26,7 @@ namespace pmis
             _service.LoadDirectoryList();
             if (_service.Directories.Count > 0)
             {
-                _form.PictureDirectoriesDS = _service.Directories;
+                _form.PictureDirectoriesDS = _service.Directories.AsEnumerable();
             }
         }
 
@@ -34,7 +34,7 @@ namespace pmis
         {
             _service.LoadImageList(dirPath);
             _form.PictureFilesDS = null;
-            _form.PictureFilesDS = _service.Images;
+            _form.PictureFilesDS = _service.Images.AsEnumerable();
 
             NextImage();
         }

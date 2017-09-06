@@ -36,7 +36,6 @@ namespace pmis
         private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
-        private BindingSource pictureFilesBS;
         private Window aboutForm;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
@@ -125,15 +124,15 @@ namespace pmis
             set { reviewFilesBS.DataSource = value; }
         }
 
-        public object PictureFilesDS
+        public IEnumerable PictureFilesDS
         {
-            set { pictureFilesBS.DataSource = value; }
+            set { pictureGridView.ItemsSource = value; }
         }
 
-        public object PictureDirectoriesDS
+        public IEnumerable PictureDirectoriesDS
         {
             set {
-                pictureFolderListBox.ItemsSource = new BindingSource(value, null);
+                pictureFolderListBox.ItemsSource = value;
             }
         }
 
@@ -250,11 +249,11 @@ namespace pmis
         {
             if (pictureViewerService == null)
             {
-                pictureFilesBS = new BindingSource();
-                pictureFilesBS.DataSource = new List<RegisterFile>();
-                pictureFilesBS.AllowNew = false;
+                //pictureFilesBS = new BindingSource();
+                //pictureFilesBS.DataSource = 
+                //pictureFilesBS.AllowNew = false;
                 pictureGridView.AutoGenerateColumns = false;
-                pictureGridView.ItemsSource = pictureFilesBS;
+                pictureGridView.ItemsSource = new List<RegisterFile>();
 
                 pictureFolderListBox.Items.Clear();
                 pictureFolderListBox.DisplayMemberPath = "Value";
@@ -473,15 +472,17 @@ namespace pmis
 
         private void SelectPictureFileOnSelection(object sender, RegisterFile file)
         {
-            //foreach (var row in pictureGridView.Items)
-            //{
-            //    var _t = row as RegisterFile;
-            //    if (_t.FilePath.Equals(file.FilePath))
-            //    {
-            //        pictureFilesBS.Position = row.Index;
-            //        break;
-            //    }
-            //}
+            var rows = GetDataGridRows(pictureGridView);
+            foreach (var row in rows)
+            {
+                var _t = row.Item as RegisterFile;
+                if (_t.FilePath.Equals(file.FilePath))
+                {
+                    var rowIndex = pictureGridView.ItemContainerGenerator.IndexFromContainer(row);
+                    pictureGridView.SelectedIndex = rowIndex;
+                    break;
+                }
+            }
         }
 
         private void pictureFolderListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -511,6 +512,17 @@ namespace pmis
             base.OnClosed(e);
 
             System.Windows.Application.Current.Shutdown();
+        }
+
+        public IEnumerable<DataGridRow> GetDataGridRows(System.Windows.Controls.DataGrid grid)
+        {
+            var itemsSource = grid.ItemsSource as IEnumerable;
+            if (null == itemsSource) yield return null;
+            foreach (var item in itemsSource)
+            {
+                var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
+                if (null != row) yield return row;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -35,6 +36,13 @@ namespace pmis
         {
             this.Hide();
         }
-        
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            //base.OnClosing(e);
+            this.Hide();
+            e.Cancel = true;
+        }
+
     }
 }

@@ -85,12 +85,6 @@ namespace pmis
                     currentImage = 0;
                 }
                 
-                EventHandler<RegisterFile> handler = OnPictureSelected;
-                if (handler != null)
-                {
-                    handler.Invoke(this, Images[currentImage]);
-                }
-
                 return LoadImage(Images[currentImage]);
             }
 
@@ -110,12 +104,6 @@ namespace pmis
                     currentImage = Images.Count - 1;
                 }
                 
-                EventHandler<RegisterFile> handler = OnPictureSelected;
-                if (handler != null)
-                {
-                    handler.Invoke(this, Images[currentImage]);
-                }
-
                 return LoadImage(Images[currentImage]);
             }
 
@@ -129,6 +117,12 @@ namespace pmis
             _bi.BeginInit();
             _bi.UriSource = _source;
             _bi.EndInit();
+
+            EventHandler<RegisterFile> handler = OnPictureSelected;
+            if (handler != null)
+            {
+                handler.Invoke(this, image);
+            }
 
             return _bi;
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="Archive Settings" Height="513" Width="786.249" ResizeMode="NoResize" Icon="resources/sangah_logo_16.ico" Topmost="True">
+        Title="Archive Settings" Height="513" Width="786.249" ResizeMode="NoResize" Icon="resources/sangah_logo_16.ico" Topmost="True" WindowStartupLocation="CenterOwner">
     <Grid>
         <TabControl x:Name="tabControl" Margin="0,0,0,55">
             <TabItem Header="General Settings">

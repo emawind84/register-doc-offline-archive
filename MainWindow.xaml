@@ -115,14 +115,14 @@
             <TabItem Header="Picture Viewer">
                 <Grid >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="327*"/>
-                        <ColumnDefinition Width="698*"/>
+                        <ColumnDefinition Width="311*"/>
+                        <ColumnDefinition Width="714*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox x:Name="pictureFolderListBox" Margin="10,10,15,214" SelectionChanged="pictureFolderListBox_SelectionChanged"/>
+                    <ListBox x:Name="pictureFolderListBox" Margin="10,10,10,214" SelectionChanged="pictureFolderListBox_SelectionChanged"/>
                     <Image x:Name="pictureBox1" Margin="10,10,10,37" Grid.Column="1">
 
                     </Image>
-                    <DataGrid x:Name="pictureGridView" Margin="10,0,15,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick">
+                    <DataGrid x:Name="pictureGridView" Margin="10,0,10,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
                             <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*" Visibility="Hidden"/>
