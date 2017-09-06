@@ -564,7 +564,7 @@
             this.registerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.registerDataGridView.RowTemplate.Height = 30;
             this.registerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registerDataGridView.Size = new System.Drawing.Size(1000, 390);
+            this.registerDataGridView.Size = new System.Drawing.Size(1000, 388);
             this.registerDataGridView.TabIndex = 1;
             this.registerDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registerDataGridView_CellDoubleClick);
             // 
@@ -683,11 +683,11 @@
             this.detailTabPage.Controls.Add(this.groupBox5);
             this.detailTabPage.Controls.Add(this.fileManagerDataGridView);
             this.detailTabPage.Controls.Add(this.groupBox1);
-            this.detailTabPage.Location = new System.Drawing.Point(4, 23);
+            this.detailTabPage.Location = new System.Drawing.Point(4, 22);
             this.detailTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.detailTabPage.Name = "detailTabPage";
             this.detailTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.detailTabPage.Size = new System.Drawing.Size(1006, 563);
+            this.detailTabPage.Size = new System.Drawing.Size(1006, 564);
             this.detailTabPage.TabIndex = 1;
             this.detailTabPage.Text = "Detail";
             this.detailTabPage.UseVisualStyleBackColor = true;
@@ -702,7 +702,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(994, 131);
+            this.groupBox5.Size = new System.Drawing.Size(994, 130);
             this.groupBox5.TabIndex = 34;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Note";
@@ -719,7 +719,7 @@
             this.docViewNote.Name = "docViewNote";
             this.docViewNote.ReadOnly = true;
             this.docViewNote.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.docViewNote.Size = new System.Drawing.Size(982, 106);
+            this.docViewNote.Size = new System.Drawing.Size(982, 105);
             this.docViewNote.TabIndex = 0;
             this.docViewNote.Text = "";
             // 
@@ -735,7 +735,7 @@
             this.fileManagerDataGridViewFilename,
             this.fileManagerDataGridViewFilesize,
             this.fileManagerDataGridViewAction});
-            this.fileManagerDataGridView.Location = new System.Drawing.Point(6, 339);
+            this.fileManagerDataGridView.Location = new System.Drawing.Point(6, 338);
             this.fileManagerDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileManagerDataGridView.MultiSelect = false;
             this.fileManagerDataGridView.Name = "fileManagerDataGridView";
@@ -1174,11 +1174,11 @@
             // 
             this.reviewDetailTabPage.Controls.Add(this.groupBox8);
             this.reviewDetailTabPage.Controls.Add(this.groupBox7);
-            this.reviewDetailTabPage.Location = new System.Drawing.Point(4, 23);
+            this.reviewDetailTabPage.Location = new System.Drawing.Point(4, 22);
             this.reviewDetailTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reviewDetailTabPage.Name = "reviewDetailTabPage";
             this.reviewDetailTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.reviewDetailTabPage.Size = new System.Drawing.Size(1006, 563);
+            this.reviewDetailTabPage.Size = new System.Drawing.Size(1006, 564);
             this.reviewDetailTabPage.TabIndex = 2;
             this.reviewDetailTabPage.Text = "Review Detail";
             this.reviewDetailTabPage.UseVisualStyleBackColor = true;
@@ -1188,7 +1188,7 @@
             this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.reviewFileDataGrid);
-            this.groupBox8.Location = new System.Drawing.Point(6, 387);
+            this.groupBox8.Location = new System.Drawing.Point(6, 386);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1267,7 +1267,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox7.Size = new System.Drawing.Size(994, 375);
+            this.groupBox7.Size = new System.Drawing.Size(994, 374);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             // 
@@ -1313,7 +1313,7 @@
             dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.reviewDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.reviewDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.reviewDataGridView.Size = new System.Drawing.Size(982, 302);
+            this.reviewDataGridView.Size = new System.Drawing.Size(982, 301);
             this.reviewDataGridView.TabIndex = 61;
             // 
             // reviewDataGridViewReviewDate
@@ -1404,7 +1404,7 @@
             this.pictureDataGridViewFileName,
             this.pictureDataGridViewFileSize,
             this.pictureDataGridViewOpenLocation});
-            this.pictureGridView.Location = new System.Drawing.Point(3, 342);
+            this.pictureGridView.Location = new System.Drawing.Point(3, 341);
             this.pictureGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureGridView.MultiSelect = false;
             this.pictureGridView.Name = "pictureGridView";
@@ -1458,7 +1458,7 @@
             // 
             this.picturePreviousButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.picturePreviousButton.BackColor = System.Drawing.SystemColors.Control;
-            this.picturePreviousButton.Location = new System.Drawing.Point(304, 516);
+            this.picturePreviousButton.Location = new System.Drawing.Point(304, 515);
             this.picturePreviousButton.Name = "picturePreviousButton";
             this.picturePreviousButton.Size = new System.Drawing.Size(75, 31);
             this.picturePreviousButton.TabIndex = 4;
@@ -1475,7 +1475,7 @@
             this.pictureFolderListBox.ItemHeight = 14;
             this.pictureFolderListBox.Location = new System.Drawing.Point(3, 14);
             this.pictureFolderListBox.Name = "pictureFolderListBox";
-            this.pictureFolderListBox.Size = new System.Drawing.Size(295, 270);
+            this.pictureFolderListBox.Size = new System.Drawing.Size(295, 312);
             this.pictureFolderListBox.TabIndex = 3;
             this.pictureFolderListBox.SelectedIndexChanged += new System.EventHandler(this.pictureFolderListBoxSelectedIndexChanged);
             // 
@@ -1483,7 +1483,7 @@
             // 
             this.pictureNextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureNextButton.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureNextButton.Location = new System.Drawing.Point(385, 516);
+            this.pictureNextButton.Location = new System.Drawing.Point(385, 515);
             this.pictureNextButton.Name = "pictureNextButton";
             this.pictureNextButton.Size = new System.Drawing.Size(75, 31);
             this.pictureNextButton.TabIndex = 2;
@@ -1499,7 +1499,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(304, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(686, 496);
+            this.pictureBox1.Size = new System.Drawing.Size(686, 495);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
