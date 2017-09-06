@@ -249,4 +249,10 @@
   <data name="language" xml:space="preserve">
     <value>언어</value>
   </data>
+  <data name="picture_viewer_settings" xml:space="preserve">
+    <value>사진 뷰어 설정</value>
+  </data>
+  <data name="picture_viewer" xml:space="preserve">
+    <value>사진 뷰어</value>
+  </data>
 </root>

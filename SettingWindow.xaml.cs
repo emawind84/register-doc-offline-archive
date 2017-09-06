@@ -1,20 +1,28 @@
-﻿using pmis.reviewinfo;
+﻿using pmis.i18n;
+using pmis.reviewinfo;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Forms;
-using pmis.i18n;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace pmis
 {
-    public partial class SettingForm : Form
+    /// <summary>
+    /// Interaction logic for Setting.xaml
+    /// </summary>
+    public partial class SettingWindow : Window
     {
 
         private RegisterDocumentDataService registerService;
@@ -37,13 +45,12 @@ namespace pmis
         delegate void ChangeErrorMessage(object sender, ErrorEventArgs args);
         delegate void UpdateDataCountCallback(object sender = null, EventArgs args = null);
 
-        public SettingForm()
+        public SettingWindow()
         {
             InitializeComponent();
-            
         }
 
-        public SettingForm(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
+        public SettingWindow(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
         {
             InitializeComponent();
 
@@ -53,20 +60,18 @@ namespace pmis
             this.registerService.ImportComplete += EnableImportRegisterDataButton;
             this.reviewInfoService.ImportComplete += EnableImportReviewDataButton;
 
-            settingLanguage.DataSource = new BindingSource(AppConfig.Languages, null);
-            settingLanguage.DisplayMember = "Value";
-            settingLanguage.ValueMember = "Key";
+            settingLanguage.ItemsSource = new BindingSource(AppConfig.Languages, null);
+            settingLanguage.DisplayMemberPath = "Value";
+            settingLanguage.SelectedValuePath = "Key";
 
-            settingDbType.DataSource = new BindingSource(AppConfig.StorageOptions, null);
-            settingDbType.DisplayMember = "Value";
-            settingDbType.ValueMember = "Key";
+            settingDbType.ItemsSource = new BindingSource(AppConfig.StorageOptions, null);
+            settingDbType.DisplayMemberPath = "Value";
+            settingDbType.SelectedValuePath = "Key";
 
             registerService.RegisterDocumentImported += LogRegisterImportedData;
             registerService.RegisterDocumentImported += UpdateDataCount;
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
             reviewInfoService.ReviewInfoImported += UpdateDataCount;
-
-            openFileDialog.InitialDirectory = AppConfig.AppDataFullPath;
 
             LanguageSupport language = new LanguageSupport();
             language.SetSettingFormLanguage(this);
@@ -78,7 +83,7 @@ namespace pmis
 
         public void LoadSettings(object sender = null, EventArgs e = null)
         {
-            productInfoLabel.Text = string.Format("{0} - Build {1}", Application.ProductName, AppConfig.ProductVersion);
+            productInfoLabel.Text = string.Format("{0} - Build {1}", System.Windows.Forms.Application.ProductName, AppConfig.AssemblyVersion);
 
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
@@ -86,6 +91,7 @@ namespace pmis
             settingDbType.SelectedValue = Properties.Settings.Default.db_type;
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
+            settingPictureFolderURI.Text = Properties.Settings.Default.picture_folder_uri;
             settingLanguage.SelectedValue = Properties.Settings.Default.language;
 
             StringBuilder strbuilder = new StringBuilder();
@@ -108,7 +114,7 @@ namespace pmis
                 strbuilder.AppendLine(opt);
             }
             docTypesTextBox.Text = strbuilder.ToString();
-            
+
         }
 
         public void SaveSettings(object sender = null, EventArgs e = null)
@@ -118,26 +124,27 @@ namespace pmis
             Properties.Settings.Default.pmis_api_url = settingPmisWsUrl.Text;
             Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
+            Properties.Settings.Default.picture_folder_uri = settingPictureFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
             Properties.Settings.Default.db_type = settingDbType.SelectedValue as string;
             Properties.Settings.Default.language = settingLanguage.SelectedValue as string;
 
             Properties.Settings.Default.register_status.Clear();
-            foreach (var line in docStatusesTextBox.Lines)
+            foreach (var line in docStatusesTextBox.Text.Lines())
             {
-                if(!String.IsNullOrEmpty(line))
+                if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_status.Add(line);
             }
 
             Properties.Settings.Default.register_discipline.Clear();
-            foreach (var line in docDisciplinesTextBox.Lines)
+            foreach (var line in docDisciplinesTextBox.Text.Lines())
             {
                 if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_discipline.Add(line);
             }
 
             Properties.Settings.Default.register_type.Clear();
-            foreach (var line in docTypesTextBox.Lines)
+            foreach (var line in docTypesTextBox.Text.Lines())
             {
                 if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_type.Add(line);
@@ -152,7 +159,7 @@ namespace pmis
         protected virtual void OnSettingChanged(EventArgs e)
         {
             EventHandler handler = SettingChanged;
-            if(handler != null)
+            if (handler != null)
             {
                 handler(this, e);
             }
@@ -160,48 +167,47 @@ namespace pmis
 
         private void LogImportMessage(string message)
         {
-            if (!importLogViewer.InvokeRequired)
+            if (importLogViewer.Dispatcher.CheckAccess())
             {
-                if (importLogViewer.Lines.Length > 10)
-                    importLogViewer.Clear();
-                importLogViewer.AppendText(message + Environment.NewLine);
+                if (importLogViewer.Text.Split('\n').Length > 10)
+                    importLogViewer.Text = "";
+                importLogViewer.Text += (message + Environment.NewLine);
             }
             else {
-                Invoke(new Action<string>(LogImportMessage), message);
+                importLogViewer.Dispatcher.Invoke(new Action<string>(LogImportMessage), message);
             }
         }
 
         private void EnableImportReviewDataButton(object sender = null, EventArgs args = null)
         {
-            if (this.importReviewDataButton.InvokeRequired)
+            if (!this.importReviewDataButton.Dispatcher.CheckAccess())
             {
                 ChangeButtonStateCallback d = EnableImportReviewDataButton;
-                this.Invoke(d, new object[] { null, null });
+                this.importReviewDataButton.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else {
-                importReviewDataButton.Enabled = true;
+                importReviewDataButton.IsEnabled = true;
             }
         }
 
         private void EnableImportRegisterDataButton(object sender, EventArgs args)
         {
-            if (this.importRegisterDataButton.InvokeRequired)
+            if (!this.importRegisterDataButton.Dispatcher.CheckAccess())
             {
                 ChangeButtonStateCallback d = EnableImportRegisterDataButton;
-                this.Invoke(d, new object[] { null, null });
+                this.importRegisterDataButton.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else {
-                importRegisterDataButton.Enabled = true;
+                importRegisterDataButton.IsEnabled = true;
             }
-            
         }
 
         private void UpdateDataCount(object sender = null, object empty = null)
         {
-            if (this.InvokeRequired)
+            if (!this.Dispatcher.CheckAccess())
             {
                 UpdateDataCountCallback d = UpdateDataCount;
-                this.Invoke(d, new object[] { null, null });
+                this.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else
             {
@@ -220,48 +226,7 @@ namespace pmis
             LogImportMessage(String.Format("Imported {0}", d.ToString()));
         }
 
-        private void importRegisterDataButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                importRegisterDataButton.Enabled = false;
-                SaveSettings();
-
-                registerService.DeleteRegisterData();
-
-                Thread oThread = new Thread(new ThreadStart(registerService.ImportFromWebService));
-                oThread.Start();
-            }
-            catch (Exception ex)
-            {
-                ex.Log().Display();
-            }
-        }
-
-        private void importReviewDataButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                importReviewDataButton.Enabled = false;
-                SaveSettings();
-
-                reviewInfoService.DeleteReviewInfo();
-
-                Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
-                oThread.Start();
-            }
-            catch(Exception ex)
-            {
-                ex.Log().Display();
-            }
-        }
-
-        private void settingsCancelButtonOnClick(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void connectSQLiteDatabaseButton_Click(object sender, EventArgs e)
+        private void connectSQLiteDatabaseButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -275,7 +240,7 @@ namespace pmis
             }
         }
 
-        private void settingsOkButtonOnClick(object sender, EventArgs e)
+        private void settingsOkButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -288,33 +253,84 @@ namespace pmis
             }
         }
 
-        private void registerLocationButton_Click(object sender, EventArgs e)
+        private void settingsCancelButton_Click(object sender, RoutedEventArgs e)
         {
-            folderBrowserDialog.ShowDialog();
-
-            if(!string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
-                settingRegisterFolderURI.Text = folderBrowserDialog.SelectedPath;
+            this.Hide();
         }
 
-        private void sqliteFileLocationButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                settingSQLiteDbLocation.Text = openFileDialog.FileName;
-            }
-        }
-
-        private void settingsResetButtonOnClick(object sender, EventArgs e)
+        private void importRegisterDataButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Properties.Settings.Default.Reset();
-                LoadSettings();
-            } catch(Exception ex)
+                importRegisterDataButton.IsEnabled = false;
+                SaveSettings();
+
+                registerService.DeleteRegisterData();
+
+                Thread oThread = new Thread(new ThreadStart(registerService.ImportFromWebService));
+                oThread.Start();
+            }
+            catch (Exception ex)
             {
                 ex.Log().Display();
             }
         }
 
+        private void importReviewDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                importReviewDataButton.IsEnabled = false;
+                SaveSettings();
+
+                reviewInfoService.DeleteReviewInfo();
+
+                Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
+                oThread.Start();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void sqliteFileLocationButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = AppConfig.AppDataFullPath;
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.FileName))
+                settingSQLiteDbLocation.Text = dialog.FileName;
+        }
+
+        private void registerFolderURIButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                settingRegisterFolderURI.Text = dialog.SelectedPath;
+        }
+
+        private void pictureFolderURIButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                settingPictureFolderURI.Text = dialog.SelectedPath;
+        }
+
+        private void settingsResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.Reset();
+                LoadSettings();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+        
     }
 }

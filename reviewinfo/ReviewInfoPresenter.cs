@@ -1,5 +1,7 @@
-﻿using System;
+﻿using pmis;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +10,11 @@ namespace pmis.reviewinfo
 {
     public class ReviewInfoPresenter
     {
-        private ArchiveMainForm _form;
+        private MainWindow _form;
         private ReviewInfoDataService _service;
         private RegisterDocumentDataService _docService;
 
-        public ReviewInfoPresenter(ArchiveMainForm form, ReviewInfoDataService service, RegisterDocumentDataService docService)
+        public ReviewInfoPresenter(MainWindow form, ReviewInfoDataService service, RegisterDocumentDataService docService)
         {
             _form = form;
             _form.OnShowRegisterDocumentInfo += ShowReviewInfoList;
@@ -26,9 +28,9 @@ namespace pmis.reviewinfo
             var docno = viewForm.Number;
             var version = viewForm.Version;
             RegisterDocument doc = _docService.LoadDocument(docno, version);
-            var dt = _service.LoadReviewInfo(doc);
+            DataTable dt = _service.LoadReviewInfo(doc);
 
-            _form.ReviewInfoList = dt;
+            _form.ReviewInfoList = dt.AsEnumerable();
 
             ShowReviewFiles(doc);
         }
