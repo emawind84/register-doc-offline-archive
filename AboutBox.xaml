@@ -8,10 +8,10 @@
         Title="About PMIS - Offline Archive" Height="373" Width="467" ResizeMode="NoResize">
     <Grid Margin="0,0,0,6">
         <Image x:Name="image" Margin="10,0,23,48" Source="resources/sangah-logo-2.png" Height="128" VerticalAlignment="Bottom"/>
-        <Label x:Name="labelProductName" Content="Product Name" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelVersion" Content="Version" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelCopyright" Content="Copyright" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelCompanyName" Content="Company Name" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelProductName" Content="Product Name" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
+        <Label x:Name="labelVersion" Content="Version" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
+        <Label x:Name="labelCopyright" Content="Copyright" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
+        <Label x:Name="labelCompanyName" Content="Company Name" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
         <Button x:Name="button" Content="OK" Margin="0,0,10,10" Click="button_Click" HorizontalAlignment="Right" Width="75" Height="22" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

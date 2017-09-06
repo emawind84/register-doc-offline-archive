@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="SplashWindow" Height="125.59" Width="316.801" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderThickness="2" BorderBrush="#FF818181" Foreground="#FF818181">
+        Title="SplashWindow" Height="159.59" Width="316.801" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderThickness="2" BorderBrush="#FF818181" Foreground="#FF818181">
     <Grid>
         <Image x:Name="image" Height="93" VerticalAlignment="Top" Source="resources/kspmis_logo.png"/>
-        <Label x:Name="productInfoLabel" Content="Version" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Separator HorizontalAlignment="Left" Height="24" Margin="0,82,0,0" VerticalAlignment="Top" Width="313"/>
+        <Label x:Name="productInfoLabel" Content="Version" HorizontalAlignment="Left" Margin="10,0,0,3" FontWeight="Bold" Foreground="#FF686868" Height="26" VerticalAlignment="Bottom"/>
+        <Separator HorizontalAlignment="Left" Margin="0,0,0,18" Width="313" Height="24" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="46,92,0,0" TextWrapping="Wrap" Text="PMIS" VerticalAlignment="Top" FontSize="24" FontFamily="Century Gothic" Foreground="#FF444444" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="105,95,0,0" TextWrapping="Wrap" Text="Offline Archive" VerticalAlignment="Top" FontSize="21.333" FontFamily="Century Gothic" Foreground="#FF444444"/>
 
     </Grid>
 </Window>

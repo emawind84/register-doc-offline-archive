@@ -90,7 +90,10 @@ namespace pmis
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
 
-        public string SearchCriteriaRegisteredBy { get { return srchRegisteredBy.Text; } }
+        public string SearchCriteriaRegisteredBy {
+            get { return srchRegisteredBy.Text; }
+            set { srchRegisteredBy.Text = value; }
+        }
 
         public ImageSource ImageBox
         {
@@ -387,6 +390,7 @@ namespace pmis
             SearchCriteriaType = "";
             SearchCriteriaDocNumber = "";
             SearchCriteriaTitle = "";
+            SearchCriteriaRegisteredBy = "";
         }
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
