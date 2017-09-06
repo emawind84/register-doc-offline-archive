@@ -14,8 +14,8 @@ namespace pmis.i18n
         
         public void SetMainFromLanguage(MainWindow _form)
         {
-            //_form.registerTabPage.Text = AppConfig.i18n.Get("register");
-            //_form.searchClearButton.Text = AppConfig.i18n.Get("clear");
+            _form.registerTabPage.Header = AppConfig.i18n.Get("register");
+            _form.searchClearButton.Content = AppConfig.i18n.Get("clear");
             //_form.label9.Text = AppConfig.i18n.Get("docdiscipline");
             //_form.label17.Text = AppConfig.i18n.Get("docstatus");
             //_form.label15.Text = AppConfig.i18n.Get("doctype");

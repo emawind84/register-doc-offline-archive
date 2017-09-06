@@ -83,7 +83,7 @@ namespace pmis
 
         public void LoadSettings(object sender = null, EventArgs e = null)
         {
-            productInfoLabel.Text = string.Format("{0} - Build {1}", System.Windows.Forms.Application.ProductName, AppConfig.ProductVersion);
+            productInfoLabel.Text = string.Format("{0} - Build {1}", System.Windows.Forms.Application.ProductName, AppConfig.AssemblyVersion);
 
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
@@ -130,21 +130,21 @@ namespace pmis
             Properties.Settings.Default.language = settingLanguage.SelectedValue as string;
 
             Properties.Settings.Default.register_status.Clear();
-            foreach (var line in docStatusesTextBox.Text.Split('\n'))
+            foreach (var line in docStatusesTextBox.Text.Lines())
             {
                 if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_status.Add(line);
             }
 
             Properties.Settings.Default.register_discipline.Clear();
-            foreach (var line in docDisciplinesTextBox.Text.Split('\n'))
+            foreach (var line in docDisciplinesTextBox.Text.Lines())
             {
                 if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_discipline.Add(line);
             }
 
             Properties.Settings.Default.register_type.Clear();
-            foreach (var line in docTypesTextBox.Text.Split('\n'))
+            foreach (var line in docTypesTextBox.Text.Lines())
             {
                 if (!String.IsNullOrEmpty(line))
                     Properties.Settings.Default.register_type.Add(line);
@@ -331,5 +331,6 @@ namespace pmis
                 ex.Log().Display();
             }
         }
+        
     }
 }

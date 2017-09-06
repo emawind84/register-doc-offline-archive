@@ -29,17 +29,17 @@
                             <TabControl x:Name="tabControl1"  >
                                 <TabItem Header="Type items">
                                     <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docTypesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                        <TextBox x:Name="docTypesTextBox" TextWrapping="Wrap" Text="TextBox" AcceptsReturn="True" />
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Discipline items">
                                     <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docDisciplinesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                        <TextBox x:Name="docDisciplinesTextBox" TextWrapping="Wrap" Text="TextBox" AcceptsReturn="True"/>
                                     </Grid>
                                 </TabItem>
                                 <TabItem Header="Status items">
                                     <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docStatusesTextBox" TextWrapping="Wrap" Text="TextBox"/>
+                                        <TextBox x:Name="docStatusesTextBox" TextWrapping="Wrap" Text="TextBox" AcceptsReturn="True"/>
                                     </Grid>
                                 </TabItem>
                             </TabControl>

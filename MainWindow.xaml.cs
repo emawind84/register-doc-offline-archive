@@ -37,6 +37,7 @@ namespace pmis
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private BindingSource pictureFilesBS;
+        private Window aboutForm;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
 
@@ -135,8 +136,6 @@ namespace pmis
 
         public MainWindow()
         {
-            //SplashForm.ShowSplash();
-
             // configure user folder in appdata
             try
             {
@@ -202,7 +201,7 @@ namespace pmis
             settingForm.SettingChanged += LoadSearchOptions;
             settingForm.SettingChanged += LoadPictureViewer;
 
-            //aboutForm = new AboutBox();
+            aboutForm = new AboutBox();
 
             LanguageSupport i18n = new LanguageSupport();
             i18n.SetMainFromLanguage(this);
@@ -390,7 +389,7 @@ namespace pmis
             SearchCriteriaTitle = "";
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void settingMenuItem_Click(object sender, RoutedEventArgs e)
         {
             settingForm.Show();
         }
@@ -491,6 +490,23 @@ namespace pmis
             {
                 ex.Log().Display();
             }
+        }
+
+        private void closeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            aboutForm.Show();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
