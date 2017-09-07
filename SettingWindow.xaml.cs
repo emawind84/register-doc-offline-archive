@@ -170,7 +170,7 @@ namespace pmis
         {
             if (importLogViewer.Dispatcher.CheckAccess())
             {
-                if (importLogViewer.Text.Split('\n').Length > 10)
+                if (importLogViewer.Text.Lines().Length > 10)
                     importLogViewer.Text = "";
                 importLogViewer.Text += (message + Environment.NewLine);
             }

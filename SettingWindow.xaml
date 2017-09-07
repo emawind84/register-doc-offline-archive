@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="Archive Settings" Height="513" Width="786.249" ResizeMode="NoResize" Icon="resources/sangah_logo_16.ico" Topmost="True" WindowStartupLocation="CenterOwner">
+        Title="Archive Settings" Height="513" Width="786.249" ResizeMode="NoResize" Icon="resources/sangah_logo_16.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl x:Name="tabControl" Margin="0,0,0,55">
             <TabItem Header="General Settings">
@@ -92,16 +92,18 @@
                             <Button x:Name="importReviewDataButton" Content="Import Review Data" HorizontalAlignment="Left" Margin="146,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importReviewDataButton_Click"/>
                             <GroupBox x:Name="groupBox5" Header="Data Stats" Height="89" Margin="558,10,10,0" VerticalAlignment="Top">
                                 <Grid >
-                                    <Label x:Name="label3" Content="Review #" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top"/>
-                                    <Label x:Name="label3_Copy" Content="Document #" HorizontalAlignment="Left" Margin="20,36,0,0" VerticalAlignment="Top"/>
-                                    <TextBlock x:Name="settingsReviewCount" HorizontalAlignment="Left" Margin="112,15,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
-                                    <TextBlock x:Name="settingsDocumentCount" HorizontalAlignment="Left" Margin="112,41,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
+                                    <Label x:Name="label3" Content="Review #" HorizontalAlignment="Left" Margin="39,7,0,0" VerticalAlignment="Top"/>
+                                    <Label x:Name="label3_Copy" Content="Document #" HorizontalAlignment="Left" Margin="20,33,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="settingsReviewCount" HorizontalAlignment="Left" Margin="112,12,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="settingsDocumentCount" HorizontalAlignment="Left" Margin="112,38,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top"/>
                                 </Grid>
                             </GroupBox>
                             <Label x:Name="label4" Content="API Url" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                             <Label x:Name="label4_Copy" Content="Project Code" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
                             <Label x:Name="label4_Copy1" Content="Authentication Key" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
-                            <TextBlock x:Name="importLogViewer" Margin="10,218,10,10" TextWrapping="Wrap"/>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10,218,10,10">
+                                <TextBlock x:Name="importLogViewer" TextWrapping="Wrap" Background="#FFF9F9F9"/>
+                            </Border>
                         </Grid>
                     </GroupBox>
 
