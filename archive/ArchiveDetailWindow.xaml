@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis.archive"
         mc:Ignorable="d"
-        Title="Archive Detail" Height="577" Width="650.704">
+        Title="Archive Detail" Height="577" Width="650.704" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock x:Name="archiveDescriptionTextBlock" HorizontalAlignment="Left" Margin="96,44,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock x:Name="archiveTypeTextBlock" HorizontalAlignment="Left" Margin="96,15,0,0" TextWrapping="Wrap" Text="Archive Type" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -23,9 +23,9 @@
                 <DataGridTextColumn Binding="{Binding Value}" ClipboardContentBinding="{x:Null}" Header="Value" Width="0.7*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="label1" Content="Archive Type" Margin="0,10,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
-        <Label x:Name="label1_Copy" Content="Description" Margin="0,39,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
-        <Label x:Name="label1_Copy1" Content="Created" Margin="0,66,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
+        <Label x:Name="label1" Content="Archive Type" Margin="13,10,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left"/>
+        <Label x:Name="label1_Copy" Content="Description" Margin="21,39,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left"/>
+        <Label x:Name="label1_Copy1" Content="Created" Margin="40,66,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Left"/>
 
     </Grid>
 </Window>
