@@ -1,0 +1,31 @@
+﻿<Window x:Class="pmis.archive.ArchiveDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pmis.archive"
+        mc:Ignorable="d"
+        Title="Archive Detail" Height="577" Width="650.704">
+    <Grid>
+        <TextBlock x:Name="archiveDescriptionTextBlock" HorizontalAlignment="Left" Margin="96,44,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="archiveTypeTextBlock" HorizontalAlignment="Left" Margin="96,15,0,0" TextWrapping="Wrap" Text="Archive Type" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock x:Name="archiveCreatedTextBlock" HorizontalAlignment="Left" Margin="96,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"><Run Text="2017-09-12 12"/><Run Text=":"/><Run Text="23"/><Run Text=":"/><Run Text="44"/></TextBlock>
+        <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="137" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
+                <DataGridTextColumn Binding="{Binding finish, TargetNullValue=EMPTY}" ClipboardContentBinding="{x:Null}" Header="#" Width="100" CanUserSort="False"  />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="metaDataDataGrid" Margin="10,112,10,152" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" HeadersVisibility="Column" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Key}" ClipboardContentBinding="{x:Null}" Header="Data" Width="0.3*"/>
+                <DataGridTextColumn Binding="{Binding Value}" ClipboardContentBinding="{x:Null}" Header="Value" Width="0.7*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label1" Content="Archive Type" Margin="0,10,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
+        <Label x:Name="label1_Copy" Content="Description" Margin="0,39,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
+        <Label x:Name="label1_Copy1" Content="Created" Margin="0,66,552,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right"/>
+
+    </Grid>
+</Window>

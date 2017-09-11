@@ -104,6 +104,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="archive\Archive.cs" />
+    <Compile Include="archive\ArchiveDetailWindow.xaml.cs">
+      <DependentUpon>ArchiveDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="archive\ArchiveDetailView.cs" />
+    <Compile Include="archive\ArchivePresenter.cs" />
+    <Compile Include="archive\IArchiveDataDao.cs" />
+    <Compile Include="archive\ArchiveDataService.cs" />
     <Compile Include="i18n\en_US.Designer.cs" />
     <Compile Include="i18n\ko_KR.Designer.cs" />
     <Compile Include="i18n\LanguageSupport.cs" />
@@ -130,6 +138,10 @@
       <DependentUpon>AboutBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringExtension.cs" />
+    <Page Include="archive\ArchiveDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,6 +189,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="archive\archive.import.sqlite.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="archive\archive.load.sqlite.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="i18n\en_US.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,4 +1,5 @@
 ﻿using pmis;
+using pmis.archive;
 using pmis.i18n;
 using pmis.register;
 using pmis.reviewinfo;
@@ -29,19 +30,18 @@ namespace pmis
     {
         private SettingWindow settingForm;
         private IDbConnection daoService;
-        private RegisterDocumentDataService registerDocumentDataService;
-        private RegisterDocumentPresenter registerDocumentPresenter;
         private RegisterDocumentDetailView registerDocumentDetailView;
-        private ReviewInfoPresenter reviewInfoPresenter;
-        private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private Window aboutForm;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
+        private ArchiveDataService archiveDataService;
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
+        public event EventHandler OnShowArchiveList;
+        public event EventHandler OnShowArchiveInfo;
 
         public RegisterDocumentDetailView RegisterDocumentDetailView
         {
@@ -107,6 +107,11 @@ namespace pmis
             set { registerDataGridView.ItemsSource = value; }
         }
 
+        public IEnumerable ArchiveList
+        {
+            set { archiveDataGridView.ItemsSource = value; }
+        }
+
         public IEnumerable ReviewInfoList
         {
             set { reviewDataGridView.ItemsSource = value; }
@@ -165,16 +170,21 @@ namespace pmis
                 return;
             }
 
-            registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
-            registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+            RegisterDocumentDataService registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
+            RegisterDocumentPresenter registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
             registerDocumentDetailView = new RegisterDocumentDetailView(this);
             registerDataGridView.CanUserAddRows = false;
             registerDataGridView.AutoGenerateColumns = false;
 
-            reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
-            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
+            ReviewInfoDataService reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
+            ReviewInfoPresenter reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
             reviewDataGridView.AutoGenerateColumns = false;
             reviewDataGridView.CanUserAddRows = false;
+
+            archiveDataService = new ArchiveDataService(daoService as IArchiveDataDao);
+            ArchivePresenter archivePresenter = new ArchivePresenter(this, archiveDataService);
+            archiveDataGridView.AutoGenerateColumns = false;
+            archiveDataGridView.CanUserAddRows = false;
 
             reviewFilesBS = new BindingSource();
             reviewFilesBS.DataSource = new List<RegisterFile>();
@@ -195,13 +205,15 @@ namespace pmis
 
             settingForm = new SettingWindow(
                 registerDocumentDataService,
-                reviewInfoDataService);
+                reviewInfoDataService,
+                archiveDataService);
 
             // adding sqlite module to setting form
             settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
             settingForm.SettingChanged += LoadSearchOptions;
             settingForm.SettingChanged += LoadPictureViewer;
+            settingForm.SettingChanged += ShowArchiveList;
 
             aboutForm = new AboutBox();
 
@@ -218,6 +230,8 @@ namespace pmis
 
                 // load picture viewer
                 LoadPictureViewer();
+
+                ShowArchiveList();
             }
             catch (Exception ex)
             {
@@ -273,6 +287,19 @@ namespace pmis
             {
                 if (OnShowRegisterDocumentList != null)
                     OnShowRegisterDocumentList(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void ShowArchiveList(object sender=null, EventArgs e=null)
+        {
+            try
+            {
+                if (OnShowArchiveList != null)
+                    OnShowArchiveList(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -522,6 +549,36 @@ namespace pmis
             {
                 var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
                 if (null != row) yield return row;
+            }
+        }
+
+        private void archiveDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
+                    if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                    {
+                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                        DataRow dr = dgr.Item as DataRow;
+
+                        ArchiveDetailWindow w = new ArchiveDetailWindow(archiveDataService, (string)dr["id"]);
+                        w.Show();
+
+                        if (OnShowArchiveInfo != null)
+                        {
+                            OnShowArchiveInfo(this, EventArgs.Empty);
+                        }
+                    }
+                }
+
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
             }
         }
     }

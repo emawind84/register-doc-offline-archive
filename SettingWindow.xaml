@@ -89,7 +89,7 @@
                             <TextBox x:Name="settingPmisWsAuthKey" HorizontalAlignment="Left" Height="23" Margin="10,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
                             <TextBox x:Name="settingPmisWsProjectCode" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282"/>
                             <Button x:Name="importRegisterDataButton" Content="Import Register Data" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importRegisterDataButton_Click"/>
-                            <Button x:Name="importReviewDataButton" Content="Import Review Data" HorizontalAlignment="Left" Margin="146,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importReviewDataButton_Click"/>
+                            <Button x:Name="importReviewDataButton" Content="Import Review Data" HorizontalAlignment="Left" Margin="137,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importReviewDataButton_Click"/>
                             <GroupBox x:Name="groupBox5" Header="Data Stats" Height="89" Margin="558,10,10,0" VerticalAlignment="Top">
                                 <Grid >
                                     <Label x:Name="label3" Content="Review #" HorizontalAlignment="Left" Margin="39,7,0,0" VerticalAlignment="Top"/>
@@ -104,6 +104,7 @@
                             <Border BorderBrush="Black" BorderThickness="1" Margin="10,218,10,10">
                                 <TextBlock x:Name="importLogViewer" TextWrapping="Wrap" Background="#FFF9F9F9"/>
                             </Border>
+                            <Button x:Name="importArchiveDataButton" Content="Import Archive Data" HorizontalAlignment="Left" Margin="258,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importArchiveDataButton_Click"/>
                         </Grid>
                     </GroupBox>
 
