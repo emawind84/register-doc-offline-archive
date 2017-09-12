@@ -202,14 +202,14 @@ namespace pmis
 
             settingForm.SettingChanged += LoadSearchOptions;
             settingForm.SettingChanged += LoadPictureViewer;
+            settingForm.SettingChanged += LoadLanguage;
 
             aboutForm = new AboutBox();
-
-            LanguageSupport i18n = new LanguageSupport();
-            i18n.SetMainFromLanguage(this);
-
+            
             try
             {
+                LoadLanguage();
+
                 // load search options
                 LoadSearchOptions();
 
@@ -225,6 +225,12 @@ namespace pmis
                 return;
             }
 
+        }
+
+        private void LoadLanguage(object sender=null, EventArgs args=null)
+        {
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetMainFromLanguage(this);
         }
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)

@@ -74,12 +74,25 @@ namespace pmis
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
             reviewInfoService.ReviewInfoImported += UpdateDataCount;
 
-            LanguageSupport language = new LanguageSupport();
-            language.SetSettingFormLanguage(this);
+            try
+            {
+                LoadLanguage();
 
-            LoadSettings();
+                LoadSettings();
 
-            UpdateDataCount();
+                UpdateDataCount();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+                return;
+            }
+        }
+
+        private void LoadLanguage(object sender = null, EventArgs args = null)
+        {
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetSettingFormLanguage(this);
         }
 
         public void LoadSettings(object sender = null, EventArgs e = null)
