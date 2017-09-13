@@ -255,4 +255,7 @@
   <data name="picture_viewer" xml:space="preserve">
     <value>Picture Viewer</value>
   </data>
+  <data name="document" xml:space="preserve">
+    <value>Document</value>
+  </data>
 </root>

@@ -39,12 +39,12 @@ namespace pmis
             {
                 this.sqliteDaoService = value;
                 this.sqliteDaoService.DatabaseInitialized += UpdateDataCount;
+                this.sqliteDaoService.DatabaseInitialized += UpdateDBInfo;
             }
         }
 
-        delegate void ChangeButtonStateCallback(object sender = null, EventArgs args = null);
         delegate void ChangeErrorMessage(object sender, ErrorEventArgs args);
-        delegate void UpdateDataCountCallback(object sender = null, EventArgs args = null);
+        delegate void EventCallback(object sender = null, EventArgs args = null);
 
         public SettingWindow()
         {
@@ -129,6 +129,7 @@ namespace pmis
             }
             docTypesTextBox.Text = strbuilder.ToString();
 
+            UpdateDBInfo();
         }
 
         public void SaveSettings(object sender = null, EventArgs e = null)
@@ -196,7 +197,7 @@ namespace pmis
         {
             if (!this.importReviewDataButton.Dispatcher.CheckAccess())
             {
-                ChangeButtonStateCallback d = EnableImportReviewDataButton;
+                EventCallback d = EnableImportReviewDataButton;
                 this.importReviewDataButton.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else {
@@ -208,7 +209,7 @@ namespace pmis
         {
             if (!this.importRegisterDataButton.Dispatcher.CheckAccess())
             {
-                ChangeButtonStateCallback d = EnableImportRegisterDataButton;
+                EventCallback d = EnableImportRegisterDataButton;
                 this.importRegisterDataButton.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else {
@@ -220,13 +221,31 @@ namespace pmis
         {
             if (!this.Dispatcher.CheckAccess())
             {
-                UpdateDataCountCallback d = UpdateDataCount;
+                EventCallback d = UpdateDataCount;
                 this.Dispatcher.Invoke(d, new object[] { null, null });
             }
             else
             {
                 this.settingsDocumentCount.Text = registerService.LoadRegisterCount().ToString();
                 this.settingsReviewCount.Text = reviewInfoService.LoadReviewCount().ToString();
+            }
+        }
+
+        private void UpdateDBInfo(object sender=null, object empty=null)
+        {
+            if (!this.Dispatcher.CheckAccess())
+            {
+                EventCallback d = UpdateDBInfo;
+                this.Dispatcher.Invoke(d, new object[] { null, null });
+            }
+            else
+            {
+                if(sqliteDaoService != null && sqliteDaoService.IsOpen()){
+                    settingDBConnectionInfo.Text = String.Format("Connected to {0}.", sqliteDaoService.DatabaseFilePath);
+                } else
+                {
+                    settingDBConnectionInfo.Text = String.Format("Not connected.");
+                }
             }
         }
 
@@ -351,6 +370,13 @@ namespace pmis
             //base.OnClosing(e);
             this.Hide();
             e.Cancel = true;
+        }
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+
+            LoadSettings();
         }
 
     }

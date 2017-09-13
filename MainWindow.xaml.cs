@@ -138,18 +138,6 @@ namespace pmis
 
         public MainWindow()
         {
-            // configure user folder in appdata
-            try
-            {
-                AppConfig.InitConfig();
-            }
-            catch (Exception e)
-            {
-                new ApplicationException("Application didn't start correctly, please check the log.", e)
-                    .Log()
-                    .Display();
-            }
-
             InitializeComponent();
 
             daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
@@ -495,7 +483,10 @@ namespace pmis
         {
             try
             {
-                picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
+                if(pictureFolderListBox.SelectedValue != null)
+                {
+                    picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
+                }
             }
             catch (Exception ex)
             {

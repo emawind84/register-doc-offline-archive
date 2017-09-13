@@ -255,4 +255,7 @@
   <data name="picture_viewer" xml:space="preserve">
     <value>사진 뷰어</value>
   </data>
+  <data name="document" xml:space="preserve">
+    <value>문서/자료</value>
+  </data>
 </root>
