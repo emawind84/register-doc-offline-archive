@@ -226,8 +226,8 @@ namespace pmis
             if (criteria.ContainsKey("top_version"))
                 sql += " AND doc_current = 1 ";
 
-            sql += "order by upper(docno)";
-            sql += "limit 200";
+            sql += " order by upper(docno) ";
+            //sql += " limit 200 ";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))

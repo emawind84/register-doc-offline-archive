@@ -24,7 +24,7 @@ namespace pmis
         {
             InitializeComponent();
 
-            productInfoLabel.Content = string.Format("{0} - Build {1}", AppConfig.AssemblyProduct, AppConfig.AssemblyVersion);
+            productInfoLabel.Content = string.Format("{0} - {1}", AppConfig.AssemblyProduct, AppConfig.AssemblyVersion);
         }
 
 

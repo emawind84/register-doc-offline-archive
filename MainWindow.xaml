@@ -10,12 +10,12 @@
         <TabControl x:Name="tabControl1" Margin="10,31,10,10">
             <TabItem x:Name="registerTabPage" Header="Register">
                 <Grid Background="White">
-                    <Grid Margin="0,0,0,390" HorizontalAlignment="Left" Width="731">
+                    <Grid Margin="0,0,0,390" HorizontalAlignment="Left" Width="862">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="133*"/>
-                            <ColumnDefinition Width="192*"/>
-                            <ColumnDefinition Width="144*"/>
-                            <ColumnDefinition Width="248*"/>
+                            <ColumnDefinition Width="133"/>
+                            <ColumnDefinition Width="192"/>
+                            <ColumnDefinition Width="144"/>
+                            <ColumnDefinition Width="248"/>
                             <ColumnDefinition Width="14*"/>
                         </Grid.ColumnDefinitions>
                         <Label x:Name="searchDocNumberLabel" Content="Document Number" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,3,0" HorizontalContentAlignment="Right"/>
@@ -36,6 +36,8 @@
                         <DatePicker x:Name="srchToDate" Margin="89,97,1,0" VerticalAlignment="Top" RenderTransformOrigin="2.216,0.833" Grid.Column="1"/>
                         <Label x:Name="searchHistoryLabel" Content="History" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="96,96,0,0" Grid.Column="2" HorizontalContentAlignment="Right"/>
                         <ComboBox x:Name="srchHistory" Margin="5,97,10,0" VerticalAlignment="Top" Grid.Column="3"/>
+                        <Button x:Name="searchButton" Content="Search" Margin="18.2,55,0,0" Click="searchButton_Click" Background="#FFDDDDDD" BorderBrush="Gray" Grid.Column="4" HorizontalAlignment="Left" Width="104" Height="36" VerticalAlignment="Top"/>
+                        <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
                     </Grid>
                     <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="30" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
                         <DataGrid.Columns>
@@ -53,8 +55,6 @@
                             <DataGridTextColumn x:Name="doclist_status" Binding="{Binding [doc_status]}" ClipboardContentBinding="{x:Null}" Header="Status" Width="100"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Margin="736,59,0,0" VerticalAlignment="Top" Width="104" Height="33" Click="searchButton_Click" Background="#FFDDDDDD" BorderBrush="Gray"/>
-                    <Button x:Name="searchClearButton" Content="Clear" HorizontalAlignment="Left" Margin="736,97,0,0" VerticalAlignment="Top" Width="75" Click="searchClearButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="detailTabPage" Header="Detail">
@@ -116,12 +116,13 @@
             <TabItem x:Name="reviewDetailTabPage" Header="Review Detail">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="117*"/>
-                        <ColumnDefinition Width="908*"/>
+                        <ColumnDefinition Width="124"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="docReviewStatusLabel" Content="Review Outcome" Margin="13,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
-                    <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="5,16,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
-                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10,159" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" Grid.ColumnSpan="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+                    <Label x:Name="docReviewStatusLabel" Content="Review Outcome" Margin="18,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalContentAlignment="Right" HorizontalAlignment="Right" 
+                           Height="26"/>
+                    <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="5,16,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" />
+                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10.2,159" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" Grid.ColumnSpan="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="reviewDataGridViewReviewDate" Binding="{Binding [review_date]}" ClipboardContentBinding="{x:Null}" Header="Reviewed" Width="100"/>
                             <DataGridTextColumn x:Name="reviewDataGridViewReviewedBy" Binding="{Binding [reviewed_by]}" ClipboardContentBinding="{x:Null}" Header="Reviewed By" Width="0.6*"/>
@@ -129,7 +130,7 @@
                             <DataGridTextColumn x:Name="reviewDataGridViewReviewNote" Binding="{Binding [review_note]}" ClipboardContentBinding="{x:Null}" Header="Comment" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10,10" Height="144" VerticalAlignment="Bottom" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" MouseUp="fileManagerDataGridView_MouseUp" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" Grid.ColumnSpan="2" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+                    <DataGrid x:Name="reviewFileDataGrid" Margin="10,0,10.2,10" Height="144" VerticalAlignment="Bottom" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" MouseUp="fileManagerDataGridView_MouseUp" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" Grid.ColumnSpan="2" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="reviewFileDataGridFilename" Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
                             <DataGridTextColumn x:Name="reviewFileDataGridFilesize" Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
@@ -153,9 +154,6 @@
                         <ColumnDefinition Width="714*"/>
                     </Grid.ColumnDefinitions>
                     <ListBox x:Name="pictureFolderListBox" Margin="10,10,10,214" SelectionChanged="pictureFolderListBox_SelectionChanged" Padding="0,2"/>
-                    <Image x:Name="pictureBox1" Margin="10,10,10,37" Grid.Column="1">
-
-                    </Image>
                     <DataGrid x:Name="pictureGridView" Margin="10,0,10,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="pictureDataGridViewFileName" Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
@@ -165,6 +163,9 @@
                     </DataGrid>
                     <Button x:Name="picturePreviousButton" Content="&lt; Previous" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="22" VerticalAlignment="Bottom" Click="picturePreviousButtonOnClick"/>
                     <Button x:Name="pictureNextButton" Content="Next &gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="90,0,0,10" Width="75" Click="pictureNextButtonOnClick" Height="22" VerticalAlignment="Bottom"/>
+                    <Border BorderBrush="#FF767676" BorderThickness="1" Grid.Column="1" Margin="0.2,10,10.2,37">
+                        <Image x:Name="pictureBox1" Margin="-0.8,0.2,-0.6,-1"/>
+                    </Border>
 
                 </Grid>
             </TabItem>
@@ -175,7 +176,7 @@
                 <Separator />
                 <MenuItem Header="_Exit" Click="closeMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="_Help">
+            <MenuItem Header="_Help" Height="21">
                 <MenuItem Header="_About" Click="MenuItem_Click" />
             </MenuItem>
         </Menu>

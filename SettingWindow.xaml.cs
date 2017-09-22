@@ -97,7 +97,7 @@ namespace pmis
 
         public void LoadSettings(object sender = null, EventArgs e = null)
         {
-            productInfoLabel.Text = string.Format("{0} - Build {1}", System.Windows.Forms.Application.ProductName, AppConfig.AssemblyVersion);
+            productInfoLabel.Text = string.Format("{0} - {1}", System.Windows.Forms.Application.ProductName, AppConfig.AssemblyVersion);
 
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;

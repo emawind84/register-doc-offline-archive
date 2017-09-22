@@ -65,9 +65,19 @@ namespace pmis
             set { srchTitle.Text = value; }
         }
 
-        public string SearchCriteriaFromDate { get { return srchFromDate.Text; } }
+        public DateTime? SearchCriteriaFromDate {
+            get {
+                return srchFromDate.SelectedDate;
+            }
+            set { srchFromDate.SelectedDate = value; }
+        }
 
-        public string SearchCriteriaToDate { get { return srchToDate.Text; } }
+        public DateTime? SearchCriteriaToDate {
+            get {
+                return srchToDate.SelectedDate;
+            }
+            set { srchToDate.SelectedDate = value; }
+        }
 
         public string SearchCriteriaStatus
         {
@@ -384,6 +394,8 @@ namespace pmis
             SearchCriteriaDocNumber = "";
             SearchCriteriaTitle = "";
             SearchCriteriaRegisteredBy = "";
+            SearchCriteriaFromDate = null;
+            SearchCriteriaToDate = null;
         }
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
@@ -466,7 +478,7 @@ namespace pmis
 
         private void SelectPictureFileOnSelection(object sender, RegisterFile file)
         {
-            var rows = GetDataGridRows(pictureGridView);
+            var rows = AppUtil.GetDataGridRows(pictureGridView);
             foreach (var row in rows)
             {
                 var _t = row.Item as RegisterFile;
@@ -511,15 +523,5 @@ namespace pmis
             System.Windows.Application.Current.Shutdown();
         }
 
-        public IEnumerable<DataGridRow> GetDataGridRows(System.Windows.Controls.DataGrid grid)
-        {
-            var itemsSource = grid.ItemsSource as IEnumerable;
-            if (null == itemsSource) yield return null;
-            foreach (var item in itemsSource)
-            {
-                var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-                if (null != row) yield return row;
-            }
-        }
     }
 }
