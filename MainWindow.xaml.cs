@@ -548,5 +548,18 @@ namespace pmis
                 ex.Log().Display();
             }
         }
+
+        private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.Source is System.Windows.Controls.TabControl)
+            {
+                var tabc = e.Source as System.Windows.Controls.TabControl;
+                var tabItem = tabc.SelectedItem as TabItem;
+                if (tabItem.Name == "")
+                {
+
+                }
+            }
+        }
     }
 }

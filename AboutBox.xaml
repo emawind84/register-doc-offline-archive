@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="About PMIS - Offline Archive" Height="373" Width="467" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="resources/sangah_logo_16.ico">
+        Title="About PMIS - Offline Archive" Height="415.972" Width="535.756" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="resources/sangah_logo_16.ico">
     <Grid Margin="0,0,0,6">
-        <Image x:Name="image" Margin="10,0,23,48" Source="resources/sangah-logo-2.png" Height="128" VerticalAlignment="Bottom"/>
+        <Image x:Name="image" Margin="10,0,22.6,112.4" Source="resources/sangah-logo-2.png" Height="128" VerticalAlignment="Bottom"/>
         <Label x:Name="labelProductName" Content="Product Name" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
         <Label x:Name="labelVersion" Content="Version" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
         <Label x:Name="labelCopyright" Content="Copyright" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
         <Label x:Name="labelCompanyName" Content="Company Name" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF595959"/>
         <Button x:Name="button" Content="OK" Margin="0,0,10,10" Click="button_Click" HorizontalAlignment="Right" Width="75" Height="22" VerticalAlignment="Bottom"/>
+        <Border BorderBrush="DimGray" BorderThickness="1" Margin="10,0,9.6,36.4" Height="63" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Padding="5,0" Foreground="DimGray"  >
+                Icons by Icons Solid / https://www.iconfinder.com/mrpixel free to use for commercial use.
+            </TextBlock>
+
+        </Border>
     </Grid>
 </Window>
