@@ -104,6 +104,10 @@ namespace pmis
             set { srchRegisteredBy.Text = value; }
         }
 
+        public string SearchCriteriaArchiveFullSearch { get { return archiveFullSearchValue.Text;  } }
+
+        public string SearchCriteriaArchiveFilterType { get { return archiveFilterTypeCombo.Text; } }
+
         public ImageSource ImageBox
         {
             set
@@ -261,6 +265,11 @@ namespace pmis
             types[0] = "";
             Properties.Settings.Default.register_type.CopyTo(types, 1);
             srchType.ItemsSource = types;
+
+            string[] archiveTypes = new string[Properties.Settings.Default.archive_types.Count + 1];
+            archiveTypes[0] = "";
+            Properties.Settings.Default.archive_types.CopyTo(archiveTypes, 1);
+            archiveFilterTypeCombo.ItemsSource = archiveTypes;
         }
 
         private void LoadPictureViewer(object sender = null, EventArgs args = null)
@@ -302,8 +311,7 @@ namespace pmis
         {
             try
             {
-                if (OnShowArchiveList != null)
-                    OnShowArchiveList(this, EventArgs.Empty);
+                OnShowArchiveList?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -522,6 +530,18 @@ namespace pmis
                 }
 
                 e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void archiveSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ShowArchiveList();
             }
             catch (Exception ex)
             {

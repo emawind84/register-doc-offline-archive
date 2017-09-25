@@ -345,5 +345,16 @@
     <Setting Name="picture_folder_uri" Type="System.String" Scope="User">
       <Value Profile="(Default)">pictures</Value>
     </Setting>
+    <Setting Name="archive_types" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;Workflow&lt;/string&gt;
+  &lt;string&gt;Picture&lt;/string&gt;
+  &lt;string&gt;Issue&lt;/string&gt;
+  &lt;string&gt;Risk&lt;/string&gt;
+  &lt;string&gt;Contract&lt;/string&gt;
+  &lt;string&gt;Register&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

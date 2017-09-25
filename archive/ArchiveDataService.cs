@@ -51,9 +51,28 @@ namespace pmis.archive
             }
         }
 
-        public List<RegisterFile> LoadArchiveFiles(Archive archive)
+        public IEnumerable<RegisterFile> LoadArchiveFiles(Archive archive)
         {
-            return null;
+            string registerURI = Properties.Settings.Default.register_folder_uri;
+            registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
+
+            string targetDirectory = registerURI + "/" + RegisterFile.SanitizeName(archive.Id);
+            string[] files = new string[0];
+            try
+            {
+                LogUtil.Log(String.Format("Looking for files... {0}", targetDirectory));
+                files = Directory.GetFiles(targetDirectory);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                e.Log();
+            }
+
+            foreach (string fileName in files)
+            {
+                var regfile = new RegisterFile(fileName);
+                yield return regfile;
+            }
         }
 
         public void DeleteArchive()

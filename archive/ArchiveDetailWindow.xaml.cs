@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pmis.i18n;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,11 +33,21 @@ namespace pmis.archive
         {
             InitializeComponent();
 
-            ArchiveDetailView = new ArchiveDetailView(this);
+            try
+            {
+                ArchiveDetailView = new ArchiveDetailView(this);
 
-            ArchivePresenter presenter = new ArchivePresenter(this, service);
+                ArchivePresenter presenter = new ArchivePresenter(this, service);
 
-            presenter.ShowArchiveDetail(archiveId);
+                presenter.ShowArchiveDetail(archiveId);
+
+                LanguageSupport i18n = new LanguageSupport();
+                i18n.SetArchiveDetailWindowLanguage(this);
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void fileManagerDataGridView_MouseUp(object sender, MouseButtonEventArgs e)

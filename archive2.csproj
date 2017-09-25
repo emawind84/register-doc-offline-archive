@@ -241,11 +241,24 @@
   <ItemGroup>
     <Content Include="etc\edms_export.py" />
     <Resource Include="etc\options_queries.txt" />
-    <Resource Include="resources\kspmis_logo.png" />
-    <Resource Include="resources\sangah-logo-2.png" />
-    <Resource Include="resources\sangah-logo.png" />
-    <Resource Include="resources\sangah_logo_16.ico" />
-    <Resource Include="resources\sangah_logo_64.ico" />
+    <Content Include="resources\kspmis_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\sangah-logo-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\sangah-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\sangah_logo_16.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\sangah_logo_64.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\if_search_322497.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

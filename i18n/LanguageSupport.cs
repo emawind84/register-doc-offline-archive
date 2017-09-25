@@ -1,4 +1,5 @@
 ﻿using pmis;
+using pmis.archive;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace pmis.i18n
             _form.searchRegisteredByLabel.Content = AppConfig.i18n.Get("registeredby");
             _form.searchDocTitleLabel.Content = AppConfig.i18n.Get("doctitle");
             _form.searchDocNumberLabel.Content = AppConfig.i18n.Get("docno");
-            _form.searchButton.Content = AppConfig.i18n.Get("search");
+            _form.registerSearchButtonLabel.Text = AppConfig.i18n.Get("search");
             _form.doclist_docno.Header = AppConfig.i18n.Get("docno");
             _form.doclist_title.Header = AppConfig.i18n.Get("title");
             _form.doclist_revision.Header = AppConfig.i18n.Get("revision");
@@ -69,6 +70,10 @@ namespace pmis.i18n
             _form.pictureViewerTabPage.Header = AppConfig.i18n.Get("picture_viewer");
             _form.pictureDataGridViewFileName.Header = AppConfig.i18n.Get("file_name");
             _form.pictureDataGridViewFileSize.Header = AppConfig.i18n.Get("file_size");
+            _form.archiveDataGridColumnArchiveType.Header = AppConfig.i18n.Get("type");
+            _form.archiveDataGridColumnCreatedLabel.Header = AppConfig.i18n.Get("registered");
+            _form.archiveDataGridColumnDescriptionLabel.Header = AppConfig.i18n.Get("note");
+            _form.archiveSearchButtonLabel.Text = AppConfig.i18n.Get("search");
         }
 
         public void SetSettingFormLanguage(SettingWindow _form)
@@ -102,6 +107,17 @@ namespace pmis.i18n
             _form.settingReviewCountLabel.Content = AppConfig.i18n.Get("review_info");
             _form.settingDocumentCountLabel.Content = AppConfig.i18n.Get("document");
             _form.pictureFolderLocationLabel.Content = AppConfig.i18n.Get("folder_location");
+        }
+
+        public void SetArchiveDetailWindowLanguage(ArchiveDetailWindow _form)
+        {
+            _form.fileManagerDataGridViewFilename.Header = AppConfig.i18n.Get("file_name");
+            _form.fileManagerDataGridViewFilesize.Header = AppConfig.i18n.Get("file_size");
+            _form.metaDataGridColumnDataLabel.Header = "Data";
+            _form.metaDataGridColumnValueLabel.Header = "Value";
+            _form.archiveTypeLabel.Content = AppConfig.i18n.Get("type");
+            _form.archiveCreatedLabel.Content = AppConfig.i18n.Get("registered");
+            _form.archiveDescriptionLabel.Content = AppConfig.i18n.Get("note");
         }
     }
 }

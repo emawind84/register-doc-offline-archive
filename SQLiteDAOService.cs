@@ -379,11 +379,26 @@ namespace pmis
             string filepath = Path.Combine(projectFolder, @"archive/archive.load.sqlite.sql");
             string sql = File.ReadAllText(filepath);
 
-            //sql += " limit 200";
+            if (criteria.ContainsKey("search_value"))
+            {
+                sql += " AND ( ";
+                sql += "description like upper('%'|| @search_value ||'%')";
+                sql += " OR upper(metadata) like upper('%'|| @search_value ||'%')";
+                sql += ") ";
+            }
+
+            if (criteria.ContainsKey("filter_type"))
+                sql += " AND archive_type = @filter_type";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
             {
+                if (criteria.ContainsKey("search_value"))
+                    cmd.Parameters.AddWithValue("@search_value", criteria["search_value"]);
+
+                if (criteria.ContainsKey("filter_type"))
+                    cmd.Parameters.AddWithValue("@filter_type", criteria["filter_type"]);
+
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
 
                 da.SelectCommand = cmd;

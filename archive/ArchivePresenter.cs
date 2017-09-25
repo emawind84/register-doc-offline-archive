@@ -33,11 +33,17 @@ namespace pmis.archive
         public void ShowArchiveList(object sender=null, EventArgs e=null)
         {
             Console.WriteLine("Loading archive list...");
+            MainWindow mainWindow = _form as MainWindow;
+
             Dictionary<string, object> criteria = new Dictionary<string, object>();
+            if (!String.IsNullOrEmpty(mainWindow.SearchCriteriaArchiveFullSearch))
+                criteria.Add("search_value", mainWindow.SearchCriteriaArchiveFullSearch);
+
+            if (!String.IsNullOrEmpty(mainWindow.SearchCriteriaArchiveFilterType))
+                criteria.Add("filter_type", mainWindow.SearchCriteriaArchiveFilterType);
 
             DataTable dt = _service.SearchArchive(criteria);
 
-            MainWindow mainWindow = _form as MainWindow;
             mainWindow.ArchiveList = dt.AsEnumerable();
         }
 
@@ -52,10 +58,7 @@ namespace pmis.archive
             viewForm.ArchiveCreated = archive.Created;
             viewForm.ArchiveMetaData = archive.MetaDataAsDictionary().AsEnumerable();
 
-            if (OnLoadArchive != null)
-            {
-                OnLoadArchive(this, archive);
-            }
+            OnLoadArchive?.Invoke(this, archive);
         }
 
         public void ShowArchiveFiles(object sender, Archive archive)
