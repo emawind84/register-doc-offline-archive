@@ -307,19 +307,14 @@ namespace pmis
             {
                 if (sender != null)
                 {
-                    System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
-                    if (grid != null && grid.SelectedItems != null && grid.SelectedItems.Count == 1)
+                    var dgr = AppUtil.FindDataGridRow((DependencyObject)e.OriginalSource);
+                    if (dgr != null)
                     {
-                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
-                        Console.WriteLine(dgr.Item);
                         DataRow dr = dgr.Item as DataRow;
                         this.registerDocumentDetailView.Number = Convert.ToString(dr["docno"]);
                         this.registerDocumentDetailView.Version = Convert.ToString(dr["doc_version"]);
 
-                        if (OnShowRegisterDocumentInfo != null)
-                        {
-                            OnShowRegisterDocumentInfo(this, EventArgs.Empty);
-                        }
+                        OnShowRegisterDocumentInfo?.Invoke(this, EventArgs.Empty);
 
                         tabControl1.SelectedIndex = 1;
                     }
@@ -337,35 +332,7 @@ namespace pmis
         {
             try
             {
-                //System.Windows.Controls.DataGrid grid = sender as System.Windows.Controls.DataGrid;
-                //DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
-
-                DependencyObject dep = (DependencyObject)e.OriginalSource;
-                // iteratively traverse the visual tree
-                while ((dep != null) 
-                    && !(dep is System.Windows.Controls.DataGridCell))
-                {
-                    dep = VisualTreeHelper.GetParent(dep);
-                }
-
-                if (dep is System.Windows.Controls.DataGridCell)
-                {
-                    var cell = dep as System.Windows.Controls.DataGridCell;
-                    // navigate further up the tree
-                    while ((dep != null) && !(dep is DataGridRow))
-                    {
-                        dep = VisualTreeHelper.GetParent(dep);
-                    }
-                    DataGridRow row = dep as DataGridRow;
-
-                    DataGridBoundColumn col = cell.Column as DataGridBoundColumn;
-
-                    if ( col.DisplayIndex == 2 )
-                    {
-                        RegisterFile file = row.Item as RegisterFile;
-                        RegisterFileService.OpenRegisterFileLocation(file);
-                    }
-                }
+                AppUtil.FileManagerOnSingleClick(sender, e);
                 e.Handled = true;
             }
             catch (Exception ex)
@@ -407,26 +374,8 @@ namespace pmis
         {
             try
             {
-                DependencyObject dep = (DependencyObject)e.OriginalSource;
-                // iteratively traverse the visual tree
-                while ((dep != null)
-                    && !(dep is System.Windows.Controls.DataGridCell))
-                {
-                    dep = VisualTreeHelper.GetParent(dep);
-                }
-
-                if (dep is System.Windows.Controls.DataGridCell)
-                {
-                    var cell = dep as System.Windows.Controls.DataGridCell;
-                    // navigate further up the tree
-                    while ((dep != null) && !(dep is DataGridRow))
-                    {
-                        dep = VisualTreeHelper.GetParent(dep);
-                    }
-                    DataGridRow row = dep as DataGridRow;
-                    RegisterFile file = row.Item as RegisterFile;
-                    RegisterFileService.OpenRegisterFile(file);
-                }
+                AppUtil.FileManagerOnDoubleClick(sender, e);
+                e.Handled = true;
             }
             catch (Exception ex)
             {
