@@ -10,7 +10,7 @@
         <TextBlock x:Name="archiveDescriptionTextBlock" HorizontalAlignment="Left" Margin="96,44,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock x:Name="archiveTypeTextBlock" HorizontalAlignment="Left" Margin="96,15,0,0" TextWrapping="Wrap" Text="Archive Type" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock x:Name="archiveCreatedTextBlock" HorizontalAlignment="Left" Margin="96,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"><Run Text="2017-09-12 12"/><Run Text=":"/><Run Text="23"/><Run Text=":"/><Run Text="44"/></TextBlock>
-        <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="137" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" >
+        <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="137" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseUp="fileManagerDataGridView_MouseUp" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
                 <DataGridTextColumn Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>

@@ -38,5 +38,31 @@ namespace pmis.archive
 
             presenter.ShowArchiveDetail(archiveId);
         }
+
+        private void fileManagerDataGridView_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                AppUtil.FileManagerOnSingleClick(sender, e);
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void fileManagerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                AppUtil.FileManagerOnDoubleClick(sender, e);
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
     }
 }
