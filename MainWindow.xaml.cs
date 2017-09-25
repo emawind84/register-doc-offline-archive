@@ -65,9 +65,19 @@ namespace pmis
             set { srchTitle.Text = value; }
         }
 
-        public string SearchCriteriaFromDate { get { return srchFromDate.Text; } }
+        public DateTime? SearchCriteriaFromDate {
+            get {
+                return srchFromDate.SelectedDate;
+            }
+            set { srchFromDate.SelectedDate = value; }
+        }
 
-        public string SearchCriteriaToDate { get { return srchToDate.Text; } }
+        public DateTime? SearchCriteriaToDate {
+            get {
+                return srchToDate.SelectedDate;
+            }
+            set { srchToDate.SelectedDate = value; }
+        }
 
         public string SearchCriteriaStatus
         {
@@ -143,18 +153,6 @@ namespace pmis
 
         public MainWindow()
         {
-            // configure user folder in appdata
-            try
-            {
-                AppConfig.InitConfig();
-            }
-            catch (Exception e)
-            {
-                new ApplicationException("Application didn't start correctly, please check the log.", e)
-                    .Log()
-                    .Display();
-            }
-
             InitializeComponent();
 
             daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
@@ -214,14 +212,14 @@ namespace pmis
             settingForm.SettingChanged += LoadSearchOptions;
             settingForm.SettingChanged += LoadPictureViewer;
             settingForm.SettingChanged += ShowArchiveList;
+            settingForm.SettingChanged += LoadLanguage;
 
             aboutForm = new AboutBox();
-
-            LanguageSupport i18n = new LanguageSupport();
-            i18n.SetMainFromLanguage(this);
-
+            
             try
             {
+                LoadLanguage();
+
                 // load search options
                 LoadSearchOptions();
 
@@ -239,6 +237,12 @@ namespace pmis
                 return;
             }
 
+        }
+
+        private void LoadLanguage(object sender=null, EventArgs args=null)
+        {
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetMainFromLanguage(this);
         }
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
@@ -417,6 +421,8 @@ namespace pmis
             SearchCriteriaDocNumber = "";
             SearchCriteriaTitle = "";
             SearchCriteriaRegisteredBy = "";
+            SearchCriteriaFromDate = null;
+            SearchCriteriaToDate = null;
         }
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
@@ -499,7 +505,7 @@ namespace pmis
 
         private void SelectPictureFileOnSelection(object sender, RegisterFile file)
         {
-            var rows = GetDataGridRows(pictureGridView);
+            var rows = AppUtil.GetDataGridRows(pictureGridView);
             foreach (var row in rows)
             {
                 var _t = row.Item as RegisterFile;
@@ -516,7 +522,10 @@ namespace pmis
         {
             try
             {
-                picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
+                if(pictureFolderListBox.SelectedValue != null)
+                {
+                    picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -539,17 +548,6 @@ namespace pmis
             base.OnClosed(e);
 
             System.Windows.Application.Current.Shutdown();
-        }
-
-        public IEnumerable<DataGridRow> GetDataGridRows(System.Windows.Controls.DataGrid grid)
-        {
-            var itemsSource = grid.ItemsSource as IEnumerable;
-            if (null == itemsSource) yield return null;
-            foreach (var item in itemsSource)
-            {
-                var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-                if (null != row) yield return row;
-            }
         }
 
         private void archiveDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)

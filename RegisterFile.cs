@@ -33,6 +33,10 @@ namespace pmis
 
         public string FilePath { get; set; }
 
+        public string OpenLocation {
+            get { return AppConfig.i18n.Get("show_in_folder"); }
+        }
+
         public RegisterFile(string filepath)
         {
             FileInfo f1 = new FileInfo(filepath);

@@ -19,6 +19,18 @@ namespace pmis
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            // configure user folder in appdata
+            try
+            {
+                AppConfig.InitConfig();
+            }
+            catch (Exception ex)
+            {
+                new ApplicationException("Application didn't start correctly, please check the log.", ex)
+                    .Log()
+                    .Display();
+            }
+
             SplashWindow splash = new SplashWindow();
             splash.Show();
             // Step 2 - Start a stop watch  

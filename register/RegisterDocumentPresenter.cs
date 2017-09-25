@@ -46,6 +46,7 @@ namespace pmis
             viewForm.Organization = doc.Organization;
             viewForm.Current = doc.Current == "1" ? "(Top Version)" : "(Old Version)";
             viewForm.InternalNumber = doc.InternalNumber;
+            viewForm.Discipline = doc.Discipline;
 
             if(OnLoadRegisterDocument != null)
             {
@@ -60,10 +61,10 @@ namespace pmis
                 criteria.Add("docno", _form.SearchCriteriaDocNumber);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaTitle))
                 criteria.Add("title", _form.SearchCriteriaTitle);
-            if (!String.IsNullOrEmpty(_form.SearchCriteriaFromDate))
-                criteria.Add("from_date", _form.SearchCriteriaFromDate);
-            if (!String.IsNullOrEmpty(_form.SearchCriteriaToDate))
-                criteria.Add("to_date", _form.SearchCriteriaToDate);
+            if (_form.SearchCriteriaFromDate.HasValue)
+                criteria.Add("from_date", _form.SearchCriteriaFromDate.Value.ToString("yyyy-MM-dd"));
+            if (_form.SearchCriteriaToDate.HasValue)
+                criteria.Add("to_date", _form.SearchCriteriaToDate.Value.ToString("yyyy-MM-dd"));
             if (!String.IsNullOrEmpty(_form.SearchCriteriaStatus))
                 criteria.Add("status", _form.SearchCriteriaStatus);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaDiscipline))
