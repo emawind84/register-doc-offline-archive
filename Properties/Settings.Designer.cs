@@ -119,206 +119,120 @@ namespace pmis.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
             "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>개인정보보호지침 &gt; 개인정보취급자 관리대장</string>\r\n  <string>개인정보보호지침 &gt; 개인정보취급자용 서약서(" +
-            "외부업체용)</string>\r\n  <string>개인정보보호지침 &gt; 기타 - 개인정보보호지침</string>\r\n  <string>공정 &g" +
-            "t; 공정승인 첨부서류</string>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt; UT - 공정승인 첨부서류</string>\r" +
-            "\n  <string>공정 &gt; 공정승인 첨부서류 &gt; 간접비 - 공정승인 첨부서류</string>\r\n  <string>공정 &gt; 공정" +
-            "승인 첨부서류 &gt; 개산급 관리대장</string>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt; 건축 - 공정승인 첨부서류<" +
-            "/string>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt; 기계 - 공정승인 첨부서류</string>\r\n  <string>공정" +
-            " &gt; 공정승인 첨부서류 &gt; 소방기계 - 공정승인 첨부서류</string>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt;" +
-            " 소방전기 - 공정승인 첨부서류</string>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt; 전기 - 공정승인 첨부서류</str" +
-            "ing>\r\n  <string>공정 &gt; 공정승인 첨부서류 &gt; 통신 - 공정승인 첨부서류</string>\r\n  <string>공정 &gt" +
-            "; 공정승인 첨부서류 &gt; 환경 - 공정승인 첨부서류</string>\r\n  <string>공정 &gt; 공정표 &gt; Baseline Sc" +
-            "hedule</string>\r\n  <string>공정 &gt; 공정표 &gt; Master Schedule</string>\r\n  <string>" +
-            "공정 &gt; 공정표 &gt; Monthly Schedule</string>\r\n  <string>공정 &gt; 공정표 &gt; Weekly Sc" +
-            "hedule</string>\r\n  <string>공정 &gt; 보고서</string>\r\n  <string>공정 &gt; 보고서 &gt; 공정현황" +
-            "보고</string>\r\n  <string>공정 &gt; 보고서 &gt; 공정현황보고 &gt; 월간공정보고</string>\r\n  <string>공" +
-            "정 &gt; 보고서 &gt; 공정현황보고 &gt; 주간공정보고</string>\r\n  <string>공정 &gt; 보고서 &gt; 부진공정만회대책" +
-            "</string>\r\n  <string>공정관리</string>\r\n  <string>공통</string>\r\n  <string>공통 &gt; Onl" +
-            "ine 문서관리</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서</string>\r\n  <string>공" +
-            "통 &gt; Online 문서관리 &gt; 서신문서 &gt; Transmittal</string>\r\n  <string>공통 &gt; Online" +
-            " 문서관리 &gt; 서신문서 &gt; Transmittal &gt; Transmittal Approval</string>\r\n  <string>공" +
-            "통 &gt; Online 문서관리 &gt; 서신문서 &gt; Transmittal &gt; Transmittal Review</string>\r\n" +
-            "  <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 공문</string>\r\n  <string>공통 &gt; Onli" +
-            "ne 문서관리 &gt; 서신문서 &gt; 공문 &gt; 공조장비설치공사</string>\r\n  <string>공통 &gt; Online 문서관리 " +
-            "&gt; 서신문서 &gt; 공문 &gt; 덕트설비공사</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서 " +
-            "&gt; 공문 &gt; 시험</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 공문 &gt; 에" +
-            "어컨 설치공사</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 기타 (E-Mail 등)</st" +
-            "ring>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 부적합 사항 보고서</string>\r\n  <stri" +
-            "ng>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 부적합 사항 보고서 &gt; 부적합 사항 조치결과</string>\r\n  <s" +
-            "tring>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 부적합 사항 보고서 &gt; 부적합 사항 최종확인</string>\r\n " +
-            " <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 안전 부적합 사항 보고서</string>\r\n  <string>공통" +
-            " &gt; Online 문서관리 &gt; 서신문서 &gt; 안전 부적합 사항 보고서 &gt; 안전 부적합 사항 조치결과</string>\r\n  <" +
-            "string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 안전 부적합 사항 보고서 &gt; 안전 부적합 사항 최종확인</str" +
-            "ing>\r\n  <string>공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 작업지시서</string>\r\n  <string>공통 " +
-            "&gt; Online 문서관리 &gt; 서신문서 &gt; 회의록</string>\r\n  <string>공통 &gt; Online 문서관리 &gt;" +
-            " 시공문서 &gt; 검측요청서</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 검측요청서 &g" +
-            "t; 검측통보서</string>\r\n  <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 결함 통보서</string>\r" +
-            "\n  <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 결함 통보서 &gt; 결함 통보서 조치사항</string>\r\n" +
-            "  <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 결함 통보서 &gt; 결함 통보서 최종확인</string>\r\n " +
-            " <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 부적합 보고서 (감리단)</string>\r\n  <string>공통" +
-            " &gt; Online 문서관리 &gt; 시공문서 &gt; 부적합 보고서 (감리단) &gt; 부적합 보고서 조치사항</string>\r\n  <st" +
-            "ring>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 부적합 보고서 (감리단) &gt; 부적합 보고서 최종확인</string>" +
-            "\r\n  <string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 안전 시정 지시서</string>\r\n  <string>공통 " +
-            "&gt; Online 문서관리 &gt; 시공문서 &gt; 안전 시정 지시서 &gt; 안전 시정 지시서 조치사항</string>\r\n  <strin" +
-            "g>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 안전 시정 지시서 &gt; 안전 시정 지시서 최종확인</string>\r\n  <" +
-            "string>공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 자재(장비)승인요청서</string>\r\n  <string>공통 &gt" +
-            "; Online 문서관리 &gt; 시공문서 &gt; 자재(장비)승인요청서 &gt; 자재(장비)승인서</string>\r\n  <string>공통 &" +
-            "gt; Online 문서관리 &gt; 시공문서 &gt; 휴일근무신청서 &gt; 휴일근무승인서</string>\r\n  <string>공통 &gt; " +
-            "Online 문서관리 &gt; 특고전력인입공사</string>\r\n  <string>공통 &gt; Transmittal (계약업체)</string" +
-            ">\r\n  <string>공통 &gt; Transmittal (시공사)</string>\r\n  <string>공통 &gt; Transmittal (" +
-            "시공사) &gt; 건식 AD 및 PD설치공사</string>\r\n  <string>공통 &gt; Transmittal (시공사) &gt; 공용부위" +
-            " 환기설비공사</string>\r\n  <string>공통 &gt; Transmittal (시공사) &gt; 세대 환기설비공사</string>\r\n " +
-            " <string>공통 &gt; Transmittal (시공사) &gt; 주차장 환기설비공사</string>\r\n  <string>공통 &gt; 문" +
-            "서 발신 (기타) &gt; 기타 (E-Mail 등) - 발신</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타" +
-            " (E-Mail 등) - 발신 &gt; CATV설비공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E" +
-            "-Mail 등) - 발신 &gt; 기타정보통신공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Ma" +
-            "il 등) - 발신 &gt; 무인경비시스템공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail" +
-            " 등) - 발신 &gt; 무인택배시스템 설치공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mai" +
-            "l 등) - 발신 &gt; 방송설비공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) " +
-            "- 발신 &gt; 시설별 정보통신공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) -" +
-            " 발신 &gt; 시험</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) - 발신 &gt; " +
-            "인터폰설치공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) - 발신 &gt; 전화인입" +
-            "공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) - 발신 &gt; 차량출입통제시스템" +
-            " 정보통신공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 기타 (E-Mail 등) - 발신 &gt; 홈네트워" +
-            "크간선공사</string>\r\n  <string>공통 &gt; 문서 발신 (기타) &gt; 문서발송대장 - 기타</string>\r\n  <strin" +
-            "g>공통 &gt; 문서 발신 (지시서)</string>\r\n  <string>공통 &gt; 문서 발신 (지시서) &gt; 문서발송대장 - 지시서<" +
-            "/string>\r\n  <string>공통 &gt; 문서 발신 (지시서) &gt; 지시서 - 발신</string>\r\n  <string>공통 &gt" +
-            "; 문서 발신 (회의록)</string>\r\n  <string>공통 &gt; 문서 발신 (회의록) &gt; 문서발송대장 - 회의록</string>" +
-            "\r\n  <string>공통 &gt; 문서 발신 (회의록) &gt; 회의록 - 발신</string>\r\n  <string>공통 &gt; 문서 수신 " +
-            "(TOD) &gt; Transmittal (계약업체) - 수신</string>\r\n  <string>공통 &gt; 문서 수신 (TOD) &gt; " +
-            "Transmittal (시공사) - 수신</string>\r\n  <string>공통 &gt; 문서 수신 (TOD) &gt; 문서접수대장 - TOD" +
-            "</string>\r\n  <string>공통 &gt; 문서 수신 (공문) &gt; 공문 - 수신</string>\r\n  <string>공통 &gt;" +
-            " 문서 수신 (공문) &gt; 문서접수대장 - 공문</string>\r\n  <string>공통 &gt; 문서 수신 (기타) &gt; 기타 (E-M" +
-            "ail 등) - 수신</string>\r\n  <string>공통 &gt; 문서 수신 (기타) &gt; 문서접수대장 - 기타</string>\r\n  " +
-            "<string>공통 &gt; 문서 수신 (지시서) &gt; 문서접수대장 - 지시서</string>\r\n  <string>공통 &gt; 문서 수신 " +
-            "(지시서) &gt; 지시서 - 수신</string>\r\n  <string>공통 &gt; 문서 수신 (회의록) &gt; 문서접수대장 - 회의록</s" +
-            "tring>\r\n  <string>공통 &gt; 문서 수신 (회의록) &gt; 회의록 - 수신</string>\r\n  <string>공통 &gt; " +
-            "문서발신 (TOD) &gt; 문서발송대장 - TOD</string>\r\n  <string>공통 &gt; 문서발신 (공문) &gt; 공문 - 발신<" +
-            "/string>\r\n  <string>공통 &gt; 문서발신 (공문) &gt; 문서발송대장 - 공문</string>\r\n  <string>공통 &g" +
-            "t; 보고서 &gt; 건설추진1팀 업무수행계획서</string>\r\n  <string>공통 &gt; 보고서 &gt; 기타보고서</string>\r\n" +
-            "  <string>공통 &gt; 인허가</string>\r\n  <string>공통 &gt; 인허가 &gt; 기타 - 인허가</string>\r\n  " +
-            "<string>공통 &gt; 인허가 &gt; 사용승인서류</string>\r\n  <string>공통 &gt; 인허가 &gt; 착공계서류</stri" +
-            "ng>\r\n  <string>기성 &gt; 공사기성부분 검사원</string>\r\n  <string>기성 &gt; 공사기성부분 검사원 &gt; 공사" +
-            "기성부분 감독조서</string>\r\n  <string>기성 &gt; 공사기성부분 검사원 &gt; 공사기성부분 검토조서</string>\r\n  <s" +
-            "tring>기성 &gt; 공사비 - 기성</string>\r\n  <string>기성 &gt; 기성신청서류</string>\r\n  <string>기성" +
-            " &gt; 기타 - 기성</string>\r\n  <string>기성 &gt; 용역비 - 기성</string>\r\n  <string>물리적보안지침 &" +
-            "gt; 기타 - 물리적보안지침</string>\r\n  <string>물리적보안지침 &gt; 반입증</string>\r\n  <string>물리적보안지" +
-            "침 &gt; 반출/입 관리대장</string>\r\n  <string>물리적보안지침 &gt; 반출증</string>\r\n  <string>물리적보안지" +
-            "침 &gt; 정보보안 체크리스트</string>\r\n  <string>변경/정산 &gt; 공사비 - 변경/정산</string>\r\n  <string" +
-            ">변경/정산 &gt; 기타 - 변경/정산</string>\r\n  <string>변경/정산 &gt; 용역비 - 변경/정산</string>\r\n  <s" +
-            "tring>설계</string>\r\n  <string>설계 &gt; MP단계</string>\r\n  <string>설계 &gt; MP단계 &gt; " +
-            "보고서 - MP단계</string>\r\n  <string>설계 &gt; SHOP Dwg.</string>\r\n  <string>설계 &gt; SHO" +
-            "P Dwg. &gt; 건축 - SHOP Dwg</string>\r\n  <string>설계 &gt; SHOP Dwg. &gt; 기계 - SHOP D" +
-            "wg</string>\r\n  <string>설계 &gt; SHOP Dwg. &gt; 전기 - SHOP Dwg</string>\r\n  <string>" +
-            "설계 &gt; SHOP Dwg. &gt; 조경 - SHOP Dwg</string>\r\n  <string>설계 &gt; SHOP Dwg. &gt; " +
-            "토목 - SHOP Dwg</string>\r\n  <string>설계 &gt; Shop Dwg (계약업체) &gt; 계산서 - Shop Dwg (계" +
-            "약업체)</string>\r\n  <string>설계 &gt; Shop Dwg (계약업체) &gt; 기타 - Shop Dwg (계약업체)</stri" +
-            "ng>\r\n  <string>설계 &gt; Shop Dwg (계약업체) &gt; 도면 - Shop Dwg (계약업체)</string>\r\n  <st" +
-            "ring>설계 &gt; Shop Dwg (계약업체) &gt; 시방서 - Shop Dwg (계약업체)</string>\r\n  <string>설계 &" +
-            "gt; Shop Dwg (시공사)</string>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 계산서 - Shop Dw" +
-            "g (시공사)</string>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 기타 - Shop Dwg (시공사)</str" +
-            "ing>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop Dwg (시공사)</string>\r\n  <str" +
-            "ing>설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop Dwg (시공사) &gt; 건축 - Shop Dwg (시공사)</st" +
-            "ring>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop Dwg (시공사) &gt; 기계 - Shop " +
-            "Dwg (시공사)</string>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop Dwg (시공사) &g" +
-            "t; 전기 - Shop Dwg (시공사)</string>\r\n  <string>설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop" +
-            " Dwg (시공사) &gt; 토목 - Shop Dwg (시공사)</string>\r\n  <string>설계 &gt; Shop Dwg (시공사) &" +
-            "gt; 시방서 - Shop Dwg (시공사)</string>\r\n  <string>설계 &gt; 계산서 &gt; 구조계산서</string>\r\n  " +
-            "<string>설계 &gt; 계산서 &gt; 기계계산서</string>\r\n  <string>설계 &gt; 계산서 &gt; 전기계산서</strin" +
-            "g>\r\n  <string>설계 &gt; 계약도면(입찰도면)</string>\r\n  <string>설계 &gt; 계약도면(입찰도면) &gt; 계산서" +
-            " - 계약도면(입찰도면)</string>\r\n  <string>설계 &gt; 계약도면(입찰도면) &gt; 기타 - 계약도면(입찰도면)</strin" +
-            "g>\r\n  <string>설계 &gt; 계약도면(입찰도면) &gt; 도면 - 계약도면(입찰도면)</string>\r\n  <string>설계 &gt" +
-            "; 계약도면(입찰도면) &gt; 시방서 - 계약도면(입찰도면)</string>\r\n  <string>설계 &gt; 계획설계</string>\r\n  " +
-            "<string>설계 &gt; 계획설계 &gt; 보고서 - 계획설계</string>\r\n  <string>설계 &gt; 공사시방서 &gt; 건축 -" +
-            " 공사시방서</string>\r\n  <string>설계 &gt; 공사시방서 &gt; 기계 - 공사시방서</string>\r\n  <string>설계 " +
-            "&gt; 공사시방서 &gt; 전기 - 공사시방서</string>\r\n  <string>설계 &gt; 공사시방서 &gt; 조경 - 공사시방서</st" +
-            "ring>\r\n  <string>설계 &gt; 공사시방서 &gt; 토목 - 공사시방서</string>\r\n  <string>설계 &gt; 기본설계<" +
-            "/string>\r\n  <string>설계 &gt; 기본설계 &gt; 보고서 - 기본설계</string>\r\n  <string>설계 &gt; 설계도" +
-            "서 관리대장 &gt; Shop Dwg 관리대장</string>\r\n  <string>설계 &gt; 설계도서 관리대장 &gt; 설계도서 배포대장</" +
-            "string>\r\n  <string>설계 &gt; 설계도서 관리대장 &gt; 설계도서 접수대장</string>\r\n  <string>설계 &gt; " +
-            "설계도서 관리대장 &gt; 설계변경 관리대장</string>\r\n  <string>설계 &gt; 설계도서검토서 &gt; VE보고서</string>" +
-            "\r\n  <string>설계 &gt; 설계도서검토서 &gt; 검토보고서</string>\r\n  <string>설계 &gt; 설계도서검토서 &gt; " +
-            "설계보고서</string>\r\n  <string>설계 &gt; 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설계변경도면/도" +
-            "서 &gt; 계산서 - 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설계변경도면/도서 &gt; 기타 - 설계변경도면/도서" +
-            "</string>\r\n  <string>설계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서</string>\r\n  <string>설" +
-            "계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 건축 - 설계변경도면/도서</string>\r\n  <string>설계 " +
-            "&gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 기계 - 설계변경도면/도서</string>\r\n  <string>설계 &g" +
-            "t; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 인테리어-설계변경도면/도서</string>\r\n  <string>설계 &gt;" +
-            " 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 전기 - 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설" +
-            "계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 조경 - 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설계변" +
-            "경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 토목 - 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설계변경도" +
-            "면/도서 &gt; 시방서 - 설계변경도면/도서</string>\r\n  <string>설계 &gt; 설계변경도면/도서 &gt; 입주사요청사항</st" +
-            "ring>\r\n  <string>설계 &gt; 시공도면 &gt; 건축 - 시공도면</string>\r\n  <string>설계 &gt; 시공도면 &g" +
-            "t; 기계 - 시공도면</string>\r\n  <string>설계 &gt; 시공도면 &gt; 전기 - 시공도면</string>\r\n  <string" +
-            ">설계 &gt; 시공도면 &gt; 조경 - 시공도면</string>\r\n  <string>설계 &gt; 시공도면 &gt; 토목 - 시공도면</st" +
-            "ring>\r\n  <string>설계 &gt; 실시설계</string>\r\n  <string>설계 &gt; 실시설계 &gt; 계산서 - 실시설계</" +
-            "string>\r\n  <string>설계 &gt; 실시설계 &gt; 기타 - 실시설계</string>\r\n  <string>설계 &gt; 실시설계 " +
-            "&gt; 도면 - 실시설계</string>\r\n  <string>설계 &gt; 실시설계 &gt; 시방서 - 실시설계</string>\r\n  <str" +
-            "ing>설계 &gt; 인테리어단계 &gt; 기본/기획설계</string>\r\n  <string>설계 &gt; 인테리어단계 &gt; 실시설계</st" +
-            "ring>\r\n  <string>설계 &gt; 준공도면 &gt; 건축 - 준공도면</string>\r\n  <string>설계 &gt; 준공도면 &g" +
-            "t; 기계 - 준공도면</string>\r\n  <string>설계 &gt; 준공도면 &gt; 전기 - 준공도면</string>\r\n  <string" +
-            ">설계 &gt; 준공도면 &gt; 조경 - 준공도면</string>\r\n  <string>설계 &gt; 준공도면 &gt; 토목 - 준공도면</st" +
-            "ring>\r\n  <string>설계 &gt; 준공도면/도서</string>\r\n  <string>설계 &gt; 준공도면/도서 &gt; 계산서 - " +
-            "준공도면/도서</string>\r\n  <string>설계 &gt; 준공도면/도서 &gt; 기타 - 준공도면/도서</string>\r\n  <strin" +
-            "g>설계 &gt; 준공도면/도서 &gt; 도면 - 준공도면/도서</string>\r\n  <string>설계 &gt; 준공도면/도서 &gt; 시방서" +
-            " - 준공도면/도서</string>\r\n  <string>시공관리</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리" +
-            "업무일지 &gt; 배관공사</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 배선공사</strin" +
-            "g>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 분야별감리업무일지</string>\r\n  <string>시공" +
-            "관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 시험</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리업" +
-            "무일지 &gt; 장비설치공사</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 책임감리업무일지</" +
-            "string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 감리월간보고</string>\r\n  <string>시공관리 &gt; 감리" +
-            "업무관리 &gt; 배관공사</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 배선공사</string>\r\n  <strin" +
-            "g>시공관리 &gt; 감리업무관리 &gt; 시험</string>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 안테나설치공사</st" +
-            "ring>\r\n  <string>시공관리 &gt; 감리업무관리 &gt; 장비설치공사</string>\r\n  <string>시공관리 &gt; 공사사진" +
-            " &gt; 월간전경사진</string>\r\n  <string>시공관리 &gt; 공사사진 &gt; 주요공정사진</string>\r\n  <string>" +
-            "시공관리 &gt; 공사사진 &gt; 항공사진</string>\r\n  <string>시공관리 &gt; 시공보고관리 &gt; 월간업무보고</strin" +
-            "g>\r\n  <string>시공관리 &gt; 시공보고관리 &gt; 작업일보</string>\r\n  <string>시공관리 &gt; 시공보고관리 &g" +
-            "t; 주간업무보고</string>\r\n  <string>시공관리 &gt; 시공보고관리 &gt; 주간업무보고 &gt; 배관공사</string>\r\n " +
-            " <string>시공관리 &gt; 시공보고관리 &gt; 주간업무보고 &gt; 배선공사</string>\r\n  <string>시공관리 &gt; 시공" +
-            "보고관리 &gt; 주간업무보고 &gt; 시험</string>\r\n  <string>시공관리 &gt; 시공보고관리 &gt; 주간업무보고 &gt; 장" +
-            "비설치공사</string>\r\n  <string>시공관리 &gt; 시공보고관리 &gt; 회의록 &gt; 월간회의록</string>\r\n  <stri" +
-            "ng>시공관리 &gt; 시공보고관리 &gt; 회의록 &gt; 일간회의록</string>\r\n  <string>시공관리 &gt; 시공보고관리 &gt" +
-            "; 회의록 &gt; 주간회의록</string>\r\n  <string>시공관리 &gt; 시공용도면/도서</string>\r\n  <string>시공관리" +
-            " &gt; 입주사협의 &gt; 회의자료</string>\r\n  <string>안전/환경</string>\r\n  <string>안전/환경 &gt; 계" +
-            "획 &gt; 안전관리계획서</string>\r\n  <string>안전/환경 &gt; 계획 &gt; 환경관리계획서</string>\r\n  <strin" +
-            "g>안전/환경 &gt; 기타 &gt; 민원일지</string>\r\n  <string>안전/환경 &gt; 기타 &gt; 안전점검일지</string>" +
-            "\r\n  <string>안전/환경 &gt; 기타 &gt; 위험성평가</string>\r\n  <string>안전/환경 &gt; 보고서</string>" +
-            "\r\n  <string>안전/환경 &gt; 보고서 &gt; 사고 보고서(공상)</string>\r\n  <string>안전/환경 &gt; 보고서 &g" +
-            "t; 사고 보고서(산재)</string>\r\n  <string>안전/환경 &gt; 안전 부적합사항 &gt; 안전 부적합 사항 관리 대장</stri" +
-            "ng>\r\n  <string>안전/환경 &gt; 안전 부적합사항 &gt; 안전 부적합 사항 보고서</string>\r\n  <string>인원보안지침" +
-            " &gt; 기타 - 인원보안지침</string>\r\n  <string>인원보안지침 &gt; 비밀유지 서약서(내부 특정업무 수행인원)</string" +
-            ">\r\n  <string>인원보안지침 &gt; 비밀유지 서약서(외부업체 및 대표자)</string>\r\n  <string>인원보안지침 &gt; 정보" +
-            "보안 서약서(단순 용역 인원)</string>\r\n  <string>인원보안지침 &gt; 정보보안 서약서(비상주 외부업체 인원)</string>\r" +
-            "\n  <string>인원보안지침 &gt; 정보보안 서약서(상주 외부업체 인원)</string>\r\n  <string>입주사 월간보고서</strin" +
-            "g>\r\n  <string>자산관리지침 &gt; 기밀문서 관리대장</string>\r\n  <string>자산관리지침 &gt; 기타 - 자산관리지침<" +
-            "/string>\r\n  <string>자산관리지침 &gt; 자산목록/관리대장</string>\r\n  <string>전자도서관리</string>\r\n " +
-            " <string>전자도서관리 &gt; 사업일반 &gt; 사업계획</string>\r\n  <string>전자도서관리 &gt; 사업일반 &gt; 홍보" +
-            "자료</string>\r\n  <string>품질 &gt; 계획 &gt; 공종별 검사 계획서(ITP&amp;ITC)</string>\r\n  <stri" +
-            "ng>품질 &gt; 계획 &gt; 품질 관리 계획서</string>\r\n  <string>품질 &gt; 부적합사항 &gt; 부적합 사항 관리 대장" +
-            "</string>\r\n  <string>품질 &gt; 부적합사항 &gt; 부적합 사항 보고서</string>\r\n  <string>품질 &gt; 시" +
-            "공검측</string>\r\n  <string>품질 &gt; 시공검측 &gt; 시공검측요청서</string>\r\n  <string>품질 &gt; 시공" +
-            "계획서(KOM)</string>\r\n  <string>품질 &gt; 시공계획서(KOM) &gt; 시공계획서</string>\r\n  <string>품" +
-            "질 &gt; 시공계획서(PCM)</string>\r\n  <string>품질 &gt; 시공계획서(PCM) &gt; 건축 - 시공계획서(PCM)</s" +
-            "tring>\r\n  <string>품질 &gt; 시공계획서(PCM) &gt; 기계 - 시공계획서(PCM)</string>\r\n  <string>품질" +
-            " &gt; 시공계획서(PCM) &gt; 소방기계 - 시공계획서(PCM)</string>\r\n  <string>품질 &gt; 시공계획서(PCM) &" +
-            "gt; 소방전기 - 시공계획서(PCM)</string>\r\n  <string>품질 &gt; 시공계획서(PCM) &gt; 전기 - 시공계획서(PCM" +
-            ")</string>\r\n  <string>품질 &gt; 시공계획서(PCM) &gt; 조경 - 시공계획서(PCM)</string>\r\n  <strin" +
-            "g>품질 &gt; 시공계획서(PCM) &gt; 토목 - 시공계획서(PCM)</string>\r\n  <string>품질 &gt; 인수인계 &gt; " +
-            "시설물 인수인계 서류</string>\r\n  <string>품질 &gt; 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질" +
-            " &gt; 자재/장비 공급승인서 (DP2) &gt; 건축 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질 &gt; " +
-            "자재/장비 공급승인서 (DP2) &gt; 기계 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질 &gt; 자재/장비 " +
-            "공급승인서 (DP2) &gt; 전기 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질 &gt; 자재/장비 공급승인서 " +
-            "(DP2) &gt; 조경 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질 &gt; 자재/장비 공급승인서 (DP2) " +
-            "&gt; 토목 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>품질/안전/ 환경관리</string>\r\n  <string>" +
-            "품질/안전/ 환경관리 &gt; 안전관리</string>\r\n  <string>품질/안전/ 환경관리 &gt; 전력인입공사</string>\r\n  <s" +
-            "tring>품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질" +
-            "관리 &gt; 자재검수요청서 &gt; 건축 - 자재검수요청서</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt;" +
-            " 자재검수요청서 &gt; 기계 - 자재검수요청서</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청" +
-            "서 &gt; 자재검수통보서</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 전기 - " +
-            "자재검수요청서</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 조경 - 자재검수요청서" +
-            "</string>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 토목 - 자재검수요청서</strin" +
-            "g>\r\n  <string>품질/안전/ 환경관리 &gt; 품질관리 &gt; 현장통합점검일지</string>\r\n</ArrayOfString>")]
+            "tring>PMIS 자료분류</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계</string>\r\n  <string>PM" +
+            "IS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류</string>\r\n  <string>PMIS 자료분류 &gt; 문서" +
+            "분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 개산급 관리대장</string>\r\n  <string>PMIS 자료분류 &gt; 문서분" +
+            "류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 건축 - 공정승인 첨부서류</string>\r\n  <string>PMIS 자료분류 &gt" +
+            "; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 기계 - 공정승인 첨부서류</string>\r\n  <string>PMIS 자료분" +
+            "류 &gt; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 소방기계 - 공정승인 첨부서류</string>\r\n  <string>P" +
+            "MIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 소방전기 - 공정승인 첨부서류</string>\r\n  <s" +
+            "tring>PMIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 전기 - 공정승인 첨부서류</string>\r" +
+            "\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 공정승인 첨부서류 &gt; 통신 - 공정승인 첨부서류</str" +
+            "ing>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 보고서 &gt; 공정현황보고</string>\r\n  <" +
+            "string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 보고서 &gt; 공정현황보고 &gt; 월간공정보고</string>\r\n" +
+            "  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공정 &gt; 보고서 &gt; 공정현황보고 &gt; 주간공정보고</string" +
+            ">\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통</string>\r\n  <string>PMIS 자료분류 &gt; 문서" +
+            "분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 공문</string>\r\n  <string>PMIS 자료분류 &g" +
+            "t; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 공문 &gt; 공조장비설치공사</string>\r\n  <" +
+            "string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 공문 &gt; 시험<" +
+            "/string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt" +
+            "; 공문 &gt; 에어컨 설치공사</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online" +
+            " 문서관리 &gt; 서신문서 &gt; 기타 (E-Mail 등)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt" +
+            "; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 부적합 사항 보고서</string>\r\n  <string>PMIS 자료분류 &g" +
+            "t; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 부적합 사항 보고서 &gt; 부적합 사항 조치결과</s" +
+            "tring>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; " +
+            "부적합 사항 보고서 &gt; 부적합 사항 최종확인</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &g" +
+            "t; Online 문서관리 &gt; 서신문서 &gt; 안전 부적합 사항 보고서</string>\r\n  <string>PMIS 자료분류 &gt; 문" +
+            "서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 안전 부적합 사항 보고서 &gt; 안전 부적합 사항 조치결과<" +
+            "/string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt" +
+            "; 안전 부적합 사항 보고서 &gt; 안전 부적합 사항 최종확인</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &g" +
+            "t; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 작업지시서</string>\r\n  <string>PMIS 자료분류 &gt; 문" +
+            "서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 서신문서 &gt; 회의록</string>\r\n  <string>PMIS 자료분류 " +
+            "&gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 검측요청서</string>\r\n  <string>PM" +
+            "IS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 결함 통보서</string>\r\n  <" +
+            "string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Online 문서관리 &gt; 시공문서 &gt; 안전 시정 지시서</" +
+            "string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Transmittal (계약업체)</string" +
+            ">\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; Transmittal (시공사)</string>\r\n  <s" +
+            "tring>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; 문서 발신 (지시서)</string>\r\n  <string>PMIS 자료" +
+            "분류 &gt; 문서분류체계 &gt; 공통 &gt; 문서 발신 (지시서) &gt; 지시서 - 발신</string>\r\n  <string>PMIS 자" +
+            "료분류 &gt; 문서분류체계 &gt; 공통 &gt; 문서 발신 (회의록) &gt; 회의록 - 발신</string>\r\n  <string>PMIS " +
+            "자료분류 &gt; 문서분류체계 &gt; 공통 &gt; 보고서 &gt; 기타보고서</string>\r\n  <string>PMIS 자료분류 &gt; " +
+            "문서분류체계 &gt; 공통 &gt; 인허가</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; 인" +
+            "허가 &gt; 기타 - 인허가</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 공통 &gt; 인허가 &gt;" +
+            " 착공계서류</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; MP단계 &gt; 보고서 - MP" +
+            "단계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; Shop Dwg (시공사)</string" +
+            ">\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; Shop Dwg (시공사) &gt; 도면 - Shop Dw" +
+            "g (시공사)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; Shop Dwg (시공사) &g" +
+            "t; 도면 - Shop Dwg (시공사) &gt; 기계 - Shop Dwg (시공사)</string>\r\n  <string>PMIS 자료분류 &g" +
+            "t; 문서분류체계 &gt; 설계 &gt; 계약도면(입찰도면)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt;" +
+            " 설계 &gt; 계약도면(입찰도면) &gt; 계산서 - 계약도면(입찰도면)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분" +
+            "류체계 &gt; 설계 &gt; 계약도면(입찰도면) &gt; 도면 - 계약도면(입찰도면)</string>\r\n  <string>PMIS 자료분류 &" +
+            "gt; 문서분류체계 &gt; 설계 &gt; 계약도면(입찰도면) &gt; 시방서 - 계약도면(입찰도면)</string>\r\n  <string>PMI" +
+            "S 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 계획설계 &gt; 보고서 - 계획설계</string>\r\n  <string>PMIS 자료" +
+            "분류 &gt; 문서분류체계 &gt; 설계 &gt; 기본설계 &gt; 보고서 - 기본설계</string>\r\n  <string>PMIS 자료분류 &" +
+            "gt; 문서분류체계 &gt; 설계 &gt; 설계변경도면/도서</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt;" +
+            " 설계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계" +
+            " &gt; 설계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 건축 - 설계변경도면/도서</string>\r\n  <str" +
+            "ing>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 인테리어-설" +
+            "계변경도면/도서</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 설계변경도면/도서 &gt; 도" +
+            "면 - 설계변경도면/도서 &gt; 전기 - 설계변경도면/도서</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt;" +
+            " 설계 &gt; 설계변경도면/도서 &gt; 도면 - 설계변경도면/도서 &gt; 조경 - 설계변경도면/도서</string>\r\n  <string>P" +
+            "MIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 설계변경도면/도서 &gt; 입주사요청사항</string>\r\n  <string>PMI" +
+            "S 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 실시설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &" +
+            "gt; 설계 &gt; 실시설계 &gt; 계산서 - 실시설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; " +
+            "설계 &gt; 실시설계 &gt; 도면 - 실시설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &g" +
+            "t; 실시설계 &gt; 시방서 - 실시설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 인" +
+            "테리어단계 &gt; 기본/기획설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 설계 &gt; 인테리어단계" +
+            " &gt; 실시설계</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 안전/환경 &gt; 계획 &gt; 안전관" +
+            "리계획서</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 안전/환경 &gt; 기타 &gt; 안전점검일지</s" +
+            "tring>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 안전/환경 &gt; 기타 &gt; 위험성평가</string>\r\n" +
+            "  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 안전/환경 &gt; 보고서</string>\r\n  <string>PMIS 자료분" +
+            "류 &gt; 문서분류체계 &gt; 안전/환경 &gt; 보고서 &gt; 사고 보고서(산재)</string>\r\n  <string>PMIS 자료분류 " +
+            "&gt; 문서분류체계 &gt; 안전/환경 &gt; 안전 부적합사항 &gt; 안전 부적합 사항 보고서</string>\r\n  <string>PMIS" +
+            " 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 계획 &gt; 공종별 검사 계획서(ITP&amp;ITC)</string>\r\n  <stri" +
+            "ng>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 계획 &gt; 품질 관리 계획서</string>\r\n  <string>PMIS" +
+            " 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 부적합사항 &gt; 부적합 사항 보고서</string>\r\n  <string>PMIS 자료" +
+            "분류 &gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(KOM) &gt; 시공계획서</string>\r\n  <string>PMIS 자료분류 " +
+            "&gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(PCM)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &g" +
+            "t; 품질 &gt; 시공계획서(PCM) &gt; 건축 - 시공계획서(PCM)</string>\r\n  <string>PMIS 자료분류 &gt; 문서" +
+            "분류체계 &gt; 품질 &gt; 시공계획서(PCM) &gt; 기계 - 시공계획서(PCM)</string>\r\n  <string>PMIS 자료분류 " +
+            "&gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(PCM) &gt; 소방기계 - 시공계획서(PCM)</string>\r\n  <string>P" +
+            "MIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(PCM) &gt; 소방전기 - 시공계획서(PCM)</string>\r\n  " +
+            "<string>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(PCM) &gt; 전기 - 시공계획서(PCM)</stri" +
+            "ng>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 시공계획서(PCM) &gt; 조경 - 시공계획서(PCM" +
+            ")</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 자재/장비 공급승인서 (DP2)</stri" +
+            "ng>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 자재/장비 공급승인서 (DP2) &gt; 건축 - 자재" +
+            "/장비 공급승인서 (DP2)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 자재/장비 공급승" +
+            "인서 (DP2) &gt; 기계 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>PMIS 자료분류 &gt; 문서분류체계 &" +
+            "gt; 품질 &gt; 자재/장비 공급승인서 (DP2) &gt; 전기 - 자재/장비 공급승인서 (DP2)</string>\r\n  <string>PM" +
+            "IS 자료분류 &gt; 문서분류체계 &gt; 품질 &gt; 자재/장비 공급승인서 (DP2) &gt; 조경 - 자재/장비 공급승인서 (DP2)</" +
+            "string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리</string>\r\n  <string>PMIS 자료분류" +
+            " &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 배관공사</string>\r\n  <string>PMI" +
+            "S 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 배선공사</string>\r\n  <stri" +
+            "ng>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 분야별감리업무일지</strin" +
+            "g>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 시험</s" +
+            "tring>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리업무일지 &gt; 책" +
+            "임감리업무일지</string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 감리업무관리 &gt; 감리월" +
+            "간보고</string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 시공보고관리 &gt; 월간업무보고<" +
+            "/string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 시공보고관리 &gt; 작업일보</strin" +
+            "g>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 시공보고관리 &gt; 주간업무보고</string>\r\n" +
+            "  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 시공보고관리 &gt; 주간업무보고 &gt; 배관공사</str" +
+            "ing>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 시공관리 &gt; 입주사협의 &gt; 회의자료</string>\r\n " +
+            " <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 전자도서관리 &gt; 사업일반 &gt; 사업계획</string>\r\n  <stri" +
+            "ng>PMIS 자료분류 &gt; 시공자료분류 &gt; 품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서</string>\r\n  <st" +
+            "ring>PMIS 자료분류 &gt; 시공자료분류 &gt; 품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 건축 - 자재검" +
+            "수요청서</string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 품질/안전/ 환경관리 &gt; 품질관리 &gt; 자" +
+            "재검수요청서 &gt; 기계 - 자재검수요청서</string>\r\n  <string>PMIS 자료분류 &gt; 시공자료분류 &gt; 품질/안전/ 환" +
+            "경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 전기 - 자재검수요청서</string>\r\n  <string>PMIS 자료분류 &gt; " +
+            "시공자료분류 &gt; 품질/안전/ 환경관리 &gt; 품질관리 &gt; 자재검수요청서 &gt; 조경 - 자재검수요청서</string>\r\n  <st" +
+            "ring>PMIS 자료분류 &gt; 시공자료분류 &gt; 품질/안전/ 환경관리 &gt; 품질관리 &gt; 현장통합점검일지</string>\r\n  " +
+            "<string>보안문서분류체계 &gt; 보고서</string>\r\n  <string>보안문서분류체계 &gt; 보고서 &gt; 입주사 월간보고서</" +
+            "string>\r\n  <string>보안문서분류체계 &gt; 원가</string>\r\n  <string>보안문서분류체계 &gt; 원가 &gt; 기성" +
+            " &gt; 공사기성부분 검사원</string>\r\n  <string>보안문서분류체계 &gt; 원가 &gt; 기성 &gt; 공사비 - 기성</str" +
+            "ing>\r\n  <string>보안문서분류체계 &gt; 원가 &gt; 기성 &gt; 용역비 - 기성</string>\r\n  <string>보안문서분" +
+            "류체계 &gt; 원가 &gt; 변경/정산 &gt; 공사비 - 변경/정산</string>\r\n  <string>보안문서분류체계 &gt; 원가 &gt" +
+            "; 변경/정산 &gt; 기타 - 변경/정산</string>\r\n  <string>보안문서분류체계 &gt; 정보보안 &gt; 인원보안지침 &gt; " +
+            "비밀유지 서약서(외부업체 및 대표자)</string>\r\n</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection register_type {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["register_type"]));
