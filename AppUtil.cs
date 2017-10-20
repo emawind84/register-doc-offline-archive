@@ -87,6 +87,9 @@ namespace pmis
             {
                 RegisterFile file = row.Item as RegisterFile;
                 RegisterFileService.OpenRegisterFile(file);
+            }
+        }
+
         public async static Task<IDictionary> RequestPMISToken(string host, string username, string password)
         {
             string url = String.Format("{0}/Main/Token.action", host);
