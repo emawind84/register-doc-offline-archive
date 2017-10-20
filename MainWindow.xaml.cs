@@ -36,7 +36,6 @@ namespace pmis
         private ReviewInfoDataService reviewInfoDataService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
-        private Window aboutForm;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
 
@@ -194,15 +193,13 @@ namespace pmis
             settingForm = new SettingWindow(
                 registerDocumentDataService,
                 reviewInfoDataService);
-
+            
             // adding sqlite module to setting form
             settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
             settingForm.SettingChanged += LoadSearchOptions;
             settingForm.SettingChanged += LoadPictureViewer;
             settingForm.SettingChanged += LoadLanguage;
-
-            aboutForm = new AboutBox();
             
             try
             {
@@ -400,7 +397,8 @@ namespace pmis
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            settingForm.Show();
+            settingForm.Owner = this;
+            settingForm.ShowDialog();
         }
 
         private void fileManagerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -513,7 +511,9 @@ namespace pmis
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            aboutForm.Show();
+            var aboutForm = new AboutBox();
+            aboutForm.Owner = this;
+            aboutForm.ShowDialog();
         }
 
         protected override void OnClosed(EventArgs e)

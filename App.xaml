@@ -17,5 +17,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="AcceptsReturn" Value="False" />
+        </Style>
+        <Style x:Key="ButtonDefaultStyle" TargetType="{x:Type Button}" >
+            <Setter Property="Height" Value="23" />
+            <Setter Property="Padding" Value="4,1" />
+        </Style>
     </Application.Resources>
 </Application>
