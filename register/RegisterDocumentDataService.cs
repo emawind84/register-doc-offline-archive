@@ -170,42 +170,28 @@ namespace pmis
             catch (Exception ex)
             {
                 ex.Log().Display();
-                if (ImportError != null)
-                    ImportError(this, new ErrorEventArgs(ex));
+                ImportError?.Invoke(this, new ErrorEventArgs(ex));
             }
             finally
             {
-                if (ImportComplete != null)
-                    ImportComplete(this, EventArgs.Empty);
+                ImportComplete?.Invoke(this, EventArgs.Empty);
             }
 
         }
 
         protected virtual void OnImportComplete(EventArgs e)
         {
-            EventHandler handler = ImportComplete;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            ImportComplete?.Invoke(this, e);
         }
 
         protected virtual void OnImportError(ErrorEventArgs e)
         {
-            ErrorEventHandler handler = ImportError;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            ImportError?.Invoke(this, e);
         }
 
         protected virtual void OnRegisterDocumentImported(RegisterDocument d)
         {
-            EventHandler<RegisterDocument> handler = RegisterDocumentImported;
-            if (handler != null)
-            {
-                handler(this, d);
-            }
+            RegisterDocumentImported?.Invoke(this, d);
         }
 
         private void ImportData(List<RegisterDocument> docs)

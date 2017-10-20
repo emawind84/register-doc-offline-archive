@@ -2,11 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="pmis.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)">test</Value>
-    </Setting>
     <Setting Name="pmis_api_url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://dev.sangah.com</Value>
+      <Value Profile="(Default)">https://pmis.sangah.com</Value>
     </Setting>
     <Setting Name="pmis_project_code" Type="System.String" Scope="User">
       <Value Profile="(Default)">GLB_PMIS</Value>

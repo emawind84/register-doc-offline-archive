@@ -56,7 +56,7 @@ namespace pmis
         public SettingWindow(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService, ArchiveDataService archiveDataService)
         {
             InitializeComponent();
-
+            
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
             this.archiveDataService = archiveDataService;
@@ -413,5 +413,18 @@ namespace pmis
             LoadSettings();
         }
 
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var tokenRequestWindow = new TokenRequestWindow(settingPmisWsUrl.Text);
+                tokenRequestWindow.AfterRequestComplete += (s, token) => { settingPmisWsAuthKey.Text = token; };
+                tokenRequestWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
     }
 }

@@ -33,7 +33,6 @@ namespace pmis
         private RegisterDocumentDetailView registerDocumentDetailView;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
-        private Window aboutForm;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
         private ArchiveDataService archiveDataService;
@@ -217,8 +216,6 @@ namespace pmis
             settingForm.SettingChanged += LoadPictureViewer;
             settingForm.SettingChanged += ShowArchiveList;
             settingForm.SettingChanged += LoadLanguage;
-
-            aboutForm = new AboutBox();
             
             try
             {
@@ -402,7 +399,8 @@ namespace pmis
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            settingForm.Show();
+            settingForm.Owner = this;
+            settingForm.ShowDialog();
         }
 
         private void fileManagerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -497,7 +495,9 @@ namespace pmis
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            aboutForm.Show();
+            var aboutForm = new AboutBox();
+            aboutForm.Owner = this;
+            aboutForm.ShowDialog();
         }
 
         protected override void OnClosed(EventArgs e)
