@@ -27,7 +27,7 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://dev.sangah.com/util/pmis-archive/2/stable/</InstallUrl>
+    <InstallUrl>https://dev.sangah.com/pmis-archive/2/stable/</InstallUrl>
     <UpdateUrl>https://dev.sangah.com/pmis-archive/2/stable/</UpdateUrl>
     <SupportUrl>http://www.sangah.com</SupportUrl>
     <ProductName>PMIS Offline Archive</ProductName>
