@@ -149,60 +149,51 @@ namespace pmis
         {
             InitializeComponent();
 
-            daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
-
             try
             {
+                daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
                 // open db connection before doing anything else
                 daoService.Open();
-            }
-            catch (Exception ex)
-            {
-                ex.Log().Display();
-                return;
-            }
 
-            registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
-            registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
-            registerDocumentDetailView = new RegisterDocumentDetailView(this);
-            registerDataGridView.CanUserAddRows = false;
-            registerDataGridView.AutoGenerateColumns = false;
+                registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
+                registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+                registerDocumentDetailView = new RegisterDocumentDetailView(this);
+                registerDataGridView.CanUserAddRows = false;
+                registerDataGridView.AutoGenerateColumns = false;
 
-            reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
-            reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
-            reviewDataGridView.AutoGenerateColumns = false;
-            reviewDataGridView.CanUserAddRows = false;
+                reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
+                reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
+                reviewDataGridView.AutoGenerateColumns = false;
+                reviewDataGridView.CanUserAddRows = false;
 
-            reviewFilesBS = new BindingSource();
-            reviewFilesBS.DataSource = new List<RegisterFile>();
-            reviewFilesBS.AllowNew = false;
-            reviewFileDataGrid.AutoGenerateColumns = false;
-            reviewFileDataGrid.ItemsSource = reviewFilesBS;
+                reviewFilesBS = new BindingSource();
+                reviewFilesBS.DataSource = new List<RegisterFile>();
+                reviewFilesBS.AllowNew = false;
+                reviewFileDataGrid.AutoGenerateColumns = false;
+                reviewFileDataGrid.ItemsSource = reviewFilesBS;
 
-            fileManagerBS = new BindingSource();
-            fileManagerBS.DataSource = new List<RegisterFile>();
-            fileManagerBS.AllowNew = false;
-            fileManagerDataGridView.AutoGenerateColumns = false;
-            fileManagerDataGridView.ItemsSource = fileManagerBS;
+                fileManagerBS = new BindingSource();
+                fileManagerBS.DataSource = new List<RegisterFile>();
+                fileManagerBS.AllowNew = false;
+                fileManagerDataGridView.AutoGenerateColumns = false;
+                fileManagerDataGridView.ItemsSource = fileManagerBS;
 
-            srchHistory.ItemsSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
-            srchHistory.DisplayMemberPath = "Value";
-            srchHistory.SelectedValuePath = "Key";
-            srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
+                srchHistory.ItemsSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
+                srchHistory.DisplayMemberPath = "Value";
+                srchHistory.SelectedValuePath = "Key";
+                srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
-            settingForm = new SettingWindow(
-                registerDocumentDataService,
-                reviewInfoDataService);
+                settingForm = new SettingWindow(
+                    registerDocumentDataService,
+                    reviewInfoDataService);
             
-            // adding sqlite module to setting form
-            settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
+                // adding sqlite module to setting form
+                settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
-            settingForm.SettingChanged += LoadSearchOptions;
-            settingForm.SettingChanged += LoadPictureViewer;
-            settingForm.SettingChanged += LoadLanguage;
-            
-            try
-            {
+                settingForm.SettingChanged += LoadSearchOptions;
+                settingForm.SettingChanged += LoadPictureViewer;
+                settingForm.SettingChanged += LoadLanguage;
+
                 LoadLanguage();
 
                 // load search options
@@ -216,8 +207,7 @@ namespace pmis
             }
             catch (Exception ex)
             {
-                ex.Log().Display();
-                return;
+                throw ex.Log().Display();
             }
 
         }
