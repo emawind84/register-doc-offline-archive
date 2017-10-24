@@ -40,6 +40,11 @@ namespace pmis
             var _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             appDataFullPath = Path.Combine(_path, ".pmis-archive");
 
+            // set the log root folder
+            LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
+
+            i18n = new LanguageService(Properties.Settings.Default.language);
+
             // create user app folder
             if (!Directory.Exists(AppDataFullPath))
                 Directory.CreateDirectory(AppDataFullPath);
@@ -52,20 +57,23 @@ namespace pmis
             }
 
             DirectoryInfo dataDir = new DirectoryInfo("data");
-            FileInfo[] files = dataDir.GetFiles();
-            foreach (FileInfo file in files)
+            try
             {
-                string temppath = Path.Combine(userDataDir.FullName, file.Name);
-                if (!File.Exists(temppath))
+                FileInfo[] files = dataDir.GetFiles();
+                foreach (FileInfo file in files)
                 {
-                    file.CopyTo(temppath, false);
+                    string temppath = Path.Combine(userDataDir.FullName, file.Name);
+                    if (!File.Exists(temppath))
+                    {
+                        file.CopyTo(temppath, false);
+                    }
                 }
             }
-
-            // set the log root folder
-            LogUtil.LogRootFolder = Path.Combine(AppDataFullPath, "logs");
-
-            i18n = new LanguageService(Properties.Settings.Default.language);
+            catch (DirectoryNotFoundException ex)
+            {
+                LogUtil.Log("Setup data folder missing, skipping data copy.");
+            }
+            
         }
 
 

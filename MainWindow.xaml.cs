@@ -158,67 +158,58 @@ namespace pmis
         {
             InitializeComponent();
 
-            daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
-
             try
             {
+                daoService = new SQLiteDaoService(Properties.Settings.Default.sqlite_db_location);
                 // open db connection before doing anything else
                 daoService.Open();
-            }
-            catch (Exception ex)
-            {
-                ex.Log().Display();
-                return;
-            }
 
-            RegisterDocumentDataService registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
-            RegisterDocumentPresenter registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
-            registerDocumentDetailView = new RegisterDocumentDetailView(this);
-            registerDataGridView.CanUserAddRows = false;
-            registerDataGridView.AutoGenerateColumns = false;
+                RegisterDocumentDataService registerDocumentDataService = new RegisterDocumentDataService(daoService as IRegisterDocumentDao);
+                RegisterDocumentPresenter registerDocumentPresenter = new RegisterDocumentPresenter(this, registerDocumentDataService);
+                registerDocumentDetailView = new RegisterDocumentDetailView(this);
+                registerDataGridView.CanUserAddRows = false;
+                registerDataGridView.AutoGenerateColumns = false;
 
-            ReviewInfoDataService reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
-            ReviewInfoPresenter reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
-            reviewDataGridView.AutoGenerateColumns = false;
-            reviewDataGridView.CanUserAddRows = false;
+                ReviewInfoDataService reviewInfoDataService = new ReviewInfoDataService(daoService as IReviewInfoDao);
+                ReviewInfoPresenter reviewInfoPresenter = new ReviewInfoPresenter(this, reviewInfoDataService, registerDocumentDataService);
+                reviewDataGridView.AutoGenerateColumns = false;
+                reviewDataGridView.CanUserAddRows = false;
 
-            archiveDataService = new ArchiveDataService(daoService as IArchiveDataDao);
-            ArchivePresenter archivePresenter = new ArchivePresenter(this, archiveDataService);
-            archiveDataGridView.AutoGenerateColumns = false;
-            archiveDataGridView.CanUserAddRows = false;
+                archiveDataService = new ArchiveDataService(daoService as IArchiveDataDao);
+                ArchivePresenter archivePresenter = new ArchivePresenter(this, archiveDataService);
+                archiveDataGridView.AutoGenerateColumns = false;
+                archiveDataGridView.CanUserAddRows = false;
 
-            reviewFilesBS = new BindingSource();
-            reviewFilesBS.DataSource = new List<RegisterFile>();
-            reviewFilesBS.AllowNew = false;
-            reviewFileDataGrid.AutoGenerateColumns = false;
-            reviewFileDataGrid.ItemsSource = reviewFilesBS;
+                reviewFilesBS = new BindingSource();
+                reviewFilesBS.DataSource = new List<RegisterFile>();
+                reviewFilesBS.AllowNew = false;
+                reviewFileDataGrid.AutoGenerateColumns = false;
+                reviewFileDataGrid.ItemsSource = reviewFilesBS;
 
-            fileManagerBS = new BindingSource();
-            fileManagerBS.DataSource = new List<RegisterFile>();
-            fileManagerBS.AllowNew = false;
-            fileManagerDataGridView.AutoGenerateColumns = false;
-            fileManagerDataGridView.ItemsSource = fileManagerBS;
+                fileManagerBS = new BindingSource();
+                fileManagerBS.DataSource = new List<RegisterFile>();
+                fileManagerBS.AllowNew = false;
+                fileManagerDataGridView.AutoGenerateColumns = false;
+                fileManagerDataGridView.ItemsSource = fileManagerBS;
 
-            srchHistory.ItemsSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
-            srchHistory.DisplayMemberPath = "Value";
-            srchHistory.SelectedValuePath = "Key";
-            srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
+                srchHistory.ItemsSource = new BindingSource(AppConfig.RegisterHistoryOptions, null);
+                srchHistory.DisplayMemberPath = "Value";
+                srchHistory.SelectedValuePath = "Key";
+                srchHistory.SelectedValue = AppConfig.HISTORY_LATEST;
 
-            settingForm = new SettingWindow(
-                registerDocumentDataService,
-                reviewInfoDataService,
-                archiveDataService);
+                settingForm = new SettingWindow(
+                    registerDocumentDataService,
+                    reviewInfoDataService,
+                    archiveDataService);
 
-            // adding sqlite module to setting form
-            settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
+                // adding sqlite module to setting form
+                settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
-            settingForm.SettingChanged += LoadSearchOptions;
-            settingForm.SettingChanged += LoadPictureViewer;
-            settingForm.SettingChanged += ShowArchiveList;
-            settingForm.SettingChanged += LoadLanguage;
-            
-            try
-            {
+                settingForm.SettingChanged += LoadSearchOptions;
+                settingForm.SettingChanged += LoadPictureViewer;
+                settingForm.SettingChanged += ShowArchiveList;
+                settingForm.SettingChanged += LoadLanguage;
+
                 LoadLanguage();
 
                 // load search options
@@ -234,8 +225,7 @@ namespace pmis
             }
             catch (Exception ex)
             {
-                ex.Log().Display();
-                return;
+                throw ex.Log().Display();
             }
 
         }

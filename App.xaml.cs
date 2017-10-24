@@ -26,8 +26,8 @@ namespace pmis
             }
             catch (Exception ex)
             {
-                new ApplicationException("Application didn't start correctly, please check the log.", ex)
-                    .Log()
+                ex.Log();
+                throw new ApplicationException("Application didn't start correctly, please check the log.", ex)
                     .Display();
             }
 
