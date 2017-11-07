@@ -27,13 +27,13 @@ namespace pmis
             }
         }
 
-        public async static Task<IDictionary> RequestPMISToken(string host, string username, string password)
+        public async static Task<IDictionary> RequestPMISToken(string host, string username, string password, bool pwdEncoded = false)
         {
             string url = String.Format("{0}/Main/Token.action", host);
 
             var values = new Dictionary<string, string> {
                 { "user_no", username },
-                { "passwd", password },
+                { "passwd", pwdEncoded?Base64Encode(password):password },
                 { "cmd", "sso" },
                 { "auth_type", "basic" }
             };
@@ -110,6 +110,18 @@ namespace pmis
                 RegisterFile file = row.Item as RegisterFile;
                 RegisterFileService.OpenRegisterFile(file);
             }
+        }
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
     }
