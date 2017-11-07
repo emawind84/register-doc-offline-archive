@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Deployment.Application;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -76,6 +77,19 @@ namespace pmis
             
         }
 
+        #region Application Attribute Accessors
+
+        public static string PublishVersion
+        {
+            get {
+                if (ApplicationDeployment.IsNetworkDeployed) {
+                    return ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+                }
+                return "N/A";
+            }
+        }
+
+        #endregion
 
         #region Assembly Attribute Accessors
 
