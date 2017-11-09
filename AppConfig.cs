@@ -72,6 +72,7 @@ namespace pmis
             }
             catch (DirectoryNotFoundException ex)
             {
+                //ex.Log()
                 LogUtil.Log("Setup data folder missing, skipping data copy.");
             }
             

@@ -413,7 +413,7 @@ namespace pmis
             LoadSettings();
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
