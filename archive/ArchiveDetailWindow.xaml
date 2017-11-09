@@ -1,0 +1,43 @@
+﻿<Window x:Class="pmis.archive.ArchiveDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pmis.archive"
+        mc:Ignorable="d"
+        Title="Archive Detail" Height="577" Width="650" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="577">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107.2"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="archiveDescriptionTextBlock" HorizontalAlignment="Left" Margin="9.8,44,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold" Height="16" Grid.Column="1"/>
+        <TextBlock x:Name="archiveTypeTextBlock" HorizontalAlignment="Left" Margin="9.8,15,0,0" TextWrapping="Wrap" Text="Archive Type" VerticalAlignment="Top" FontWeight="Bold" Height="16" Grid.Column="1"/>
+        <TextBlock x:Name="archiveCreatedTextBlock" HorizontalAlignment="Left" Margin="9.8,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Height="16" Grid.Column="1"><Run Text="2017-09-12 12"/><Run Text=":"/><Run Text="23"/><Run Text=":"/><Run Text="44"/></TextBlock>
+        <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10.2" Height="137" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" HeadersVisibility="Column" MouseUp="fileManagerDataGridView_MouseUp" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" Grid.ColumnSpan="2" MinRowHeight="30" CanUserAddRows="False" MinColumnWidth="100">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="fileManagerDataGridViewFilename" Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
+                <DataGridTextColumn x:Name="fileManagerDataGridViewFilesize" Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
+                <DataGridTextColumn Binding="{Binding OpenLocation, TargetNullValue=EMPTY}" ClipboardContentBinding="{x:Null}" Header="#" Width="100" CanUserSort="False"  >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="TextDecorations" Value="Underline" />
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="metaDataDataGrid" Margin="10,112,10,152.2" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" HeadersVisibility="Column" IsReadOnly="True" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" MinRowHeight="30" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="metaDataGridColumnDataLabel" Binding="{Binding Key}" ClipboardContentBinding="{x:Null}" Header="Data" Width="0.3*"/>
+                <DataGridTextColumn x:Name="metaDataGridColumnValueLabel" Binding="{Binding Value}" ClipboardContentBinding="{x:Null}" Header="Value" Width="0.7*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="archiveTypeLabel" Content="Archive Type" Margin="0,10,8.2,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right" Height="26" HorizontalContentAlignment="Right"/>
+        <Label x:Name="archiveDescriptionLabel" Content="Description" Margin="0,39,8.2,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right" Height="26" HorizontalContentAlignment="Right"/>
+        <Label x:Name="archiveCreatedLabel" Content="Created" Margin="0,66,8.2,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalAlignment="Right" Height="26" HorizontalContentAlignment="Right"/>
+
+    </Grid>
+</Window>

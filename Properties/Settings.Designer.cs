@@ -201,5 +201,25 @@ namespace pmis.Properties {
                 this["picture_folder_uri"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>Workflow</string>
+  <string>Picture</string>
+  <string>Issue</string>
+  <string>Risk</string>
+  <string>Contract</string>
+  <string>Register</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection archive_types {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["archive_types"]));
+            }
+            set {
+                this["archive_types"] = value;
+            }
+        }
     }
 }

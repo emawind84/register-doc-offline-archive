@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PMIS - Offline Archive" Height="622" Width="1063" Icon="resources/sangah_logo_16.ico" Closing="Window_Closing" WindowStartupLocation="CenterScreen" MinWidth="1060" MinHeight="622">
     <Grid>
-        <TabControl x:Name="tabControl1" Margin="10,31,10,10">
+        <TabControl x:Name="tabControl1" Margin="10,31,10,10" SelectionChanged="tabControl1_SelectionChanged">
             <TabItem x:Name="registerTabPage" Header="Register">
                 <Grid Background="White">
                     <Grid Margin="0,0,0,390" HorizontalAlignment="Left" Width="862">
@@ -36,10 +36,15 @@
                         <DatePicker x:Name="srchToDate" Margin="89,97,1,0" VerticalAlignment="Top" RenderTransformOrigin="2.216,0.833" Grid.Column="1"/>
                         <Label x:Name="searchHistoryLabel" Content="History" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="96,96,0,0" Grid.Column="2" HorizontalContentAlignment="Right"/>
                         <ComboBox x:Name="srchHistory" Margin="5,97,10,0" VerticalAlignment="Top" Grid.Column="3"/>
-                        <Button x:Name="searchButton" Content="Search" Margin="18.2,55,0,0" Click="searchButton_Click" Background="#FFDDDDDD" BorderBrush="Gray" Grid.Column="4" HorizontalAlignment="Left" Width="104" Height="36" VerticalAlignment="Top"/>
+                        <Button x:Name="searchButton" Margin="18.2,55,0,0" Click="searchButton_Click" Background="#FFDDDDDD" BorderBrush="Gray" Grid.Column="4" HorizontalAlignment="Left" Width="104" Height="36" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="resources/if_search_322497.png" Width="20" Height="20" VerticalAlignment="Center" />
+                                <TextBlock Name="registerSearchButtonLabel" Text="Search" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
                         <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
                     </Grid>
-                    <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="30" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
+                    <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="35" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="doclist_docno" Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number" Width="240"/>
                             <DataGridTextColumn x:Name="doclist_title" Binding="{Binding [title]}" ClipboardContentBinding="{x:Null}" Header="Title" Width="0.7*"/>
@@ -96,7 +101,7 @@
                     <GroupBox x:Name="docNoteLabel" Header="Note" Margin="10,217,10,180">
                         <TextBlock x:Name="docViewNote" TextWrapping="Wrap" Text="" />
                     </GroupBox>
-                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="fileManagerDataGridView_MouseUp" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+                    <DataGrid x:Name="fileManagerDataGridView" Margin="10,0,10,10" Height="165" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="fileManagerDataGridView_MouseUp" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" HeadersVisibility="Column" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="fileManagerDataGridViewFilename" Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
                             <DataGridTextColumn x:Name="fileManagerDataGridViewFilesize" Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*"/>
@@ -122,7 +127,7 @@
                     <Label x:Name="docReviewStatusLabel" Content="Review Outcome" Margin="18,11,0,0" VerticalAlignment="Top" Foreground="#FF727272" HorizontalContentAlignment="Right" HorizontalAlignment="Right" 
                            Height="26"/>
                     <TextBlock x:Name="docViewReviewStatus" HorizontalAlignment="Left" Margin="5,16,0,0" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" />
-                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10.2,159" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" Grid.ColumnSpan="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+                    <DataGrid x:Name="reviewDataGridView" Margin="10,42,10.2,159" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeRows="False" MinRowHeight="30" IsReadOnly="True" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" Grid.ColumnSpan="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="reviewDataGridViewReviewDate" Binding="{Binding [review_date]}" ClipboardContentBinding="{x:Null}" Header="Reviewed" Width="100"/>
                             <DataGridTextColumn x:Name="reviewDataGridViewReviewedBy" Binding="{Binding [reviewed_by]}" ClipboardContentBinding="{x:Null}" Header="Reviewed By" Width="0.6*"/>
@@ -154,7 +159,7 @@
                         <ColumnDefinition Width="714*"/>
                     </Grid.ColumnDefinitions>
                     <ListBox x:Name="pictureFolderListBox" Margin="10,10,10,214" SelectionChanged="pictureFolderListBox_SelectionChanged" Padding="0,2"/>
-                    <DataGrid x:Name="pictureGridView" Margin="10,0,10,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
+                    <DataGrid x:Name="pictureGridView" Margin="10,0,10,10" Height="199" VerticalAlignment="Bottom" AutoGenerateColumns="False" IsReadOnly="True" MouseUp="pictureGridView_CellClick" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" HeadersVisibility="Column" CanUserResizeColumns="False" MouseDoubleClick="fileManagerDataGridView_MouseDoubleClick" MinRowHeight="30" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="pictureDataGridViewFileName" Binding="{Binding FileName}" ClipboardContentBinding="{x:Null}" Header="File Name" Width="*"/>
                             <DataGridTextColumn x:Name="pictureDataGridViewFileSize" Binding="{Binding FileHumanSize}" ClipboardContentBinding="{x:Null}" Header="File Size" Width="0.3*" Visibility="Hidden"/>
@@ -167,6 +172,31 @@
                         <Image x:Name="pictureBox1" Margin="-0.8,0.2,-0.6,-1"/>
                     </Border>
 
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="archiveTabPage" Header="Archive" >
+                <Grid Background="White">
+
+                    <DataGrid x:Name="archiveDataGridView" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="archiveDataGridView_MouseDoubleClick" MinRowHeight="30" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" Margin="0,57,0.2,0" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" Grid.ColumnSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="archiveDataGridColumnDescriptionLabel" Binding="{Binding [description]}" ClipboardContentBinding="{x:Null}" Header="Description" Width="*"/>
+                            <DataGridTextColumn x:Name="archiveDataGridColumnArchiveType" Binding="{Binding [archive_type]}" ClipboardContentBinding="{x:Null}" Header="Archive Type" Width="120"/>
+                            <DataGridTextColumn x:Name="archiveDataGridColumnCreatedLabel" Binding="{Binding [created]}" ClipboardContentBinding="{x:Null}" Header="Created" Width="120"/>
+                            <DataGridTextColumn Binding="{Binding [id]}" ClipboardContentBinding="{x:Null}" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="863" Orientation="Horizontal" Margin="10,10,0,0">
+                        <Label x:Name="archiveFilterTypeLabel" Content="Filter Type" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="16,7,0,7"/>
+                        <ComboBox x:Name="archiveFilterTypeCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="0,9"/>
+                        <Label x:Name="archiveSearchLabel" Content="Search" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Right" Margin="20,0,0,0"/>
+                        <TextBox x:Name="archiveFullSearchValue" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="281" Height="23"/>
+                        <Button x:Name="archiveSearchButton" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="24,0,0,0" Click="archiveSearchButton_Click" Height="36">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="resources/if_search_322497.png" Width="20" Height="20"  />
+                                <TextBlock x:Name="archiveSearchButtonLabel" Text="Search" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>

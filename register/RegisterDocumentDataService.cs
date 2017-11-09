@@ -49,7 +49,7 @@ namespace pmis
             }
         }
 
-        public List<RegisterFile> LoadRegisterFiles(RegisterDocument doc) {
+        public IEnumerable<RegisterFile> LoadRegisterFiles(RegisterDocument doc) {
             string registerURI = Properties.Settings.Default.register_folder_uri;
             registerURI = String.IsNullOrEmpty(registerURI) ? "register" : registerURI;
 
@@ -66,13 +66,14 @@ namespace pmis
                 e.Log();
             }
 
-            var registerFiles = new List<RegisterFile>();
+            //var registerFiles = new List<RegisterFile>();
             foreach (string fileName in files)
             {
                 var regfile = new RegisterFile(fileName);
-                registerFiles.Add(regfile);
+                //registerFiles.Add(regfile);
+                yield return regfile;
             }
-            return registerFiles;
+            //return registerFiles;
         }
 
         public int LoadRegisterCount()

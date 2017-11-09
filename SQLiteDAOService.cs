@@ -1,4 +1,5 @@
-﻿using pmis.register;
+﻿using pmis.archive;
+using pmis.register;
 using pmis.reviewinfo;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace pmis
 {
-    public class SQLiteDaoService : IDbConnection, IRegisterDocumentDao, IReviewInfoDao
+    public class SQLiteDaoService : IDbConnection, IRegisterDocumentDao, IReviewInfoDao, IArchiveDataDao
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -371,6 +372,101 @@ namespace pmis
 
             }
             return count;
+        }
+
+        public DataTable SearchArchive(Dictionary<string, object> criteria = null)
+        {
+            string filepath = Path.Combine(projectFolder, @"archive/archive.load.sqlite.sql");
+            string sql = File.ReadAllText(filepath);
+
+            if (criteria.ContainsKey("search_value"))
+            {
+                sql += " AND ( ";
+                sql += "description like upper('%'|| @search_value ||'%')";
+                sql += " OR upper(metadata) like upper('%'|| @search_value ||'%')";
+                sql += ") ";
+            }
+
+            if (criteria.ContainsKey("filter_type"))
+                sql += " AND archive_type = @filter_type";
+
+            DataTable dt = new DataTable();
+            using (var cmd = new SQLiteCommand(sql, m_dbConnection))
+            {
+                if (criteria.ContainsKey("search_value"))
+                    cmd.Parameters.AddWithValue("@search_value", criteria["search_value"]);
+
+                if (criteria.ContainsKey("filter_type"))
+                    cmd.Parameters.AddWithValue("@filter_type", criteria["filter_type"]);
+
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
+        public void ImportArchiveData(Archive a)
+        {
+            string filepath = Path.Combine(projectFolder, @"archive/archive.import.sqlite.sql");
+            string sql = File.ReadAllText(filepath);
+
+            SQLiteCommand cmd = new SQLiteCommand(sql, m_dbConnection);
+            cmd.Parameters.AddWithValue("@id", a.Id);
+            cmd.Parameters.AddWithValue("@description", a.Description);
+            cmd.Parameters.AddWithValue("@type", a.Type);
+            cmd.Parameters.AddWithValue("@file_seq", a.FileSeq);
+            cmd.Parameters.AddWithValue("@metadata", a.MetaData);
+            cmd.Parameters.AddWithValue("@created", a.Created);
+            
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+        }
+
+        public Archive LoadArchive(string id)
+        {
+            Console.WriteLine("Loading archive info...");
+            string filepath = Path.Combine(projectFolder, @"archive/archive.load.sqlite.sql");
+            string sql = File.ReadAllText(filepath);
+
+            sql += " AND id = @id ";
+            
+            Console.WriteLine(sql);
+
+            DataTable dt = new DataTable();
+            using (var cmd = new SQLiteCommand(sql, m_dbConnection))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Archive archive = new Archive
+                        {
+                            Id = reader["id"].ToString(),
+                            Description = reader["description"].ToString(),
+                            Type = reader["archive_type"].ToString(),
+                            FileSeq = reader["file_seq"].ToString(),
+                            MetaData = reader["metadata"].ToString(),
+                            Created = reader["created"].ToString()
+                        };
+
+                        return archive;
+                    }
+                }
+            }
+            
+            return null;
+        }
+
+        public void DeleteArchive()
+        {
+            SQLiteCommand command = new SQLiteCommand("delete from archive", m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            command.Dispose();
         }
     }
 }
