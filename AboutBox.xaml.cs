@@ -26,7 +26,7 @@ namespace pmis
             InitializeComponent();
             this.Title = String.Format("About {0}", AppConfig.AssemblyTitle);
             this.labelProductName.Content = AppConfig.AssemblyProduct;
-            this.labelVersion.Content = String.Format("Version {0}", AppConfig.AssemblyVersion);
+            this.labelVersion.Content = String.Format("Version {0}, build {1}", AppConfig.AssemblyVersion, AppConfig.PublishVersion);
             this.labelCopyright.Content = AppConfig.AssemblyCopyright;
             this.labelCompanyName.Content = AppConfig.AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
