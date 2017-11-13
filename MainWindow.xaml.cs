@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -462,5 +463,9 @@ namespace pmis
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void GoToOnlineHelp(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/sangahco/register-doc-offline-archive/blob/master/README.md");
+        }
     }
 }

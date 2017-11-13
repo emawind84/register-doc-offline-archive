@@ -178,6 +178,7 @@
             </MenuItem>
             <MenuItem Header="_Help" Height="21">
                 <MenuItem Header="_About" Click="MenuItem_Click" />
+                <MenuItem Header="Online Help" Click="GoToOnlineHelp" />
             </MenuItem>
         </Menu>
 
