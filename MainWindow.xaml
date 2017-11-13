@@ -46,15 +46,15 @@
                     </Grid>
                     <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="35" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="doclist_docno" Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number" Width="240"/>
-                            <DataGridTextColumn x:Name="doclist_title" Binding="{Binding [title]}" ClipboardContentBinding="{x:Null}" Header="Title" Width="0.7*"/>
+                            <DataGridTextColumn x:Name="doclist_docno" Binding="{Binding [docno]}" ClipboardContentBinding="{x:Null}" Header="Document Number" Width="0.2*"/>
+                            <DataGridTextColumn x:Name="doclist_title" Binding="{Binding [title]}" ClipboardContentBinding="{x:Null}" Header="Title" Width="0.4*"/>
                             <DataGridTextColumn x:Name="doclist_revision" Binding="{Binding [revision]}" ClipboardContentBinding="{x:Null}" Header="Revision" Width="60"/>
                             <DataGridTextColumn x:Name="doclist_version" Binding="{Binding [doc_version]}" ClipboardContentBinding="{x:Null}" Header="Version" Width="60"/>
                             <DataGridTextColumn x:Name="doclist_revision_date" Binding="{Binding [revision_date]}" ClipboardContentBinding="{x:Null}" Header="Revision Date" Width="100"/>
                             <DataGridTextColumn x:Name="doclist_organization" Binding="{Binding [organization]}" ClipboardContentBinding="{x:Null}" Header="Organization" Visibility="Hidden" Width="90"/>
-                            <DataGridTextColumn x:Name="doclist_type" Binding="{Binding [doc_type]}" ClipboardContentBinding="{x:Null}" Header="Type" Width="70"/>
+                            <DataGridTextColumn x:Name="doclist_type" Binding="{Binding [doc_type]}" ClipboardContentBinding="{x:Null}" Header="Type" Width="0.2*"/>
                             <DataGridTextColumn x:Name="doclist_review_status" Binding="{Binding [review_status]}" ClipboardContentBinding="{x:Null}" Header="Review Status" Visibility="Hidden" Width="100"/>
-                            <DataGridTextColumn x:Name="doclist_registered_by" Binding="{Binding [registered_by]}" ClipboardContentBinding="{x:Null}" Header="Registered By" Width="0.3*"/>
+                            <DataGridTextColumn x:Name="doclist_registered_by" Binding="{Binding [registered_by]}" ClipboardContentBinding="{x:Null}" Header="Registered By" Width="0.2*"/>
                             <DataGridTextColumn x:Name="doclist_registered" Binding="{Binding [registered]}" ClipboardContentBinding="{x:Null}" Header="Registered" Width="72"/>
                             <DataGridTextColumn x:Name="doclist_discipline" Binding="{Binding [discipline]}" ClipboardContentBinding="{x:Null}" Header="Discipline" Visibility="Hidden" Width="78"/>
                             <DataGridTextColumn x:Name="doclist_status" Binding="{Binding [doc_status]}" ClipboardContentBinding="{x:Null}" Header="Status" Width="100"/>
@@ -208,6 +208,7 @@
             </MenuItem>
             <MenuItem Header="_Help" Height="21">
                 <MenuItem Header="_About" Click="MenuItem_Click" />
+                <MenuItem Header="Online Help" Click="GoToOnlineHelp" />
             </MenuItem>
         </Menu>
 
