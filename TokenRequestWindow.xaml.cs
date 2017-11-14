@@ -41,8 +41,7 @@ namespace pmis
                 this.button.IsEnabled = false;
                 bool pwdEncoded = passwordBase64Encoded.IsChecked.Value;
                 var obj = await AppUtil.RequestPMISToken(host, pmisUsername.Text, pmisPassword.Password, pwdEncoded);
-                AfterRequestComplete.Invoke(this, obj["access_token"] as string);
-                this.Close();
+                AfterRequestComplete?.Invoke(this, obj["access_token"] as string);
             }
             catch (Exception ex)
             {

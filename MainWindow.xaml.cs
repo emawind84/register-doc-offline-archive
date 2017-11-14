@@ -1,10 +1,12 @@
 ﻿using pmis;
 using pmis.i18n;
+using pmis.profile;
 using pmis.register;
 using pmis.reviewinfo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
@@ -39,6 +41,7 @@ namespace pmis
         private BindingSource reviewFilesBS;
         private PicturePresenter picturePresenter;
         private PictureViewerService pictureViewerService;
+        private ObservableCollection<Profile> profileListMenuItems = new ObservableCollection<Profile>();
 
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
@@ -146,8 +149,11 @@ namespace pmis
             }
         }
 
+        public ObservableCollection<Profile> ProfileListMenuItems => profileListMenuItems;
+
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
 
             try
@@ -187,13 +193,22 @@ namespace pmis
                 settingForm = new SettingWindow(
                     registerDocumentDataService,
                     reviewInfoDataService);
-            
+
                 // adding sqlite module to setting form
                 settingForm.SQLiteDaoService = daoService as SQLiteDaoService;
 
                 settingForm.SettingChanged += LoadSearchOptions;
                 settingForm.SettingChanged += LoadPictureViewer;
                 settingForm.SettingChanged += LoadLanguage;
+                settingForm.SettingChanged += ShowRegisterList;
+
+                ProfileService.ProfileChanged += (profile) =>
+                {
+                    LoadSearchOptions();
+                    LoadPictureViewer();
+                    LoadLanguage();
+                    ShowRegisterList();
+                };
 
                 LoadLanguage();
 
@@ -205,6 +220,8 @@ namespace pmis
 
                 // load picture viewer
                 LoadPictureViewer();
+
+                LoadProfileMenuItems();
             }
             catch (Exception ex)
             {
@@ -213,7 +230,7 @@ namespace pmis
 
         }
 
-        private void LoadLanguage(object sender=null, EventArgs args=null)
+        private void LoadLanguage(object sender = null, EventArgs args = null)
         {
             LanguageSupport i18n = new LanguageSupport();
             i18n.SetMainFromLanguage(this);
@@ -259,12 +276,11 @@ namespace pmis
             picturePresenter.LoadPictureDirectories();
         }
 
-        private void ShowRegisterList()
+        private void ShowRegisterList(object sender = null, EventArgs args = null)
         {
             try
             {
-                if (OnShowRegisterDocumentList != null)
-                    OnShowRegisterDocumentList(this, EventArgs.Empty);
+                OnShowRegisterDocumentList?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
@@ -433,7 +449,7 @@ namespace pmis
         {
             try
             {
-                if(pictureFolderListBox.SelectedValue != null)
+                if (pictureFolderListBox.SelectedValue != null)
                 {
                     picturePresenter.LoadPictureFiles(pictureFolderListBox.SelectedValue.ToString());
                 }
@@ -465,7 +481,73 @@ namespace pmis
 
         private void GoToOnlineHelp(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/sangahco/register-doc-offline-archive/blob/master/README.md");
+            try {
+                Process.Start("https://github.com/sangahco/register-doc-offline-archive/blob/master/README.md");
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void NewProfileOnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var window = new NewProfileWindow();
+                window.AfterProfileCreated += (s, Nullable) => {
+                    window.Close();
+                    LoadProfileMenuItems();
+                };
+                window.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void SaveProfileOnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var profile = ProfileService.BuildCurrentProfile();
+                ProfileService.SaveProfile(profile);
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void LoadProfileOnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var profileName = ((System.Windows.Controls.MenuItem)sender).Header as string;
+                var profile = ProfileService.LoadProfile(profileName);
+                ProfileService.ChangeProfile(profile);
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void LoadProfileMenuItems() {
+            profileListMenuItems.Clear();
+            foreach (var profile in ProfileService.LoadProfiles())
+            {
+                profileListMenuItems.Add(profile);
+            }
+            if ( profileListMenuItems.Count > 0 )
+            {
+                ProfileListMenuItem.IsEnabled = true;
+            }
+            else
+            {
+                ProfileListMenuItem.IsEnabled = false;
+            }
         }
     }
 }
