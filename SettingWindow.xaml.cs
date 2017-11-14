@@ -74,6 +74,10 @@ namespace pmis
             reviewInfoService.ReviewInfoImported += LogReviewImportedData;
             reviewInfoService.ReviewInfoImported += UpdateDataCount;
 
+            IsVisibleChanged += (s, Nullable) => {
+                LoadSettings();
+            };
+
             try
             {
                 LoadLanguage();
@@ -97,11 +101,11 @@ namespace pmis
 
         public void LoadSettings(object sender = null, EventArgs e = null)
         {
+            currentProfile.Text = String.Format("Current Profile: {0}", Properties.Settings.Default.current_profile);
             productInfoLabel.Text = string.Format("{0} - {1}", System.Windows.Forms.Application.ProductName, AppConfig.AssemblyVersion);
 
             settingPmisWsProjectCode.Text = Properties.Settings.Default.pmis_project_code;
             settingPmisWsUrl.Text = Properties.Settings.Default.pmis_api_url;
-            settingPmisWsAuthKey.Text = Properties.Settings.Default.pmis_auth_key;
             settingDbType.SelectedValue = Properties.Settings.Default.db_type;
             settingSQLiteDbLocation.Text = Properties.Settings.Default.sqlite_db_location;
             settingRegisterFolderURI.Text = Properties.Settings.Default.register_folder_uri;
@@ -137,7 +141,6 @@ namespace pmis
             LogUtil.Log("Saving settings...");
             Properties.Settings.Default.pmis_project_code = settingPmisWsProjectCode.Text;
             Properties.Settings.Default.pmis_api_url = settingPmisWsUrl.Text;
-            Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
             Properties.Settings.Default.picture_folder_uri = settingPictureFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
@@ -371,20 +374,16 @@ namespace pmis
             this.Hide();
             e.Cancel = true;
         }
-
-        protected override void OnContentRendered(EventArgs e)
-        {
-            base.OnContentRendered(e);
-
-            LoadSettings();
-        }
-
+        
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var tokenRequestWindow = new TokenRequestWindow(settingPmisWsUrl.Text);
-                tokenRequestWindow.AfterRequestComplete += (s, token) => { settingPmisWsAuthKey.Text = token; };
+                tokenRequestWindow.AfterRequestComplete += (s, token) => {
+                    settingPmisWsAuthKey.Text = token;
+                    tokenRequestWindow.Close();
+                };
                 tokenRequestWindow.ShowDialog();
             }
             catch (Exception ex)

@@ -89,5 +89,8 @@
     <Setting Name="picture_folder_uri" Type="System.String" Scope="User">
       <Value Profile="(Default)">pictures</Value>
     </Setting>
+    <Setting Name="current_profile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">default</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

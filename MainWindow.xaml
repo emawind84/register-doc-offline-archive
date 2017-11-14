@@ -172,6 +172,17 @@
         </TabControl>
         <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">
+                <MenuItem Header="New Profile" Click="NewProfileOnClick" />
+                <MenuItem Header="Load Profile" Name="ProfileListMenuItem" ItemsSource="{Binding Path=ProfileListMenuItems}" IsEnabled="False" >
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Header" Value="{Binding Path=ProfileName}" />
+                            <EventSetter Event="Click" Handler="LoadProfileOnClick"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>
+                <MenuItem Header="Save Profile" Click="SaveProfileOnClick" />
+                <Separator />
                 <MenuItem Header="_Settings" Click="settingMenuItem_Click" />
                 <Separator />
                 <MenuItem Header="_Exit" Click="closeMenuItem_Click" />

@@ -34,6 +34,10 @@ namespace pmis
 
         public SQLiteDaoService(string databaseFilePath)
         {
+            ProfileService.ProfileChanged += (profile) => {
+                DatabaseFilePath = profile.SqliteDbLocation;
+                Open();  // reopen db after profile change
+            };
             DatabaseFilePath = databaseFilePath;
         }
 
