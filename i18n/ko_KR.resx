@@ -258,4 +258,25 @@
   <data name="document" xml:space="preserve">
     <value>문서/자료</value>
   </data>
+  <data name="create_profile" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="new_profile" xml:space="preserve">
+    <value>새 프로필</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>비밀번호</value>
+  </data>
+  <data name="profile_name" xml:space="preserve">
+    <value>프로필 이름</value>
+  </data>
+  <data name="request_token" xml:space="preserve">
+    <value>요청 토큰</value>
+  </data>
+  <data name="send_pwd_encoded" xml:space="preserve">
+    <value>Send Encoded</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>사용자ID</value>
+  </data>
 </root>

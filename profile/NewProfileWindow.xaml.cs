@@ -13,26 +13,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace pmis
+namespace pmis.profile
 {
+
     /// <summary>
-    /// Interaction logic for TokenRequest.xaml
+    /// Interaction logic for NewProfileWindow.xaml
     /// </summary>
-    public partial class TokenRequestWindow : Window
+    public partial class NewProfileWindow : Window
     {
+        public event EventHandler AfterProfileCreated;
 
-        private string host;
-
-        public event EventHandler<string> AfterRequestComplete;
-
-        public TokenRequestWindow(string host)
+        public NewProfileWindow()
         {
             try
             {
                 InitializeComponent();
                 this.Owner = App.Current.MainWindow;
-                this.host = host;
-                this.pmisUsername.Focus();
+                this.profileNameTextBox.Focus();
                 LoadLanguage();
             }
             catch (Exception ex)
@@ -41,29 +38,24 @@ namespace pmis
             }
         }
 
-        private async void RequestPMISToken(object sender, RoutedEventArgs e)
+        private void CreateProfileCreateButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                this.requestTokenButton.IsEnabled = false;
-                bool pwdEncoded = passwordBase64Encoded.IsChecked.Value;
-                var obj = await AppUtil.RequestPMISToken(host, pmisUsername.Text, pmisPassword.Password, pwdEncoded);
-                AfterRequestComplete?.Invoke(this, obj["access_token"] as string);
+                var profile = ProfileService.CreateProfile(profileNameTextBox.Text);
+                ProfileService.ChangeProfile(profile);
+                AfterProfileCreated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 ex.Log().Display();
-            }
-            finally
-            {
-                this.requestTokenButton.IsEnabled = true;
             }
         }
 
         private void LoadLanguage(object sender = null, EventArgs args = null)
         {
             LanguageSupport i18n = new LanguageSupport();
-            i18n.SetTokenRequestFormLanguage(this);
+            i18n.SetNewProfileFormLanguage(this);
         }
     }
 }

@@ -34,7 +34,7 @@
     <PublisherName>SangAh</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationRevision>52</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -119,6 +119,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="YamlDotNet, Version=4.2.2.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>packages\YamlDotNet.Signed.4.2.2\lib\net35\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -137,6 +140,11 @@
     <Compile Include="i18n\en_US.Designer.cs" />
     <Compile Include="i18n\ko_KR.Designer.cs" />
     <Compile Include="i18n\LanguageSupport.cs" />
+    <Compile Include="profile\NewProfileWindow.xaml.cs">
+      <DependentUpon>NewProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="profile\Profile.cs" />
+    <Compile Include="profile\ProfileService.cs" />
     <Compile Include="RegisterFile.cs" />
     <Compile Include="RegisterFileService.cs" />
     <Compile Include="register\IRegisterDocumentDao.cs" />
@@ -184,6 +192,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="profile\NewProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +249,7 @@
     <Content Include="data\archive.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="data\profile.Default.yaml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -252,21 +265,21 @@
   <ItemGroup>
     <Content Include="etc\edms_export.py" />
     <Resource Include="etc\options_queries.txt" />
-    <Content Include="resources\kspmis_logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\sangah-logo-2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\sangah-logo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\sangah_logo_16.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources\sangah_logo_64.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="resources\kspmis_logo.png" />
+    <Resource Include="resources\sangah-logo-2.png" />
+    <Resource Include="resources\sangah-logo.png" />
+    <Resource Include="resources\sangah_logo_16.ico" />
+    <Resource Include="resources\sangah_logo_64.ico" />
+    <Resource Include="resources\001-text-document.png" />
+    <Resource Include="resources\002-floppy-disk-digital-data-storage-or-save-interface-symbol.png" />
+    <Resource Include="resources\003-information.png" />
+    <Resource Include="resources\004-door-exit.png" />
+    <Resource Include="resources\001-plus.png" />
+    <Resource Include="resources\002-settings.png" />
+    <Resource Include="resources\003-arrow.png" />
+    <Resource Include="resources\001-save.png" />
+    <Resource Include="resources\002-profile.png" />
+    <Resource Include="resources\003-application.png" />
     <Content Include="resources\if_search_322497.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

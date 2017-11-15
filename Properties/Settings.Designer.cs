@@ -221,5 +221,17 @@ namespace pmis.Properties {
                 this["archive_types"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("default")]
+        public string current_profile {
+            get {
+                return ((string)(this["current_profile"]));
+            }
+            set {
+                this["current_profile"] = value;
+            }
+        }
     }
 }
