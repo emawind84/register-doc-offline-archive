@@ -172,24 +172,33 @@
         </TabControl>
         <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">
-                <MenuItem Header="New Profile" Click="NewProfileOnClick" />
-                <MenuItem Header="Load Profile" Name="ProfileListMenuItem" ItemsSource="{Binding Path=ProfileListMenuItems}" IsEnabled="False" >
+                <MenuItem Header="New Profile" Click="NewProfileOnClick" >
+                    <MenuItem.Icon>
+                        <Image Source="resources/001-plus.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Load Profile" Name="ProfileListMenuItem" ItemsSource="{Binding Path=ProfileListMenuItems}" IsEnabled="False" Icon="{StaticResource ProfilesIconImage}" >
                     <MenuItem.ItemContainerStyle>
                         <Style TargetType="MenuItem">
                             <Setter Property="Header" Value="{Binding Path=ProfileName}" />
+                            <Setter Property="Icon" Value="{StaticResource ProfileIconImage}" />
                             <EventSetter Event="Click" Handler="LoadProfileOnClick"/>
                         </Style>
                     </MenuItem.ItemContainerStyle>
                 </MenuItem>
-                <MenuItem Header="Save Profile" Click="SaveProfileOnClick" />
+                <MenuItem Header="Save Profile" Click="SaveProfileOnClick" Icon="{StaticResource SaveIconImage}" />
                 <Separator />
-                <MenuItem Header="_Settings" Click="settingMenuItem_Click" />
+                <MenuItem Header="_Settings" Click="settingMenuItem_Click" Icon="{StaticResource SettingIconImage}" />
                 <Separator />
-                <MenuItem Header="_Exit" Click="closeMenuItem_Click" />
+                <MenuItem Header="_Exit" Click="closeMenuItem_Click" Icon="{StaticResource ExitIconImage}" />
             </MenuItem>
             <MenuItem Header="_Help" Height="21">
-                <MenuItem Header="_About" Click="MenuItem_Click" />
-                <MenuItem Header="Online Help" Click="GoToOnlineHelp" />
+                <MenuItem Header="_About" Click="MenuItem_Click" Icon="{StaticResource AboutIconImage}" />
+                <MenuItem Header="Online Help" Click="GoToOnlineHelp" >
+                    <MenuItem.Icon>
+                        <Image Source="resources/003-arrow.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 

@@ -258,4 +258,25 @@
   <data name="document" xml:space="preserve">
     <value>Document</value>
   </data>
+  <data name="create_profile" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="new_profile" xml:space="preserve">
+    <value>New Profile</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="profile_name" xml:space="preserve">
+    <value>Profile Name</value>
+  </data>
+  <data name="request_token" xml:space="preserve">
+    <value>Request Token</value>
+  </data>
+  <data name="send_pwd_encoded" xml:space="preserve">
+    <value>Send Encoded</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
+  </data>
 </root>

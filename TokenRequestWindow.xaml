@@ -10,11 +10,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="26" Width="64"/>
+        <Label x:Name="usernameLabel" Content="Username" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="26" Width="64"/>
         <TextBox x:Name="pmisUsername" Height="23" Margin="10,31,10.4,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="0"/>
-        <Label x:Name="label_Copy" Content="Password" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
+        <Label x:Name="passwordLabel" Content="Password" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
         <Grid Margin="10,0,10.4,9.4" Height="38" VerticalAlignment="Bottom">
-            <Button x:Name="button" Content="Request Token" Click="RequestPMISToken" HorizontalContentAlignment="Center" Margin="0,0,0,5.8" TabIndex="2"/>
+            <Button x:Name="requestTokenButton" Content="Request Token" Click="RequestPMISToken" HorizontalContentAlignment="Center" Margin="0,0,0,5.8" TabIndex="2"/>
         </Grid>
         <PasswordBox x:Name="pmisPassword" Margin="10,84,10.4,0" VerticalAlignment="Top" Height="23" TabIndex="1"/>
         <CheckBox x:Name="passwordBase64Encoded" Content="Send Encoded" Margin="16,116,17.4,0" VerticalAlignment="Top"/>

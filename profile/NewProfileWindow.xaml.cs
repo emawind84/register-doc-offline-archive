@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pmis.i18n;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,17 @@ namespace pmis.profile
 
         public NewProfileWindow()
         {
-            InitializeComponent();
-            this.Owner = App.Current.MainWindow;
+            try
+            {
+                InitializeComponent();
+                this.Owner = App.Current.MainWindow;
+                this.profileNameTextBox.Focus();
+                LoadLanguage();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void CreateProfileCreateButton_Click(object sender, RoutedEventArgs e)
@@ -42,9 +52,10 @@ namespace pmis.profile
             }
         }
 
-        private void profileNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void LoadLanguage(object sender = null, EventArgs args = null)
         {
-
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetNewProfileFormLanguage(this);
         }
     }
 }

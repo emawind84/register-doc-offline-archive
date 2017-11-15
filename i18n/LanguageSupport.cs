@@ -1,4 +1,5 @@
 ﻿using pmis;
+using pmis.profile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -102,6 +103,21 @@ namespace pmis.i18n
             _form.settingReviewCountLabel.Content = AppConfig.i18n.Get("review_info");
             _form.settingDocumentCountLabel.Content = AppConfig.i18n.Get("document");
             _form.pictureFolderLocationLabel.Content = AppConfig.i18n.Get("folder_location");
+        }
+
+        public void SetTokenRequestFormLanguage(TokenRequestWindow form)
+        {
+            form.requestTokenButton.Content = AppConfig.i18n.Get("request_token");
+            form.passwordLabel.Content = AppConfig.i18n.Get("password");
+            form.usernameLabel.Content = AppConfig.i18n.Get("username");
+            form.passwordBase64Encoded.Content = AppConfig.i18n.Get("send_pwd_encoded");
+        }
+
+        public void SetNewProfileFormLanguage(NewProfileWindow form)
+        {
+            form.Title = AppConfig.i18n.Get("new_profile");
+            form.profileNameLabel.Content = AppConfig.i18n.Get("profile_name");
+            form.createProfileCreateButton.Content = AppConfig.i18n.Get("create_profile");
         }
     }
 }

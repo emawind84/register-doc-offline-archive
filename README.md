@@ -43,3 +43,23 @@ Choose a folder from the left list and pictures will show up on the bottom list.
 Than you can go through the all pictures of this folder using `Previous` and `Next` button or just clicking on the picture filename on the left bottom list.
 
 ![GitHub Logo](docs/ice_screenshot_20171113-105045.png)
+
+
+## Versioning
+
+We use *Hasta la vista, baby* for versioning, that means, we don't adopt any special versioning system.
+
+<!-- ## Authors
+
+* **Emanuele Disco** - [Emanuele Disco](https://github.com/PurpleBooth) -->
+
+## License
+
+This project is licensed under the Apache License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Credits
+
+* Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com
+* Icons made by [Pixel Buddha](https://www.flaticon.com/authors/pixel-buddha) from www.flaticon.com
+* Icons made by [Gregor Cresnar](https://www.flaticon.com/authors/gregor-cresnar) from www.flaticon.com
+

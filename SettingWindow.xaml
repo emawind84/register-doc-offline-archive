@@ -86,9 +86,9 @@
                 <Grid Background="White">
                     <GroupBox x:Name="dataImportSettingsGroupBox" Header="Web Service Settings" >
                         <Grid >
-                            <TextBox x:Name="settingPmisWsUrl" HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282"/>
-                            <TextBox x:Name="settingPmisWsAuthKey" HorizontalAlignment="Left" Height="23" Margin="10,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" UseLayoutRounding="False"/>
-                            <TextBox x:Name="settingPmisWsProjectCode" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282"/>
+                            <TextBox x:Name="settingPmisWsUrl" HorizontalAlignment="Left" Height="24" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TabIndex="0"/>
+                            <TextBox x:Name="settingPmisWsAuthKey" HorizontalAlignment="Left" Height="23" Margin="10,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" UseLayoutRounding="False" TabIndex="2"/>
+                            <TextBox x:Name="settingPmisWsProjectCode" HorizontalAlignment="Left" Height="23" Margin="10,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" TabIndex="1"/>
                             <Button x:Name="importRegisterDataButton" Content="Import Register Data" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importRegisterDataButton_Click"/>
                             <Button x:Name="importReviewDataButton" Content="Import Review Data" HorizontalAlignment="Left" Margin="146,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importReviewDataButton_Click"/>
                             <GroupBox x:Name="groupBox5" Header="Data Stats" Height="89" Margin="558,10,10,0" VerticalAlignment="Top">
@@ -109,7 +109,7 @@
                             <Border BorderBrush="#FFACACAC" BorderThickness="1" Margin="10,218,10,10">
                                 <TextBox x:Name="importLogViewer" TextWrapping="Wrap" Background="#FFF9F9F9" VerticalScrollBarVisibility="Auto"/>
                             </Border>
-                            <Button x:Name="button" Content="Request Token" HorizontalAlignment="Left" Margin="297,145,0,0" VerticalAlignment="Top" Height="23" Padding="4,1" Click="button_Click"/>
+                            <Button x:Name="button" Content="Request Token" HorizontalAlignment="Left" Margin="297,145,0,0" VerticalAlignment="Top" Height="23" Padding="4,1" Click="button_Click" TabIndex="4"/>
                         </Grid>
                     </GroupBox>
 

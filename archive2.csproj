@@ -34,7 +34,7 @@
     <PublisherName>SangAh</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -252,6 +252,16 @@
     <Resource Include="resources\sangah-logo.png" />
     <Resource Include="resources\sangah_logo_16.ico" />
     <Resource Include="resources\sangah_logo_64.ico" />
+    <Resource Include="resources\001-text-document.png" />
+    <Resource Include="resources\002-floppy-disk-digital-data-storage-or-save-interface-symbol.png" />
+    <Resource Include="resources\003-information.png" />
+    <Resource Include="resources\004-door-exit.png" />
+    <Resource Include="resources\001-plus.png" />
+    <Resource Include="resources\002-settings.png" />
+    <Resource Include="resources\003-arrow.png" />
+    <Resource Include="resources\001-save.png" />
+    <Resource Include="resources\002-profile.png" />
+    <Resource Include="resources\003-application.png" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

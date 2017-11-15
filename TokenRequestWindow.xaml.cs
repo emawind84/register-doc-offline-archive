@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pmis.i18n;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,19 +27,25 @@ namespace pmis
 
         public TokenRequestWindow(string host)
         {
-            InitializeComponent();
-            this.Owner = App.Current.MainWindow;
-
-            this.host = host;
-
-            this.pmisUsername.Focus();
+            try
+            {
+                InitializeComponent();
+                this.Owner = App.Current.MainWindow;
+                this.host = host;
+                this.pmisUsername.Focus();
+                LoadLanguage();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private async void RequestPMISToken(object sender, RoutedEventArgs e)
         {
             try
             {
-                this.button.IsEnabled = false;
+                this.requestTokenButton.IsEnabled = false;
                 bool pwdEncoded = passwordBase64Encoded.IsChecked.Value;
                 var obj = await AppUtil.RequestPMISToken(host, pmisUsername.Text, pmisPassword.Password, pwdEncoded);
                 AfterRequestComplete?.Invoke(this, obj["access_token"] as string);
@@ -49,8 +56,14 @@ namespace pmis
             }
             finally
             {
-                this.button.IsEnabled = true;
+                this.requestTokenButton.IsEnabled = true;
             }
+        }
+
+        private void LoadLanguage(object sender = null, EventArgs args = null)
+        {
+            LanguageSupport i18n = new LanguageSupport();
+            i18n.SetTokenRequestFormLanguage(this);
         }
     }
 }

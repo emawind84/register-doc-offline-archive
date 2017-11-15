@@ -24,5 +24,11 @@
             <Setter Property="Height" Value="23" />
             <Setter Property="Padding" Value="4,1" />
         </Style>
+        <Image x:Key="ProfileIconImage" x:Shared="False" Source="resources/003-application.png"/>
+        <Image x:Key="ProfilesIconImage" x:Shared="False" Source="resources/002-profile.png" />
+        <Image x:Key="SaveIconImage" x:Shared="False" Source="resources/001-save.png" />
+        <Image x:Key="SettingIconImage" x:Shared="False" Source="resources/002-settings.png" />
+        <Image x:Key="ExitIconImage" x:Shared="False" Source="resources/004-door-exit.png" />
+        <Image x:Key="AboutIconImage" x:Shared="False" Source="resources/003-information.png" />
     </Application.Resources>
 </Application>
