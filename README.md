@@ -47,11 +47,13 @@ Than you can go through the all pictures of this folder using `Previous` and `Ne
 
 ## Versioning
 
-We use *Hasta la vista, baby* for versioning, that means, we don't adopt any special versioning system.
+We use *Hasta la vista, baby* for versioning, that means, we do as we please.
 
-<!-- ## Authors
-
-* **Emanuele Disco** - [Emanuele Disco](https://github.com/PurpleBooth) -->
+## Authors
+<!--
+* **Emanuele Disco** - [Emanuele Disco](https://github.com/emawind84)
+-->
+* **SangAh Solution Team**
 
 ## License
 
