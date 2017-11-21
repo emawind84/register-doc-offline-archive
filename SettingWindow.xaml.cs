@@ -141,6 +141,7 @@ namespace pmis
             LogUtil.Log("Saving settings...");
             Properties.Settings.Default.pmis_project_code = settingPmisWsProjectCode.Text;
             Properties.Settings.Default.pmis_api_url = settingPmisWsUrl.Text;
+            Properties.Settings.Default.pmis_auth_key = settingPmisWsAuthKey.Text;
             Properties.Settings.Default.register_folder_uri = settingRegisterFolderURI.Text;
             Properties.Settings.Default.picture_folder_uri = settingPictureFolderURI.Text;
             Properties.Settings.Default.sqlite_db_location = settingSQLiteDbLocation.Text;
