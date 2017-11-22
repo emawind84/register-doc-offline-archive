@@ -245,8 +245,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="etc\edms_export.py" />
-    <Resource Include="etc\options_queries.txt" />
+    <None Include="etc\edms_export.py" />
+    <None Include="etc\options_queries.txt" />
     <Resource Include="resources\kspmis_logo.png" />
     <Resource Include="resources\sangah-logo-2.png" />
     <Resource Include="resources\sangah-logo.png" />
