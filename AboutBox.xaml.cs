@@ -32,9 +32,5 @@ namespace pmis
             e.Cancel = true;
         }
 
-        private void richTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
