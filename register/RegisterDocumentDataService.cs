@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Data;
-using System.Net;
 using Newtonsoft.Json;
 using pmis.register;
 using System.Net.Http;
