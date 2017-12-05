@@ -1,4 +1,5 @@
-﻿using pmis.i18n;
+﻿using pmis.clss;
+using pmis.i18n;
 using pmis.profile;
 using pmis.register;
 using pmis.reviewinfo;
@@ -28,6 +29,7 @@ namespace pmis
         private RegisterDocumentDetailView registerDocumentDetailView;
         private ReviewInfoPresenter reviewInfoPresenter;
         private ReviewInfoDataService reviewInfoDataService;
+        private ClssService clssService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private PicturePresenter picturePresenter;
@@ -87,8 +89,8 @@ namespace pmis
 
         public string SearchCriteriaType
         {
-            get { return srchType.Text; }
-            set { srchType.Text = value; }
+            get { return srchType.SelectedValue?.ToString(); }
+            set { srchType.SelectedValue = value; }
         }
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
@@ -164,6 +166,9 @@ namespace pmis
                 reviewDataGridView.AutoGenerateColumns = false;
                 reviewDataGridView.CanUserAddRows = false;
 
+                clssService = new ClssService(daoService as IClssDao);
+                clssService.ImportComplete += LoadSearchOptions;
+
                 reviewFilesBS = new BindingSource();
                 reviewFilesBS.DataSource = new List<RegisterFile>();
                 reviewFilesBS.AllowNew = false;
@@ -192,6 +197,7 @@ namespace pmis
                 settingForm.SettingChanged += LoadPictureViewer;
                 settingForm.SettingChanged += LoadLanguage;
                 settingForm.SettingChanged += ShowRegisterList;
+                settingForm.SettingChanged += (sender, args) => { clssService.UpdateClassificationData(); };
 
                 ProfileService.ProfileChanged += (profile) =>
                 {
@@ -239,10 +245,13 @@ namespace pmis
             Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
             srchDiscipline.ItemsSource = disciplines;
 
-            string[] types = new string[Properties.Settings.Default.register_type.Count + 1];
-            types[0] = "";
-            Properties.Settings.Default.register_type.CopyTo(types, 1);
-            srchType.ItemsSource = types;
+            DataTable dt = clssService.LoadClassificationList("1");
+            srchType.ItemsSource = dt.AsEnumerable();
+
+            foreach (DataRow r in dt.Rows)
+            {
+                Console.WriteLine(r["name"]);
+            }
         }
 
         private void LoadPictureViewer(object sender = null, EventArgs args = null)

@@ -68,9 +68,8 @@ namespace pmis
                 criteria.Add("registered_by", _form.SearchCriteriaRegisteredBy);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaType))
             {
-                var value = _form.SearchCriteriaType;
-                String[] values = value.Split('>');
-                criteria.Add("type", values[values.Length - 1].Trim());
+                criteria.Add("type", _form.SearchCriteriaType);
+                LogUtil.Log("Searching for type " + _form.SearchCriteriaType);
             }
 
             if(_form.SearchCriteriaAllHistory.Equals("Latest Revision Only"))

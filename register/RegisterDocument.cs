@@ -26,7 +26,7 @@ namespace pmis
         [JsonProperty("status_nm")]
         public string Status { get; set; }
 
-        [JsonProperty("fbs_cds_nm")]
+        [JsonProperty("fbs_cds")]
         public string Type { get; set; }
 
         [JsonProperty("review_status_nm")]
