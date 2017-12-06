@@ -11,7 +11,7 @@ namespace pmis.clss
     {
         void UpdateClassificationData(Classification clss);
 
-        DataTable LoadClassificationList(string level);
+        DataTable LoadClassificationList(int level, string upcode = null);
 
         void DeleteClassificationData();
     }

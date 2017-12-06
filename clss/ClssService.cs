@@ -9,9 +9,10 @@ namespace pmis.clss
 {
     public class ClssService
     {
+        public event EventHandler ImportComplete;
 
         private IClssDao daoService;
-        public event EventHandler ImportComplete;
+        private bool updating = false;
 
         public ClssService(IClssDao daoService)
         {
@@ -24,6 +25,9 @@ namespace pmis.clss
 
         public async void UpdateClassificationData()
         {
+            if (updating) return;
+            updating = true;
+            LogUtil.Log("UpdateClassificationData called");
             try
             {
                 // first we delete all clss
@@ -52,11 +56,12 @@ namespace pmis.clss
             OnImportComplete(EventArgs.Empty);
         }
 
-        public DataTable LoadClassificationList(string level)
+        public DataTable LoadClassificationList(int level, string upcode = null)
         {
             try
             {
-                return daoService.LoadClassificationList(level);
+                LogUtil.Log(String.Format("Loading clss level {0}, upcode {1}", level, upcode));
+                return daoService.LoadClassificationList(level, upcode);
             }
             catch (Exception e)
             {
@@ -67,7 +72,14 @@ namespace pmis.clss
 
         protected virtual void OnImportComplete(EventArgs e)
         {
-            ImportComplete?.Invoke(this, e);
+            try
+            {
+                ImportComplete?.Invoke(this, e);
+            }
+            finally
+            {
+                updating = false;
+            }
         }
 
     }
