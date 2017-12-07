@@ -394,8 +394,15 @@ namespace pmis
 
         private void settingMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            settingForm.Owner = this;
-            settingForm.ShowDialog();
+            try
+            {
+                settingForm.Owner = this;
+                settingForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void fileManagerDataGridView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
