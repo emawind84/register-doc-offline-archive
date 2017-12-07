@@ -19,7 +19,7 @@ namespace pmis
 
         private SQLiteConnection m_dbConnection;
 
-        public EventHandler DatabaseInitialized;
+        public event EventHandler DatabaseInitialized;
 
         private string databaseFilePath;
         public string DatabaseFilePath {

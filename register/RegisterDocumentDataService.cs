@@ -199,7 +199,7 @@ namespace pmis
                 foreach (RegisterDocument d in docs)
                 {
                     daoService.ImportDocumentData(d);
-                    LogUtil.Log(String.Format("Adding register data: {0}", d));
+                    //Console.WriteLine("Adding register data: {0}", d);
                     OnRegisterDocumentImported(d);
                 }
             }
