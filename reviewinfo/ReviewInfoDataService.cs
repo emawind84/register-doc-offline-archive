@@ -98,7 +98,7 @@ namespace pmis
                 foreach (ReviewInfo d in docs)
                 {
                     _dao.ImportReviewInfoData(d);
-                    Console.WriteLine("Adding review data: {0}", d);
+                    //Console.WriteLine("Adding review data: {0}", d);
                     OnReviewInfoImported(d);
                 }
             }
