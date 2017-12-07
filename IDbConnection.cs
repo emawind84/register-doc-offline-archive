@@ -8,6 +8,8 @@ namespace pmis
 {
     public interface IDbConnection
     {
+        event EventHandler DatabaseInitialized;
+
         /// <summary>
         /// Open the db connection
         /// </summary>
