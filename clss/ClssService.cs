@@ -23,7 +23,7 @@ namespace pmis.clss
 
         }
 
-        public async void UpdateClassificationData()
+        public async Task UpdateClassificationData()
         {
             if (updating) return;
             updating = true;
@@ -52,6 +52,10 @@ namespace pmis.clss
                 e.Log();
                 throw e;
             }
+            finally
+            {
+                updating = false;
+            }
 
             OnImportComplete(EventArgs.Empty);
         }
@@ -72,14 +76,7 @@ namespace pmis.clss
 
         protected virtual void OnImportComplete(EventArgs e)
         {
-            try
-            {
-                ImportComplete?.Invoke(this, e);
-            }
-            finally
-            {
-                updating = false;
-            }
+            ImportComplete?.Invoke(this, e);
         }
 
     }

@@ -634,11 +634,11 @@ namespace pmis
             }
         }
 
-        private void UpdateClssData(object sender, EventArgs args)
+        private async void UpdateClssData(object sender, EventArgs args)
         {
             try
             {
-                clssService.UpdateClassificationData();
+                await clssService.UpdateClassificationData();
             }
             catch (Exception ex)
             {
