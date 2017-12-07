@@ -215,7 +215,7 @@ namespace pmis
                 settingForm.SettingChanged += LoadPictureViewer;
                 settingForm.SettingChanged += LoadLanguage;
                 settingForm.SettingChanged += ShowRegisterList;
-                settingForm.SettingChanged += (sender, args) => { clssService.UpdateClassificationData(); };
+                settingForm.SettingChanged += UpdateClssData;
 
                 ProfileService.ProfileChanged += (profile) =>
                 {
@@ -253,19 +253,26 @@ namespace pmis
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
-            string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
-            statuses[0] = "";
-            Properties.Settings.Default.register_status.CopyTo(statuses, 1);
-            srchStatus.ItemsSource = statuses;
+            try
+            {
+                string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
+                statuses[0] = "";
+                Properties.Settings.Default.register_status.CopyTo(statuses, 1);
+                srchStatus.ItemsSource = statuses;
 
-            string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
-            disciplines[0] = "";
-            Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
-            srchDiscipline.ItemsSource = disciplines;
+                string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
+                disciplines[0] = "";
+                Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
+                srchDiscipline.ItemsSource = disciplines;
 
-            DataTable dt = clssService.LoadClassificationList(1);
-            srchType.ItemsSource = dt.AsEnumerable();
-            srchType.SelectedIndex = 0;
+                DataTable dt = clssService.LoadClassificationList(1);
+                srchType.ItemsSource = dt.AsEnumerable();
+                srchType.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void LoadPictureViewer(object sender = null, EventArgs args = null)
@@ -611,6 +618,18 @@ namespace pmis
                     srchType4.ItemsSource = dt.AsEnumerable();
                     srchType4.SelectedIndex = 0;
                 }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void UpdateClssData(object sender, EventArgs args)
+        {
+            try
+            {
+                clssService.UpdateClassificationData();
             }
             catch (Exception ex)
             {
