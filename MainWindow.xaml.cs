@@ -186,6 +186,7 @@ namespace pmis
 
                 clssService = new ClssService(daoService as IClssDao);
                 clssService.ImportComplete += LoadSearchOptions;
+                daoService.DatabaseInitialized += UpdateClssData;  // update clss on new db connection
 
                 reviewFilesBS = new BindingSource();
                 reviewFilesBS.DataSource = new List<RegisterFile>();
@@ -265,9 +266,10 @@ namespace pmis
                 Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
                 srchDiscipline.ItemsSource = disciplines;
 
-                DataTable dt = clssService.LoadClassificationList(1);
-                srchType.ItemsSource = dt.AsEnumerable();
-                srchType.SelectedIndex = 0;
+                DataTable dt = clssService.LoadClassificationList(1);  // load 1st level clss
+                dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);  // add a blank option at the bottom
+                srchType.ItemsSource = dt.AsEnumerable();  // change to enumerable type
+                srchType.SelectedIndex = 0;  // select the first option
             }
             catch (Exception ex)
             {
