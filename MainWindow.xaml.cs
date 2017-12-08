@@ -249,9 +249,9 @@ namespace pmis
                 srchDiscipline.ItemsSource = disciplines;
 
                 DataTable dt = clssService.LoadClassificationList();  // load all clss
-                dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);  // add a blank option at the bottom
+                dt.Rows.InsertAt(dt.NewRow(), 0);  // add a blank option at the bottom
                 srchType.ItemsSource = dt.AsEnumerable();  // change to enumerable type
-                srchType.SelectedIndex = dt.Rows.Count;  // select the empty option
+                srchType.SelectedIndex = 0;  // select the empty option
             }
             catch (Exception ex)
             {
