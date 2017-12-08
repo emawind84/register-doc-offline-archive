@@ -39,6 +39,10 @@ namespace pmis.clss
                 {
                     Classification c = new Classification();
                     var tt = t.Split(',');
+                    if (tt.Length != 4)
+                    {
+                        throw new ApplicationException(AppConfig.i18n.Get("clss_format_invalid"));
+                    }
                     c.Level = tt[0];
                     c.Name = tt[1];
                     c.Code = tt[2];
