@@ -1,7 +1,6 @@
 ﻿select
 	name,
 	level,
-	code,
-	upcode
+	code
 from clss
 where 1=1
