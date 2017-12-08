@@ -415,7 +415,7 @@ namespace pmis
             if (level != 0)
                 sql += " AND level = @level ";
             if (upcode != null)
-                sql += " AND code like @code||% ";
+                sql += " AND code like @code||'%' ";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
