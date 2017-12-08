@@ -224,7 +224,7 @@ namespace pmis
                 sql += " AND discipline = @discipline ";
 
             if (criteria.ContainsKey("type"))
-                sql += " AND internal_codes like '%'||@type||'%' ";
+                sql += " AND internal_codes like '#'||@type||'%' ";
 
             if (criteria.ContainsKey("registered_by"))
                 sql += " AND registered_by = @registered_by ";
