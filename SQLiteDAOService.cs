@@ -409,7 +409,7 @@ namespace pmis
                 if (upcode != null)
                     cmd.Parameters.AddWithValue("@code", upcode);
 
-                    SQLiteDataAdapter da = new SQLiteDataAdapter();
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 LogUtil.Log("Loaded clss items " + dt.Rows.Count);
