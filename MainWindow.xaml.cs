@@ -266,10 +266,10 @@ namespace pmis
                 Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
                 srchDiscipline.ItemsSource = disciplines;
 
-                DataTable dt = clssService.LoadClassificationList(1);  // load 1st level clss
-                dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);  // add a blank option at the bottom
+                DataTable dt = clssService.LoadClassificationList(1);  // load all clss
+                dt.Rows.InsertAt(dt.NewRow(), 0);  // add a blank option at the bottom
                 srchType.ItemsSource = dt.AsEnumerable();  // change to enumerable type
-                srchType.SelectedIndex = 0;  // select the first option
+                srchType.SelectedIndex = 0;  // select the empty option
             }
             catch (Exception ex)
             {

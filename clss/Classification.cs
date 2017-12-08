@@ -12,8 +12,6 @@ namespace pmis.clss
 
         public string Name { get; set; }
 
-        public string UpCode { get; set; }
-
         public string Level { get; set; }
 
         public override string ToString()

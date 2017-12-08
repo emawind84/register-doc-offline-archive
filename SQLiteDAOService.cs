@@ -403,7 +403,6 @@ namespace pmis
             cmd.Parameters.AddWithValue("@name", clss.Name);
             cmd.Parameters.AddWithValue("@level", clss.Level);
             cmd.Parameters.AddWithValue("@code", clss.Code);
-            cmd.Parameters.AddWithValue("@upcode", clss.UpCode);
 
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -416,14 +415,14 @@ namespace pmis
             if (level != 0)
                 sql += " AND level = @level ";
             if (upcode != null)
-                sql += " AND upcode = @upcode ";
+                sql += " AND code like @code||% ";
 
             DataTable dt = new DataTable();
             using (var cmd = new SQLiteCommand(sql, m_dbConnection))
             {
                 cmd.Parameters.AddWithValue("@level", level);
                 if (upcode != null)
-                    cmd.Parameters.AddWithValue("@upcode", upcode);
+                    cmd.Parameters.AddWithValue("@code", upcode);
 
                     SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = cmd;
