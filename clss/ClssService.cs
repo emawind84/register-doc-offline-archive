@@ -60,7 +60,7 @@ namespace pmis.clss
             OnImportComplete(EventArgs.Empty);
         }
 
-        public DataTable LoadClassificationList(int level, string upcode = null)
+        public DataTable LoadClassificationList(int level=0, string upcode=null)
         {
             try
             {

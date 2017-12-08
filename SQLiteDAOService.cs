@@ -223,13 +223,7 @@ namespace pmis
             if (criteria.ContainsKey("discipline"))
                 sql += " AND discipline = @discipline ";
 
-            if (criteria.ContainsKey("type4"))
-                sql += " AND internal_codes like '%'||@type4||'%' ";
-            else if (criteria.ContainsKey("type3"))
-                sql += " AND internal_codes like '%'||@type3||'%' ";
-            else if (criteria.ContainsKey("type2"))
-                sql += " AND internal_codes like '%'||@type2||'%' ";
-            else if (criteria.ContainsKey("type"))
+            if (criteria.ContainsKey("type"))
                 sql += " AND internal_codes like '%'||@type||'%' ";
 
             if (criteria.ContainsKey("registered_by"))
@@ -261,15 +255,6 @@ namespace pmis
 
                 if (criteria.ContainsKey("type"))
                     cmd.Parameters.AddWithValue("@type", criteria["type"]);
-
-                if (criteria.ContainsKey("type2"))
-                    cmd.Parameters.AddWithValue("@type2", criteria["type2"]);
-
-                if (criteria.ContainsKey("type3"))
-                    cmd.Parameters.AddWithValue("@type3", criteria["type3"]);
-
-                if (criteria.ContainsKey("type4"))
-                    cmd.Parameters.AddWithValue("@type4", criteria["type4"]);
 
                 if (criteria.ContainsKey("title"))
                     cmd.Parameters.AddWithValue("@title", criteria["title"]);
@@ -413,7 +398,8 @@ namespace pmis
         {
             string filepath = Path.Combine(projectFolder, @"clss/clss.load.sqlite.sql");
             string sql = File.ReadAllText(filepath);
-            sql += " AND level = @level ";
+            if (level != 0)
+                sql += " AND level = @level ";
             if (upcode != null)
                 sql += " AND upcode = @upcode ";
 
