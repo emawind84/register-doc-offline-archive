@@ -19,7 +19,7 @@ namespace pmis
 
         private SQLiteConnection m_dbConnection;
 
-        public EventHandler DatabaseInitialized;
+        public event EventHandler DatabaseInitialized;
 
         private string databaseFilePath;
         public string DatabaseFilePath {
@@ -211,10 +211,10 @@ namespace pmis
                 sql += " AND upper(title) like upper('%'||@title||'%') ";
 
             if (criteria.ContainsKey("from_date"))
-                sql += " AND registered >= @from_date ";
+                sql += " AND revision_date >= @from_date ";
 
             if (criteria.ContainsKey("to_date"))
-                sql += " AND registered <= @to_date ";
+                sql += " AND revision_date <= @to_date ";
 
             if (criteria.ContainsKey("status"))
                 sql += " AND doc_status = @status ";
