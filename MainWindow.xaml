@@ -172,11 +172,7 @@
         </TabControl>
         <Menu x:Name="menu" VerticalAlignment="Top" Background="#FFEEEEEE" Height="21" BorderThickness="0">
             <MenuItem Header="_File">
-                <MenuItem Header="New Profile" Click="NewProfileOnClick" >
-                    <MenuItem.Icon>
-                        <Image Source="resources/001-plus.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem Header="New Profile" Click="NewProfileOnClick" Icon="{StaticResource NewProfileImage}" />
                 <MenuItem Header="Load Profile" Name="ProfileListMenuItem" ItemsSource="{Binding Path=ProfileListMenuItems}" IsEnabled="False" Icon="{StaticResource ProfilesIconImage}" >
                     <MenuItem.ItemContainerStyle>
                         <Style TargetType="MenuItem">
@@ -194,11 +190,7 @@
             </MenuItem>
             <MenuItem Header="_Help" Height="21">
                 <MenuItem Header="_About" Click="MenuItem_Click" Icon="{StaticResource AboutIconImage}" />
-                <MenuItem Header="Online Help" Click="GoToOnlineHelp" >
-                    <MenuItem.Icon>
-                        <Image Source="resources/003-arrow.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem Header="Online Help" Click="GoToOnlineHelp" Icon="{StaticResource OnlineHelpImage}" />
             </MenuItem>
         </Menu>
 
