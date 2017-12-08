@@ -407,7 +407,7 @@ namespace pmis
             {
                 cmd.Parameters.AddWithValue("@level", level);
                 if (upcode != null)
-                    cmd.Parameters.AddWithValue("@code", upcode);
+                    cmd.Parameters.AddWithValue("@code", upcode == "" ? "-" : upcode);
 
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = cmd;
