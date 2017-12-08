@@ -29,6 +29,9 @@ namespace pmis
         [JsonProperty("fbs_cds_nm")]
         public string Type { get; set; }
 
+        [JsonProperty("fbs_cds")]
+        public string InternalCodes { get; set; }
+
         [JsonProperty("review_status_nm")]
         public string ReviewStatus { get; set; }
 
@@ -52,9 +55,9 @@ namespace pmis
 
         public override string ToString()
         {
-            return String.Format("Doocument [{0}, {2}, ver={1}]",
+            return String.Format("Doocument [{0}, {2}, {3}, ver={1}]",
                 DocumentNumber,
-                Version, Type );
+                Version, Type, InternalCodes );
 
         }
     }

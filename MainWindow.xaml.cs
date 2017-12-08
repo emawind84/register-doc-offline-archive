@@ -1,4 +1,5 @@
-﻿using pmis.i18n;
+﻿using pmis.clss;
+using pmis.i18n;
 using pmis.profile;
 using pmis.register;
 using pmis.reviewinfo;
@@ -28,6 +29,7 @@ namespace pmis
         private RegisterDocumentDetailView registerDocumentDetailView;
         private ReviewInfoPresenter reviewInfoPresenter;
         private ReviewInfoDataService reviewInfoDataService;
+        private ClssService clssService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private PicturePresenter picturePresenter;
@@ -87,8 +89,26 @@ namespace pmis
 
         public string SearchCriteriaType
         {
-            get { return srchType.Text; }
-            set { srchType.Text = value; }
+            get { return srchType.SelectedValue?.ToString(); }
+            set { srchType.SelectedValue = value; }
+        }
+
+        public string SearchCriteriaType2
+        {
+            get { return srchType2.SelectedValue?.ToString(); }
+            set { srchType2.SelectedValue = value; }
+        }
+
+        public string SearchCriteriaType3
+        {
+            get { return srchType3.SelectedValue?.ToString(); }
+            set { srchType3.SelectedValue = value; }
+        }
+
+        public string SearchCriteriaType4
+        {
+            get { return srchType4.SelectedValue?.ToString(); }
+            set { srchType4.SelectedValue = value; }
         }
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
@@ -164,6 +184,10 @@ namespace pmis
                 reviewDataGridView.AutoGenerateColumns = false;
                 reviewDataGridView.CanUserAddRows = false;
 
+                clssService = new ClssService(daoService as IClssDao);
+                clssService.ImportComplete += LoadSearchOptions;
+                daoService.DatabaseInitialized += UpdateClssData;  // update clss on new db connection
+
                 reviewFilesBS = new BindingSource();
                 reviewFilesBS.DataSource = new List<RegisterFile>();
                 reviewFilesBS.AllowNew = false;
@@ -192,6 +216,7 @@ namespace pmis
                 settingForm.SettingChanged += LoadPictureViewer;
                 settingForm.SettingChanged += LoadLanguage;
                 settingForm.SettingChanged += ShowRegisterList;
+                settingForm.SettingChanged += UpdateClssData;
 
                 ProfileService.ProfileChanged += (profile) =>
                 {
@@ -229,20 +254,27 @@ namespace pmis
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
-            string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
-            statuses[0] = "";
-            Properties.Settings.Default.register_status.CopyTo(statuses, 1);
-            srchStatus.ItemsSource = statuses;
+            try
+            {
+                string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
+                statuses[0] = "";
+                Properties.Settings.Default.register_status.CopyTo(statuses, 1);
+                srchStatus.ItemsSource = statuses;
 
-            string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
-            disciplines[0] = "";
-            Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
-            srchDiscipline.ItemsSource = disciplines;
+                string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
+                disciplines[0] = "";
+                Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
+                srchDiscipline.ItemsSource = disciplines;
 
-            string[] types = new string[Properties.Settings.Default.register_type.Count + 1];
-            types[0] = "";
-            Properties.Settings.Default.register_type.CopyTo(types, 1);
-            srchType.ItemsSource = types;
+                DataTable dt = clssService.LoadClassificationList(1);  // load 1st level clss
+                dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);  // add a blank option at the bottom
+                srchType.ItemsSource = dt.AsEnumerable();  // change to enumerable type
+                srchType.SelectedIndex = 0;  // select the first option
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void LoadPictureViewer(object sender = null, EventArgs args = null)
@@ -545,6 +577,72 @@ namespace pmis
             else
             {
                 ProfileListMenuItem.IsEnabled = false;
+            }
+        }
+
+        private void srchType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                foreach (DataRow selection in e.AddedItems)
+                {
+                    DataTable dt = clssService.LoadClassificationList(2, selection["code"].ToString());
+                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    srchType2.ItemsSource = dt.AsEnumerable();
+                    srchType2.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void srchType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                foreach (DataRow selection in e.AddedItems)
+                {
+                    DataTable dt = clssService.LoadClassificationList(3, selection["code"].ToString());
+                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    srchType3.ItemsSource = dt.AsEnumerable();
+                    srchType3.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void srchType3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                foreach (DataRow selection in e.AddedItems)
+                {
+                    DataTable dt = clssService.LoadClassificationList(4, selection["code"].ToString());
+                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    srchType4.ItemsSource = dt.AsEnumerable();
+                    srchType4.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private async void UpdateClssData(object sender, EventArgs args)
+        {
+            try
+            {
+                await clssService.UpdateClassificationData();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
             }
         }
     }
