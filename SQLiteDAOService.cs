@@ -413,7 +413,8 @@ namespace pmis
         {
             string filepath = Path.Combine(projectFolder, @"clss/clss.load.sqlite.sql");
             string sql = File.ReadAllText(filepath);
-            sql += " AND level = @level ";
+            if (level != 0)
+                sql += " AND level = @level ";
             if (upcode != null)
                 sql += " AND upcode = @upcode ";
 
