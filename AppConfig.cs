@@ -43,28 +43,25 @@ namespace pmis
 
             i18n = new LanguageService(Properties.Settings.Default.language);
 
-            // create user app folder
-            if (!Directory.Exists(AppDataFullPath))
-                Directory.CreateDirectory(AppDataFullPath);
+            // create user app folders
+            Directory.CreateDirectory(AppDataFullPath);
+            Directory.CreateDirectory(Path.Combine(AppDataFullPath, "backups"));
+            Directory.CreateDirectory(Path.Combine(AppDataFullPath, "data"));
 
-            // create data folder in user app folder
-            DirectoryInfo userDataDir = new DirectoryInfo(Path.Combine(AppDataFullPath, "data"));
-            if (!userDataDir.Exists)
-            {
-                userDataDir.Create();
-            }
+            // create data folder in user app folder (%appdata% directory)
+            //DirectoryInfo userDataDir = new DirectoryInfo(Path.Combine(AppDataFullPath, "data"));
+            //if (!userDataDir.Exists)
+            //{
+            //    userDataDir.Create();
+            //}
 
-            DirectoryInfo dataDir = new DirectoryInfo("data");
+            DirectoryInfo dataDir = new DirectoryInfo("data");  // this is the data directory inside the application folder
             try
             {
                 FileInfo[] files = dataDir.GetFiles();
                 foreach (FileInfo file in files)
                 {
-                    string temppath = Path.Combine(userDataDir.FullName, file.Name);
-                    if (!File.Exists(temppath))
-                    {
-                        file.CopyTo(temppath, false);
-                    }
+                    copyDataFile(file.FullName);
                 }
             }
             catch (DirectoryNotFoundException ex)
@@ -73,6 +70,22 @@ namespace pmis
                 LogUtil.Log("Setup data folder missing, skipping data copy.");
             }
             
+        }
+
+        private static void copyDataFile(string filepath)
+        {
+            DirectoryInfo userDataDir = new DirectoryInfo(Path.Combine(AppDataFullPath, "data"));
+            FileInfo file = new FileInfo(filepath);
+            string temppath = Path.Combine(userDataDir.FullName, file.Name);
+            if (File.Exists(temppath) && File.GetLastWriteTime(temppath) < file.LastWriteTime)
+            {
+                File.Move(temppath, Path.Combine(AppDataFullPath, "backups", file.Name + DateTime.Now.ToString(".yyyyMMddHHmmss")));
+            }
+
+            if (File.GetLastWriteTime(temppath) < file.LastWriteTime)
+            {
+                file.CopyTo(temppath, true);
+            }
         }
 
         #region Application Attribute Accessors
