@@ -587,7 +587,7 @@ namespace pmis
                 foreach (DataRow selection in e.AddedItems)
                 {
                     DataTable dt = clssService.LoadClassificationList(2, selection["code"].ToString());
-                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    dt.Rows.InsertAt(dt.NewRow(), 0);
                     srchType2.ItemsSource = dt.AsEnumerable();
                     srchType2.SelectedIndex = 0;
                 }
@@ -605,7 +605,7 @@ namespace pmis
                 foreach (DataRow selection in e.AddedItems)
                 {
                     DataTable dt = clssService.LoadClassificationList(3, selection["code"].ToString());
-                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    dt.Rows.InsertAt(dt.NewRow(), 0);
                     srchType3.ItemsSource = dt.AsEnumerable();
                     srchType3.SelectedIndex = 0;
                 }
@@ -623,7 +623,7 @@ namespace pmis
                 foreach (DataRow selection in e.AddedItems)
                 {
                     DataTable dt = clssService.LoadClassificationList(4, selection["code"].ToString());
-                    dt.Rows.InsertAt(dt.NewRow(), dt.Rows.Count);
+                    dt.Rows.InsertAt(dt.NewRow(), 0);
                     srchType4.ItemsSource = dt.AsEnumerable();
                     srchType4.SelectedIndex = 0;
                 }
