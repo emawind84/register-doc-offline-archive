@@ -29,7 +29,7 @@ namespace pmis
         [JsonProperty("fbs_cds_nm")]
         public string Type { get; set; }
 
-        [JsonProperty("fbs_cds")]
+        [JsonProperty("fbs_mat_code")]
         public string InternalCodes { get; set; }
 
         [JsonProperty("review_status_nm")]

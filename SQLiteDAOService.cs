@@ -224,13 +224,13 @@ namespace pmis
                 sql += " AND discipline = @discipline ";
 
             if (criteria.ContainsKey("type4"))
-                sql += " AND internal_codes like '%'||@type4||'%' ";
+                sql += " AND internal_codes like '#'||@type4||'%' ";
             else if (criteria.ContainsKey("type3"))
-                sql += " AND internal_codes like '%'||@type3||'%' ";
+                sql += " AND internal_codes like '#'||@type3||'%' ";
             else if (criteria.ContainsKey("type2"))
-                sql += " AND internal_codes like '%'||@type2||'%' ";
+                sql += " AND internal_codes like '#'||@type2||'%' ";
             else if (criteria.ContainsKey("type"))
-                sql += " AND internal_codes like '%'||@type||'%' ";
+                sql += " AND internal_codes like '#'||@type||'%' ";
 
             if (criteria.ContainsKey("registered_by"))
                 sql += " AND registered_by = @registered_by ";
@@ -422,9 +422,9 @@ namespace pmis
             {
                 cmd.Parameters.AddWithValue("@level", level);
                 if (upcode != null)
-                    cmd.Parameters.AddWithValue("@code", upcode);
+                    cmd.Parameters.AddWithValue("@code", upcode == "" ? "-" : upcode);
 
-                    SQLiteDataAdapter da = new SQLiteDataAdapter();
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 LogUtil.Log("Loaded clss items " + dt.Rows.Count);
