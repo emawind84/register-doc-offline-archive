@@ -279,4 +279,7 @@
   <data name="username" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="clss_format_invalid" xml:space="preserve">
+    <value>The classification format is not valid, cannot be saved.</value>
+  </data>
 </root>

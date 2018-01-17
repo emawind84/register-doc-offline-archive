@@ -10,6 +10,12 @@
         <TabControl x:Name="tabControl" Margin="10,10,10,55">
             <TabItem x:Name="generalSettingsTabItem" Header="General Settings">
                 <Grid Background="White">
+                    <GroupBox x:Name="internationalSettingsGroupBox" Header="International Settings" Margin="0,180,359.4,103.6" >
+                        <Grid>
+                            <Label x:Name="settingLanguageLabel" Content="Language" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="settingLanguage" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="263"/>
+                        </Grid>
+                    </GroupBox>
                     <GroupBox x:Name="registerSettingsGroupBox" Header="Register Settings" HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="395">
                         <Grid >
                             <Label x:Name="registerFolderLocationLabel" Content="Folder Location" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
@@ -24,43 +30,7 @@
                             <Button x:Name="pictureFolderLocationButton" Content="Browse..." HorizontalAlignment="Left" Margin="297,34,0,0" VerticalAlignment="Top" Width="75" Click="pictureFolderURIButton_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="searchOptionsGroupBox" Header="Search Options" HorizontalAlignment="Left" Margin="0,180,0,0" Width="425">
-                        <Grid>
-                            <TabControl x:Name="tabControl1" >
-                                <TabItem x:Name="settingTypeTabItem" Header="Type items">
-                                    <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docTypesTextBox" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" />
-                                    </Grid>
-                                </TabItem>
-                                <TabItem x:Name="settingDisciplineTabItem" Header="Discipline items">
-                                    <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docDisciplinesTextBox" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
-                                    </Grid>
-                                </TabItem>
-                                <TabItem x:Name="settingStatusTabItem" Header="Status items">
-                                    <Grid Background="#FFE5E5E5">
-                                        <TextBox x:Name="docStatusesTextBox" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
-                                    </Grid>
-                                </TabItem>
-                            </TabControl>
-                        </Grid>
-                    </GroupBox>
-                    <GroupBox x:Name="settingResetGroupBox" Header="Reset Settings" Margin="430,282,10,0">
-                        <Grid >
-                            <Button x:Name="settingsResetButton" Content="Reset Settings" HorizontalAlignment="Left" Margin="10,39,0,0" BorderThickness="1" Padding="4,1" Click="settingsResetButton_Click" VerticalAlignment="Top" Background="#FFEA5252" Foreground="White"/>
-                            <Label x:Name="restoreSettingsMessage" Content="Restore settings to their original defaults" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-                        </Grid>
-                    </GroupBox>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="internationalSettingsTabItem" Header="International Settings">
-                <Grid Background="White">
-                    <GroupBox x:Name="internationalSettingsGroupBox" Header="International Settings" >
-                        <Grid>
-                            <Label x:Name="settingLanguageLabel" Content="Language" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="settingLanguage" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="263"/>
-                        </Grid>
-                    </GroupBox>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="databaseSettingsTabItem" Header="Database Settings">
@@ -111,6 +81,38 @@
                             </Border>
                             <Button x:Name="importArchiveDataButton" Content="Import Archive Data" HorizontalAlignment="Left" Margin="258,181,0,0" VerticalAlignment="Top" Padding="4,1" Click="importArchiveDataButton_Click"/>
                             <Button x:Name="button" Content="Request Token" HorizontalAlignment="Left" Margin="297,145,0,0" VerticalAlignment="Top" Height="23" Padding="4,1" Click="button_Click" TabIndex="4" />
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="otherSettingsTabItem" Header="Others">
+                <Grid Background="White">
+                    <GroupBox x:Name="searchOptionsGroupBox" Header="Search Options" Margin="0,0,0.4,0" Height="259" VerticalAlignment="Top">
+                        <Grid>
+                            <TabControl x:Name="tabControl1" >
+                                <TabItem x:Name="settingTypeTabItem" Header="Type items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docTypesTextBox" TextWrapping="NoWrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem x:Name="settingDisciplineTabItem" Header="Discipline items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docDisciplinesTextBox" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+                                    </Grid>
+                                </TabItem>
+                                <TabItem x:Name="settingStatusTabItem" Header="Status items">
+                                    <Grid Background="#FFE5E5E5">
+                                        <TextBox x:Name="docStatusesTextBox" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="settingResetGroupBox" Header="Reset Settings" Margin="0,264,440.4,0" Height="92" VerticalAlignment="Top">
+                        <Grid >
+                            <Button x:Name="settingsResetButton" Content="Reset Settings" HorizontalAlignment="Left" Margin="10,39,0,0" BorderThickness="1" Padding="4,1" Click="settingsResetButton_Click" VerticalAlignment="Top" Background="#FFEA5252" Foreground="White"/>
+                            <Label x:Name="restoreSettingsMessage" Content="Restore settings to their original defaults" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
 

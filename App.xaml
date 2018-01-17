@@ -24,11 +24,13 @@
             <Setter Property="Height" Value="23" />
             <Setter Property="Padding" Value="4,1" />
         </Style>
-        <Image x:Key="ProfileIconImage" x:Shared="False" Source="resources/003-application.png"/>
-        <Image x:Key="ProfilesIconImage" x:Shared="False" Source="resources/002-profile.png" />
-        <Image x:Key="SaveIconImage" x:Shared="False" Source="resources/001-save.png" />
-        <Image x:Key="SettingIconImage" x:Shared="False" Source="resources/002-settings.png" />
-        <Image x:Key="ExitIconImage" x:Shared="False" Source="resources/004-door-exit.png" />
-        <Image x:Key="AboutIconImage" x:Shared="False" Source="resources/003-information.png" />
+        <Image x:Key="NewProfileImage" x:Shared="False" Source="resources/001-plus.png" Stretch="Fill" Height="16" Width="16" />
+        <Image x:Key="ProfileIconImage" x:Shared="False" Source="resources/003-application.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="ProfilesIconImage" x:Shared="False" Source="resources/002-profile.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="SaveIconImage" x:Shared="False" Source="resources/001-save.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="SettingIconImage" x:Shared="False" Source="resources/002-settings.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="ExitIconImage" x:Shared="False" Source="resources/004-door-exit.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="AboutIconImage" x:Shared="False" Source="resources/003-information.png" Stretch="Fill" Height="16" Width="16"/>
+        <Image x:Key="OnlineHelpImage" x:Shared="False" Source="resources/003-arrow.png" Stretch="Fill" Height="16" Width="16"/>
     </Application.Resources>
 </Application>

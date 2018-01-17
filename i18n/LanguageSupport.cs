@@ -89,7 +89,7 @@ namespace pmis.i18n
             _form.settingDisciplineTabItem.Header = "Discipline items";
             _form.settingTypeTabItem.Header = "Type items";
             _form.searchOptionsGroupBox.Header = "Search Options";
-            _form.internationalSettingsTabItem.Header = "International Settings";
+            _form.otherSettingsTabItem.Header = "Other Settings";
             _form.internationalSettingsGroupBox.Header = " International Settings";
             _form.settingLanguageLabel.Content = AppConfig.i18n.Get("language");
             _form.databaseSettingsTabItem.Header = "Database Settings";

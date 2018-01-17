@@ -279,4 +279,7 @@
   <data name="username" xml:space="preserve">
     <value>사용자ID</value>
   </data>
+  <data name="clss_format_invalid" xml:space="preserve">
+    <value>분류 형식이 유효하지 않으며 저장할 수 없습니다.</value>
+  </data>
 </root>

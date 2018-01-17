@@ -13,7 +13,7 @@ namespace pmis
         /// <summary>
         /// Open the db connection
         /// </summary>
-        void Open();
+        void Open(bool forceNew=false);
 
         /// <summary>
         /// Close the db connection

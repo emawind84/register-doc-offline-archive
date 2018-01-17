@@ -1,4 +1,5 @@
-﻿using pmis.archive;
+﻿using pmis.clss;
+using pmis.archive;
 using pmis.i18n;
 using pmis.profile;
 using pmis.register;
@@ -25,6 +26,9 @@ namespace pmis
         private SettingWindow settingForm;
         private IDbConnection daoService;
         private RegisterDocumentDetailView registerDocumentDetailView;
+        private ReviewInfoPresenter reviewInfoPresenter;
+        private ReviewInfoDataService reviewInfoDataService;
+        private ClssService clssService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;
         private PicturePresenter picturePresenter;
@@ -87,8 +91,8 @@ namespace pmis
 
         public string SearchCriteriaType
         {
-            get { return srchType.Text; }
-            set { srchType.Text = value; }
+            get { return srchType.SelectedValue?.ToString(); }
+            set { srchType.SelectedValue = value; }
         }
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
@@ -178,6 +182,10 @@ namespace pmis
                 archiveDataGridView.AutoGenerateColumns = false;
                 archiveDataGridView.CanUserAddRows = false;
 
+                clssService = new ClssService(daoService as IClssDao);
+                clssService.ImportComplete += LoadSearchOptions;
+                daoService.DatabaseInitialized += UpdateClssData;  // update clss on new db connection
+
                 reviewFilesBS = new BindingSource();
                 reviewFilesBS.DataSource = new List<RegisterFile>();
                 reviewFilesBS.AllowNew = false;
@@ -208,6 +216,7 @@ namespace pmis
                 settingForm.SettingChanged += ShowArchiveList;
                 settingForm.SettingChanged += LoadLanguage;
                 settingForm.SettingChanged += ShowRegisterList;
+                settingForm.SettingChanged += UpdateClssData;
 
                 ProfileService.ProfileChanged += (profile) =>
                 {
@@ -247,25 +256,32 @@ namespace pmis
 
         private void LoadSearchOptions(object sender = null, EventArgs args = null)
         {
-            string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
-            statuses[0] = "";
-            Properties.Settings.Default.register_status.CopyTo(statuses, 1);
-            srchStatus.ItemsSource = statuses;
+            try
+            {
+                string[] statuses = new string[Properties.Settings.Default.register_status.Count + 1];
+                statuses[0] = "";
+                Properties.Settings.Default.register_status.CopyTo(statuses, 1);
+                srchStatus.ItemsSource = statuses;
 
-            string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
-            disciplines[0] = "";
-            Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
-            srchDiscipline.ItemsSource = disciplines;
+                string[] disciplines = new string[Properties.Settings.Default.register_discipline.Count + 1];
+                disciplines[0] = "";
+                Properties.Settings.Default.register_discipline.CopyTo(disciplines, 1);
+                srchDiscipline.ItemsSource = disciplines;
 
-            string[] types = new string[Properties.Settings.Default.register_type.Count + 1];
-            types[0] = "";
-            Properties.Settings.Default.register_type.CopyTo(types, 1);
-            srchType.ItemsSource = types;
+                DataTable dt = clssService.LoadClassificationList();  // load all clss
+                dt.Rows.InsertAt(dt.NewRow(), 0);  // add a blank option at the bottom
+                srchType.ItemsSource = dt.AsEnumerable();  // change to enumerable type
+                srchType.SelectedIndex = 0;  // select the empty option
 
-            string[] archiveTypes = new string[Properties.Settings.Default.archive_types.Count + 1];
-            archiveTypes[0] = "";
-            Properties.Settings.Default.archive_types.CopyTo(archiveTypes, 1);
-            archiveFilterTypeCombo.ItemsSource = archiveTypes;
+                string[] archiveTypes = new string[Properties.Settings.Default.archive_types.Count + 1];
+                archiveTypes[0] = "";
+                Properties.Settings.Default.archive_types.CopyTo(archiveTypes, 1);
+                archiveFilterTypeCombo.ItemsSource = archiveTypes;
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
         }
 
         private void LoadPictureViewer(object sender = null, EventArgs args = null)
@@ -635,6 +651,18 @@ namespace pmis
             else
             {
                 ProfileListMenuItem.IsEnabled = false;
+            }
+        }
+
+        private async void UpdateClssData(object sender, EventArgs args)
+        {
+            try
+            {
+                await clssService.UpdateClassificationData();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
             }
         }
     }

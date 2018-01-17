@@ -67,13 +67,9 @@ namespace pmis
             if (!String.IsNullOrEmpty(_form.SearchCriteriaRegisteredBy))
                 criteria.Add("registered_by", _form.SearchCriteriaRegisteredBy);
             if (!String.IsNullOrEmpty(_form.SearchCriteriaType))
-            {
-                var value = _form.SearchCriteriaType;
-                String[] values = value.Split('>');
-                criteria.Add("type", values[values.Length - 1].Trim());
-            }
+                criteria.Add("type", _form.SearchCriteriaType);
 
-            if(_form.SearchCriteriaAllHistory.Equals("Latest Revision Only"))
+            if (_form.SearchCriteriaAllHistory.Equals("Latest Revision Only"))
                 criteria.Add("top_version", "1");
 
             DataTable dt = _service.SearchDocument(criteria);

@@ -13,7 +13,8 @@
 	doc_status,
 	doc_type,
 	doc_version,
-	doc_current
+	doc_current,
+	internal_codes
 ) values (
 	@docno,
 	@title,
@@ -29,5 +30,6 @@
 	@status,
 	@type,
 	@version,
-	@current
+	@current,
+	@internal_codes
 );
