@@ -116,7 +116,7 @@ namespace pmis
                 }
             } catch (FileNotFoundException ex)
             {
-                throw new Exception(String.Format("The profile {0} doesn't exist.", name), ex);
+                throw new ApplicationException(String.Format("The profile {0} doesn't exist.", name), ex);
             }
         }
 
