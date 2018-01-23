@@ -37,7 +37,7 @@
                         <Label x:Name="searchHistoryLabel" Content="History" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="96,96,0,0" Grid.Column="2" HorizontalContentAlignment="Right"/>
                         <ComboBox x:Name="srchHistory" Margin="5,97,10,0" VerticalAlignment="Top" Grid.Column="3"/>
                         <Button x:Name="searchButton" Content="Search" Margin="18.2,55,0,0" Click="searchButton_Click" Background="#FFDDDDDD" BorderBrush="Gray" Grid.Column="4" HorizontalAlignment="Left" Width="104" Height="36" VerticalAlignment="Top"/>
-                        <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+                        <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="10,1"/>
                     </Grid>
                     <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="30" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
                         <DataGrid.Columns>
