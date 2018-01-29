@@ -90,25 +90,25 @@ namespace pmis
         public string SearchCriteriaType
         {
             get { return srchType.SelectedValue?.ToString(); }
-            set { srchType.SelectedValue = value; }
+            set { srchType.SelectedIndex = Int32.Parse(value); }
         }
 
         public string SearchCriteriaType2
         {
             get { return srchType2.SelectedValue?.ToString(); }
-            set { srchType2.SelectedValue = value; }
+            set { srchType2.SelectedIndex = Int32.Parse(value); }
         }
 
         public string SearchCriteriaType3
         {
             get { return srchType3.SelectedValue?.ToString(); }
-            set { srchType3.SelectedValue = value; }
+            set { srchType3.SelectedIndex = Int32.Parse(value); }
         }
 
         public string SearchCriteriaType4
         {
             get { return srchType4.SelectedValue?.ToString(); }
-            set { srchType4.SelectedValue = value; }
+            set { srchType4.SelectedIndex = Int32.Parse(value); }
         }
 
         public string SearchCriteriaAllHistory { get { return srchHistory.Text; } }
