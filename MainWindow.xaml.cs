@@ -384,7 +384,7 @@ namespace pmis
         {
             SearchCriteriaDiscipline = "";
             SearchCriteriaStatus = "";
-            SearchCriteriaType = "";
+            SearchCriteriaType = "0";
             SearchCriteriaDocNumber = "";
             SearchCriteriaTitle = "";
             SearchCriteriaRegisteredBy = "";
