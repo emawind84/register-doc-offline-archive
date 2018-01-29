@@ -73,7 +73,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -132,6 +132,7 @@
     <Compile Include="clss\Classification.cs" />
     <Compile Include="clss\ClssService.cs" />
     <Compile Include="clss\IClssDao.cs" />
+    <Compile Include="exception\ApplicationException.cs" />
     <Compile Include="i18n\en_US.Designer.cs" />
     <Compile Include="i18n\ko_KR.Designer.cs" />
     <Compile Include="i18n\LanguageSupport.cs" />

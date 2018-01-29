@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>검색조건 초기화</value>
   </data>
   <data name="current" xml:space="preserve">
     <value>연제버전</value>
   </data>
   <data name="detail" xml:space="preserve">
-    <value>Detail</value>
+    <value>세부사항</value>
   </data>
   <data name="discipline" xml:space="preserve">
     <value>분야</value>
@@ -142,7 +142,7 @@
     <value>문서제목</value>
   </data>
   <data name="doctype" xml:space="preserve">
-    <value>문서구분</value>
+    <value>자료구분</value>
   </data>
   <data name="file_name" xml:space="preserve">
     <value>파일 이름</value>
@@ -175,7 +175,7 @@
     <value>조직</value>
   </data>
   <data name="register" xml:space="preserve">
-    <value>Register</value>
+    <value>검색조건</value>
   </data>
   <data name="registered" xml:space="preserve">
     <value>등록일자</value>
@@ -190,7 +190,7 @@
     <value>설정을 원래 기본값으로 복원한다.</value>
   </data>
   <data name="reviewdetail" xml:space="preserve">
-    <value>검토의견</value>
+    <value>결재이력</value>
   </data>
   <data name="reviewstatus" xml:space="preserve">
     <value>검토상태</value>
@@ -253,7 +253,7 @@
     <value>사진 뷰어 설정</value>
   </data>
   <data name="picture_viewer" xml:space="preserve">
-    <value>사진 뷰어</value>
+    <value>시공사진</value>
   </data>
   <data name="document" xml:space="preserve">
     <value>문서/자료</value>
