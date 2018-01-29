@@ -25,7 +25,7 @@ namespace pmis.i18n
             _form.searchRegisteredByLabel.Content = AppConfig.i18n.Get("registeredby");
             _form.searchDocTitleLabel.Content = AppConfig.i18n.Get("doctitle");
             _form.searchDocNumberLabel.Content = AppConfig.i18n.Get("docno");
-            _form.registerSearchButtonLabel.Text = AppConfig.i18n.Get("search");
+            _form.searchButtonLabel.Text = AppConfig.i18n.Get("search");
             _form.doclist_docno.Header = AppConfig.i18n.Get("docno");
             _form.doclist_title.Header = AppConfig.i18n.Get("title");
             _form.doclist_revision.Header = AppConfig.i18n.Get("revision");
