@@ -192,7 +192,7 @@
                         <TextBox x:Name="archiveFullSearchValue" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="281" Height="23"/>
                         <Button x:Name="archiveSearchButton" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="24,0,0,0" Click="archiveSearchButton_Click" Height="36">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="resources/if_search_322497.png" Width="20" Height="20"  />
+                                <Image Source="resources/search.png" Width="20" Height="20"  />
                                 <TextBlock x:Name="archiveSearchButtonLabel" Text="Search" Margin="5,0,0,0" VerticalAlignment="Center" />
                             </StackPanel>
                         </Button>
