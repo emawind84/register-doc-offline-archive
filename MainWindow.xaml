@@ -42,7 +42,7 @@
                                 <TextBlock Name="registerSearchButtonLabel" Text="Search" Margin="5,0,0,0" VerticalAlignment="Center" />
                             </StackPanel>
                         </Button>
-                        <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+                        <Button x:Name="searchClearButton" Content="Clear" Margin="18.2,96,0,0" Click="searchClearButton_Click" Grid.Column="4" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="10,1" />
                     </Grid>
                     <DataGrid x:Name="registerDataGridView" Margin="0,134,0,0" IsReadOnly="True" CanUserResizeRows="False" HeadersVisibility="Column" MouseDoubleClick="registerDataGridView_MouseDoubleClick" MinRowHeight="35" HorizontalGridLinesBrush="#FFD1D1D1" VerticalGridLinesBrush="#FFD1D1D1" CellStyle="{StaticResource Body_Content_DataGrid_Centering}">
                         <DataGrid.Columns>
