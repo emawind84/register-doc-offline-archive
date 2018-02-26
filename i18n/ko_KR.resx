@@ -282,4 +282,10 @@
   <data name="clss_format_invalid" xml:space="preserve">
     <value>분류 형식이 유효하지 않으며 저장할 수 없습니다.</value>
   </data>
+  <data name="next_image" xml:space="preserve">
+    <value>다음</value>
+  </data>
+  <data name="previous_image" xml:space="preserve">
+    <value>이전</value>
+  </data>
 </root>

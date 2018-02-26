@@ -24,7 +24,7 @@ namespace pmis.i18n
             _form.searchRegisteredByLabel.Content = AppConfig.i18n.Get("registeredby");
             _form.searchDocTitleLabel.Content = AppConfig.i18n.Get("doctitle");
             _form.searchDocNumberLabel.Content = AppConfig.i18n.Get("docno");
-            _form.searchButton.Content = AppConfig.i18n.Get("search");
+            _form.searchButtonLabel.Text = AppConfig.i18n.Get("search");
             _form.doclist_docno.Header = AppConfig.i18n.Get("docno");
             _form.doclist_title.Header = AppConfig.i18n.Get("title");
             _form.doclist_revision.Header = AppConfig.i18n.Get("revision");
@@ -70,6 +70,8 @@ namespace pmis.i18n
             _form.pictureViewerTabPage.Header = AppConfig.i18n.Get("picture_viewer");
             _form.pictureDataGridViewFileName.Header = AppConfig.i18n.Get("file_name");
             _form.pictureDataGridViewFileSize.Header = AppConfig.i18n.Get("file_size");
+            _form.picturePreviousButton.Content = AppConfig.i18n.Get("previous_image");
+            _form.pictureNextButton.Content = AppConfig.i18n.Get("next_image");
         }
 
         public void SetSettingFormLanguage(SettingWindow _form)
