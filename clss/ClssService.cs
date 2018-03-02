@@ -39,13 +39,23 @@ namespace pmis.clss
                 {
                     Classification c = new Classification();
                     var tt = t.Split(',');
-                    if (tt.Length != 3)
+                    if (tt.Length == 3)
+                    {
+                        c.Level = tt[0];
+                        c.Name = tt[1];
+                        c.Code = tt[2];
+                    }
+                    else if (tt.Length == 1)
+                    {
+                        c.Level = "1";
+                        c.Name = tt[0];
+                        c.Code = tt[0];
+                    }
+                    else
                     {
                         throw new ApplicationException(AppConfig.i18n.Get("clss_format_invalid"));
                     }
-                    c.Level = tt[0];
-                    c.Name = tt[1];
-                    c.Code = tt[2];
+                    
                     //LogUtil.Log("Importing " + c);
                     await Task.Run(() => daoService.UpdateClassificationData(c));
                 }
