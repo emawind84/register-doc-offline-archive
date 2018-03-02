@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pmis"
         mc:Ignorable="d"
-        Title="PMIS - Offline Archive" Height="622" Width="1063" Icon="resources/sangah_logo_16.ico" Closing="Window_Closing" WindowStartupLocation="CenterScreen" MinWidth="1060" MinHeight="622">
+        Title="{Binding ApplicationTitle}" Height="622" Width="1063" Icon="resources/sangah_logo_16.ico" Closing="Window_Closing" WindowStartupLocation="CenterScreen" MinWidth="1060" MinHeight="622">
     <Grid>
         <TabControl x:Name="tabControl1" Margin="10,31,10,10">
             <TabItem x:Name="registerTabPage" Header="Register">

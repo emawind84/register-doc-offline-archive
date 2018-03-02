@@ -39,15 +39,11 @@ namespace pmis
         public event EventHandler OnShowRegisterDocumentInfo;
         public event EventHandler OnShowRegisterDocumentList;
 
-        public RegisterDocumentDetailView RegisterDocumentDetailView
-        {
-            get { return this.registerDocumentDetailView; }
-        }
+        public RegisterDocumentDetailView RegisterDocumentDetailView => this.registerDocumentDetailView;
 
-        public IDbConnection DaoService
-        {
-            get { return daoService; }
-        }
+        public IDbConnection DaoService => daoService;
+
+        public string ApplicationTitle => AppConfig.AssemblyProduct;
 
         public string SearchCriteriaDocNumber
         {
