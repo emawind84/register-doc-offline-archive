@@ -1,4 +1,7 @@
-﻿# DOC TYPE!
+﻿link to export fbs (run the script on console!)
+https://gist.github.com/emawind84/c2b8c6da37d935c7669af10e2d051708
+
+# DOC TYPE!
 select
   distinct DOC_CLSS_NAME
 from doc_clss where pjt_cd = 'GLB_PMIS'
