@@ -17,9 +17,9 @@ namespace pmis
         public void LoadPictureDirectories()
         {
             _service.LoadDirectoryList();
-            if (_service.Directories.Count > 0)
+            if (_service.Directories.Count() > 0)
             {
-                _form.PictureDirectoriesDS = _service.Directories.AsEnumerable();
+                _form.PictureDirectoriesDS = _service.Directories;
             }
         }
 
