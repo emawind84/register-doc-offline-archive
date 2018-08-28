@@ -75,6 +75,8 @@ namespace pmis.i18n
             _form.archiveDataGridColumnCreatedLabel.Header = AppConfig.i18n.Get("registered");
             _form.archiveDataGridColumnDescriptionLabel.Header = AppConfig.i18n.Get("note");
             _form.archiveSearchButtonLabel.Text = AppConfig.i18n.Get("search");
+            _form.picturePreviousButton.Content = AppConfig.i18n.Get("previous_image");
+            _form.pictureNextButton.Content = AppConfig.i18n.Get("next_image");
         }
 
         public void SetSettingFormLanguage(SettingWindow _form)
