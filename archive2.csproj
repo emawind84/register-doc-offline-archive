@@ -138,6 +138,7 @@
     <Compile Include="archive\IArchiveDataDao.cs" />
     <Compile Include="archive\ArchiveDataService.cs" />
     <Compile Include="AppUtil.cs" />
+    <Compile Include="archive\NoArchiveDataDao.cs" />
     <Compile Include="clss\Classification.cs" />
     <Compile Include="clss\ClssService.cs" />
     <Compile Include="clss\IClssDao.cs" />
