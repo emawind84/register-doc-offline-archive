@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Media.Imaging;
+using System.Linq;
 
 namespace pmis
 {
     public class PictureViewerService
     {
         public List<RegisterFile> Images;
-        public Dictionary<string, string> Directories;
+        public IEnumerable<KeyValuePair<string, string>> Directories;
         public EventHandler<RegisterFile> OnPictureSelected;
 
         private int currentImage = -1;
@@ -21,22 +22,26 @@ namespace pmis
             LoadDirectoryList();
         }
 
-        public Dictionary<string, string> LoadDirectoryList()
+        public IEnumerable<KeyValuePair<string, string>> LoadDirectoryList()
         {
-            Directories = new Dictionary<string, string>();
+            Dictionary<string, string> _d = new Dictionary<string, string>();
             try
             {
                 string[] dirs = Directory.GetDirectories(
                 Path.Combine(AppConfig.AppDataFullPath, Properties.Settings.Default.picture_folder_uri));
                 foreach (string dir in dirs)
                 {
-                    Directories.Add(dir, new DirectoryInfo(dir).Name);
+                    _d.Add(dir, new DirectoryInfo(dir).Name);
                 }
             }
             catch (DirectoryNotFoundException ex)
             {
                 ex.Log();
             }
+
+            // we order the collection by directory name
+            // @seemore https://www.dotnetperls.com/sort-dictionary
+            Directories = from entry in _d orderby entry.Value ascending select entry;
 
             return Directories;
         }

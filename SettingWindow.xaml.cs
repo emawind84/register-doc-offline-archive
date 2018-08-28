@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using System.ComponentModel;
+using pmis.archive;
 
 namespace pmis
 {
@@ -18,6 +19,7 @@ namespace pmis
 
         private RegisterDocumentDataService registerService;
         private ReviewInfoDataService reviewInfoService;
+        private ArchiveDataService archiveDataService;
 
         public event EventHandler SettingChanged;
 
@@ -41,15 +43,17 @@ namespace pmis
             InitializeComponent();
         }
 
-        public SettingWindow(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService)
+        public SettingWindow(RegisterDocumentDataService registerService, ReviewInfoDataService reviewInfoService, ArchiveDataService archiveDataService)
         {
             InitializeComponent();
             
             this.registerService = registerService;
             this.reviewInfoService = reviewInfoService;
+            this.archiveDataService = archiveDataService;
 
             this.registerService.ImportComplete += EnableImportRegisterDataButton;
             this.reviewInfoService.ImportComplete += EnableImportReviewDataButton;
+            this.archiveDataService.ImportComplete += EnableImportArchiveDataButton;
 
             settingLanguage.ItemsSource = new BindingSource(AppConfig.Languages, null);
             settingLanguage.DisplayMemberPath = "Value";
@@ -211,6 +215,18 @@ namespace pmis
             }
         }
 
+        private void EnableImportArchiveDataButton(object sender, EventArgs args)
+        {
+            if (!this.importArchiveDataButton.Dispatcher.CheckAccess())
+            {
+                EventCallback d = EnableImportArchiveDataButton;
+                this.importArchiveDataButton.Dispatcher.Invoke(d, new object[] { null, null });
+            }
+            else {
+                importArchiveDataButton.IsEnabled = true;
+            }
+        }
+
         private void UpdateDataCount(object sender = null, object empty = null)
         {
             if (!this.Dispatcher.CheckAccess())
@@ -313,6 +329,24 @@ namespace pmis
                 reviewInfoService.DeleteReviewInfo();
 
                 Thread oThread = new Thread(new ThreadStart(reviewInfoService.ImportFromWebService));
+                oThread.Start();
+            }
+            catch (Exception ex)
+            {
+                ex.Log().Display();
+            }
+        }
+
+        private void importArchiveDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                importArchiveDataButton.IsEnabled = false;
+                SaveSettings();
+
+                archiveDataService.DeleteArchive();
+
+                Thread oThread = new Thread(new ThreadStart(archiveDataService.ImportFromWebService));
                 oThread.Start();
             }
             catch (Exception ex)

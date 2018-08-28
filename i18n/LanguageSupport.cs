@@ -1,5 +1,6 @@
 ﻿using pmis;
 using pmis.profile;
+using pmis.archive;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,10 @@ namespace pmis.i18n
             _form.pictureViewerTabPage.Header = AppConfig.i18n.Get("picture_viewer");
             _form.pictureDataGridViewFileName.Header = AppConfig.i18n.Get("file_name");
             _form.pictureDataGridViewFileSize.Header = AppConfig.i18n.Get("file_size");
+            _form.archiveDataGridColumnArchiveType.Header = AppConfig.i18n.Get("type");
+            _form.archiveDataGridColumnCreatedLabel.Header = AppConfig.i18n.Get("registered");
+            _form.archiveDataGridColumnDescriptionLabel.Header = AppConfig.i18n.Get("note");
+            _form.archiveSearchButtonLabel.Text = AppConfig.i18n.Get("search");
             _form.picturePreviousButton.Content = AppConfig.i18n.Get("previous_image");
             _form.pictureNextButton.Content = AppConfig.i18n.Get("next_image");
         }
@@ -120,6 +125,17 @@ namespace pmis.i18n
             form.Title = AppConfig.i18n.Get("new_profile");
             form.profileNameLabel.Content = AppConfig.i18n.Get("profile_name");
             form.createProfileCreateButton.Content = AppConfig.i18n.Get("create_profile");
+        }
+
+        public void SetArchiveDetailWindowLanguage(ArchiveDetailWindow _form)
+        {
+            _form.fileManagerDataGridViewFilename.Header = AppConfig.i18n.Get("file_name");
+            _form.fileManagerDataGridViewFilesize.Header = AppConfig.i18n.Get("file_size");
+            _form.metaDataGridColumnDataLabel.Header = "Data";
+            _form.metaDataGridColumnValueLabel.Header = "Value";
+            _form.archiveTypeLabel.Content = AppConfig.i18n.Get("type");
+            _form.archiveCreatedLabel.Content = AppConfig.i18n.Get("registered");
+            _form.archiveDescriptionLabel.Content = AppConfig.i18n.Get("note");
         }
     }
 }
