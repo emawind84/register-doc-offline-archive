@@ -11,22 +11,24 @@ namespace pmis.archive
     {
         public void DeleteArchive()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void ImportArchiveData(Archive a)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public Archive LoadArchive(string id)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return null;
         }
 
         public DataTable SearchArchive(Dictionary<string, object> criteria = null)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return new DataTable();
         }
     }
 }
