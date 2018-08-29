@@ -79,7 +79,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>strong_name_key.snk.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timestamp</ManifestTimestampUrl>
@@ -269,7 +270,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="sangah_exe_cert.pfx" />
-    <None Include="strong_name_key.snk.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
