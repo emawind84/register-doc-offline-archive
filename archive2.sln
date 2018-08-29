@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "archive2", "archive2.csproj", "{017C392C-5871-4E1C-B65E-DE8B3119BB9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "archiveTest", "..\archiveTest\archiveTest.csproj", "{2A1936A0-8B10-499C-A902-AC830EDDBF05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "archiveTest", "test-project\archiveTest.csproj", "{2A1936A0-8B10-499C-A902-AC830EDDBF05}"
+	ProjectSection(ProjectDependencies) = postProject
+		{017C392C-5871-4E1C-B65E-DE8B3119BB9C} = {017C392C-5871-4E1C-B65E-DE8B3119BB9C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
