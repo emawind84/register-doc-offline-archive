@@ -269,7 +269,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="etc\edms_export.py" />
     <None Include="etc\options_queries.txt" />
     <Resource Include="resources\kspmis_logo.png" />
     <Resource Include="resources\sangah-logo-2.png" />
