@@ -138,6 +138,7 @@
     <Compile Include="archive\IArchiveDataDao.cs" />
     <Compile Include="archive\ArchiveDataService.cs" />
     <Compile Include="AppUtil.cs" />
+    <Compile Include="archive\NoArchiveDataDao.cs" />
     <Compile Include="clss\Classification.cs" />
     <Compile Include="clss\ClssService.cs" />
     <Compile Include="clss\IClssDao.cs" />
@@ -257,25 +258,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="data\profile.Default.yaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\archive.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="sangah_exe_cert.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="etc\edms_export.py" />
     <None Include="etc\options_queries.txt" />
     <Resource Include="resources\kspmis_logo.png" />
     <Resource Include="resources\sangah-logo-2.png" />

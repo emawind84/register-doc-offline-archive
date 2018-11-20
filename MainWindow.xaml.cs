@@ -26,8 +26,6 @@ namespace pmis
         private SettingWindow settingForm;
         private IDbConnection daoService;
         private RegisterDocumentDetailView registerDocumentDetailView;
-        private ReviewInfoPresenter reviewInfoPresenter;
-        private ReviewInfoDataService reviewInfoDataService;
         private ClssService clssService;
         private BindingSource fileManagerBS;
         private BindingSource reviewFilesBS;

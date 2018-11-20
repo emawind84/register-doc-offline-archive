@@ -283,9 +283,9 @@
     <value>The classification format is not valid, cannot be saved.</value>
   </data>
   <data name="next_image" xml:space="preserve">
-    <value>Next</value>
+    <value>Next &gt;</value>
   </data>
   <data name="previous_image" xml:space="preserve">
-    <value>Previous</value>
+    <value>&lt; Previous</value>
   </data>
 </root>
