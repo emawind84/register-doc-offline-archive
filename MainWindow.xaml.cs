@@ -220,6 +220,8 @@ namespace pmis
                     ShowRegisterList();
                 };
 
+                ProfileService.LoadAndApplyCurrentProfile();
+
                 LoadLanguage();
 
                 // load search options
@@ -624,7 +626,7 @@ namespace pmis
             {
                 var profileName = ((System.Windows.Controls.MenuItem)sender).Header as string;
                 var profile = ProfileService.LoadProfile(profileName);
-                ProfileService.ChangeProfile(profile);
+                ProfileService.ApplyProfile(profile);
             }
             catch (Exception ex)
             {

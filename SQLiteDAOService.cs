@@ -17,7 +17,7 @@ namespace pmis
     public class SQLiteDaoService : IDbConnection, IRegisterDocumentDao, IReviewInfoDao, IClssDao, IArchiveDataDao
     {
         private static string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
-
+        
         private SQLiteConnection m_dbConnection;
 
         public event EventHandler DatabaseInitialized;
@@ -89,7 +89,7 @@ namespace pmis
 
         public void Close()
         {
-            if (m_dbConnection != null)
+            if (m_dbConnection != null && m_dbConnection.State.Equals(ConnectionState.Open))
             {
                 LogUtil.Log(String.Format("Closing db connection... {0}", m_dbConnection));
                 m_dbConnection.Close();
@@ -98,7 +98,7 @@ namespace pmis
 
         public Boolean IsOpen()
         {
-            return m_dbConnection != null && m_dbConnection.State == ConnectionState.Open;
+            return m_dbConnection != null && m_dbConnection.State.Equals(ConnectionState.Open);
         }
 
         public void DeleteRegisterData()
