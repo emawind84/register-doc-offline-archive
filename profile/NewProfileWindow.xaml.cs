@@ -43,7 +43,7 @@ namespace pmis.profile
             try
             {
                 var profile = ProfileService.CreateProfile(profileNameTextBox.Text);
-                ProfileService.ChangeProfile(profile);
+                ProfileService.ApplyProfile(profile);
                 AfterProfileCreated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

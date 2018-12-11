@@ -135,7 +135,7 @@ namespace pmis
         /// Given a profile object update the application default settings
         /// </summary>
         /// <param name="profile"></param>
-        public static void ChangeProfile(Profile profile)
+        public static void ApplyProfile(Profile profile)
         {
             Properties.Settings.Default.current_profile = profile.ProfileName;
             Properties.Settings.Default.pmis_project_code = profile.PmisProjectCode;
@@ -160,6 +160,16 @@ namespace pmis
 
             // publish profile changed event
             ProfileChanged?.Invoke(profile);
+        }
+
+        public static void LoadAndApplyCurrentProfile()
+        {
+            string currentProfileName = Properties.Settings.Default.current_profile;
+            if (ProfileExists(currentProfileName))
+            {
+                Profile profile = LoadProfile(currentProfileName);
+                ApplyProfile(profile);
+            }
         }
 
         /// <summary>
