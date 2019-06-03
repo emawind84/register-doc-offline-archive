@@ -178,7 +178,7 @@ namespace pmis
 
                 clssService = new ClssService(daoService as IClssDao);
                 clssService.ImportComplete += LoadSearchOptions;
-                daoService.DatabaseInitialized += UpdateClssData;  // update clss on new db connection
+                daoService.DatabaseInitialized += LoadSearchOptions;
 
                 reviewFilesBS = new BindingSource();
                 reviewFilesBS.DataSource = new List<RegisterFile>();
