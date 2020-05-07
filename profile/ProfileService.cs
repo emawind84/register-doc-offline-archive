@@ -191,7 +191,7 @@ namespace pmis
                 MatchCollection matches = rgx.Matches(file.Name);
                 if (matches.Count > 0)
                 {
-                    list.Add(new Profile(matches[0].Groups[1].Value));
+                    list.Add(LoadProfile(matches[0].Groups[1].Value));
                 }
             }
 
