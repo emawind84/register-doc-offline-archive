@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace pmis
 {
@@ -120,9 +121,9 @@ namespace pmis
             {
                 using (var client = new HttpClient())
                 {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authkey);
                     var values = new Dictionary<string, string> {
                         { "pjt_cd", project },
-                        { "access_token", authkey },
                         { "pageScale", "200" },
                         { "pageNo", "1" }
                     };
