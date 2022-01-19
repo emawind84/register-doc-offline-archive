@@ -1,11 +1,6 @@
 ﻿link to export fbs (run the script on console!)
 https://gist.github.com/emawind84/c2b8c6da37d935c7669af10e2d051708
 
-# DOC TYPE!
-select
-  distinct DOC_CLSS_NAME
-from doc_clss where pjt_cd = 'GLB_PMIS'
-order by doc_clss_name;
 
 # DOC DISCIPLINE!
 select
@@ -18,33 +13,3 @@ SELECT
   COMM_NAME
 FROM COMMON_CODE WHERE COMM_CD = 'DOC_STATUS'
 AND COMM_ID != '00';
-
-### TREE STYLE TYPE ###
-with criteria as (
-    select 'HSDWC_PMIS' as p_pjt_cd from dual
-)
-select
-  distinct LTRIM( SYS_CONNECT_BY_PATH(
-    (case when level < 2 and CONNECT_BY_ISLEAF != 1  then '' else DOC_CLSS_NAME end) , ' > '), ' > ' ) DOC_CLSS_NAME, doc_cd
-from doc_clss, criteria
-where 1=1
-    and (CONNECT_BY_ISLEAF = 1 OR level >= 2)
-    and doc_cd in ( 
-            select distinct doc_cd 
-            from doc_dgn_cat_type
-            join doc_dgn_cat on ( doc_dgn_cat_type.doc_seq = doc_dgn_cat.doc_seq )
-            where doc_dgn_cat_type.pjt_cd = criteria.p_pjt_cd
-            and doc_dgn_cat.del_yn = 0
-    )
-and pjt_cd = criteria.p_pjt_cd
-and doc_div = '6'
-
-connect by prior DOC_CD = UP_DOC_CD
-and pjt_cd = criteria.p_pjt_cd
-and doc_div = '6'
-
-start with up_doc_cd = '!0!'
-and pjt_cd = criteria.p_pjt_cd
-and doc_div = '6'
-
-order by doc_clss_name;
