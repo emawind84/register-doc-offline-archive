@@ -13,7 +13,7 @@ namespace archiveTest
         [TestMethod]
         public async Task RequestPMISToken()
         {
-            IDictionary obj = await AppUtil.RequestPMISToken("https://pmis.oc.sangah.com", "sangah1", "sangah1");
+            IDictionary obj = await AppUtil.RequestPMISToken("https://pmis.sangah.com", "sangah1", "sangah1");
             Assert.IsNotNull(obj["access_token"]);
         }
     }
