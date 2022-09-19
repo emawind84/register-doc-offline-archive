@@ -63,7 +63,7 @@
     <ApplicationIcon>resources\sangah_logo_64.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>23C18E9665E63DCABD54681F811800742C1B9B1B</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>CE81B310136746CFAFBDBD1E7D64C0076A41DA26</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
