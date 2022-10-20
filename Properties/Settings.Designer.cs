@@ -377,7 +377,7 @@ namespace pmis.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("default")]
+        [global::System.Configuration.DefaultSettingValueAttribute("펄어비스 사옥 신축공사")]
         public string current_profile {
             get {
                 return ((string)(this["current_profile"]));
