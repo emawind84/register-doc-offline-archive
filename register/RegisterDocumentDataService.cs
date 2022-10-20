@@ -6,6 +6,7 @@ using System.Data;
 using Newtonsoft.Json;
 using pmis.register;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace pmis
 {
@@ -138,11 +139,11 @@ namespace pmis
             {
                 using (var client = new HttpClient())
                 {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authkey);
                     var values = new Dictionary<string, string> {
                         { "forward", "json" },
                         { "srch_show_hist", "1" },
                         { "pjt_cd", project },
-                        { "access_token", authkey },
                         { "pageScale", "200" },
                         { "pageNo", "1" },
                         { "login_locale", "ko_KR" }
